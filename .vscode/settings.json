@@ -1,0 +1,23 @@
+{
+    "files.associations": {
+        "random": "c",
+        "string": "c",
+        "connection.h": "c",
+        "serverdef.h": "c",
+        "typeinfo": "c",
+        "server.h": "c",
+        "utils.h": "c",
+        "socketvalidation.h": "c",
+        "iosfwd": "c",
+        "limits": "c",
+        "streambuf": "c",
+        "socket.h": "c",
+        "stdio.h": "c",
+        "limits.h": "c",
+        "socket_validation.h": "c",
+        "server_def.h": "c",
+        "list.h": "c",
+        "stdlib.h": "c",
+        "list_def.h": "c"
+    }
+}
