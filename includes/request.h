@@ -49,7 +49,7 @@ typedef struct request {
     void * query_end;
     void * request_end;
 
-    struct list_head list;
+    // struct list_head list;
     void * cur_header_key_start;
     void * cur_header_key_end;
     void * cur_header_value_start;

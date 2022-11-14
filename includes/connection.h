@@ -15,8 +15,6 @@
 #define CONNECTION_BUFFER_SIZE 4096
 #define CONNECTION_PATH_MAX 1000
 
-pthread_t * thread_pool;
-
 /**
  * Receive server object and init
  * Listen Loop
@@ -48,6 +46,13 @@ void connectionListener(int serverSocket, int * clientSocket, int addrSize, SA_I
  * @return void
  */
 void createConnectionThread(ServerConfig * config);
+
+/**
+ * Handler for new threads
+ * @param void * pServerConfig
+ * @return void *
+ */
+void * threadPoolHander(void * pServerConfig);
 
 /**
  * Treat each connection

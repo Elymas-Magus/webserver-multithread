@@ -12,6 +12,8 @@ connectionLoop(int serverSocket, ServerConfig * config)
     int * clientSocket = (int *) malloc(sizeof(int));
     SA_IN clientAddr;
 
+    createConnectionThread(config);
+
     while (true) {
         connectionListener(serverSocket, clientSocket, sizeof(SA_IN), clientAddr, config);
     }
@@ -27,8 +29,6 @@ connectionListener(int serverSocket, int * clientSocket, int addrSize, SA_IN cli
 {
     printf("Waiting for connections ...\n");
 
-    createConnectionThread(config);
-
     // makeSocketNonBlocking
     // Create HttpRequest Object
     // Add To EPoll
@@ -37,23 +37,25 @@ connectionListener(int serverSocket, int * clientSocket, int addrSize, SA_IN cli
     // check(*clientSocket = accept(serverSocket, (SA *) &clientAddr, (socklen_t *) &addrSize), "Accept Failed");
 
     // printf("Connected!\n");
+
+    // createConnectionThread(config);
 }
 
 void
 createConnectionThread(ServerConfig * config)
 {
-    thread_pool = (pthread_t *) malloc(config->threadMax * sizeof(pthread_t));
+    // thread_pool = (pthread_t *) malloc(config->threadMax * sizeof(pthread_t));
 
-    for (int i = 0; i < config->threadMax; i++) {
-        pthread_create(&thread_pool[i], NULL, threadPoolHander, config);
-    }
+    // for (int i = 0; i < config->threadMax; i++) {
+    //     pthread_create(&thread_pool[i], NULL, threadPoolHander, config);
+    // }
 }
 
 void * threadPoolHander(void * pServerConfig)
 {
-    ServerConfig * config = ((ServerConfig *) pServerConfig);
+    // ServerConfig * config = ((ServerConfig *) pServerConfig);
 
-    
+    return NULL;
 }
 
 void * handleConnection(void * pClientSocket)

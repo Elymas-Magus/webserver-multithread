@@ -36,6 +36,27 @@ arrayPush(ArrayList l, void ** o)
     l->length++;
 }
 
+void
+arrayUnshift(ArrayList l, void ** o)
+{
+    Node * no;
+    no = (Node *) malloc (sizeof(Node));
+
+    no->content = o;
+    no->prev = NULL;
+    no->next = NULL;
+
+    if (l->first == NULL) {
+        l->first = l->last = no;
+    } else {
+        no->next = l->first;
+        l->first->prev = no;
+        l->first = no;
+    }
+
+    l->length++;
+}
+
 
 void **
 arrayShift(ArrayList l)

@@ -14,14 +14,21 @@
 ArrayList arrayInit();
 
 /**
- * Create pointer for list (ArrayList)
+ * Inserts an element at the beginning of the array
+ * @return ArrayList
+ */
+void
+arrayUnshift(ArrayList l, void ** o);
+
+/**
+ * Inserts an element at the end of the array
  * @return ArrayList
  */
 void arrayPush(ArrayList l, void ** o);
 
 /**
  * Remove first index of ArrayList
- * And return the content
+ * And returns the content
  * @return void **
  */
 void ** arrayShift(ArrayList l);

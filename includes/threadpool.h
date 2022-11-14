@@ -5,20 +5,31 @@
 #include <unistd.h>
 #include <pthread.h>
 #include <stdint.h>
+#include "type_aliases.h" 
 
-typedef struct task{
+pthread_t * thread_pool;
+
+typedef struct thread {
+    u_int index;
+    pthread_t thread;
+} Thread;
+
+typedef struct threadTask {
     void (*func)(void *);
     void * arg;
-    struct tk_task * next;    // 任务链表（下一节点指针）
-} task_t;
+    struct threadTask * next;
+} ThreadTask;
 
 typedef struct threadpool {
-    pthread_mutex_t lock;
+    pthread_mutex_t mutex;
     pthread_cond_t cond;
-    pthread_t * threads;
-    task_t * head;
+    Thread * threads;
+    ThreadTask * head;
     int length;
-    int queue_size;
-} threadpool_t;
+    int queueSize;
+} Threadpool;
+
+Threadpool * createThreadpool(u_int threadNumber);
+Thread * initThreads(u_int threadNumber);
 
 #endif // THREADPOOL_H_INCLUDED
