@@ -4,7 +4,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 #include "list_def.h"
+
+#define INDEX_ERROR -1
 
 
 /**
@@ -14,14 +17,21 @@
 ArrayList arrayInit();
 
 /**
- * Create pointer for list (ArrayList)
+ * Inserts an element at the beginning of the array
  * @return ArrayList
  */
-void arrayPush(ArrayList l, void ** o);
+void
+arrayUnshift(ArrayList l, void ** o, size_t osize);
+
+/**
+ * Inserts an element at the end of the array
+ * @return ArrayList
+ */
+void arrayPush(ArrayList l, void ** o, size_t osize);
 
 /**
  * Remove first index of ArrayList
- * And return the content
+ * And returns the content
  * @return void **
  */
 void ** arrayShift(ArrayList l);
@@ -100,19 +110,25 @@ Node * arrayNode(ArrayList l, void ** o, int (* compar)(const void ** a, const v
  * which callback returns
  * @return ArrayList
  */
-ArrayList arrayMap(ArrayList l, void ** (* callback)(const void **, const int, const ArrayList l));
+ArrayList arrayMap(ArrayList l, size_t length, void ** (* callback)(const void **, const int, const ArrayList l));
 
 /**
  * Create new ArrayList with the elements
  * which callback returns true
  * @return ArrayList
  */
-ArrayList arrayFilter(ArrayList l, int (* callback)(const void **, const int, const ArrayList l));
+ArrayList arrayFilter(ArrayList l, size_t length, int (* callback)(const void **, const int, const ArrayList l));
 
 /**
  * Accumulate ArrayList content
  * @return void **
  */
 void ** arrayReduce(ArrayList l, void ** (* callback)(void ** accum, const void **, const int, const ArrayList l), void ** init);
+
+/**
+ * Unallocate memory for ArrayList l
+ * @param ArrayList l
+ */
+void arrayFree(ArrayList l);
 
 #endif // LISTA_H_INCLUDED

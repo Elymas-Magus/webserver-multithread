@@ -16,12 +16,12 @@ arrayInit()
 }
 
 void
-arrayPush(ArrayList l, void ** o)
+arrayPush(ArrayList l, void ** o, size_t osize)
 {
-    Node * no;
-    no = (Node *) malloc (sizeof(Node));
+    Node * no = (Node *) malloc (sizeof(Node));
+    no->content = (void **) malloc(sizeof(void *));
 
-    no->content = o;
+    memcpy(no->content, o, osize);
     no->prev = NULL;
     no->next = NULL;
 
@@ -31,6 +31,27 @@ arrayPush(ArrayList l, void ** o)
         no->prev = l->last;
         l->last->next = no;
         l->last = no;
+    }
+
+    l->length++;
+}
+
+void
+arrayUnshift(ArrayList l, void ** o, size_t osize)
+{
+    Node * no = (Node *) malloc (sizeof(Node));
+    no->content = (void **) malloc(sizeof(void *));
+
+    memcpy(no->content, o, osize);
+    no->prev = NULL;
+    no->next = NULL;
+
+    if (l->first == NULL) {
+        l->first = l->last = no;
+    } else {
+        no->next = l->first;
+        l->first->prev = no;
+        l->first = no;
     }
 
     l->length++;
@@ -71,17 +92,20 @@ arrayPop(ArrayList l)
     void ** content = (void **) malloc(sizeof(void *));
     Node * last = l->last;
 
-    *content = *last->content;
-    if (l->last != NULL) {
-        if (l->last->prev == NULL) {
-            l->first = l->last = NULL;
-        } else {
-            l->last = l->last->prev;
-            l->last->next = NULL;
-        }
-
-        l->length--;
+    if (l->last == NULL) {
+        return NULL;
     }
+
+    *content = *last->content;
+    if (l->last->prev == NULL) {
+        l->first = l->last = NULL;
+    } else {
+        l->last = l->last->prev;
+        l->last->next = NULL;
+    }
+
+    l->length--;
+
     free(last);
 
     return content;
@@ -95,7 +119,7 @@ arraySet(ArrayList l, int n, void ** o)
     Node * no;
 
     if (l->length <= n || n < 0) {
-        return NULL;
+        return;
     }
 
     no = l->first;
@@ -146,7 +170,7 @@ arrayFind(ArrayList l, void ** needle, int (*compar)(const void ** a, const void
     }
 
     for (no = l->first; no; no = no->next) {
-        if (compar(no->content, needle) == 0) {
+        if (compar((const void **) no->content, (const void **) needle) == 0) {
             return no;
         }
     }
@@ -165,7 +189,7 @@ arrayContain(ArrayList l, void ** needle, int (*compar)(const void ** a, const v
     }
 
     for (no = l->first; no; no = no->next) {
-        if (compar(no->content, needle) == 0) {
+        if (compar((const void **) no->content, (const void **) needle) == 0) {
             return true;
         }
     }
@@ -181,17 +205,17 @@ arrayIndex(ArrayList l, void ** needle, int (*compar)(const void ** a, const voi
     Node * no;
 
     if (needle == NULL || compar == NULL) {
-        return -1;
+        return INDEX_ERROR;
     }
 
     for (no = l->first; no; no = no->next) {
-        if (compar(no->content, needle) == 0) {
+        if (compar((const void **) no->content, (const void **) needle) == 0) {
             return i;
         }
         i++;
     }
 
-    return NULL;
+    return INDEX_ERROR;
 }
 
 
@@ -205,7 +229,7 @@ arrayNode(ArrayList l, void ** o, int (*compar)(const void ** a, const void ** b
     }
 
     for (no = l->first; no; no = no->next) {
-        if (compar(no->content, o) == 0) {
+        if (compar((const void **) no->content, (const void **) o) == 0) {
             return no;
         }
     }
@@ -300,48 +324,48 @@ quickSortParticionador(ArrayList l, int inicio, int fim, int (*compar)(const voi
     esq = inicio;
     dir = fim;
 
-    pivo = array_item(l, inicio);
+    pivo = arrayItem(l, inicio);
     while (esq < dir) {
-        while((aux = array_item(l, esq)) != NULL && compar(aux, pivo) <= 0) {
+        while((aux = arrayItem(l, esq)) != NULL && compar((const void **) aux, (const void **) pivo) <= 0) {
             esq++;
         }
-        while((aux = array_item(l, dir)) != NULL && compar(aux, pivo) > 0) {
+        while((aux = arrayItem(l, dir)) != NULL && compar((const void **) aux, (const void **) pivo) > 0) {
             dir--;
         }
         if (esq < dir) {
-            array_exchange(l, esq, dir);
+            arrayExchange(l, esq, dir);
         }
     }
-    array_set(l, inicio, array_item(l, dir));
-    array_set(l, dir, pivo);
+    arraySet(l, inicio, arrayItem(l, dir));
+    arraySet(l, dir, pivo);
 
     return dir;
 }
 
 ArrayList
-arrayMap(ArrayList l, void ** (* callback)(const void **, const int, const ArrayList l))
+arrayMap(ArrayList l, size_t length, void ** (* callback)(const void **, const int, const ArrayList l))
 {
     int i = 0;
     Node * no;
-    ArrayList newList = array_init();
+    ArrayList newList = arrayInit();
 
     for (no = l->first; no; no = no->next) {
-        array_push(newList, callback(no->content, i++, l));
+        arrayPush(newList, callback((const void **) no->content, i++, l), length);
     }
 
     return newList;
 }
 
 ArrayList
-arrayFilter(ArrayList l, int (* callback)(const void **, const int, const ArrayList l))
+arrayFilter(ArrayList l, size_t length, int (* callback)(const void **, const int, const ArrayList l))
 {
     int i = 0;
     Node * no;
-    ArrayList newList = array_init();
+    ArrayList newList = arrayInit();
 
     for (no = l->first; no; no = no->next) {
-        if (callback(no->content, i++, l)) {
-            array_push(newList, no->content);
+        if (callback((const void **) no->content, i++, l)) {
+            arrayPush(newList, no->content, length);
         }
     }
 
@@ -357,9 +381,21 @@ arrayReduce(ArrayList l, void ** (* callback)(void ** accum, const void **, cons
 
     *accum = *init; 
     for (no = l->first; no; no = no->next) {
-        accum = callback(accum, no->content, i++, l);
+        accum = callback(accum, (const void **) no->content, i++, l);
     }
 
     return accum;
 }
 
+void
+arrayFree(ArrayList l)
+{
+    Node * nodeList = l->first;
+    Node * tmp;
+    while (nodeList != NULL) {
+        tmp = nodeList;
+        nodeList = nodeList->next;
+        free(tmp);
+    }
+    free(l);
+}

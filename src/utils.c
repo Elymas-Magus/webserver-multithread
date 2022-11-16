@@ -46,9 +46,9 @@ substring(String str, u_int start, u_int end, String buffer)
 }
 
 ServerConfig *
-createServerConfigFromConfigFile(String filename)
+getServerConfigFromConfigFile(String filename)
 {
-    ServerConfig * config;
+    ServerConfig * config = (ServerConfig *) malloc(sizeof(ServerConfig));
 
     config->port = 0;
     config->threadMax = 0;

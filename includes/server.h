@@ -21,7 +21,7 @@
  * Create server object
  * @return Server server
  */
-Server createServer(ServerConfig * config);
+Server * createServer(ServerConfig * config);
 
 /**
  * Create socket
@@ -41,7 +41,7 @@ SA_IN getServerAddr(u_int port);
  * @param Server server 
  * @return struct sockaddr_in socket
  */
-int initServer(Server server);
+int initServer(Server * server);
 
 /**
  * Initiate listener or Die
