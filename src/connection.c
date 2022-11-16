@@ -107,7 +107,7 @@ threadConnectionHandler(void * arg)
 
         mutexUnlock(&server->pools->mutex);
 
-        handleConnection(clientSocket);
+        handleConnection(*((int *) clientSocket), server);
         free(clientSocket);
     }
     mutexUnlock(&server->pools->mutex);
@@ -116,13 +116,13 @@ threadConnectionHandler(void * arg)
     return NULL;  
 }
 
-void handleConnection(void ** pClientSocket)
+void
+handleConnection(int clientSocket, Server * server)
 {
-    int clientSocket = *((int *) pClientSocket);
-
     int messageSize = 0;
     char buffer[CONNECTION_BUFFER_SIZE];
     char actualpath[CONNECTION_PATH_MAX + 1];
+    char root[strlen(server->root) + 1];
     size_t bytesRead;
 
     FILE * fp = NULL;
@@ -134,10 +134,12 @@ void handleConnection(void ** pClientSocket)
         }
     }
 
+    strcpy(root, server->root);
+    strcat(root, buffer);
     check(bytesRead, "recv error");
     buffer[messageSize - 1] = 0;
 
-    printf("REQUEST: %s\n", buffer);
+    printf("REQUEST: %s%s\n", server->root, buffer);
     fflush(stdout);
 
     if (realpath(buffer, actualpath) == NULL) {

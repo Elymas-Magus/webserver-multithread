@@ -1,2 +1,7 @@
 /obj
 /bin/Debug
+/tmp
+
+client
+client.c
+client.rb

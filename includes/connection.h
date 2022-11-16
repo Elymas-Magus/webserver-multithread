@@ -56,10 +56,10 @@ void * threadConnectionHandler(void * arg);
 /**
  * Treat each connection
  * Implement the communication
- * @param void * pClientSocket
+ * @param int pClientSocket
  * @param Server * server
  * @return void
  */
-void handleConnection(void ** pClientSocket);
+void handleConnection(int clientSocket, Server * server);
 
 #endif // CONNECTION_H_INCLUDED
