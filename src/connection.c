@@ -1,67 +1,95 @@
 #include "connection.h"
 
 void
-listenConnection(Server server, ServerConfig * config)
+listenConnection(Server * server)
 {
-    connectionLoop(server.socket, config);
+    initServerPool(server);
+    connectionLoop(server);
 }
 
 void
-connectionLoop(int serverSocket, ServerConfig * config)
+initServerPool(Server * server)
 {
-    int * clientSocket = (int *) malloc(sizeof(int));
+    server->pools->tasks->func = threadConnectionHandler;
+    server->pools->tasks->args = (void *) server;
+    server->initPools(server->pools);
+}
+
+void
+connectionLoop(Server * server)
+{
+    socklen_t addrSize = (socklen_t) sizeof(SA_IN);
     SA_IN clientAddr;
 
-    createConnectionThread(config);
-
     while (true) {
-        connectionListener(serverSocket, clientSocket, sizeof(SA_IN), clientAddr, config);
+        connectionListener(server, &addrSize, clientAddr);
     }
-
-    // // closing the connected socket
-    // close(clientSocket);
-    // // closing the listening socket
-    // shutdown(serverSocket, SHUT_RDWR);
+    
+    shutdown(server->socket, SHUT_RDWR);
 }
 
 void
-connectionListener(int serverSocket, int * clientSocket, int addrSize, SA_IN clientAddr, ServerConfig * config)
+connectionListener(Server * server, socklen_t * addrSize, SA_IN clientAddr)
 {
+    int * clientSocket = (int *) malloc(sizeof(int));
     printf("Waiting for connections ...\n");
 
-    // makeSocketNonBlocking
-    // Create HttpRequest Object
-    // Add To EPoll
-    // Add Timer
+    check((* clientSocket) = accept(server->socket, (SA *) &clientAddr, addrSize), "Accept Failed");
 
-    // check(*clientSocket = accept(serverSocket, (SA *) &clientAddr, (socklen_t *) &addrSize), "Accept Failed");
+    printf("new client: %d\n", (* clientSocket));
+    pthread_mutex_lock(&(server->pools->mutex));
 
-    // printf("Connected!\n");
-
-    // createConnectionThread(config);
+    printf("Add\n");
+    server->pools->queue->enqueue(server->pools->queue, (void **) clientSocket, sizeof(int *));
+    printf("length: %d\n\n", server->pools->queue->items->length);
+    
+    pthread_mutex_unlock(&(server->pools->mutex));
 }
 
-void
-createConnectionThread(ServerConfig * config)
+void *
+threadConnectionHandler(void * arg)
 {
-    // thread_pool = (pthread_t *) malloc(config->threadMax * sizeof(pthread_t));
+    if (arg == NULL) {
+        return NULL;
+    }
 
-    // for (int i = 0; i < config->threadMax; i++) {
-    //     pthread_create(&thread_pool[i], NULL, threadPoolHander, config);
-    // }
+    void ** clientSocket;
+    Server * server = (Server *) arg;
+
+    printf("ThreadLoop ...\n");
+    while (true) {
+        pthread_mutex_lock(&server->pools->mutex);
+
+        if (server->pools->queue->items->length == 0) {
+            continue;
+        }
+        if (server->pools->shutdown) {
+            break;
+        }
+
+        clientSocket = server->pools->queue->dequeue(server->pools->queue);
+
+        if (clientSocket == NULL) {
+            continue;
+        }
+
+        printf("dequeue: %d\n", *((int *) clientSocket));
+        pthread_mutex_unlock(&server->pools->mutex);
+
+        handleConnection(clientSocket);
+        free(clientSocket);
+    }
+    pthread_mutex_unlock(&server->pools->mutex);
+    pthread_exit(NULL);
+
+    return NULL;  
 }
 
-void * threadPoolHander(void * pServerConfig)
-{
-    // ServerConfig * config = ((ServerConfig *) pServerConfig);
-
-    return NULL;
-}
-
-void * handleConnection(void * pClientSocket)
+void handleConnection(void ** pClientSocket)
 {
     int clientSocket = *((int *) pClientSocket);
 
+    printf("%d\n", clientSocket);
     int messageSize = 0;
     char buffer[CONNECTION_BUFFER_SIZE];
     char actualpath[CONNECTION_PATH_MAX + 1];
@@ -85,14 +113,14 @@ void * handleConnection(void * pClientSocket)
     if (realpath(buffer, actualpath) == NULL) {
         fprintf(stderr, "ERROR(bad path): %s\n", buffer);
         close(clientSocket);
-        return NULL;
+        return;
     }
 
     fp = fopen(actualpath, "r");
     if (fp == NULL) {
         fprintf(stderr, "ERROR(open): %s\n", buffer);
         close(clientSocket);
-        return NULL;
+        return;
     }
 
     while((bytesRead = fread(buffer, 1, CONNECTION_BUFFER_SIZE, fp)) > 0) {
@@ -103,6 +131,4 @@ void * handleConnection(void * pClientSocket)
     close(clientSocket);
     fclose(fp);
     printf("closing connection\n");
-
-    return NULL;
 }

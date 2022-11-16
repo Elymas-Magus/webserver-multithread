@@ -19,6 +19,16 @@
         "list.h": "c",
         "stdlib.h": "c",
         "list_def.h": "c",
-        "type_aliases.h": "c"
+        "type_aliases.h": "c",
+        "inet.h": "c",
+        "queue.h": "c",
+        "queue_def.h": "c",
+        "pthread.h": "c",
+        "threadpool_def.h": "c",
+        "server_config_def.h": "c",
+        "string.h": "c",
+        "threadpool.h": "c",
+        "stdint.h": "c",
+        "stdbool.h": "c"
     }
 }

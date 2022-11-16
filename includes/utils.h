@@ -66,6 +66,6 @@ int readConfigFile(String filename, ServerConfig * config);
  * @param String filename
  * @return ServerConfig config
  */
-ServerConfig * createServerConfigFromConfigFile(String filename);
+ServerConfig * getServerConfigFromConfigFile(String filename);
 
 #endif // UTILS_H_INCLUDED

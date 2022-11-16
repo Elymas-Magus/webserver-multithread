@@ -8,8 +8,8 @@
 
 typedef struct queue {
     ArrayList items;   
-    void (* enqueue)(void *);
-    void (* dequeue)(void *);
+    void (* enqueue)(struct queue *, void **, size_t);
+    void ** (* dequeue)(struct queue *);
 } Queue;
 
 #endif // QUEUE_DEF_H_INCLUDED

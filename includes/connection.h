@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include <pthread.h>
 #include <unistd.h>
 
 #include "server_def.h"
@@ -21,14 +20,21 @@
  * @param Server server
  * @return void
  */
-void listenConnection(Server server, ServerConfig * config);
+void listenConnection(Server * server);
+
+/**
+ * Initialize threadpool and task
+ * @param int serverSocket
+ * @return void
+ */
+void initServerPool(Server * server);
 
 /**
  * Make a loop for listen new connections
  * @param int serverSocket
  * @return void
  */
-void connectionLoop(int serverSocket, ServerConfig * config);
+void connectionLoop(Server * server);
 
 /**
  * Receive any new connection and log
@@ -38,28 +44,22 @@ void connectionLoop(int serverSocket, ServerConfig * config);
  * @param struct sockaddr_in clientAddr
  * @return void
  */
-void connectionListener(int serverSocket, int * clientSocket, int addrSize, SA_IN clientAddr, ServerConfig * config);
+void connectionListener(Server * server, socklen_t * addrSize, SA_IN clientAddr);
 
 /**
- * Create a new thread for new connections
- * @param int serverSocket
- * @return void
- */
-void createConnectionThread(ServerConfig * config);
-
-/**
- * Handler for new threads
- * @param void * pServerConfig
+ * Handle thread connections
+ * @param void * arg
  * @return void *
  */
-void * threadPoolHander(void * pServerConfig);
+void * threadConnectionHandler(void * arg);
 
 /**
  * Treat each connection
  * Implement the communication
  * @param void * pClientSocket
- * @return void *
+ * @param Server * server
+ * @return void
  */
-void * handleConnection(void * pClientSocket);
+void handleConnection(void ** pClientSocket);
 
 #endif // CONNECTION_H_INCLUDED

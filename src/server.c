@@ -1,13 +1,17 @@
 #include "server.h"
 
-Server
+Server *
 createServer(ServerConfig * config)
 {
-    Server server;
+    Server * server = (Server *) malloc(sizeof(Server));
 
-    strcpy(server.name, "WebServerMT");
-    server.socket = getServerSocket();
-    server.address = getServerAddr(config->port);
+    strcpy(server->name, "WebServerMT");
+    strcpy(server->root, config->root);
+    server->port = config->port;
+    server->socket = getServerSocket();
+    server->address = getServerAddr(config->port);
+    server->pools = createThreadpool(config->threadMax);
+    server->initPools = initThreadpools;
 
     return server;
 }
@@ -31,10 +35,10 @@ getServerAddr(u_int port)
 }
 
 int
-initServer(Server server)
+initServer(Server * server)
 {
-    bindServerAddr(server.socket, server.address);
-    return initListen(server.socket);
+    bindServerAddr(server->socket, server->address);
+    return initListen(server->socket);
 }
 
 int

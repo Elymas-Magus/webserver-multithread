@@ -46,7 +46,7 @@ substring(String str, u_int start, u_int end, String buffer)
 }
 
 ServerConfig *
-createServerConfigFromConfigFile(String filename)
+getServerConfigFromConfigFile(String filename)
 {
     ServerConfig * config = (ServerConfig *) malloc(sizeof(ServerConfig));
 

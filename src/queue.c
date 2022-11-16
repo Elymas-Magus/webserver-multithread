@@ -1,6 +1,7 @@
 #include "queue.h"
 
-Queue * createQueue()
+Queue *
+createQueue()
 {
     Queue * queue = (Queue *) malloc(sizeof(Queue));
 
@@ -11,12 +12,22 @@ Queue * createQueue()
     return queue;
 }
 
-void enqueue(Queue * queue, void ** content)
+void
+enqueue(Queue * queue, void ** content, size_t length)
 {
-    arrayUnshift(queue->items, content);
+    arrayUnshift(queue->items, content, length);
 }
 
-void ** dequeue(Queue * queue)
+void **
+dequeue(Queue * queue)
 {
+    printf("Cheguei! Dequeue!\n");
     return arrayPop(queue->items);
+}
+
+void
+queueFree(Queue * queue)
+{
+    arrayFree(queue->items);
+    free(queue);
 }
