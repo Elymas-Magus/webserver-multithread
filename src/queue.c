@@ -21,7 +21,6 @@ enqueue(Queue * queue, void ** content, size_t length)
 void **
 dequeue(Queue * queue)
 {
-    printf("Cheguei! Dequeue!\n");
     return arrayPop(queue->items);
 }
 

@@ -9,7 +9,7 @@ createThreadpool(u_int threadNumber)
     threadpool->started = 0;
     
     makeMutex(threadpool);
-    // makeCond(threadpool);
+    makeCond(threadpool);
     makeQueue(threadpool);
     makeTask(threadpool);
     makeThreads(threadpool, threadNumber);

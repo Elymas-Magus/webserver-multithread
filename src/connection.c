@@ -47,6 +47,22 @@ mutexUnlock(pthread_mutex_t * mutex)
 }
 
 void
+emitSignal(pthread_cond_t * cond)
+{
+    if (pthread_cond_signal(cond) != 0) {                                          
+        fprintf(stderr, "Error at mutex unlock");                             
+    }
+}
+
+void
+condWait(pthread_cond_t * cond, pthread_mutex_t * mutex)
+{
+    if (pthread_cond_wait(cond, mutex) != 0) {                                          
+        fprintf(stderr, "Error at mutex unlock");                             
+    }
+}
+
+void
 connectionListener(Server * server, socklen_t * addrSize, SA_IN clientAddr)
 {
     int * clientSocket = (int *) malloc(sizeof(int));
@@ -54,13 +70,11 @@ connectionListener(Server * server, socklen_t * addrSize, SA_IN clientAddr)
 
     check((* clientSocket) = accept(server->socket, (SA *) &clientAddr, addrSize), "Accept Failed");
 
-    printf("new client: %d\n", (* clientSocket));
     mutexLock(&(server->pools->mutex));
 
-    printf("add to queue\n");
     server->pools->queue->enqueue(server->pools->queue, (void **) clientSocket, sizeof(int *));
-    printf("length: %d\n\n", server->pools->queue->items->length);
-    
+
+    emitSignal(&(server->pools->cond));
     mutexUnlock(&(server->pools->mutex));
 }
 
@@ -78,21 +92,19 @@ threadConnectionHandler(void * arg)
     while (true) {
         mutexLock(&server->pools->mutex);
 
-        if (server->pools->queue->items->length == 0) {
-            continue;
+        if (server->pools->queue->items->length == 0 && !server->pools->shutdown) {
+            condWait(&(server->pools->cond), &(server->pools->mutex));
         }
         if (server->pools->shutdown) {
             break;
         }
 
-        printf("remove from queue\n");
         clientSocket = server->pools->queue->dequeue(server->pools->queue);
 
         if (clientSocket == NULL) {
             continue;
         }
 
-        printf("dequeue: %d\n", *((int *) clientSocket));
         mutexUnlock(&server->pools->mutex);
 
         handleConnection(clientSocket);
@@ -108,7 +120,6 @@ void handleConnection(void ** pClientSocket)
 {
     int clientSocket = *((int *) pClientSocket);
 
-    printf("%d\n", clientSocket);
     int messageSize = 0;
     char buffer[CONNECTION_BUFFER_SIZE];
     char actualpath[CONNECTION_PATH_MAX + 1];
