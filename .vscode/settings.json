@@ -36,6 +36,7 @@
         "errno.h": "c",
         "aliases.h": "c",
         "types.h": "c",
-        "request.h": "c"
+        "request.h": "c",
+        "request_def.h": "c"
     }
 }

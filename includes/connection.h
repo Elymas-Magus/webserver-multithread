@@ -8,8 +8,8 @@
 
 #include "server_def.h"
 #include "socket_validation.h"
-#include "request.h"
 #include "utils.h"
+#include "request.h"
 
 #define CONNECTION_BUFFER_SIZE 81920
 #define CONNECTION_PATH_MAX 1000
