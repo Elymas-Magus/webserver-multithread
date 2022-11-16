@@ -18,6 +18,7 @@ VALIDATION_MOD = socket_validation
 THREADPOOL_MOD = threadpool
 LIST_MOD = list
 QUEUE_MOD = queue
+REQUEST_MOD = request
 
 all: $(TARGET)
 
@@ -33,7 +34,8 @@ $(TARGET): $(TARGET).c $(OBJ)
 	$(CC) $(CFLAGS) -c $(SRC)/$(SERVER_MOD).c -o $(OBJ)/$(SERVER_MOD).o
 	$(CC) $(CFLAGS) -c $(SRC)/$(THREADPOOL_MOD).c -o $(OBJ)/$(THREADPOOL_MOD).o
 	$(CC) $(CFLAGS) -c $(SRC)/$(CONNECTION_MOD).c -o $(OBJ)/$(CONNECTION_MOD).o
-	$(CC) -o $(BIN)/$(TARGET) $(OBJ)/$(TARGET).o $(OBJ)/$(UTILS_MOD).o $(OBJ)/$(SERVER_MOD).o $(OBJ)/$(VALIDATION_MOD).o $(OBJ)/$(CONNECTION_MOD).o $(OBJ)/$(THREADPOOL_MOD).o $(OBJ)/$(LIST_MOD).o $(OBJ)/$(QUEUE_MOD).o
+	$(CC) $(CFLAGS) -c $(SRC)/$(REQUEST_MOD).c -o $(OBJ)/$(REQUEST_MOD).o
+	$(CC) -o $(BIN)/$(TARGET) $(OBJ)/$(TARGET).o $(OBJ)/$(UTILS_MOD).o $(OBJ)/$(SERVER_MOD).o $(OBJ)/$(VALIDATION_MOD).o $(OBJ)/$(CONNECTION_MOD).o $(OBJ)/$(THREADPOOL_MOD).o $(OBJ)/$(LIST_MOD).o $(OBJ)/$(QUEUE_MOD).o  $(OBJ)/$(REQUEST_MOD).o
 
 $(OBJ):
 	mkdir -p obj

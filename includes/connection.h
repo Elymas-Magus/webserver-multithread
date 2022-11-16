@@ -5,13 +5,13 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include <unistd.h>
 
 #include "server_def.h"
 #include "socket_validation.h"
+#include "request.h"
 #include "utils.h"
 
-#define CONNECTION_BUFFER_SIZE 4096
+#define CONNECTION_BUFFER_SIZE 81920
 #define CONNECTION_PATH_MAX 1000
 
 /**
@@ -61,5 +61,9 @@ void * threadConnectionHandler(void * arg);
  * @return void
  */
 void handleConnection(int clientSocket, Server * server);
+
+/**
+ */
+void readConnectionMessage(size_t * bytesRead, int clientSocket, char * message, int * messageSize);
 
 #endif // CONNECTION_H_INCLUDED

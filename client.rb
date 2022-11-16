@@ -2,7 +2,7 @@ require 'socket'
 
 s = TCPSocket.new 'localhost', 8090
 
-s.write("./tmp/testfiles/#{ARGV[0]}.c\n")
+s.write("tmp/testfiles/#{ARGV[0]}.c\n")
 
 s.each_line do |line|
     puts line

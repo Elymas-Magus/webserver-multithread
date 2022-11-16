@@ -105,9 +105,8 @@ threadConnectionHandler(void * arg)
             continue;
         }
 
-        mutexUnlock(&server->pools->mutex);
-
         handleConnection(*((int *) clientSocket), server);
+        mutexUnlock(&server->pools->mutex);
         free(clientSocket);
     }
     mutexUnlock(&server->pools->mutex);
@@ -120,47 +119,63 @@ void
 handleConnection(int clientSocket, Server * server)
 {
     int messageSize = 0;
-    char buffer[CONNECTION_BUFFER_SIZE];
-    char actualpath[CONNECTION_PATH_MAX + 1];
-    char root[strlen(server->root) + 1];
+    char absolutepath[CONNECTION_PATH_MAX + 1];
+    char buffer[MAX_HTTP_MESSAGE_LENGTH];
+    char path[CONNECTION_BUFFER_SIZE + strlen(server->root) + 1];
     size_t bytesRead;
 
     FILE * fp = NULL;
+    HttpRequest * request;
 
-    while ((bytesRead = read(clientSocket, buffer + messageSize, sizeof(buffer) - messageSize - 1)) > 0) {
-        messageSize += bytesRead;
-        if (messageSize > CONNECTION_BUFFER_SIZE - 1 || buffer[messageSize - 1] == '\n') {
+    readConnectionMessage(&bytesRead, clientSocket, buffer, &messageSize);
+
+    request = extractRequest(buffer);
+    strcpy(path, server->root);
+    strcat(path, request->path);
+
+    printf("REQUEST: %s\n", path);
+    fflush(stdout);
+
+    if (realpath(path, absolutepath) == NULL) {
+        fprintf(stderr, "ERROR(bad path): %s\n", path);
+        sendResponse(request, HTTP_NOT_FOUND, clientSocket);
+        return;
+    }
+
+    fp = fopen(absolutepath, "r");
+    if (fp == NULL) {
+        fprintf(stderr, "ERROR(open): %s\n", path);
+        sendResponse(request, HTTP_BAD_REQUEST, clientSocket);
+        return;
+    }
+
+    if ((bytesRead = fread(buffer, 1, MAX_HTTP_MESSAGE_LENGTH, fp)) > 0) {
+        printf("Sending %zu bytes\n", bytesRead);
+        strcpy(request->body, buffer);
+    } else {
+        strcpy(request->body, "");
+    }
+
+    sendResponse(request, HTTP_OK, clientSocket);
+    fclose(fp);
+    printf("\n----- closing connection -----\n");
+}
+
+void
+readConnectionMessage(size_t * bytesRead, int clientSocket, char * message, int * messageSize)
+{
+    size_t bytes = (* bytesRead);
+    int size = (* messageSize);
+    while ((bytes = read(clientSocket, message + size, sizeof(message) - size - 1)) > 0) {
+        size += bytes;
+        if (size > MAX_HTTP_MESSAGE_LENGTH - 1 || message[size - 1] == '\n') {
             break;
         }
     }
 
-    strcpy(root, server->root);
-    strcat(root, buffer);
-    check(bytesRead, "recv error");
-    buffer[messageSize - 1] = 0;
+    check(bytes, "recv error");
+    message[size - 1] = 0;
 
-    printf("REQUEST: %s%s\n", server->root, buffer);
-    fflush(stdout);
-
-    if (realpath(buffer, actualpath) == NULL) {
-        fprintf(stderr, "ERROR(bad path): %s\n", buffer);
-        close(clientSocket);
-        return;
-    }
-
-    fp = fopen(actualpath, "r");
-    if (fp == NULL) {
-        fprintf(stderr, "ERROR(open): %s\n", buffer);
-        close(clientSocket);
-        return;
-    }
-
-    while((bytesRead = fread(buffer, 1, CONNECTION_BUFFER_SIZE, fp)) > 0) {
-        printf("sending %zu bytes\n", bytesRead);
-        write(clientSocket, buffer, bytesRead);
-    }
-
-    close(clientSocket);
-    fclose(fp);
-    printf("closing connection\n");
+    (* bytesRead) = bytes;
+    (* messageSize) = size;
 }

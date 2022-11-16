@@ -29,6 +29,13 @@
         "string.h": "c",
         "threadpool.h": "c",
         "stdint.h": "c",
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "system_error": "c",
+        "unistd.h": "c",
+        "time.h": "c",
+        "errno.h": "c",
+        "aliases.h": "c",
+        "types.h": "c",
+        "request.h": "c"
     }
 }
