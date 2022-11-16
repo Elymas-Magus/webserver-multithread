@@ -12,9 +12,10 @@
 
 #define MAX_PATH_LENGTH 128
 #define MAX_FILE_LENGTH 8192
-#define MAX_LINE_LENGTH 1000
+#define MAX_KEY_LENGTH 50
+#define MAX_VALUE_LENGTH 255
 #define BUFFER_LENGTH 8192
-#define DELIM "="
+#define CONFIG_LINE_MODEL "%[^=]=%[^;]; "
 
 #define CONFIG_ROOT_PATH "root"
 #define CONFIG_PORT "port"

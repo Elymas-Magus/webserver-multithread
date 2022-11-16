@@ -29,6 +29,24 @@ connectionLoop(Server * server)
 }
 
 void
+mutexLock(pthread_mutex_t * mutex)
+{
+    if (pthread_mutex_lock(mutex) != 0) {                                          
+        fprintf(stderr, "Error at mutex lock");                                                       
+        exit(2);                                                                    
+    }
+}
+
+void
+mutexUnlock(pthread_mutex_t * mutex)
+{
+    if (pthread_mutex_unlock(mutex) != 0) {                                          
+        fprintf(stderr, "Error at mutex unlock");                                                       
+        exit(2);                                                                    
+    }
+}
+
+void
 connectionListener(Server * server, socklen_t * addrSize, SA_IN clientAddr)
 {
     int * clientSocket = (int *) malloc(sizeof(int));
@@ -37,13 +55,13 @@ connectionListener(Server * server, socklen_t * addrSize, SA_IN clientAddr)
     check((* clientSocket) = accept(server->socket, (SA *) &clientAddr, addrSize), "Accept Failed");
 
     printf("new client: %d\n", (* clientSocket));
-    pthread_mutex_lock(&(server->pools->mutex));
+    mutexLock(&(server->pools->mutex));
 
-    printf("Add\n");
+    printf("add to queue\n");
     server->pools->queue->enqueue(server->pools->queue, (void **) clientSocket, sizeof(int *));
     printf("length: %d\n\n", server->pools->queue->items->length);
     
-    pthread_mutex_unlock(&(server->pools->mutex));
+    mutexUnlock(&(server->pools->mutex));
 }
 
 void *
@@ -56,9 +74,9 @@ threadConnectionHandler(void * arg)
     void ** clientSocket;
     Server * server = (Server *) arg;
 
-    printf("ThreadLoop ...\n");
+    printf("-------------------- Init thread loop ---------------------\n");
     while (true) {
-        pthread_mutex_lock(&server->pools->mutex);
+        mutexLock(&server->pools->mutex);
 
         if (server->pools->queue->items->length == 0) {
             continue;
@@ -67,6 +85,7 @@ threadConnectionHandler(void * arg)
             break;
         }
 
+        printf("remove from queue\n");
         clientSocket = server->pools->queue->dequeue(server->pools->queue);
 
         if (clientSocket == NULL) {
@@ -74,12 +93,12 @@ threadConnectionHandler(void * arg)
         }
 
         printf("dequeue: %d\n", *((int *) clientSocket));
-        pthread_mutex_unlock(&server->pools->mutex);
+        mutexUnlock(&server->pools->mutex);
 
         handleConnection(clientSocket);
         free(clientSocket);
     }
-    pthread_mutex_unlock(&server->pools->mutex);
+    mutexUnlock(&server->pools->mutex);
     pthread_exit(NULL);
 
     return NULL;  

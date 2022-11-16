@@ -73,8 +73,7 @@ readConfigFile(String filename, ServerConfig * config)
         return CONFIG_ERROR;
     }
 
-    String delimiterPosition;
-    char line[MAX_LINE_LENGTH];
+    char key[MAX_KEY_LENGTH], value[MAX_VALUE_LENGTH];
 
     FILE * file = fopen(filename, "r");
 
@@ -82,23 +81,17 @@ readConfigFile(String filename, ServerConfig * config)
         fprintf(stderr, "File couldn't be opened. Filename %s", filename);
     }
 
-    while (fscanf(file, "%[^\n]", line)) {
-        delimiterPosition = strstr(line, DELIM);
-
-        if (delimiterPosition == NULL) {
-            return CONFIG_ERROR;
+    while (fscanf(file, CONFIG_LINE_MODEL, key, value) != EOF) {
+        if (!strcmp(CONFIG_ROOT_PATH, key)) {
+            strcpy(config->root, value);
         }
 
-        if (!strncmp(CONFIG_ROOT_PATH, line, CONFIG_ROOT_PATH_LENGTH)) {
-            strcpy(config->root, delimiterPosition + 1);
+        if (!strcmp(CONFIG_PORT, key)) {
+            config->port = atoi(value);
         }
 
-        if (!strncmp(CONFIG_PORT, line, CONFIG_PORT_LENGTH)) {
-            config->port = atoi(delimiterPosition + 1);
-        }
-
-        if (!strncmp(CONFIG_THREAD_MAX, line, CONFIG_THREAD_MAX_LENGTH)) {
-            config->threadMax = atoi(delimiterPosition + 1);
+        if (!strcmp(CONFIG_THREAD_MAX, key)) {
+            config->threadMax = atoi(value);
         }
     }
 

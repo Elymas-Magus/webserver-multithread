@@ -20,14 +20,20 @@ createThreadpool(u_int threadNumber)
 void
 makeMutex(Threadpool * pool)
 {
-    check(pthread_mutex_init(&(pool->mutex), NULL) != 0, "Error in mutex initializer");
+    if (pthread_mutex_init(&(pool->mutex), NULL) != 0) {
+        fprintf(stderr, "Error in mutex initializer");
+        exit(1);
+    }
 }
 
-// void
-// makeCond(Threadpool * pool)
-// {
-//     check(pthread_cond_init(&(pool->cond), NULL), "Error in cond initializer");
-// }
+void
+makeCond(Threadpool * pool)
+{
+    if (pthread_cond_init(&(pool->cond), NULL)) {
+        fprintf(stderr, "Error in cond initializer");
+        exit(1);
+    }
+}
 
 void
 makeThreads(Threadpool * pool, u_int threadNumber)
