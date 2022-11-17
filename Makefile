@@ -25,7 +25,7 @@ all: $(TARGET)
 %: %.c
 	$(CC) $(CFLAGS) -o $@ $^
 
-$(TARGET): $(TARGET).c $(OBJ)
+$(TARGET): $(TARGET).c $(OBJ) $(BIN)
 	$(CC) $(CFLAGS) -c $(TARGET).c -o $(OBJ)/$(TARGET).o
 	$(CC) $(CFLAGS) -c $(SRC)/$(VALIDATION_MOD).c -o $(OBJ)/$(VALIDATION_MOD).o
 	$(CC) $(CFLAGS) -c $(SRC)/$(LIST_MOD).c -o $(OBJ)/$(LIST_MOD).o
@@ -38,7 +38,10 @@ $(TARGET): $(TARGET).c $(OBJ)
 	$(CC) -o $(BIN)/$(TARGET) $(OBJ)/$(TARGET).o $(OBJ)/$(UTILS_MOD).o $(OBJ)/$(SERVER_MOD).o $(OBJ)/$(VALIDATION_MOD).o $(OBJ)/$(REQUEST_MOD).o $(OBJ)/$(CONNECTION_MOD).o $(OBJ)/$(THREADPOOL_MOD).o $(OBJ)/$(LIST_MOD).o $(OBJ)/$(QUEUE_MOD).o
 
 $(OBJ):
-	mkdir -p obj
+	mkdir -p $@
+
+$(BIN):
+	mkdir -p $@
 
 run: clean $(TARGET)
 	bin/main

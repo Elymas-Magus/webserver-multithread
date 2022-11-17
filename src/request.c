@@ -1,5 +1,40 @@
 #include "request.h"
 
+const char HTTP_VERSIONS[][MAX_HTTP_VERSION_NAME] = {
+    "HTTP/0.9",
+    "HTTP/1",
+    "HTTP/1.1",
+    "HTTP/2",
+    "HTTP/3",
+};
+
+const HttpResponseCode httpResponseCode[] = {
+    {"200", "OK"},
+    {"304", "NOT MODIFIED"},
+    {"400", "BAD REQUEST"},
+    {"401", "UNAUTHORIZED"},
+    {"403", "FORBIDDEN"},
+    {"404", "NOT FOUND"},
+    {"405", "METHOD NOT ALLOWED"},
+    {"500", "INTERNAL SERVER ERROR"},
+    {"501", "NOT IMPLEMENTED"},
+    {"502", "BAD GATEWAY"},
+    {"504", "GATEWAY TIMEOUT"},
+    {"505", "HTTP VERSION NOT SUPPORTED"},
+};
+
+const HttpHeaders httpHeaders[] = {
+    {"Access-Control-Allow-Origin", "*"},
+    {"Content-Type", "text/html; charset=utf-8"},
+    {"Content-Length", ""},
+    {"Keep-Alive", "timeout, max=999"},
+    {"Last-Modified", ""},
+    {"Server", ""},
+    {"Set-Cookie", "csrftoken="},
+    {"Date", ""},
+    {"X-Cache-Info", "caching"},
+};
+
 String
 stringifyRequest(HttpRequest * request)
 {
