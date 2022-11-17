@@ -37,6 +37,9 @@
         "aliases.h": "c",
         "types.h": "c",
         "request.h": "c",
-        "request_def.h": "c"
+        "request_def.h": "c",
+        "throwable.h": "c",
+        "setjmp.h": "c",
+        "setjmp2.h": "c"
     }
 }

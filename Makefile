@@ -9,42 +9,27 @@ SRC = src
 OBJ = obj
 BIN = bin
 
-# the build target executable:
 TARGET = main
-UTILS_MOD = utils
-SERVER_MOD = server
-CONNECTION_MOD = connection
-VALIDATION_MOD = socket_validation
-THREADPOOL_MOD = threadpool
-LIST_MOD = list
-QUEUE_MOD = queue
-REQUEST_MOD = request
+
+C_FILENAMES = utils.c server.c connection.c socket_validation.c threadpool.c list.c queue.c request.c throwable.c throws.c
+OBJ_FILES = $(patsubst %.c, $(OBJ)/%.o, $(C_FILENAMES) )
 
 all: $(TARGET)
 
-%: %.c
-	$(CC) $(CFLAGS) -o $@ $^
+$(OBJ)/$(TARGET).o: $(TARGET).c
+	$(CC) $(CFLAGS) -c $^ -o $@
 
-$(TARGET): $(TARGET).c $(OBJ) $(BIN)
-	$(CC) $(CFLAGS) -c $(TARGET).c -o $(OBJ)/$(TARGET).o
-	$(CC) $(CFLAGS) -c $(SRC)/$(VALIDATION_MOD).c -o $(OBJ)/$(VALIDATION_MOD).o
-	$(CC) $(CFLAGS) -c $(SRC)/$(LIST_MOD).c -o $(OBJ)/$(LIST_MOD).o
-	$(CC) $(CFLAGS) -c $(SRC)/$(QUEUE_MOD).c -o $(OBJ)/$(QUEUE_MOD).o
-	$(CC) $(CFLAGS) -c $(SRC)/$(UTILS_MOD).c -o $(OBJ)/$(UTILS_MOD).o
-	$(CC) $(CFLAGS) -c $(SRC)/$(SERVER_MOD).c -o $(OBJ)/$(SERVER_MOD).o
-	$(CC) $(CFLAGS) -c $(SRC)/$(THREADPOOL_MOD).c -o $(OBJ)/$(THREADPOOL_MOD).o
-	$(CC) $(CFLAGS) -c $(SRC)/$(REQUEST_MOD).c -o $(OBJ)/$(REQUEST_MOD).o
-	$(CC) $(CFLAGS) -c $(SRC)/$(CONNECTION_MOD).c -o $(OBJ)/$(CONNECTION_MOD).o
-	$(CC) -o $(BIN)/$(TARGET) $(OBJ)/$(TARGET).o $(OBJ)/$(UTILS_MOD).o $(OBJ)/$(SERVER_MOD).o $(OBJ)/$(VALIDATION_MOD).o $(OBJ)/$(REQUEST_MOD).o $(OBJ)/$(CONNECTION_MOD).o $(OBJ)/$(THREADPOOL_MOD).o $(OBJ)/$(LIST_MOD).o $(OBJ)/$(QUEUE_MOD).o
+$(OBJ)/%.o: $(SRC)/%.c
+	$(CC) $(CFLAGS) -c $^ -o $@
+
+$(TARGET): $(BIN) $(OBJ) clean $(OBJ)/$(TARGET).o $(OBJ_FILES) 
+	$(CC) -o $(BIN)/$(TARGET) $(OBJ)/$(TARGET).o $(OBJ_FILES) 
 
 $(OBJ):
 	mkdir -p $@
 
 $(BIN):
 	mkdir -p $@
-
-run: clean $(TARGET)
-	bin/main
 
 clean:
 	$(RM) -rf $(BIN)/$(TARGET)

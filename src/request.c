@@ -101,7 +101,7 @@ extractRequest(String httpMessage)
 HttpListHeaders
 newRequestHeaders()
 {
-    return (HttpListHeaders) malloc(sizeof(List));
+    return (HttpListHeaders) arrayInit();
 }
 
 bool

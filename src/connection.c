@@ -130,6 +130,7 @@ handleConnection(int clientSocket, Server * server)
     readConnectionMessage(&bytesRead, clientSocket, buffer, &messageSize);
 
     request = extractRequest(buffer);
+    printf("cheguei ...\n");
     strcpy(path, server->root);
     strcat(path, request->path);
 
