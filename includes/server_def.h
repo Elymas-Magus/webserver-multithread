@@ -6,8 +6,8 @@
 #include "threadpool.h"
 #include "queue.h"
 
-#define MAX_SERVER_NAME 100
-#define MAX_PATH_LENGTH 128
+#define MAX_SERVER_NAME         100
+#define MAX_PATH_LENGTH         128
 
 typedef struct server {
     char name[MAX_SERVER_NAME];

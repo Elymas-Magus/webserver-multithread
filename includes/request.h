@@ -20,8 +20,10 @@
 #define MAX_HEADER_VALUE_LEN             255
 
 #define MAX_HTTP_HEADER_SIZE             40960
-#define MAX_HTTP_BODY_SIZE               81920
-#define MAX_HTTP_MESSAGE_LENGTH          122880
+#define MAX_HTTP_BODY_SIZE               40960
+#define MAX_HTTP_MESSAGE_LENGTH          81920
+
+#define HTTP_HEADER_CONTENT_TYPE         0
 
 #define HTTP_UNKNOWN                     0x0001
 #define HTTP_GET                         0x0002
@@ -42,10 +44,10 @@
 #define HTTP_HTTP_VERSION_NOT_SUPPORTED  11
 
 #define HTTP_VERSION_0s9                 0
-#define HTTP_VERSION_1                   0
-#define HTTP_VERSION_1s1                 0
-#define HTTP_VERSION_2                   0
-#define HTTP_VERSION_3                   0
+#define HTTP_VERSION_1                   1
+#define HTTP_VERSION_1s1                 2
+#define HTTP_VERSION_2                   3
+#define HTTP_VERSION_3                   4
 
 #define BREAKLINE                        "\n"
 #define DIVISOR                          "\n\n"
@@ -73,12 +75,15 @@ typedef struct httpRequest {
     char httpVersion[MAX_HTTP_VERSION_NAME];
 
     char body[MAX_HTTP_BODY_SIZE];
-    void * timer;
 
     HttpMethod method;
     HttpResponseCode response;
     HttpListHeaders headers;
 } HttpRequest;
+
+extern const char HTTP_VERSIONS[][MAX_HTTP_VERSION_NAME];
+extern const HttpResponseCode httpResponseCode[];
+extern const HttpHeaders httpHeaders[];
 
 /**
  * Converts a HttpRequest object into a String
@@ -94,7 +99,7 @@ String stringifyRequest(HttpRequest * request);
  * @param HttpRequest * request
  * @return String filename
  */
-HttpRequest * extractRequest(String httpMessage);
+bool extractRequest(HttpRequest * request, String httpMessage);
 
 /**
  * Create new HttpHeader list

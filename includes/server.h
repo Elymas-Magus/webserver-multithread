@@ -12,10 +12,13 @@
 #include "server_def.h"
 #include "socket_validation.h"
 #include "utils.h"
+#include "type_aliases.h"
+#include "throwable.h"
 
-#define BUFFER_SIZE 4096
+#define SERVER_BACKLOG          1
 
-#define SERVER_BACKLOG 1
+#define BUFFER_SIZE             4096
+#define LOG_CONTEXT_FILENAME    "logs/socket_context.log"
 
 /**
  * Create server object
@@ -28,6 +31,17 @@ Server * createServer(ServerConfig * config);
  * @return int sockfd
  */
 int getServerSocket();
+
+/**
+ * Reset last serverSocket context
+ * @return int sockfd
+ */
+int getServerSocketContext();
+
+/**
+ * Save serverSocket context
+ */
+void saveSocketContext(int serverSocket);
 
 /**
  * Create struct sockaddr_in instance
@@ -56,6 +70,6 @@ int initListen(int serverSocket);
  * @param struct sockaddr_in serverAddr
  * @return int status
  */
-int bindServerAddr(int serverSocket, SA_IN serverAddr);
+int bindServerAddr(int * serverSocket, SA_IN serverAddr);
 
 #endif // SERVER_H_INCLUDED

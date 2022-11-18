@@ -7,6 +7,6 @@
 
 #include "type_aliases.h"
 
-#define MAX_PATH_LENGTH 128
+#define MAX_PATH_LENGTH         128
 
 #endif // SERVER_CONFIG_H_INCLUDED

@@ -24,15 +24,9 @@ const HttpResponseCode httpResponseCode[] = {
 };
 
 const HttpHeaders httpHeaders[] = {
-    {"Access-Control-Allow-Origin", "*"},
     {"Content-Type", "text/html; charset=utf-8"},
     {"Content-Length", ""},
     {"Keep-Alive", "timeout, max=999"},
-    {"Last-Modified", ""},
-    {"Server", ""},
-    {"Set-Cookie", "csrftoken="},
-    {"Date", ""},
-    {"X-Cache-Info", "caching"},
 };
 
 String
@@ -42,60 +36,72 @@ stringifyRequest(HttpRequest * request)
         return NULL;
     }
 
-    // HttpHeaders * header;
+    HttpHeaders * header;
     String httpMessage = (String) malloc(MAX_HTTP_MESSAGE_LENGTH);
-    // HttpResponseCode response = request->response;
-    // Node * no;
+    HttpResponseCode response = request->response;
 
-    // sprintf(httpMessage, "%s %s %s\n", request->httpVersion, response.state, response.code);
-    // for (no = request->headers->first; no; no = no->next) {
-    //     header = (HttpHeaders *) no->content;
-    //     sprintf(httpMessage, "%s%s: %s\n", httpMessage, header->key, header->value);
-    // }
-    // sprintf(httpMessage, "%s\n%s\n", httpMessage, request->body);
+    snprintf(httpMessage, MAX_HTTP_MESSAGE_LENGTH, "%s %s %s\n", request->httpVersion, response.state, response.code);
+    for (Node * no = request->headers->first; no; no = no->next) {
+        header = (HttpHeaders *) no->content;
+        snprintf(&httpMessage[strlen(httpMessage)], MAX_HTTP_MESSAGE_LENGTH, "%s: %s\n", header->key, header->value);
+    }
+    snprintf(&httpMessage[strlen(httpMessage)], MAX_HTTP_MESSAGE_LENGTH, "\n%s\n", request->body);
 
     return httpMessage;
 }
 
-HttpRequest *
-extractRequest(String httpMessage)
+bool
+extractRequest(HttpRequest * request, String httpMessage)
 {
-    if (httpMessage == NULL) {
-        return NULL;
+    if (httpMessage == NULL || request == NULL) {
+        return false;
     }
     
     int i;
     HttpHeaders * header = (HttpHeaders *) malloc(sizeof(HttpHeaders));
-    HttpRequest * request = (HttpRequest *) malloc(sizeof(HttpRequest));
     String startLine = (String) malloc(MAX_HTTP_MESSAGE_LINE);
     String headers = (String) malloc(MAX_HTTP_HEADER_SIZE);
-    String body = (String) malloc(MAX_HTTP_BODY_SIZE);
+    String body;
     String line;
 
     request->headers = newRequestHeaders();
-    for (i = 0; httpMessage[i] || httpMessage[i] != '\n'; i++) {
+    for (i = 0; httpMessage[i] != '\n'; i++) {
         startLine[i] = httpMessage[i];
     }
     startLine[i] = 0;
+
     sscanf(startLine, "%s %s %s", request->method.name, request->path, request->httpVersion);
 
-    body = strstr(httpMessage, DIVISOR);
-    strncpy(headers, httpMessage, strlen(httpMessage) - strlen(body));
-    strcpy(request->body, body + 2);
-
-    line = strtok(headers, BREAKLINE);
-
-    sscanf(line, HEADER_LINE_MODEL, header->key, header->value);
-    initHeader(request, header);
-
-    for (line = strtok(NULL, BREAKLINE); line; line = strtok(NULL, BREAKLINE)) {
-        header = (HttpHeaders *) malloc(sizeof(HttpHeaders));
-
-        sscanf(line, HEADER_LINE_MODEL, header->key, header->value);
-        insertHeader(request, header);        
+    if (strcmp(request->path, "/") == 0) {
+        strcpy(request->path, "/index.html");
     }
 
-    return request;
+    httpMessage = strlen(startLine) + httpMessage;
+    body = strstr(httpMessage, DIVISOR);
+
+    if (body == NULL) {  
+        strncpy(headers, httpMessage, strlen(httpMessage) - 1);
+        strcpy(request->body, "");
+    } else {
+        strncpy(headers, httpMessage, strlen(httpMessage) - strlen(body) - 1);
+        strcpy(request->body, body + 2);
+    }
+
+    line = strtok(headers, BREAKLINE);
+    sscanf(line, HEADER_LINE_MODEL, header->key, header->value);
+
+    if (initHeader(request, header) == false) {
+        WARNING("Error inserting header to the HttpListHeaders\n");
+    }
+
+    for (line = strtok(NULL, BREAKLINE); line && line[0]; line = strtok(NULL, BREAKLINE)) {
+        sscanf(line, HEADER_LINE_MODEL, header->key, header->value);
+        if (insertHeader(request, header) == false) {
+            WARNING("Error inserting header to the HttpListHeaders\n");
+        }
+    }
+
+    return true;
 }
 
 HttpListHeaders
@@ -111,6 +117,22 @@ isEndOfHttpHeaders(String httpMessage, int index)
 }
 
 bool
+setHeader(HttpRequest * request, String key, String value)
+{
+    if (request == NULL) {
+        return false;
+    }
+
+    HttpHeaders * header = (HttpHeaders *) malloc(sizeof(HttpHeaders));
+    request->headers = arrayInit();
+    strcpy(header->key, key);
+    strcpy(header->value, value);
+    arrayPush(request->headers, (void **) header, sizeof(HttpHeaders));
+
+    return true;
+}
+
+bool
 addHeader(HttpRequest * request, String key, String value)
 {
     if (request == NULL || request->headers == NULL) {
@@ -118,6 +140,8 @@ addHeader(HttpRequest * request, String key, String value)
     }
 
     HttpHeaders * header = (HttpHeaders *) malloc(sizeof(HttpHeaders));
+    strcpy(header->key, key);
+    strcpy(header->value, value);
     arrayPush(request->headers, (void **) header, sizeof(HttpHeaders));
 
     return true;
@@ -148,26 +172,21 @@ initHeader(HttpRequest * request, HttpHeaders * header)
     return true;
 }
 
-bool
-setHeader(HttpRequest * request, String key, String value)
+void
+setResponse(HttpRequest * request, HttpResponseCode httpResponseCode)
 {
-    if (request == NULL || request->headers == NULL) {
-        return false;
-    }
-
-    HttpHeaders * header = (HttpHeaders *) malloc(sizeof(HttpHeaders));
-    request->headers = arrayInit();
-    arrayPush(request->headers, (void **) header, sizeof(HttpHeaders));
-
-    return true;
+    request->response = httpResponseCode;
 }
 
 void
 sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket)
 {
-    String httpMessage = stringifyRequest(request);
+    String httpMessage;
 
-    request->response = httpResponseCode[httpResponseIndex];
+    setResponse(request, httpResponseCode[httpResponseIndex]);
+    httpMessage = stringifyRequest(request);
+
+    printf("%s\n", httpMessage);
     write(clientSocket, httpMessage, strlen(httpMessage));
 
     close(clientSocket);

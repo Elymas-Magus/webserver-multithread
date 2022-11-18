@@ -21,7 +21,7 @@ void
 makeMutex(Threadpool * pool)
 {
     if (pthread_mutex_init(&(pool->mutex), NULL) != 0) {
-        fprintf(stderr, "Error in mutex initializer");
+        WARNING("Error in mutex initializer\n");
         exit(1);
     }
 }
@@ -30,7 +30,7 @@ void
 makeCond(Threadpool * pool)
 {
     if (pthread_cond_init(&(pool->cond), NULL)) {
-        fprintf(stderr, "Error in cond initializer");
+        WARNING("Error in cond initializer\n");
         exit(1);
     }
 }
@@ -41,7 +41,7 @@ makeThreads(Threadpool * pool, u_int threadNumber)
     pool->threads = (pthread_t *) malloc(threadNumber * sizeof(pthread_t));
 
     if (pool->threads == NULL) {
-        fprintf(stderr, "Threads couldn't be instantiated");
+        WARNING("Threads couldn't be instantiated\n");
         exit(1);
     }
 
@@ -60,7 +60,7 @@ makeTask(Threadpool * pool)
     pool->tasks = (ThreadTask *) malloc(sizeof(ThreadTask));
 
     if (pool->tasks == NULL) {
-        fprintf(stderr, "Tasks couldn't be instantiated");
+        WARNING("Tasks couldn't be instantiated\n");
         exit(1);
     }
 }
@@ -107,7 +107,7 @@ initThreadpools(Threadpool * pool)
 
     for (int i = 0; i < pool->length; i++) {
         if (pthread_create(&threads[i], NULL, tasks->func, (void *) tasks->args) != 0) {
-            fprintf(stderr, "Thread couldn't be created");
+            WARNING("Thread couldn't be created\n");
             if (selfDestroy(pool) == ERROR_CODE) {
                 exit(1);
             }

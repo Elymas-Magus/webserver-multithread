@@ -5,14 +5,22 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <time.h>
 
+#include "timer.h"
 #include "server_def.h"
 #include "socket_validation.h"
 #include "utils.h"
 #include "request.h"
+#include "type_aliases.h"
+#include "throwable.h"
 
-#define CONNECTION_BUFFER_SIZE 81920
-#define CONNECTION_PATH_MAX 1000
+#define CONNECTION_BUFFER_SIZE      81920
+#define CONNECTION_PATH_MAX         1000
+#define MAX_CONTENT_LENGTH_STRING   10
+
 
 /**
  * Receive server object and init
@@ -64,6 +72,10 @@ void handleConnection(int clientSocket, Server * server);
 
 /**
  */
-void readConnectionMessage(size_t * bytesRead, int clientSocket, char * message, int * messageSize);
+String readConnectionMessage(int clientSocket);
+
+void logConnectionStart(int clientSocket, String currTime);
+
+void logConnectionEnd(int clientSocket, String currTime, float duration);
 
 #endif // CONNECTION_H_INCLUDED

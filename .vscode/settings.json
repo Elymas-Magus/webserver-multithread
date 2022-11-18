@@ -40,6 +40,15 @@
         "request_def.h": "c",
         "throwable.h": "c",
         "setjmp.h": "c",
-        "setjmp2.h": "c"
+        "setjmp2.h": "c",
+        "array": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "utility": "c",
+        "compare": "c",
+        "functional": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "throws.h": "c"
     }
 }
