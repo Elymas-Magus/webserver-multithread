@@ -109,8 +109,8 @@ threadConnectionHandler(void * arg)
 
         handleConnection(*((int *) clientSocket), server);
         mutexUnlock(&server->pools->mutex);
-        free(clientSocket);
     }
+    free(clientSocket);
     mutexUnlock(&server->pools->mutex);
     pthread_exit(NULL);
 
