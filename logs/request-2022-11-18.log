@@ -1,0 +1,1 @@
+MESSAGE: ERROR: Error to get file's absolute path; LINE: 173; FUNCTION: handleConnection; FILENAME: src/connection.c

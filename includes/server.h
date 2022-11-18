@@ -70,6 +70,6 @@ int initListen(int serverSocket);
  * @param struct sockaddr_in serverAddr
  * @return int status
  */
-int bindServerAddr(int * serverSocket, SA_IN serverAddr);
+int bindServerAddr(int serverSocket, SA_IN serverAddr);
 
 #endif // SERVER_H_INCLUDED

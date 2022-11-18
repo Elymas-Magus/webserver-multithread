@@ -29,27 +29,6 @@ const HttpHeaders httpHeaders[] = {
     {"Keep-Alive", "timeout, max=999"},
 };
 
-String
-stringifyRequest(HttpRequest * request)
-{
-    if (request == NULL) {
-        return NULL;
-    }
-
-    HttpHeaders * header;
-    String httpMessage = (String) malloc(MAX_HTTP_MESSAGE_LENGTH);
-    HttpResponseCode response = request->response;
-
-    snprintf(httpMessage, MAX_HTTP_MESSAGE_LENGTH, "%s %s %s\n", request->httpVersion, response.state, response.code);
-    for (Node * no = request->headers->first; no; no = no->next) {
-        header = (HttpHeaders *) no->content;
-        snprintf(&httpMessage[strlen(httpMessage)], MAX_HTTP_MESSAGE_LENGTH, "%s: %s\n", header->key, header->value);
-    }
-    snprintf(&httpMessage[strlen(httpMessage)], MAX_HTTP_MESSAGE_LENGTH, "\n%s\n", request->body);
-
-    return httpMessage;
-}
-
 bool
 extractRequest(HttpRequest * request, String httpMessage)
 {
@@ -181,13 +160,20 @@ setResponse(HttpRequest * request, HttpResponseCode httpResponseCode)
 void
 sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket)
 {
-    String httpMessage;
+    HttpHeaders * header;
+    String httpLine = (String) malloc(MAX_HTTP_HEADER_LINE);
+    HttpResponseCode response = httpResponseCode[httpResponseIndex];
 
-    setResponse(request, httpResponseCode[httpResponseIndex]);
-    httpMessage = stringifyRequest(request);
-
-    printf("%s\n", httpMessage);
-    write(clientSocket, httpMessage, strlen(httpMessage));
+    setResponse(request, response);
+    sprintf(httpLine, "%s %s %s\n", request->httpVersion, response.state, response.code);
+    write(clientSocket, httpLine, strlen(httpLine));
+    for (Node * no = request->headers->first; no; no = no->next) {
+        header = (HttpHeaders *) no->content;
+        sprintf(httpLine, "%s: %s\n", header->key, header->value);
+        write(clientSocket, httpLine, strlen(httpLine));
+    }
+    sprintf(httpLine, "\n%s\n", request->body);
+    write(clientSocket, httpLine, strlen(httpLine));
 
     close(clientSocket);
 }

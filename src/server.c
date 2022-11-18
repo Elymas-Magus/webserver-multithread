@@ -91,7 +91,7 @@ getServerAddr(u_int port)
 int
 initServer(Server * server)
 {
-    bindServerAddr(&server->socket, server->address);
+    bindServerAddr(server->socket, server->address);
     return initListen(server->socket);
 }
 
@@ -102,21 +102,7 @@ initListen(int serverSocket)
 }
 
 int
-bindServerAddr(int * serverSocket, SA_IN serverAddr)
+bindServerAddr(int serverSocket, SA_IN serverAddr)
 {
-    int bindStatus, socket = (* serverSocket);
-    if ((bindStatus = bind(socket, (SA *) &serverAddr, sizeof(serverAddr)) == SOCKET_ERROR)) {
-        if ((socket = getServerSocketContext()) == SOCKET_ERROR) {
-            bindStatus = SOCKET_ERROR;
-        } else {
-            (* serverSocket) = socket;
-            bindStatus = setsockopt(socket, SOL_SOCKET, SO_REUSEADDR, &(int){1}, sizeof(int));
-        }
-    }
-    
-    if (bindStatus != SOCKET_ERROR) {
-        saveSocketContext(socket);
-    }
-
-    return check(bindStatus, "Bind Failed");
+    return check(bind(serverSocket, (SA *) &serverAddr, sizeof(serverAddr)), "Bind Failed");
 }

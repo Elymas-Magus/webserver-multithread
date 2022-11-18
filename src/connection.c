@@ -151,6 +151,7 @@ handleConnection(int clientSocket, Server * server)
     check(bytesRead, "recv error");
     buffer[messageSize - 1] = 0;
 
+    printf("%s\n", buffer);
     TRY {
         if (extractRequest(request, buffer) == false) {
             THROW(INTERNAL_ERROR);
@@ -196,7 +197,8 @@ handleConnection(int clientSocket, Server * server)
         //     printf("%s: %s\n", ((HttpHeaders *) no->content)->key, ((HttpHeaders *) no->content)->value);
         // }
         // printf("\n%s\n\n", response->body);
-
+        
+        printf("cheguei ao fim\n");
         messageCode = HTTP_OK;
         
     } CATCH (INTERNAL_ERROR) {
@@ -208,12 +210,15 @@ handleConnection(int clientSocket, Server * server)
     } CATCH (FILE_READING_ERROR) {
         WARNING("%s; PATH: %s\n", getCurrentThrowableMessage(), path);
     } FINALLY {
+        printf("finally 1\n");
         clock_gettime(CLOCK_REALTIME, &end);
 
-        mutexLock(&server->pools->mutex);
-        logConnectionEnd(clientSocket, getCurrentTime(), time_diff(&start, &end));
-        mutexUnlock(&server->pools->mutex);
+        printf("finally 2\n");
+        // mutexLock(&server->pools->mutex);
+        // logConnectionEnd(clientSocket, getCurrentTime(), time_diff(&start, &end));
+        // mutexUnlock(&server->pools->mutex);
 
+        printf("finally 3\n");
         sendResponse(response, messageCode, clientSocket);
 
         printf("\n----- closing connection -----\n");

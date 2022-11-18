@@ -19,6 +19,7 @@
 #define MAX_HEADER_KEY_LEN               255
 #define MAX_HEADER_VALUE_LEN             255
 
+#define MAX_HTTP_HEADER_LINE             8192
 #define MAX_HTTP_HEADER_SIZE             40960
 #define MAX_HTTP_BODY_SIZE               40960
 #define MAX_HTTP_MESSAGE_LENGTH          81920
@@ -84,14 +85,6 @@ typedef struct httpRequest {
 extern const char HTTP_VERSIONS[][MAX_HTTP_VERSION_NAME];
 extern const HttpResponseCode httpResponseCode[];
 extern const HttpHeaders httpHeaders[];
-
-/**
- * Converts a HttpRequest object into a String
- * Mount the Http message for send to the client 
- * @param HttpRequest * request
- * @return String filename
- */
-String stringifyRequest(HttpRequest * request);
 
 /**
  * Converts a String into a HttpRequest object
