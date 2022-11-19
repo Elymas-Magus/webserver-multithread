@@ -4,7 +4,7 @@ String
 fileGetContent(String filename)
 {
     if (filename == NULL) {
-        fprintf(stderr, "Filename is required");
+        WARNING("Filename is required\n");
         return NULL;
     }
 
@@ -15,7 +15,7 @@ fileGetContent(String filename)
     FILE * file = fopen(filename, "r");
 
     if (file == NULL) {
-        fprintf(stderr, "File couldn't be opened. Filename %s", filename);
+        WARNING("File couldn't be opened. Filename %s\n", filename);
     }
 
     for (i = 0; (character = fgetc(file)) != EOF; i++) {
@@ -30,11 +30,11 @@ void
 substring(String str, u_int start, u_int end, String buffer)
 {
     if (str == NULL) {
-        fprintf(stderr, "String is required");
+        WARNING("String is required\n");
         return;
     }
     if (buffer == NULL) {
-        fprintf(stderr, "Buffer reference is required");
+        WARNING("Buffer reference is required\n");
         return;
     }
 
@@ -54,7 +54,7 @@ getServerConfigFromConfigFile(String filename)
     config->threadMax = 0;
 
     if (readConfigFile(filename, config) == CONFIG_ERROR) {
-        fprintf(stderr, "The object couldn't be made by this config file. Filename %s", filename);
+        WARNING("The object couldn't be made by this config file. Filename %s\n", filename);
         exit(1);
     }
 
@@ -65,11 +65,11 @@ int
 readConfigFile(String filename, ServerConfig * config)
 {
     if (filename == NULL) {
-        fprintf(stderr, "Filename is required");
+        WARNING("Filename is required\n");
         return CONFIG_ERROR;
     }
     if (config == NULL) {
-        fprintf(stderr, "ServerConfig reference is required");
+        WARNING("ServerConfig reference is required\n");
         return CONFIG_ERROR;
     }
 
@@ -78,7 +78,7 @@ readConfigFile(String filename, ServerConfig * config)
     FILE * file = fopen(filename, "r");
 
     if (file == NULL) {
-        fprintf(stderr, "File couldn't be opened. Filename %s", filename);
+        WARNING("File couldn't be opened. Filename %s\n", filename);
     }
 
     while (fscanf(file, CONFIG_LINE_MODEL, key, value) != EOF) {

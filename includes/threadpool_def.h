@@ -5,11 +5,20 @@
 #include "queue.h"
 #include "type_aliases.h"
 
-#define MAX_PATH_LENGTH 128
+#define MAX_PATH_LENGTH             128
+#define MAX_LOG_FILENAME            128
+
+typedef struct threadArg {
+    u_int threadId;
+    u_int connectionId;
+    void * content;
+    struct tm * start;
+    char logFilename[MAX_LOG_FILENAME];
+} ThreadArg;
 
 typedef struct threadTask {
+    ThreadArg * args;
     void * (* func)(void *);
-    void * args;
     struct threadTask * next;
 } ThreadTask;
 

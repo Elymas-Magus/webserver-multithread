@@ -7,8 +7,8 @@
 #include <string.h>
 #include "list_def.h"
 
-#define INDEX_ERROR -1
-
+#define INDEX_ERROR         -1
+#define FOREACH(NO, LIST)   for ((NO) = LIST->first; (NO); (NO) = NO->next)
 
 /**
  * Create pointer for list (ArrayList)

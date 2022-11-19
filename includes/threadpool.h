@@ -6,12 +6,14 @@
 #include <stdbool.h>
 #include <unistd.h>
 #include <stdint.h>
+
 #include "socket_validation.h" 
 #include "type_aliases.h" 
 #include "threadpool_def.h"
+#include "server_def.h" 
 
-#define ERROR_CODE -1
-#define SUCCESS_CODE 1
+#define ERROR_CODE              -1
+#define SUCCESS_CODE             1
 
 /**
  * @param u_int threadNumber
@@ -30,13 +32,13 @@ void makeThreads(Threadpool * pool, u_int threadNumber);
  * @param Threadpool * pool
  * @return void
  */
-void makeTask(Threadpool * pool);
+void makeTask(Threadpool * pool, u_int threadNumber);
 
 /**
  * @param void * poolTmp
  * @return void
  */
-void initThreadpools(Threadpool * pool);
+void initThreadpools(Threadpool * pool, Server * server);
 
 /**
  * @param Threadpool * pool

@@ -3,11 +3,11 @@
 
 #include <arpa/inet.h>
 #include "type_aliases.h" 
-#include "threadpool.h"
+#include "threadpool_def.h"
 #include "queue.h"
 
-#define MAX_SERVER_NAME 100
-#define MAX_PATH_LENGTH 128
+#define MAX_SERVER_NAME         100
+#define MAX_PATH_LENGTH         128
 
 typedef struct server {
     char name[MAX_SERVER_NAME];
@@ -16,7 +16,7 @@ typedef struct server {
     u_int port;
     SA_IN address;
     Threadpool * pools;
-    void (* initPools)(Threadpool *);
+    void (* initPools)(Threadpool *, struct server *);
 } Server;
 
 #endif // SERVER_DEF_H_INCLUDED

@@ -5,14 +5,23 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <time.h>
 
+#include "timer.h"
 #include "server_def.h"
 #include "socket_validation.h"
-#include "request.h"
 #include "utils.h"
+#include "request.h"
+#include "type_aliases.h"
+#include "throwable.h"
+#include "uri.h"
 
-#define CONNECTION_BUFFER_SIZE 81920
-#define CONNECTION_PATH_MAX 1000
+#define CONNECTION_BUFFER_SIZE      81920
+#define CONNECTION_PATH_MAX         1000
+#define MAX_CONTENT_LENGTH_STRING   10
+
 
 /**
  * Receive server object and init
@@ -60,10 +69,25 @@ void * threadConnectionHandler(void * arg);
  * @param Server * server
  * @return void
  */
-void handleConnection(int clientSocket, Server * server);
+void handleConnection(ThreadArg * args, int clientSocket, Server * server);
 
 /**
+ * Register connection start data in log file for debug
+ * @param ThreadArg * argsdebug
+ * @param int clientSocket
+ * @param String currTime
  */
-void readConnectionMessage(size_t * bytesRead, int clientSocket, char * message, int * messageSize);
+void logConnectionStart(ThreadArg * args, int clientSocket, String currTime);
+
+/**
+ * Register connection start data in log file for debug
+ * @param ThreadArg * argsdebug
+ * @param int clientSocket
+ * @param String currTime
+ * @param float duration
+ * @param String path
+ * @param bool error
+ */
+void logConnectionEnd(ThreadArg * args, int clientSocket, String currTime, float duration, String path, bool error);
 
 #endif // CONNECTION_H_INCLUDED

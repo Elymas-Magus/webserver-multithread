@@ -7,26 +7,26 @@
 
 #include "type_aliases.h"
 
-#define CONFIG_SUCCESS 0
-#define CONFIG_ERROR -1
+#define CONFIG_SUCCESS              0
+#define CONFIG_ERROR                -1
 
-#define MAX_PATH_LENGTH 128
-#define MAX_FILE_LENGTH 8192
-#define MAX_KEY_LENGTH 50
-#define MAX_VALUE_LENGTH 255
-#define BUFFER_LENGTH 8192
-#define CONFIG_LINE_MODEL "%[^=]=%[^;]; "
+#define MAX_PATH_LENGTH             128
+#define MAX_FILE_LENGTH             8192
+#define MAX_KEY_LENGTH              50
+#define MAX_VALUE_LENGTH            255
+#define BUFFER_LENGTH               8192
+#define CONFIG_LINE_MODEL           "%[^=]=%[^;]; "
 
-#define CONFIG_ROOT_PATH "root"
-#define CONFIG_PORT "port"
-#define CONFIG_THREAD_MAX "threadMax"
+#define CONFIG_ROOT_PATH            "root"
+#define CONFIG_PORT                 "port"
+#define CONFIG_THREAD_MAX           "threadMax"
 
-#define CONFIG_ROOT_PATH_LENGTH 4
-#define CONFIG_PORT_LENGTH 4
-#define CONFIG_THREAD_MAX_LENGTH 9
+#define CONFIG_ROOT_PATH_LENGTH     4
+#define CONFIG_PORT_LENGTH          4
+#define CONFIG_THREAD_MAX_LENGTH    9
 
-#define SERVER_PORT 8090
-#define THREAD_MAX_DEFAULT 4
+#define SERVER_PORT                 8090
+#define THREAD_MAX_DEFAULT          4
 
 typedef struct serverConfig {
     char root[MAX_PATH_LENGTH];

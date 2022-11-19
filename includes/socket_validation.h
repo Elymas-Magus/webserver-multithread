@@ -4,7 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SOCKET_ERROR -1
+#include "type_aliases.h"
+
+#define SOCKET_ERROR            -1
 
 /**
  * Receive an integer from <sys/socket.h> functions

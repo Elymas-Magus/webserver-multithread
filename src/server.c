@@ -17,9 +17,63 @@ createServer(ServerConfig * config)
 }
 
 int
+getServerSocketContext()
+{
+    int nmemb = 1;
+    int serverSocket, socket = SOCKET_ERROR;
+    FILE * file = fopen(LOG_CONTEXT_FILENAME, "r");
+
+    TRY {
+        if (file == NULL) {
+            THROW(OPENING_FILE_ERROR);
+        }
+        if (fread(&serverSocket, sizeof(int), nmemb, file) != nmemb) {
+            THROW(FILE_READING_ERROR);
+        }
+        printf("Last Socket: %d\n", serverSocket);
+        fclose(file);
+        close(serverSocket);
+
+        socket = serverSocket;
+    } CATCH (FILE_READING_ERROR) {
+        WARNING("%s\n", getCurrentThrowableMessage());
+    } CATCH (OPENING_FILE_ERROR) {
+        WARNING("%s\n", getCurrentThrowableMessage());
+    } FINALLY {
+        return socket;
+    }
+}
+
+void
+saveSocketContext(int serverSocket)
+{
+    int nmemb = 1;
+    FILE * file = fopen(LOG_CONTEXT_FILENAME, "w");
+
+    TRY {
+        if (file == NULL) {
+            THROW(OPENING_FILE_ERROR);
+        }
+        if (fwrite(&serverSocket, sizeof(int), nmemb, file) != nmemb) {
+            THROW(FILE_INSERTION_ERROR);
+        }
+        fclose(file);
+    } CATCH (FILE_INSERTION_ERROR) {
+        WARNING("%s\n", getCurrentThrowableMessage());
+    } CATCH (OPENING_FILE_ERROR) {
+        WARNING("%s\n", getCurrentThrowableMessage());
+    }
+}
+
+int
 getServerSocket()
 {
-    return check(socket(AF_INET, SOCK_STREAM, 0), "Failed to create socket");
+    int serverSocket = check(
+        socket(AF_INET, SOCK_STREAM, 0),
+        "Failed to create socket"
+    );
+
+    return serverSocket;
 }
 
 SA_IN

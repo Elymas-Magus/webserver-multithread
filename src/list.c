@@ -19,7 +19,7 @@ void
 arrayPush(ArrayList l, void ** o, size_t osize)
 {
     Node * no = (Node *) malloc (sizeof(Node));
-    no->content = (void **) malloc(sizeof(void *));
+    no->content = (void **) malloc(osize);
 
     memcpy(no->content, o, osize);
     no->prev = NULL;
@@ -40,7 +40,7 @@ void
 arrayUnshift(ArrayList l, void ** o, size_t osize)
 {
     Node * no = (Node *) malloc (sizeof(Node));
-    no->content = (void **) malloc(sizeof(void *));
+    no->content = (void **) malloc(osize);
 
     memcpy(no->content, o, osize);
     no->prev = NULL;
@@ -92,7 +92,7 @@ arrayPop(ArrayList l)
     void ** content = (void **) malloc(sizeof(void *));
     Node * last = l->last;
 
-    if (l->last == NULL) {
+    if (l->last == NULL || l->length == 0) {
         return NULL;
     }
 

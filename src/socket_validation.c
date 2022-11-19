@@ -4,7 +4,7 @@ int
 check(int exp, const char message[])
 {
     if (exp == SOCKET_ERROR) {
-        fprintf(stderr, "%s", message);
+        LOG_WARNING("%s\n", message);
         perror(message);
         exit(1);
     }

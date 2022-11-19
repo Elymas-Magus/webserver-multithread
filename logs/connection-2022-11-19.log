@@ -1,0 +1,54 @@
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 15:35:20 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 15:41:41 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 15:45:22 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 15:46:33 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 15:50:35 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 15:51:40 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 15:57:05 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 15:58:08 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 15:59:13 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Path: /home/dev1/Programas/SD/App/index.html
+ End: Sat Nov 19 15:59:13 2022; Duration: 0.00000000; Status: 0
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Start: Sat Nov 19 15:59:13 2022
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Path: /home/dev1/Programas/SD/App/images/bg2.jpg
+ End: Sat Nov 19 15:59:13 2022; Duration: 0.00000000; Status: 0
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 5; Start: Sat Nov 19 15:59:13 2022
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 5; Path: /home/dev1/Programas/SD/App/favicon.ico
+ End: Sat Nov 19 15:59:13 2022; Duration: 0.00000000; Status: 1
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 16:49:04 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 16:57:16 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 17:00:02 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 17:01:10 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 17:02:23 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Path: /home/dev1/Programas/SD/App/index.html
+ End: Sat Nov 19 17:02:23 2022; Duration: 0.00000000; Status: 0
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Start: Sat Nov 19 17:02:23 2022
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Path: /home/dev1/Programas/SD/App/images/bg2.jpg
+ End: Sat Nov 19 17:02:24 2022; Duration: 1.00000000; Status: 0
+

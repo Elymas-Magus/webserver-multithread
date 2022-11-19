@@ -1,7 +1,7 @@
 #include "includes/server.h"
 #include "includes/connection.h"
 
-#define DEFAUL_FILE_CONFIG "./src/server.conf"
+#define DEFAUL_FILE_CONFIG "./server.conf"
 
 void logServerConfis(Server * server);
 
