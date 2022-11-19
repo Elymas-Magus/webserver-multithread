@@ -16,6 +16,7 @@
 #include "request.h"
 #include "type_aliases.h"
 #include "throwable.h"
+#include "uri.h"
 
 #define CONNECTION_BUFFER_SIZE      81920
 #define CONNECTION_PATH_MAX         1000
@@ -68,14 +69,25 @@ void * threadConnectionHandler(void * arg);
  * @param Server * server
  * @return void
  */
-void handleConnection(int clientSocket, Server * server);
+void handleConnection(ThreadArg * args, int clientSocket, Server * server);
 
 /**
+ * Register connection start data in log file for debug
+ * @param ThreadArg * argsdebug
+ * @param int clientSocket
+ * @param String currTime
  */
-String readConnectionMessage(int clientSocket);
+void logConnectionStart(ThreadArg * args, int clientSocket, String currTime);
 
-void logConnectionStart(int clientSocket, String currTime);
-
-void logConnectionEnd(int clientSocket, String currTime, float duration);
+/**
+ * Register connection start data in log file for debug
+ * @param ThreadArg * argsdebug
+ * @param int clientSocket
+ * @param String currTime
+ * @param float duration
+ * @param String path
+ * @param bool error
+ */
+void logConnectionEnd(ThreadArg * args, int clientSocket, String currTime, float duration, String path, bool error);
 
 #endif // CONNECTION_H_INCLUDED

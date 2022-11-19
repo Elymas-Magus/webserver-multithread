@@ -8,79 +8,9 @@
 #include <errno.h>
 #include <unistd.h>
 
-#include "list.h"
+#include "uri.h"
+#include "request_def.h"
 #include "type_aliases.h"
-
-#define MAX_HTTP_MESSAGE_LINE            255
-#define MAX_ROOT_PATH_LEN                100
-#define MAX_METHOD_NAME_LEN              10
-#define MAX_HTTP_VERSION_NAME            10
-
-#define MAX_HEADER_KEY_LEN               255
-#define MAX_HEADER_VALUE_LEN             255
-
-#define MAX_HTTP_HEADER_LINE             8192
-#define MAX_HTTP_HEADER_SIZE             40960
-#define MAX_HTTP_BODY_SIZE               40960
-#define MAX_HTTP_MESSAGE_LENGTH          81920
-
-#define HTTP_HEADER_CONTENT_TYPE         0
-
-#define HTTP_UNKNOWN                     0x0001
-#define HTTP_GET                         0x0002
-#define HTTP_HEAD                        0x0004
-#define HTTP_POST                        0x0008
-
-#define HTTP_NOT_MODIFIED                1
-#define HTTP_OK                          0
-#define HTTP_BAD_REQUEST                 2
-#define HTTP_UNAUTHORIZED                3
-#define HTTP_FORBIDDEN                   4
-#define HTTP_NOT_FOUND                   5
-#define HTTP_METHOD_NOT_ALLOWED          6
-#define HTTP_INTERNAL SERVER ERROR       7
-#define HTTP_NOT_IMPLEMENTED             8
-#define HTTP_BAD_GATEWAY                 9
-#define HTTP_GATEWAY_TIMEOUT             10
-#define HTTP_HTTP_VERSION_NOT_SUPPORTED  11
-
-#define HTTP_VERSION_0s9                 0
-#define HTTP_VERSION_1                   1
-#define HTTP_VERSION_1s1                 2
-#define HTTP_VERSION_2                   3
-#define HTTP_VERSION_3                   4
-
-#define BREAKLINE                        "\n"
-#define DIVISOR                          "\n\n"
-#define HEADER_LINE_MODEL                "%[^:]: %[^\n] "
-
-typedef ArrayList HttpListHeaders;
-
-typedef struct httpMethod {
-    int index;
-    char name[MAX_METHOD_NAME_LEN];
-} HttpMethod;
-
-typedef struct httpHeader {
-    char key[MAX_HEADER_KEY_LEN];
-    char value[MAX_HEADER_VALUE_LEN];
-} HttpHeaders;
-
-typedef struct httpResponseCode {
-    char code[MAX_HEADER_KEY_LEN];
-    char state[MAX_HEADER_VALUE_LEN];
-} HttpResponseCode;
-
-typedef struct httpRequest {
-    char path[MAX_ROOT_PATH_LEN];
-    char httpVersion[MAX_HTTP_VERSION_NAME];
-
-    char body[MAX_HTTP_BODY_SIZE];
-
-    HttpMethod method;
-    HttpResponseCode response;
-    HttpListHeaders headers;
-} HttpRequest;
 
 extern const char HTTP_VERSIONS[][MAX_HTTP_VERSION_NAME];
 extern const HttpResponseCode httpResponseCode[];
@@ -92,7 +22,7 @@ extern const HttpHeaders httpHeaders[];
  * @param HttpRequest * request
  * @return String filename
  */
-bool extractRequest(HttpRequest * request, String httpMessage);
+bool extractRequest(HttpRequest * request, String httpMessage, String root);
 
 /**
  * Create new HttpHeader list
@@ -137,6 +67,8 @@ bool insertHeader(HttpRequest * request, HttpHeaders * header);
  */
 bool initHeader(HttpRequest * request, HttpHeaders * header);
 
+/**
+ */
 void sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket);
 
 #endif // REQUEST_H_INCLUDED

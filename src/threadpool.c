@@ -11,7 +11,7 @@ createThreadpool(u_int threadNumber)
     makeMutex(threadpool);
     makeCond(threadpool);
     makeQueue(threadpool);
-    makeTask(threadpool);
+    makeTask(threadpool, threadNumber);
     makeThreads(threadpool, threadNumber);
 
     return threadpool;
@@ -55,9 +55,10 @@ makeQueue(Threadpool * pool)
 }
 
 void
-makeTask(Threadpool * pool)
+makeTask(Threadpool * pool, u_int threadNumber)
 {
     pool->tasks = (ThreadTask *) malloc(sizeof(ThreadTask));
+    pool->tasks->args = (ThreadArg *) malloc(threadNumber * sizeof(ThreadArg));
 
     if (pool->tasks == NULL) {
         WARNING("Tasks couldn't be instantiated\n");
@@ -100,13 +101,17 @@ selfDestroy(Threadpool * pool)
 }
 
 void
-initThreadpools(Threadpool * pool)
+initThreadpools(Threadpool * pool, Server * server)
 {
+    time_t now;
     pthread_t * threads = (pthread_t *) pool->threads;
-    ThreadTask * tasks = (ThreadTask *) pool->tasks;
-
+    
     for (int i = 0; i < pool->length; i++) {
-        if (pthread_create(&threads[i], NULL, tasks->func, (void *) tasks->args) != 0) {
+        pool->tasks->args[i].threadId = i;
+        pool->tasks->args[i].connectionId = 0;
+        pool->tasks->args[i].content = server;
+        pool->tasks->args[i].start = localtime(&now);
+        if (pthread_create(&threads[i], NULL, pool->tasks->func, (void *) &pool->tasks->args[i]) != 0) {
             WARNING("Thread couldn't be created\n");
             if (selfDestroy(pool) == ERROR_CODE) {
                 exit(1);

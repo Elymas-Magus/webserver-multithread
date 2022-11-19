@@ -30,7 +30,7 @@ const HttpHeaders httpHeaders[] = {
 };
 
 bool
-extractRequest(HttpRequest * request, String httpMessage)
+extractRequest(HttpRequest * request, String httpMessage, String root)
 {
     if (httpMessage == NULL || request == NULL) {
         return false;
@@ -51,9 +51,7 @@ extractRequest(HttpRequest * request, String httpMessage)
 
     sscanf(startLine, "%s %s %s", request->method.name, request->path, request->httpVersion);
 
-    if (strcmp(request->path, "/") == 0) {
-        strcpy(request->path, "/index.html");
-    }
+    parseUri(root, request);
 
     httpMessage = strlen(startLine) + httpMessage;
     body = strstr(httpMessage, DIVISOR);
@@ -165,14 +163,17 @@ sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket)
     HttpResponseCode response = httpResponseCode[httpResponseIndex];
 
     setResponse(request, response);
-    sprintf(httpLine, "%s %s %s\n", request->httpVersion, response.state, response.code);
+    sprintf(httpLine, "%s %s %s\n", request->httpVersion, response.code, response.state);
+    printf("%s %s %s\n", request->httpVersion, response.code, response.state);
     write(clientSocket, httpLine, strlen(httpLine));
     for (Node * no = request->headers->first; no; no = no->next) {
         header = (HttpHeaders *) no->content;
         sprintf(httpLine, "%s: %s\n", header->key, header->value);
+        printf("%s: %s\n", header->key, header->value);
         write(clientSocket, httpLine, strlen(httpLine));
     }
     sprintf(httpLine, "\n%s\n", request->body);
+    printf("\n%s\n", request->body);
     write(clientSocket, httpLine, strlen(httpLine));
 
     close(clientSocket);

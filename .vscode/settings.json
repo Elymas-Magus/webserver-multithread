@@ -49,6 +49,7 @@
         "functional": "c",
         "tuple": "c",
         "type_traits": "c",
-        "throws.h": "c"
+        "throws.h": "c",
+        "uri.h": "c"
     }
 }

@@ -6,6 +6,7 @@
 #include <string.h>
 #include <setjmp.h>
 
+#include "timer.h"
 #include "type_aliases.h"
 
 #define EMPTY_ARRAY_ERROR               0

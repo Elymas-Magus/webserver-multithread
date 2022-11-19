@@ -11,8 +11,7 @@ void
 initServerPool(Server * server)
 {
     server->pools->tasks->func = threadConnectionHandler;
-    server->pools->tasks->args = (void *) server;
-    server->initPools(server->pools);
+    server->initPools(server->pools, server);
 }
 
 void
@@ -87,7 +86,8 @@ threadConnectionHandler(void * arg)
     }
 
     void ** clientSocket;
-    Server * server = (Server *) arg;
+    ThreadArg * threadArg = (ThreadArg *) arg;
+    Server * server = (Server *) threadArg->content;
 
     printf("-------------------- Init thread loop ---------------------\n");
     while (true) {
@@ -100,15 +100,20 @@ threadConnectionHandler(void * arg)
             break;
         }
 
+        printf("Dequeue\n");
         clientSocket = server->pools->queue->dequeue(server->pools->queue);
-        printf("Process new request -> %d\n", *((int *) clientSocket));
 
         if (clientSocket == NULL) {
             continue;
         }
 
-        handleConnection(*((int *) clientSocket), server);
+        logConnectionStart(threadArg, *((int *) clientSocket), getCurrentTimeString());
+
+        printf("Handling\n");
+        handleConnection(threadArg, *((int *) clientSocket), server);
         mutexUnlock(&server->pools->mutex);
+
+        threadArg->connectionId++;
     }
     free(clientSocket);
     mutexUnlock(&server->pools->mutex);
@@ -118,8 +123,15 @@ threadConnectionHandler(void * arg)
 }
 
 void
-handleConnection(int clientSocket, Server * server)
+handleConnection(ThreadArg * args, int clientSocket, Server * server)
 {
+    bool error = true;
+
+    time_t * start;
+    time_t * end;
+
+    start = getCurrentTime();
+    
     size_t bytesRead;
 
     int messageCode;
@@ -132,15 +144,12 @@ handleConnection(int clientSocket, Server * server)
 
     struct stat htmlAttr;
 
-    TimeSpec start;
-    TimeSpec end;
+    String contentType = (String) malloc(MAX_CONTENT_TYPE_LEN);
 
     FILE * fp = NULL;
     HttpRequest * request = (HttpRequest *) malloc(sizeof(HttpRequest));
     HttpRequest * response = (HttpRequest *) malloc(sizeof(HttpRequest));
 
-    clock_gettime(CLOCK_REALTIME, &start);
-    logConnectionStart(clientSocket, getCurrentTime());
     while ((bytesRead = read(clientSocket, buffer + messageSize, sizeof(buffer) - messageSize - 1)) > 0) {
         messageSize += bytesRead;
         if (messageSize > MAX_HTTP_MESSAGE_LENGTH - 1 || buffer[messageSize - 1] == '\n') {
@@ -153,13 +162,21 @@ handleConnection(int clientSocket, Server * server)
 
     printf("%s\n", buffer);
     TRY {
-        if (extractRequest(request, buffer) == false) {
+        if (extractRequest(request, buffer, server->root) == false) {
             THROW(INTERNAL_ERROR);
         }
 
-        strcpy(path, server->root);
-        strcat(path, request->path);
+        strcpy(path, request->path);
 
+        printf("\n\nfilename: %s\n", request->filename);
+        printf("mime_type: %s\n", request->mimeType);
+        printf("extension: %s\n", request->extension);
+        printf("path: %s\n", request->path);
+        printf("query: %s\n\n\n", request->query);
+
+        strcpy(contentType, request->mimeType);
+        strcat(contentType, "; charset=utf-8");
+        strcpy(response->mimeType, request->mimeType);
         strcpy(response->httpVersion, HTTP_VERSIONS[HTTP_VERSION_1s1]);
         strcpy(response->body, "");
 
@@ -189,16 +206,10 @@ handleConnection(int clientSocket, Server * server)
         sprintf(contentLength, "%zu", bytesRead);
         addHeader(response, "Accept-Language", "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7");
         addHeader(response, "Last-Modified", getTimeInHttpFormat(&htmlAttr.st_mtime));
-        addHeader(response, "Content-Type", (String) httpHeaders[HTTP_HEADER_CONTENT_TYPE].value);
+        addHeader(response, "Content-Type", contentType);
         addHeader(response, "Content-Length", contentLength);
 
-        // printf("\n%s 200 OK\n", response->httpVersion);
-        // for (Node * no = response->headers->first; no; no = no->next) {
-        //     printf("%s: %s\n", ((HttpHeaders *) no->content)->key, ((HttpHeaders *) no->content)->value);
-        // }
-        // printf("\n%s\n\n", response->body);
-        
-        printf("cheguei ao fim\n");
+        error = false;
         messageCode = HTTP_OK;
         
     } CATCH (INTERNAL_ERROR) {
@@ -210,15 +221,12 @@ handleConnection(int clientSocket, Server * server)
     } CATCH (FILE_READING_ERROR) {
         WARNING("%s; PATH: %s\n", getCurrentThrowableMessage(), path);
     } FINALLY {
-        printf("finally 1\n");
-        clock_gettime(CLOCK_REALTIME, &end);
+        end = getCurrentTime();
 
-        printf("finally 2\n");
         // mutexLock(&server->pools->mutex);
-        // logConnectionEnd(clientSocket, getCurrentTime(), time_diff(&start, &end));
+        logConnectionEnd(args, clientSocket, getCurrentTimeString(), difftime(*end, *start), path, error);
         // mutexUnlock(&server->pools->mutex);
 
-        printf("finally 3\n");
         sendResponse(response, messageCode, clientSocket);
 
         printf("\n----- closing connection -----\n");
@@ -226,13 +234,13 @@ handleConnection(int clientSocket, Server * server)
 }
 
 void
-logConnectionStart(int clientSocket, String currTime)
+logConnectionStart(ThreadArg * args, int clientSocket, String currTime)
 {
-    LOG_CONNECTTION("ClientSocket: %d; Start: %s", clientSocket, currTime);
+    LOG_CONNECTTION(args->logFilename, "CODE: %u - THREAD_ID: %u\nClientSocket: %d; Start: %s", args->connectionId, args->threadId, clientSocket, currTime);
 }
 
 void
-logConnectionEnd(int clientSocket, String currTime, float duration)
+logConnectionEnd(ThreadArg * args, int clientSocket, String currTime, float duration, String path, bool error)
 {
-    LOG_CONNECTTION("ClientSocket: %d; End: %s; Duration: %0.8f\n", clientSocket, currTime, duration);
+    LOG_CONNECTTION_ON_FILE(args->logFilename, "CODE: %u - THREAD_ID: %u\nClientSocket: %d; Path: %s\n End: %s; Duration: %0.8f; Status: %d\n", args->connectionId, args->threadId, clientSocket, path, currTime, duration, error);
 }

@@ -92,7 +92,7 @@ arrayPop(ArrayList l)
     void ** content = (void **) malloc(sizeof(void *));
     Node * last = l->last;
 
-    if (l->last == NULL) {
+    if (l->last == NULL || l->length == 0) {
         return NULL;
     }
 
