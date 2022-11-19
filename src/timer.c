@@ -1,24 +1,17 @@
 #include "timer.h"
 
-float
-time_diff(TimeSpec * start, TimeSpec * end)
-{
-    return (end->tv_sec - start->tv_sec) + 1e-6 * (end->tv_nsec - start->tv_nsec);
-}
-
-time_t *
+time_t
 getCurrentTime()
 {
-    time_t * rawtime = (time_t *) malloc(sizeof(time_t));
-    time(rawtime);
+    time_t rawtime;
+    time(&rawtime);
     return rawtime;
 }
 
 String
 getCurrentTimeString()
 {
-    time_t * rawtime = getCurrentTime();
-    return utcdate(rawtime);
+    return utcdate(getCurrentTime());
 }
 
 String
@@ -78,9 +71,9 @@ getLocalTimeInHttpFormat(const time_t * time)
 }
 
 String
-utcdate(const time_t * timeptr)
+utcdate(const time_t timeptr)
 {
-    struct tm * info = localtime(timeptr);
+    struct tm * info = localtime(&timeptr);
     static char wday_name[7][3] = {
         "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
     };

@@ -5,7 +5,7 @@
 
 /**
  * Create new Queue
- * @return Queue
+ * @returns Queue
  */
 Queue * createQueue();
 
@@ -19,7 +19,7 @@ void enqueue(Queue * queue, void ** content, size_t length);
 /**
  * Remove an element from the array
  * @param Queue * queue
- * @return void **
+ * @returns void **
  */
 void ** dequeue(Queue * queue);
 

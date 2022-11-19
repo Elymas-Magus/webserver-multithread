@@ -10,11 +10,10 @@
 #define CONFIG_SUCCESS              0
 #define CONFIG_ERROR                -1
 
-#define MAX_PATH_LENGTH             128
-#define MAX_FILE_LENGTH             8192
-#define MAX_KEY_LENGTH              50
-#define MAX_VALUE_LENGTH            255
-#define BUFFER_LENGTH               8192
+#define MAX_CONFIG_PATH_LENGTH      128
+#define MAX_CONFIG_FILE_LENGTH      8192
+#define MAX_CONFIG_KEY_LENGTH       50
+#define MAX_CONFIG_VALUE_LENGTH     255
 #define CONFIG_LINE_MODEL           "%[^=]=%[^;]; "
 
 #define CONFIG_ROOT_PATH            "root"
@@ -29,7 +28,7 @@
 #define THREAD_MAX_DEFAULT          4
 
 typedef struct serverConfig {
-    char root[MAX_PATH_LENGTH];
+    char root[MAX_CONFIG_PATH_LENGTH];
     u_int port;
     u_int threadMax;
 } ServerConfig;
@@ -57,7 +56,7 @@ void substring(String str, u_int start, u_int end, String buffer);
  * And populate a ServerConfig object
  * @param String filename
  * @param ServerConfig * config
- * @return int status
+ * @returns int status
  */
 int readConfigFile(String filename, ServerConfig * config);
 
@@ -65,7 +64,7 @@ int readConfigFile(String filename, ServerConfig * config);
  * Receive a filename and instance a serverConfig
  * If initiantion fail, Die
  * @param String filename
- * @return ServerConfig config
+ * @returns ServerConfig config
  */
 ServerConfig * getServerConfigFromConfigFile(String filename);
 

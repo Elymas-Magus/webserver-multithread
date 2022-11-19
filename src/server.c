@@ -106,3 +106,12 @@ bindServerAddr(int serverSocket, SA_IN serverAddr)
 {
     return check(bind(serverSocket, (SA *) &serverAddr, sizeof(serverAddr)), "Bind Failed");
 }
+
+void
+serverDestroy(Server * server)
+{
+    poolDestroy(server->pools);
+    free(server->initPools);
+    free(server);
+
+}

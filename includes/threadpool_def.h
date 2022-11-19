@@ -5,7 +5,6 @@
 #include "queue.h"
 #include "type_aliases.h"
 
-#define MAX_PATH_LENGTH             128
 #define MAX_LOG_FILENAME            128
 
 typedef struct threadArg {

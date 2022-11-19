@@ -66,6 +66,13 @@ makeTask(Threadpool * pool, u_int threadNumber)
     }
 }
 
+void
+taskFree(ThreadTask * tasks)
+{
+    free(tasks->args);
+    free(tasks);
+}
+
 int
 threadpoolFree(Threadpool * pool)
 {
@@ -76,7 +83,7 @@ threadpoolFree(Threadpool * pool)
         free(pool->threads);
     }
     if (pool->tasks) {
-        free(pool->tasks);
+        taskFree(pool->tasks);
     }
     if (pool->queue) {
         queueFree(pool->queue);
@@ -85,10 +92,10 @@ threadpoolFree(Threadpool * pool)
 }
 
 int
-selfDestroy(Threadpool * pool)
+poolDestroy(Threadpool * pool)
 {
-    for(int i = 0; i < pool->length; i++){
-        if(pthread_join(pool->threads[i], NULL) != 0) {
+    for (int i = 0; i < pool->length; i++) {
+        if (pthread_join(pool->threads[i], NULL) != 0) {
             return ERROR_CODE;
         }
     }
@@ -113,7 +120,7 @@ initThreadpools(Threadpool * pool, Server * server)
         pool->tasks->args[i].start = localtime(&now);
         if (pthread_create(&threads[i], NULL, pool->tasks->func, (void *) &pool->tasks->args[i]) != 0) {
             WARNING("Thread couldn't be created\n");
-            if (selfDestroy(pool) == ERROR_CODE) {
+            if (poolDestroy(pool) == ERROR_CODE) {
                 exit(1);
             }
             return;

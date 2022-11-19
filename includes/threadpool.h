@@ -17,45 +17,66 @@
 
 /**
  * @param u_int threadNumber
- * @return Threadpool * pools
+ * @returns Threadpool * pools
  */
 Threadpool * createThreadpool(u_int threadNumber);
 
 /**
  * @param Threadpool * pool
  * @param u_int threadNumber
- * @return void
+ * @returns void
  */
 void makeThreads(Threadpool * pool, u_int threadNumber);
 
 /**
  * @param Threadpool * pool
- * @return void
+ * @returns void
  */
 void makeTask(Threadpool * pool, u_int threadNumber);
 
 /**
  * @param void * poolTmp
- * @return void
+ * @returns void
  */
 void initThreadpools(Threadpool * pool, Server * server);
 
 /**
  * @param Threadpool * pool
- * @return void
+ * @returns void
  */
 void makeMutex(Threadpool * pool);
 
 /**
  * @param Threadpool * pool
- * @return void
+ * @returns void
  */
 void makeCond(Threadpool * pool);
 
 /**
  * @param Threadpool * pool
- * @return void
+ * @returns void
  */
 void makeQueue(Threadpool * pool);
+
+/**
+ * Destroys thread tasks and it's attributes
+ * @param Threadpool * pool
+ * @returns int
+ */
+void taskFree(ThreadTask * tasks);
+
+/**
+ * Destroys thread pool attributes
+ * @param Threadpool * pool
+ * @returns int
+ */
+int threadpoolFree(Threadpool * pool);
+
+/**
+ * Destroys thread pool and it's attributes
+ * @param Threadpool * pool
+ * @returns int
+ */
+int poolDestroy(Threadpool * pool);
 
 #endif // THREADPOOL_H_INCLUDED

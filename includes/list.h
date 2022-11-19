@@ -12,34 +12,34 @@
 
 /**
  * Create pointer for list (ArrayList)
- * @return ArrayList
+ * @returns ArrayList
  */
 ArrayList arrayInit();
 
 /**
  * Inserts an element at the beginning of the array
- * @return ArrayList
+ * @returns ArrayList
  */
 void
 arrayUnshift(ArrayList l, void ** o, size_t osize);
 
 /**
  * Inserts an element at the end of the array
- * @return ArrayList
+ * @returns ArrayList
  */
 void arrayPush(ArrayList l, void ** o, size_t osize);
 
 /**
  * Remove first index of ArrayList
  * And returns the content
- * @return void **
+ * @returns void **
  */
 void ** arrayShift(ArrayList l);
 
 /**
  * Remove last element of ArrayList
  * And return the content
- * @return void **
+ * @returns void **
  */
 void ** arrayPop(ArrayList l);
 
@@ -55,7 +55,7 @@ void arrayExchange(ArrayList l, int posA, int posB);
 
 /**
  * Get nth element content in ArrayList
- * @return void **
+ * @returns void **
  */
 void ** arrayItem(ArrayList l, int n);
 
@@ -63,13 +63,13 @@ void ** arrayItem(ArrayList l, int n);
  * Find element in ArrayList
  * Returns true if the element exists in Array
  * Otherwise returns false
- * @return bool
+ * @returns bool
  */
 bool arrayContain(ArrayList l, void ** needle, int (*compar)(const void ** a, const void ** b));
 
 /**
  * Find element in ArrayList
- * @return void **
+ * @returns void **
  */
 Node * arrayFind(ArrayList l, void ** needle, int (* compar)(const void ** a, const void ** b));
 
@@ -82,46 +82,46 @@ void arraySort(ArrayList l, int (*compar)(const void *, const void *));
  * Find element in ArrayList
  * Returns index if the element exists in Array
  * And -1 if it's not
- * @return int
+ * @returns int
  */
 int arrayIndex(ArrayList l, void ** needle, int (* compar)(const void ** a, const void ** b));
 
 /**
  * Remove the nth element from ArrayList
- * @return bool
+ * @returns bool
  */
 bool arrayRemove(ArrayList l, int n);
 
 /**
  * Get Node of nth element in ArrayList
- * @return Node *
+ * @returns Node *
  */
 Node * arrayNodeByIndex(ArrayList l, int n);
 
 /**
  * Get Node of the first element 
  * Which compar return true
- * @return Node *
+ * @returns Node *
  */
 Node * arrayNode(ArrayList l, void ** o, int (* compar)(const void ** a, const void ** b));
 
 /**
  * Create new ArrayList with the elements
  * which callback returns
- * @return ArrayList
+ * @returns ArrayList
  */
 ArrayList arrayMap(ArrayList l, size_t length, void ** (* callback)(const void **, const int, const ArrayList l));
 
 /**
  * Create new ArrayList with the elements
  * which callback returns true
- * @return ArrayList
+ * @returns ArrayList
  */
 ArrayList arrayFilter(ArrayList l, size_t length, int (* callback)(const void **, const int, const ArrayList l));
 
 /**
  * Accumulate ArrayList content
- * @return void **
+ * @returns void **
  */
 void ** arrayReduce(ArrayList l, void ** (* callback)(void ** accum, const void **, const int, const ArrayList l), void ** init);
 

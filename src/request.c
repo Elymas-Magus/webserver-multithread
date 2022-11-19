@@ -178,3 +178,10 @@ sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket)
 
     close(clientSocket);
 }
+
+void
+requestFree(HttpRequest * request)
+{
+    arrayFree(request->headers);
+    free(request);
+}

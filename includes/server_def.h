@@ -7,11 +7,11 @@
 #include "queue.h"
 
 #define MAX_SERVER_NAME         100
-#define MAX_PATH_LENGTH         128
+#define MAX_SERVER_PATH_LENGTH  512
 
 typedef struct server {
     char name[MAX_SERVER_NAME];
-    char root[MAX_PATH_LENGTH];
+    char root[MAX_SERVER_PATH_LENGTH];
     int socket;
     u_int port;
     SA_IN address;

@@ -20,42 +20,42 @@ extern const HttpHeaders httpHeaders[];
  * Converts a String into a HttpRequest object
  * Mount the object with the Http message from client
  * @param HttpRequest * request
- * @return String filename
+ * @returns String filename
  */
 bool extractRequest(HttpRequest * request, String httpMessage, String root);
 
 /**
  * Create new HttpHeader list
  * @param HttpRequest * request
- * @return String filename
+ * @returns String filename
  */
 HttpListHeaders newRequestHeaders();
 
 /**
  * Converts a String into a HttpRequest object 
  * @param HttpRequest * request
- * @return bool status
+ * @returns bool status
  */
 bool setHeader(HttpRequest * request, String key, String value);
 
 /**
  * Converts a String into a HttpRequest object 
  * @param HttpRequest * request
- * @return bool status
+ * @returns bool status
  */
 bool addHeader(HttpRequest * request, String key, String value);
 
 /**
  * Converts a String into a HttpRequest object 
  * @param HttpRequest * request
- * @return bool status
+ * @returns bool status
  */
 bool isEndOfHttpHeaders(String httpMessage, int index);
 
 /**
  * Add headers to the request
  * @param HttpRequest * request
- * @return bool status
+ * @returns bool status
  */
 bool insertHeader(HttpRequest * request, HttpHeaders * header);
 
@@ -63,12 +63,22 @@ bool insertHeader(HttpRequest * request, HttpHeaders * header);
  * Init request headers and
  * Add headers to the request 
  * @param HttpRequest * request
- * @return bool status
+ * @returns bool status
  */
 bool initHeader(HttpRequest * request, HttpHeaders * header);
 
 /**
+ * Get request data and send the response to the client
+ * @param HttpRequest * request
+ * @param int httpResponseIndex
+ * @param int clientSocket
  */
 void sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket);
+
+/**
+ * Destroys request and it's attributes
+ * @param HttpRequest * request
+ */
+void requestFree(HttpRequest * request);
 
 #endif // REQUEST_H_INCLUDED

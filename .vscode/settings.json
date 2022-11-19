@@ -50,6 +50,8 @@
         "tuple": "c",
         "type_traits": "c",
         "throws.h": "c",
-        "uri.h": "c"
+        "uri.h": "c",
+        "cstdio": "c",
+        "timer.h": "c"
     }
 }

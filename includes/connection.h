@@ -27,21 +27,21 @@
  * Receive server object and init
  * Listen Loop
  * @param Server server
- * @return void
+ * @returns void
  */
 void listenConnection(Server * server);
 
 /**
  * Initialize threadpool and task
  * @param int serverSocket
- * @return void
+ * @returns void
  */
 void initServerPool(Server * server);
 
 /**
  * Make a loop for listen new connections
  * @param int serverSocket
- * @return void
+ * @returns void
  */
 void connectionLoop(Server * server);
 
@@ -51,14 +51,14 @@ void connectionLoop(Server * server);
  * @param int clientSocket
  * @param int addrSize
  * @param struct sockaddr_in clientAddr
- * @return void
+ * @returns void
  */
 void connectionListener(Server * server, socklen_t * addrSize, SA_IN clientAddr);
 
 /**
  * Handle thread connections
  * @param void * arg
- * @return void *
+ * @returns void *
  */
 void * threadConnectionHandler(void * arg);
 
@@ -67,7 +67,7 @@ void * threadConnectionHandler(void * arg);
  * Implement the communication
  * @param int pClientSocket
  * @param Server * server
- * @return void
+ * @returns void
  */
 void handleConnection(ThreadArg * args, int clientSocket, Server * server);
 

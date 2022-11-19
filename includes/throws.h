@@ -41,6 +41,9 @@ typedef struct throwableType {
     char message[MAX_ERROR_MESSAGE_LENGTH];
 } ThrowableType;
 
+extern Throwable * throwable;
+extern ThrowableType throwableTypes[];
+
 /**
  * @param jmp_buf savebuf
  * @param int value
@@ -51,30 +54,33 @@ typedef struct throwableType {
 void throws(jmp_buf savebuf, int value, int line, const char functionName[], const char filename[]);
 
 /**
- * @return Throwable *
+ * Get the current throwable
+ * @returns Throwable *
  */
 Throwable * getThrowable();
 
 /**
- * @return ThrowableType
+ * Get throwable type list
+ * @returns ThrowableType
  */
 ThrowableType * getThrowableTypes();
 
 
 /**
  * Get the current throwable's message
- * @return String
+ * @returns String
  */
 String getCurrentThrowableMessage();
 
 /**
  * Get throwable message
- * @return String
+ * @param int index
+ * @returns String
  */
 String getThrowableMessage(int index);
 
 /**
- * 
+ * Reset throwable variable
  */
 void resetThrow();
 

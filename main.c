@@ -15,6 +15,7 @@ main()
     logServerConfis(server);
     initServer(server);
     listenConnection(server);
+    serverDestroy(server);
 
     return 0;
 }

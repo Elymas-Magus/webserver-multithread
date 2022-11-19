@@ -10,7 +10,7 @@ fileGetContent(String filename)
 
     int i;
     char character;
-    char * content = (char *) malloc(MAX_FILE_LENGTH);
+    char * content = (char *) malloc(MAX_CONFIG_FILE_LENGTH);
 
     FILE * file = fopen(filename, "r");
 
@@ -73,7 +73,7 @@ readConfigFile(String filename, ServerConfig * config)
         return CONFIG_ERROR;
     }
 
-    char key[MAX_KEY_LENGTH], value[MAX_VALUE_LENGTH];
+    char key[MAX_CONFIG_KEY_LENGTH], value[MAX_CONFIG_VALUE_LENGTH];
 
     FILE * file = fopen(filename, "r");
 

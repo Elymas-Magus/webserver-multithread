@@ -14,7 +14,7 @@
  * If is SOCKET_ERROR die
  * @param int exp
  * @param const char[] message
- * @return void
+ * @returns void
  */
 int check(int exp, const char message[]);
 

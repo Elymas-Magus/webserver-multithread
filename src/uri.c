@@ -19,7 +19,7 @@ MimeType mimeTypes[] = {
     {".gz", "application/x-gzip"},
     {".tar", "application/x-tar"},
     {".css", "text/css"},
-    {NULL ,"text/plain"}
+    {NULL, "text/plain"}
 };
 
 void
@@ -27,7 +27,7 @@ parseUri(String root, HttpRequest * request)
 {
     int filenameLength;
     String queryPos, lastSlash, lastDot;
-    String path = (String) malloc(MAX_PATH_LENGTH);
+    String path = (String) malloc(MAX_SERVER_PATH_LENGTH);
     
     strcpy(path, request->path); 
     queryPos = strchr(path, INTERROGATION);
@@ -35,6 +35,7 @@ parseUri(String root, HttpRequest * request)
         ? ((int)(queryPos - path))
         : strlen(path);
 
+    memset(request->filename, 0, sizeof(request->filename));
     strncpy(request->filename, request->path, filenameLength); 
     strcpy(request->path, root);    
     strcat(request->path, request->filename);

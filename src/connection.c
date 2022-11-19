@@ -110,12 +110,16 @@ threadConnectionHandler(void * arg)
         logConnectionStart(threadArg, *((int *) clientSocket), getCurrentTimeString());
 
         printf("Handling\n");
-        handleConnection(threadArg, *((int *) clientSocket), server);
         mutexUnlock(&server->pools->mutex);
+        handleConnection(threadArg, *((int *) clientSocket), server);
 
         threadArg->connectionId++;
     }
+
+    free(server);
+    free(threadArg);
     free(clientSocket);
+
     mutexUnlock(&server->pools->mutex);
     pthread_exit(NULL);
 
@@ -127,8 +131,9 @@ handleConnection(ThreadArg * args, int clientSocket, Server * server)
 {
     bool error = true;
 
-    time_t * start;
-    time_t * end;
+    String currentTime;
+    time_t start;
+    time_t end;
 
     start = getCurrentTime();
     
@@ -137,14 +142,13 @@ handleConnection(ThreadArg * args, int clientSocket, Server * server)
     int messageCode;
     int messageSize = 0;
 
+    char contentType[MAX_CONTENT_TYPE_LEN];
     char contentLength[MAX_CONTENT_LENGTH_STRING];
     char absolutepath[CONNECTION_PATH_MAX + 1];
     char buffer[MAX_HTTP_MESSAGE_LENGTH];
     char path[CONNECTION_BUFFER_SIZE + strlen(server->root) + 1];
 
     struct stat htmlAttr;
-
-    String contentType = (String) malloc(MAX_CONTENT_TYPE_LEN);
 
     FILE * fp = NULL;
     HttpRequest * request = (HttpRequest *) malloc(sizeof(HttpRequest));
@@ -222,12 +226,14 @@ handleConnection(ThreadArg * args, int clientSocket, Server * server)
         WARNING("%s; PATH: %s\n", getCurrentThrowableMessage(), path);
     } FINALLY {
         end = getCurrentTime();
-
-        // mutexLock(&server->pools->mutex);
-        logConnectionEnd(args, clientSocket, getCurrentTimeString(), difftime(*end, *start), path, error);
-        // mutexUnlock(&server->pools->mutex);
-
+        currentTime = getCurrentTimeString();
+        
+        logConnectionEnd(args, clientSocket, currentTime, difftime(end, start), path, error);
         sendResponse(response, messageCode, clientSocket);
+
+        // free(currentTime);
+        requestFree(request);
+        requestFree(response);
 
         printf("\n----- closing connection -----\n");
     }

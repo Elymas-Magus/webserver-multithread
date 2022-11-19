@@ -30,14 +30,21 @@ typedef struct mimeType{
 extern MimeType tkeed_mime[];
 
 /**
+ * Resolve uri to make filename, path and query
+ * @param String root
+ * @param HttpRequest * request
  */
 void parseUri(String root, HttpRequest * request);
 
 /**
+ * Get mime type from file extension
+ * @param const String type
  */
 const String getFileType(const String type);
 
 /**
+ * Get file extension from filename
+ * @param const String filename
  */
 const String getFileExtension(const String filename);
 
