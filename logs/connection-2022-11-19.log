@@ -878,3 +878,127 @@ CODE: 9 - THREAD_ID: 5
 ClientSocket: 5; Path: /home/dev1/Programas/SD/App/images/logoFacom.png
  End: Sat Nov 19 20:21:22 2022; Duration: 0.00000000; Status: 1
 
+CODE: 9 - THREAD_ID: 2
+ClientSocket: 6; Start: Sat Nov 19 20:28:17 2022
+CODE: 9 - THREAD_ID: 3
+ClientSocket: 5; Start: Sat Nov 19 20:28:17 2022
+CODE: 9 - THREAD_ID: 2
+ClientSocket: 6; Path: /home/dev1/Programas/SD/App/JS-Ex06-attrib.html
+ End: Sat Nov 19 20:28:17 2022; Duration: 0.00000000; Status: 0
+
+CODE: 9 - THREAD_ID: 3
+ClientSocket: 5; Path: /home/dev1/Programas/SD/App/images/logoUFU.png
+ End: Sat Nov 19 20:28:17 2022; Duration: 0.00000000; Status: 0
+
+CODE: 10 - THREAD_ID: 0
+ClientSocket: 7; Start: Sat Nov 19 20:28:17 2022
+CODE: 10 - THREAD_ID: 0
+ClientSocket: 7; Path: /home/dev1/Programas/SD/App/images/bg2.jpg
+ End: Sat Nov 19 20:28:17 2022; Duration: 0.00000000; Status: 0
+
+CODE: 9 - THREAD_ID: 4
+ClientSocket: 5; Start: Sat Nov 19 20:28:19 2022
+CODE: 10 - THREAD_ID: 1
+ClientSocket: 6; Start: Sat Nov 19 20:28:19 2022
+CODE: 9 - THREAD_ID: 4
+ClientSocket: 5; Path: /home/dev1/Programas/SD/App/index.html
+ End: Sat Nov 19 20:28:19 2022; Duration: 0.00000000; Status: 0
+
+CODE: 10 - THREAD_ID: 1
+ClientSocket: 6; Path: /home/dev1/Programas/SD/App/images/bg2.jpg
+ End: Sat Nov 19 20:28:19 2022; Duration: 0.00000000; Status: 0
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 20:28:25 2022
+CODE: 10 - THREAD_ID: 5
+ClientSocket: 7; Start: Sat Nov 19 20:28:25 2022
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Start: Sat Nov 19 20:28:25 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Path: /home/dev1/Programas/SD/App/index.html
+ End: Sat Nov 19 20:28:25 2022; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Path: /home/dev1/Programas/SD/App/images/bg2.jpg
+ End: Sat Nov 19 20:28:25 2022; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; Start: Sat Nov 19 20:28:30 2022
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 5; Start: Sat Nov 19 20:28:30 2022
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; Path: /home/dev1/Programas/SD/App/JS-Ex06-attrib.html
+ End: Sat Nov 19 20:28:30 2022; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 5; Path: /home/dev1/Programas/SD/App/images/logoUFU.png
+ End: Sat Nov 19 20:28:30 2022; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 4
+ClientSocket: 6; Start: Sat Nov 19 20:28:30 2022
+CODE: 0 - THREAD_ID: 4
+ClientSocket: 6; Path: /home/dev1/Programas/SD/App/images/bg2.jpg
+ End: Sat Nov 19 20:28:30 2022; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 5
+ClientSocket: 7; Path: /home/dev1/Programas/SD/App/images/logoFacom.png
+ End: Sat Nov 19 20:29:35 2022; Duration: 70.00000000; Status: 1
+
+CODE: 0 - THREAD_ID: 5
+ClientSocket: 5; Start: Sat Nov 19 20:29:53 2022
+CODE: 1 - THREAD_ID: 0
+ClientSocket: 6; Start: Sat Nov 19 20:29:53 2022
+CODE: 0 - THREAD_ID: 5
+ClientSocket: 5; Path: /home/dev1/Programas/SD/App/JS-Ex03-querySelAll.html
+ End: Sat Nov 19 20:29:53 2022; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 0
+ClientSocket: 6; Path: /home/dev1/Programas/SD/App/images/bg2.jpg
+ End: Sat Nov 19 20:29:54 2022; Duration: 1.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 1
+ClientSocket: 7; Start: Sat Nov 19 20:30:00 2022
+CODE: 1 - THREAD_ID: 2
+ClientSocket: 5; Start: Sat Nov 19 20:30:00 2022
+CODE: 1 - THREAD_ID: 1
+ClientSocket: 7; Path: /home/dev1/Programas/SD/App/JS-Ex01-hello.html
+ End: Sat Nov 19 20:30:00 2022; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 2
+ClientSocket: 5; Path: /home/dev1/Programas/SD/Apphtml>/index.html
+ End: Sat Nov 19 20:31:03 2022; Duration: 63.00000000; Status: ERROR
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 20:35:58 2022
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Start: Sat Nov 19 20:35:58 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Path: /home/dev1/Programas/SD/App/js1/index.html
+ End: Sat Nov 19 20:35:58 2022; Duration: 0.00000000; Status: ERROR
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Path: /home/dev1/Programas/SD/App/favicon.ico
+ End: Sat Nov 19 20:35:58 2022; Duration: 0.00000000; Status: ERROR
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; Start: Sat Nov 19 20:36:02 2022
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 5; Start: Sat Nov 19 20:36:02 2022
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; Path: /home/dev1/Programas/SD/App/js1.html
+ End: Sat Nov 19 20:36:02 2022; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 4
+ClientSocket: 6; Start: Sat Nov 19 20:36:12 2022
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 5; Path: /home/dev1/Programas/SD/App/source/1.c
+ End: Sat Nov 19 20:36:12 2022; Duration: 10.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sat Nov 19 20:45:16 2022
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Start: Sat Nov 19 20:45:16 2022
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Path: /home/dev1/Programas/SD/App/source/1.c
+ End: Sat Nov 19 20:45:16 2022; Duration: 0.00000000; Status: SUCCESS
+
