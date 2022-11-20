@@ -248,5 +248,13 @@ logConnectionStart(ThreadArg * args, int clientSocket, String currTime)
 void
 logConnectionEnd(ThreadArg * args, int clientSocket, String currTime, float duration, String path, bool error)
 {
-    LOG_CONNECTTION_ON_FILE(args->logFilename, "CODE: %u - THREAD_ID: %u\nClientSocket: %d; Path: %s\n End: %s; Duration: %0.8f; Status: %d\n", args->connectionId, args->threadId, clientSocket, path, currTime, duration, error);
+    char errorStatus[][8] = {
+        "SUCCESS",
+        "ERROR",
+    };
+    LOG_CONNECTTION_ON_FILE(
+        args->logFilename,
+        "CODE: %u - THREAD_ID: %u\nClientSocket: %d; Path: %s\n End: %s; Duration: %0.8f; Status: %s\n",
+        args->connectionId, args->threadId, clientSocket, path, currTime, duration, errorStatus[error]
+    );
 }
