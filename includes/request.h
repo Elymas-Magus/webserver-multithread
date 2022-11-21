@@ -7,14 +7,21 @@
 #include <string.h>
 #include <errno.h>
 #include <unistd.h>
+#include <fcntl.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/sendfile.h>
 
 #include "uri.h"
 #include "request_def.h"
 #include "type_aliases.h"
+#include "stream.h"
+
 
 extern const char HTTP_VERSIONS[][MAX_HTTP_VERSION_NAME];
 extern const HttpResponseCode httpResponseCode[];
-extern const HttpHeaders httpHeaders[];
 
 /**
  * Converts a String into a HttpRequest object
@@ -73,12 +80,75 @@ bool initHeader(HttpRequest * request, HttpHeaders * header);
  * @param int httpResponseIndex
  * @param int clientSocket
  */
-void sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket);
+void sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket, Stream * stream);
+
+/**
+ * 
+ */
+HttpRequest * newRequest();
+
+/**
+ * 
+ */
+bool printHeaders(HttpRequest * request);
+
+/**
+ * 
+ */
+bool keepAlive(HttpRequest * request);
 
 /**
  * Destroys request and it's attributes
  * @param HttpRequest * request
  */
 void requestFree(HttpRequest * request);
+
+/**
+ * Get the type from file's mime type
+ * @param String mimeType
+ * @returns bool
+*/
+bool getTypeFromMimeType(String mimeType);
+
+/**
+ * Checks if the mime type corresponds to a text file
+ * @param String mimeType
+ * @returns bool
+*/
+bool isTextFile(String mimeType);
+
+/**
+ * Checks if the mime type corresponds to a image file
+ * @param String mimeType
+ * @returns bool
+*/
+bool isImageFile(String mimeType);
+
+/**
+ * Checks if the mime type corresponds to a audio file
+ * @param String mimeType
+ * @returns bool
+*/
+bool isAudioFile(String mimeType);
+
+/**
+ * Checks if the mime type corresponds to a video file
+ * @param String mimeType
+ * @returns bool
+*/
+bool isVideoFile(String mimeType);
+
+/**
+ * Checks if the mime type corresponds to a binary file
+ * @param String mimeType
+ * @returns bool
+*/
+bool isBinaryFile(String mimeType);
+
+void sendImageResponse(HttpRequest * request, int httpResponseIndex, int clientSocket, IMAGE file);
+
+void sendTextResponse(HttpRequest * request, int httpResponseIndex, int clientSocket, FILE * file);
+
+void sendHttpResponse(HttpRequest * request, int clientSocket, String buffer, size_t bytesRead);
 
 #endif // REQUEST_H_INCLUDED

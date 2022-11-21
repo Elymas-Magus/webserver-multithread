@@ -27,7 +27,7 @@ typedef struct mimeType{
     const String value;
 } MimeType;
 
-extern MimeType tkeed_mime[];
+extern MimeType mimeTypes[];
 
 /**
  * Resolve uri to make filename, path and query

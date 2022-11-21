@@ -52,6 +52,9 @@
         "throws.h": "c",
         "uri.h": "c",
         "cstdio": "c",
-        "timer.h": "c"
+        "timer.h": "c",
+        "sendfile.h": "c",
+        "stat.h": "c",
+        "stream.h": "c"
     }
 }

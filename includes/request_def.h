@@ -21,6 +21,9 @@
 #define MAX_HTTP_MESSAGE_LENGTH          81920
 #define MAX_HTTP_BUFFER                  167772160
 
+#define MIN_CONTENT_TYPE_LEN             2
+#define MIN_HTTP_BUFFER                  2
+
 #define HTTP_HEADER_CONTENT_TYPE         0
 
 #define HTTP_UNKNOWN                     0x0001
@@ -48,8 +51,8 @@
 #define HTTP_VERSION_3                   4
 
 #define BREAKLINE                        "\n"
-#define DIVISOR                          "\n\n"
-#define HEADER_LINE_MODEL                "%[^:]: %[^\n] "
+#define DIVISOR                          "\r\n\r\n"
+#define HEADER_LINE_MODEL                "%[^:]: %[^\r\n]%*c"
 
 typedef ArrayList HttpListHeaders;
 

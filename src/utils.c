@@ -1,31 +1,5 @@
 #include "utils.h"
 
-String
-fileGetContent(String filename)
-{
-    if (filename == NULL) {
-        WARNING("Filename is required\n");
-        return NULL;
-    }
-
-    int i;
-    char character;
-    char * content = (char *) malloc(MAX_CONFIG_FILE_LENGTH);
-
-    FILE * file = fopen(filename, "r");
-
-    if (file == NULL) {
-        WARNING("File couldn't be opened. Filename %s\n", filename);
-    }
-
-    for (i = 0; (character = fgetc(file)) != EOF; i++) {
-        content[i] = character;        
-    }
-    content[i] = 0;
-
-    return content;
-}
-
 void
 substring(String str, u_int start, u_int end, String buffer)
 {

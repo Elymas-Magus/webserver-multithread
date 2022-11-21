@@ -23,12 +23,6 @@ const HttpResponseCode httpResponseCode[] = {
     {"505", "HTTP VERSION NOT SUPPORTED"},
 };
 
-const HttpHeaders httpHeaders[] = {
-    {"Content-Type", "text/html; charset=utf-8"},
-    {"Content-Length", ""},
-    {"Keep-Alive", "timeout, max=999"},
-};
-
 bool
 extractRequest(HttpRequest * request, String httpMessage, String root)
 {
@@ -58,7 +52,7 @@ extractRequest(HttpRequest * request, String httpMessage, String root)
 
     if (body == NULL) {  
         strncpy(headers, httpMessage, strlen(httpMessage) - 1);
-        strcpy(request->body, "");
+        memset(request->body, 0, sizeof(request->body));
     } else {
         strncpy(headers, httpMessage, strlen(httpMessage) - strlen(body) - 1);
         strcpy(request->body, body + 2);
@@ -81,6 +75,21 @@ extractRequest(HttpRequest * request, String httpMessage, String root)
     return true;
 }
 
+HttpRequest *
+newRequest()
+{
+    HttpRequest * request = (HttpRequest *) malloc(sizeof(HttpRequest));
+
+    memset(request->body, 0, sizeof(request->body));
+    memset(request->extension, 0, sizeof(request->extension));
+    memset(request->path, 0, sizeof(request->path));
+    memset(request->mimeType, 0, sizeof(request->mimeType));
+    memset(request->query, 0, sizeof(request->query));
+    memset(request->httpVersion, 0, sizeof(request->httpVersion));
+
+    return request;
+}
+
 HttpListHeaders
 newRequestHeaders()
 {
@@ -100,13 +109,8 @@ setHeader(HttpRequest * request, String key, String value)
         return false;
     }
 
-    HttpHeaders * header = (HttpHeaders *) malloc(sizeof(HttpHeaders));
     request->headers = arrayInit();
-    strcpy(header->key, key);
-    strcpy(header->value, value);
-    arrayPush(request->headers, (void **) header, sizeof(HttpHeaders));
-
-    return true;
+    return addHeader(request, key, value);
 }
 
 bool
@@ -156,27 +160,122 @@ setResponse(HttpRequest * request, HttpResponseCode httpResponseCode)
 }
 
 void
-sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket)
+sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket, Stream * stream)
 {
-    HttpHeaders * header;
-    String httpLine = (String) malloc(MAX_HTTP_HEADER_LINE);
+    if (stream->file != NULL) {
+        sendTextResponse(request, httpResponseIndex, clientSocket, stream->file);
+    }
+    if (stream->imageFile != STREAM_ERROR) {
+        sendImageResponse(request, httpResponseIndex, clientSocket, stream->imageFile);
+    }
+}
+
+void
+sendImageResponse(HttpRequest * request, int httpResponseIndex, int clientSocket, IMAGE file)
+{
+    String buffer;
     HttpResponseCode response = httpResponseCode[httpResponseIndex];
 
     setResponse(request, response);
-    sprintf(httpLine, "%s %s %s\n", request->httpVersion, response.code, response.state);
+    if (httpResponseIndex == HTTP_OK) {        
+        sendfile(clientSocket, file, NULL, MAX_HTTP_BUFFER);
+    } else {
+        buffer = (String) malloc(MIN_HTTP_BUFFER);
+        
+        printf("Sending 0 bytesRead\n");
+
+        memset(buffer, 0, MIN_HTTP_BUFFER);
+        sendHttpResponse(request, clientSocket, buffer, 0);
+    }
+    
+    printf("Close\n");
+    close(clientSocket);
+}
+
+void
+sendTextResponse(HttpRequest * request, int httpResponseIndex, int clientSocket, FILE * file)
+{
+    size_t bytesRead;
+    String contentLength;
+    String buffer;
+    
+    HttpResponseCode response = httpResponseCode[httpResponseIndex];
+
+    setResponse(request, response);
+    if (httpResponseIndex == HTTP_OK) {
+        buffer = (String) malloc(MAX_HTTP_BUFFER);
+        contentLength = (String) malloc(MAX_CONTENT_TYPE_LEN);
+        
+        if ((bytesRead = fread(buffer, 1, MAX_HTTP_BUFFER, file)) > 0) {
+            printf("Sending %zu bytesRead\n", bytesRead);
+            sprintf(contentLength, "%zu", bytesRead);
+            addHeader(request, "Content-Length", contentLength);
+            sendHttpResponse(request, clientSocket, buffer, bytesRead);
+        }
+        fclose(file);
+    } else {
+        buffer = (String) malloc(MIN_HTTP_BUFFER);
+        
+        printf("Sending 0 bytesRead\n");
+
+        memset(buffer, 0, MIN_HTTP_BUFFER);
+        sendHttpResponse(request, clientSocket, buffer, 0);
+    }
+    
+    printf("Close\n");
+    close(clientSocket);
+}
+
+void
+sendHttpResponse(HttpRequest * request, int clientSocket, String buffer, size_t bytesRead)
+{
+    Node * no;
+    HttpHeaders * header;
+
+    String httpLine = (String) malloc(MAX_HTTP_HEADER_LINE);
+    HttpResponseCode response = request->response;
+
+    sprintf(httpLine, "%s %s %s\r\n", request->httpVersion, response.code, response.state);
     printf("%s %s %s\n", request->httpVersion, response.code, response.state);
     write(clientSocket, httpLine, strlen(httpLine));
-    for (Node * no = request->headers->first; no; no = no->next) {
+    
+    FOREACH (no, request->headers) {
         header = (HttpHeaders *) no->content;
-        sprintf(httpLine, "%s: %s\n", header->key, header->value);
+        sprintf(httpLine, "%s: %s\r\n", header->key, header->value);
         printf("%s: %s\n", header->key, header->value);
         write(clientSocket, httpLine, strlen(httpLine));
     }
-    sprintf(httpLine, "\n%s\n", request->body);
-    printf("\n%s\n", request->body);
-    write(clientSocket, httpLine, strlen(httpLine));
 
-    close(clientSocket);
+    write(clientSocket, "\n", 1);
+    write(clientSocket, buffer, bytesRead);
+}
+
+bool
+printHeaders(HttpRequest * request)
+{
+    Node * no;
+    HttpHeaders * header;
+    FOREACH (no, request->headers) {
+        header = (HttpHeaders *) no->content;
+        printf("Header ->( %s )\n", header->value);
+    }
+
+    return false;
+}
+
+bool
+keepAlive(HttpRequest * request)
+{
+    Node * no;
+    HttpHeaders * header;
+    FOREACH (no, request->headers) {
+        header = (HttpHeaders *) no->content;
+        if (strcmp(header->key, "Connection") == 0) {
+            return strcmp(header->value, "keep-alive") == 0;
+        }
+    }
+
+    return false;
 }
 
 void
@@ -184,4 +283,86 @@ requestFree(HttpRequest * request)
 {
     arrayFree(request->headers);
     free(request);
+}
+
+bool
+getTypeFromMimeType(String mimeType)
+{
+    int typeLength;
+    String type = (String) malloc(MAX_MIME_TYPE_NAME_LEN);
+    String slashPos = strchr(mimeType, '/');
+
+    typeLength = (slashPos != NULL) ?
+        ((int)(slashPos - mimeType)) :
+        strlen(mimeType);
+
+    memset(type, 0, MAX_MIME_TYPE_NAME_LEN);
+    strncpy(type, mimeType, typeLength);
+
+    return type;
+}
+
+bool
+isTextFile(String mimeType)
+{
+    int typeLength;
+    String slashPos = strchr(mimeType, '/');
+
+    typeLength = (slashPos != NULL) ?
+        ((int)(slashPos - mimeType)) :
+        strlen(mimeType);
+
+    return strncmp(mimeType, "text", typeLength) == 0;
+}
+
+bool
+isImageFile(String mimeType)
+{
+    int typeLength;
+    String slashPos = strchr(mimeType, '/');
+
+    typeLength = (slashPos != NULL) ?
+        ((int)(slashPos - mimeType)) :
+        strlen(mimeType);
+
+    return strncmp(mimeType, "image", typeLength) == 0;
+}
+
+bool
+isAudioFile(String mimeType)
+{
+    int typeLength;
+    String slashPos = strchr(mimeType, '/');
+
+    typeLength = (slashPos != NULL) ?
+        ((int)(slashPos - mimeType)) :
+        strlen(mimeType);
+
+    return strncmp(mimeType, "audio", typeLength) == 0;
+}
+
+bool
+isVideoFile(String mimeType)
+{
+    int typeLength;
+    String slashPos = strchr(mimeType, '/');
+
+    typeLength = (slashPos != NULL) ?
+        ((int)(slashPos - mimeType)) :
+        strlen(mimeType);
+
+    return strncmp(mimeType, "video", typeLength) == 0;
+}
+
+bool
+isBinaryFile(String mimeType)
+{
+    int typeLength;
+    String slashPos = strchr(mimeType, '/');
+
+    typeLength = (slashPos != NULL) ?
+        ((int)(slashPos - mimeType)) :
+        strlen(mimeType);
+
+    return strncmp(mimeType, "application", typeLength) == 0;
 }
