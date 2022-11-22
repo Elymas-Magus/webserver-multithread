@@ -100,7 +100,6 @@ threadConnectionHandler(void * arg)
             break;
         }
 
-        printf("Dequeue\n");
         clientSocket = server->pools->queue->dequeue(server->pools->queue);
 
         if (clientSocket == NULL) {
@@ -109,7 +108,6 @@ threadConnectionHandler(void * arg)
 
         logConnectionStart(threadArg, *((SocketFD *) clientSocket), getCurrentTimeString());
 
-        printf("Handling\n");
         mutexUnlock(&server->pools->mutex);
         handleConnection(threadArg, *((SocketFD *) clientSocket), server);
 
@@ -129,7 +127,6 @@ threadConnectionHandler(void * arg)
 void
 handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
 {
-    printf("New Handling\n\n\n");
     bool error = true;
 
     String currentTime;
@@ -222,8 +219,8 @@ handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
         end = getCurrentTime();
         currentTime = getCurrentTimeString();
         
-        logConnectionEnd(args, clientSocket, currentTime, difftime(end, start), path, error);
         sendResponse(response, messageCode, clientSocket, stream);
+        logConnectionEnd(args, clientSocket, currentTime, difftime(end, start), path, error);
 
         requestFree(request);
         requestFree(response);

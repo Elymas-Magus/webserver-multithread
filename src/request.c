@@ -202,6 +202,8 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
             }
         }
     }
+
+    close(clientSocket);
 }
 
 bool

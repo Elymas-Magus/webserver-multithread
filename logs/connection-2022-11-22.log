@@ -127,3 +127,82 @@ CODE: 0 - THREAD_ID: 4
 ClientSocket: 15; End: /home/dev1/Programas/SD/App/favicon.ico;
  Path: Tue Nov 22 16:57:54 2022; Duration: 0.00000000; Status: ERROR
 
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Tue Nov 22 17:13:30 2022
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Start: Tue Nov 22 17:13:30 2022
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; End: /home/dev1/Programas/SD/App/index.html;
+ Path: Tue Nov 22 17:13:30 2022; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; End: /home/dev1/Programas/SD/App/favicon.ico;
+ Path: Tue Nov 22 17:13:30 2022; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; Start: Tue Nov 22 17:13:37 2022
+
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 14; Start: Tue Nov 22 17:13:37 2022
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; End: /home/dev1/Programas/SD/App/js1/index.html;
+ Path: Tue Nov 22 17:13:46 2022; Duration: 9.00000000; Status: ERROR
+
+CODE: 0 - THREAD_ID: 4
+ClientSocket: 15; Start: Tue Nov 22 17:14:06 2022
+
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 14; End: /home/dev1/Programas/SD/App/js2.html;
+ Path: Tue Nov 22 17:14:22 2022; Duration: 45.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 5
+ClientSocket: 16; Start: Tue Nov 22 17:14:29 2022
+
+CODE: 0 - THREAD_ID: 4
+ClientSocket: 15; End: /home/dev1/Programas/SD/App/js3.html;
+ Path: Tue Nov 22 17:14:29 2022; Duration: 23.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 0
+ClientSocket: 20; Start: Tue Nov 22 17:14:36 2022
+
+CODE: 0 - THREAD_ID: 5
+ClientSocket: 16; End: /home/dev1/Programas/SD/App/js4.html;
+ Path: Tue Nov 22 17:14:36 2022; Duration: 7.00000000; Status: ERROR
+
+CODE: 1 - THREAD_ID: 1
+ClientSocket: 24; Start: Tue Nov 22 17:14:49 2022
+
+CODE: 1 - THREAD_ID: 0
+ClientSocket: 20; End: /home/dev1/Programas/SD/App/js5.html;
+ Path: Tue Nov 22 17:14:49 2022; Duration: 13.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 2
+ClientSocket: 25; Start: Tue Nov 22 17:15:07 2022
+
+CODE: 1 - THREAD_ID: 1
+ClientSocket: 24; End: /home/dev1/Programas/SD/App/js4.html;
+ Path: Tue Nov 22 17:15:07 2022; Duration: 18.00000000; Status: ERROR
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Tue Nov 22 17:27:30 2022
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Start: Tue Nov 22 17:27:30 2022
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; End: /home/dev1/Programas/SD/App/js4.html;
+ Path: Tue Nov 22 17:27:30 2022; Duration: 0.00000000; Status: ERROR
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; Start: Tue Nov 22 17:27:39 2022
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; End: /home/dev1/Programas/SD/App/js4.html;
+ Path: Tue Nov 22 17:27:39 2022; Duration: 9.00000000; Status: ERROR
+
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 5; Start: Tue Nov 22 17:27:51 2022
+
