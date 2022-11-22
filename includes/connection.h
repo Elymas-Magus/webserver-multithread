@@ -18,6 +18,7 @@
 #include "throwable.h"
 #include "uri.h"
 #include "stream.h"
+#include "logs.h"
 
 #define CONNECTION_BUFFER_SIZE      81920
 #define CONNECTION_PATH_MAX         1000

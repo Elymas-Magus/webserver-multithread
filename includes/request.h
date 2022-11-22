@@ -18,10 +18,12 @@
 #include "request_def.h"
 #include "type_aliases.h"
 #include "stream.h"
-
+#include "logs.h"
 
 extern const char HTTP_VERSIONS[][MAX_HTTP_VERSION_NAME];
 extern const HttpResponseCode httpResponseCode[];
+
+extern MimeType mimeTypes[];
 
 /**
  * Converts a String into a HttpRequest object
@@ -83,17 +85,20 @@ bool initHeader(HttpRequest * request, HttpHeaders * header);
 void sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket, Stream * stream);
 
 /**
- * 
+ * Create new request and set default attributes
+ * @returns HttpRequest *
  */
 HttpRequest * newRequest();
 
 /**
- * 
+ * Print all request headers
+ * @param HttpRequest *
  */
 bool printHeaders(HttpRequest * request);
 
 /**
- * 
+ * Check if request needs to keep alive
+ * @param HttpRequest *
  */
 bool keepAlive(HttpRequest * request);
 
@@ -145,10 +150,12 @@ bool isVideoFile(String mimeType);
 */
 bool isBinaryFile(String mimeType);
 
-void sendImageResponse(HttpRequest * request, int httpResponseIndex, int clientSocket, IMAGE file);
-
-void sendTextResponse(HttpRequest * request, int httpResponseIndex, int clientSocket, FILE * file);
-
-void sendHttpResponse(HttpRequest * request, int clientSocket, String buffer, size_t bytesRead);
+/**
+ * Returns formatted mime type
+ * If is html file, adds charset
+ * @param String mimeType
+ * @returns String
+*/
+String getMimeTypeFormatted(String mimeType);
 
 #endif // REQUEST_H_INCLUDED

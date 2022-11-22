@@ -28,7 +28,7 @@ throws(jmp_buf savebuf, int value, int line, const char functionName[], const ch
     throwable->line = line;
 
     LOG(
-        "MESSAGE: %s; LINE: %d; FUNCTION: %s; FILENAME: %s",
+        "MESSAGE: %s; LINE: %d; FUNCTION: %s; FILENAME: %s\n",
         throwable->message, throwable->line, throwable->functionName, throwable->filename
     );
 

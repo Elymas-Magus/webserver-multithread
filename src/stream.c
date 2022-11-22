@@ -6,31 +6,35 @@ initStream()
 {
     Stream * stream = (Stream *) malloc(sizeof(Stream));
 
-    stream->file = NULL;
+    stream->file = STREAM_ERROR;
     stream->path = (String) malloc(MAX_STREAM_PATH);
-    stream->mode = (String) malloc(MAX_STREAM_MODE);
     stream->open = streamOpen;
     stream->close = streamClose;
-    stream->getContent = getContent;
-    stream->imageFile = STREAM_ERROR;
+    stream->get = getContent;
+    stream->mode = O_RDONLY; 
+    stream->opened = false; 
+    stream->ended = false;
 
-    strcpy(stream->mode, "r");    
+    return stream;
 }
 
 int
 streamOpen(Stream * stream)
 {
     if (stream->path == NULL) {
-        WARNING("Stream path cannot be NULL");
+        WARNING("Stream path cannot be NULL\n");
         return STREAM_ERROR;
     }
 
-    stream->file = fopen(stream->path, stream->mode);
+    stream->file = open(stream->path, stream->mode);
 
-    if (stream->file == NULL) {
-        WARNING("File couldn't be open!");
+    if (stream->file == STREAM_ERROR) {
+        WARNING("File couldn't be open!\n");
         return STREAM_ERROR;
     }
+
+    stream->opened = true;
+    stream->ended = false;
 
     return STREAM_SUCCESS;
 }
@@ -38,63 +42,82 @@ streamOpen(Stream * stream)
 int
 streamClose(Stream * stream)
 {
-    if (stream->file == NULL) {
-        WARNING("Not opened file!");
+    if (stream->file == STREAM_ERROR) {
+        WARNING("Not opened file!\n");
         return STREAM_ERROR;
     }
 
-    if (fclose(stream->file) != 0) {
-        WARNING("File couldn't be closed!");
+    stream->opened = false;
+    stream->ended = false;
+
+    if (close(stream->file) == STREAM_ERROR) {
+        WARNING("File couldn't be closed!\n");
         return STREAM_ERROR;
     }
 
     return STREAM_SUCCESS;
 }
 
-String
-getContent(Stream * stream)
+Buffer *
+getContent(Stream * stream, size_t bufferSize)
 {
-    if (stream->file == NULL && stream->path == NULL) {
-        WARNING("Empty stream!");
+    if (stream->file == STREAM_ERROR && stream->path == NULL) {
+        WARNING("Empty stream!\n");
         return NULL;
     }
 
-    int i = 0;
-    char character;
-    String content = (String) malloc(MAX_STREAM_FILE_LENGTH);
+    size_t bytesRead;
+    Buffer * buffer = (Buffer *) malloc(sizeof(Buffer));
 
-    if (stream->file != NULL) {
-        stream->file = fopen(stream->path, "r");
+    buffer->content = (String) malloc(bufferSize);
+    buffer->size = bufferSize;
+
+    if (stream->file != STREAM_ERROR) {
+        stream->file = open(stream->path, O_RDONLY);
     }
 
-    if (stream->file == NULL) {
+    if (stream->file == STREAM_ERROR) {
         WARNING("File couldn't be opened. Filename %s\n", stream->path);
         return NULL;
     }
+    
+    stream->opened = true;
+    stream->ended = false;
 
-    for (i = 0; (character = fgetc(stream->file)) != EOF; i++) {
-        content[i] = character;        
+    bytesRead = read(stream->file, buffer->content, bufferSize - 1);
+    buffer->content[buffer->size - 1] = 0;
+
+    buffer->size = bytesRead;
+
+    if (bytesRead < bufferSize) {
+        stream->ended = true;
     }
-    content[i] = 0;
 
-    return content;
+    return buffer;
+}
+
+size_t
+getFileSize(String filename)
+{
+    size_t size = 0;
+    FILE * file = fopen(filename, "r");
+
+    if (file == NULL) {
+        WARNING("File not found!");
+        return size;
+    }
+    
+    fseek(file, 0, SEEK_END);
+    size = ftell(file);
+
+    return size;
 }
 
 String
-fileGetContent(String filename)
+getStringFileSize(String filename)
 {
-    if (filename == NULL) {
-        WARNING("Filename is required\n");
-        return NULL;
-    }
+    String buffer = (String) malloc(MAX_STREAM_FILE_LENGTH);
+    sprintf(buffer, "%lu", getFileSize(filename));
 
-    int i;
-    char character;
-    String content = (String) malloc(MAX_STREAM_FILE_LENGTH);
-
-    Stream * stream = initStream();
-
-    strcpy(stream->path, filename);
-    
-    return getContent(stream);
+    return buffer;
 }

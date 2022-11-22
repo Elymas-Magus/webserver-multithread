@@ -9,18 +9,18 @@ const char HTTP_VERSIONS[][MAX_HTTP_VERSION_NAME] = {
 };
 
 const HttpResponseCode httpResponseCode[] = {
-    {"200", "OK"},
-    {"304", "NOT MODIFIED"},
-    {"400", "BAD REQUEST"},
-    {"401", "UNAUTHORIZED"},
-    {"403", "FORBIDDEN"},
-    {"404", "NOT FOUND"},
-    {"405", "METHOD NOT ALLOWED"},
-    {"500", "INTERNAL SERVER ERROR"},
-    {"501", "NOT IMPLEMENTED"},
-    {"502", "BAD GATEWAY"},
-    {"504", "GATEWAY TIMEOUT"},
-    {"505", "HTTP VERSION NOT SUPPORTED"},
+    {0, "200", "OK"},
+    {1, "304", "NOT MODIFIED"},
+    {2, "400", "BAD REQUEST"},
+    {3, "401", "UNAUTHORIZED"},
+    {4, "403", "FORBIDDEN"},
+    {5, "404", "NOT FOUND"},
+    {6, "405", "METHOD NOT ALLOWED"},
+    {7, "500", "INTERNAL SERVER ERROR"},
+    {8, "501", "NOT IMPLEMENTED"},
+    {9, "502", "BAD GATEWAY"},
+    {10, "504", "GATEWAY TIMEOUT"},
+    {11, "505", "HTTP VERSION NOT SUPPORTED"},
 };
 
 bool
@@ -160,107 +160,48 @@ setResponse(HttpRequest * request, HttpResponseCode httpResponseCode)
 }
 
 void
-sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket, Stream * stream)
+sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, Stream * stream)
 {
-    if (stream->file != NULL) {
-        sendTextResponse(request, httpResponseIndex, clientSocket, stream->file);
-    }
-    if (stream->imageFile != STREAM_ERROR) {
-        sendImageResponse(request, httpResponseIndex, clientSocket, stream->imageFile);
-    }
-}
+    Buffer * OBuffer;
 
-void
-sendImageResponse(HttpRequest * request, int httpResponseIndex, int clientSocket, IMAGE file)
-{
-    String buffer;
-    HttpResponseCode response = httpResponseCode[httpResponseIndex];
-
-    setResponse(request, response);
-    if (httpResponseIndex == HTTP_OK) {        
-        sendfile(clientSocket, file, NULL, MAX_HTTP_BUFFER);
-    } else {
-        buffer = (String) malloc(MIN_HTTP_BUFFER);
-        
-        printf("Sending 0 bytesRead\n");
-
-        memset(buffer, 0, MIN_HTTP_BUFFER);
-        sendHttpResponse(request, clientSocket, buffer, 0);
-    }
-    
-    printf("Close\n");
-    close(clientSocket);
-}
-
-void
-sendTextResponse(HttpRequest * request, int httpResponseIndex, int clientSocket, FILE * file)
-{
-    size_t bytesRead;
-    String contentLength;
-    String buffer;
-    
-    HttpResponseCode response = httpResponseCode[httpResponseIndex];
-
-    setResponse(request, response);
-    if (httpResponseIndex == HTTP_OK) {
-        buffer = (String) malloc(MAX_HTTP_BUFFER);
-        contentLength = (String) malloc(MAX_CONTENT_TYPE_LEN);
-        
-        if ((bytesRead = fread(buffer, 1, MAX_HTTP_BUFFER, file)) > 0) {
-            printf("Sending %zu bytesRead\n", bytesRead);
-            sprintf(contentLength, "%zu", bytesRead);
-            addHeader(request, "Content-Length", contentLength);
-            sendHttpResponse(request, clientSocket, buffer, bytesRead);
-        }
-        fclose(file);
-    } else {
-        buffer = (String) malloc(MIN_HTTP_BUFFER);
-        
-        printf("Sending 0 bytesRead\n");
-
-        memset(buffer, 0, MIN_HTTP_BUFFER);
-        sendHttpResponse(request, clientSocket, buffer, 0);
-    }
-    
-    printf("Close\n");
-    close(clientSocket);
-}
-
-void
-sendHttpResponse(HttpRequest * request, int clientSocket, String buffer, size_t bytesRead)
-{
     Node * no;
     HttpHeaders * header;
 
     String httpLine = (String) malloc(MAX_HTTP_HEADER_LINE);
-    HttpResponseCode response = request->response;
+    HttpResponseCode response = httpResponseCode[responseIndex];
+
+    if (response.index == HTTP_OK) {
+        stream->file = open(stream->path, O_RDONLY);
+        if (stream->file == STREAM_ERROR) {
+            response = httpResponseCode[HTTP_INTERNAL_SERVER_ERROR];
+            LOG("File couldn't be opened. Filename %s\n", stream->path);
+        }
+    }
 
     sprintf(httpLine, "%s %s %s\r\n", request->httpVersion, response.code, response.state);
-    printf("%s %s %s\n", request->httpVersion, response.code, response.state);
     write(clientSocket, httpLine, strlen(httpLine));
     
     FOREACH (no, request->headers) {
         header = (HttpHeaders *) no->content;
         sprintf(httpLine, "%s: %s\r\n", header->key, header->value);
-        printf("%s: %s\n", header->key, header->value);
         write(clientSocket, httpLine, strlen(httpLine));
     }
 
     write(clientSocket, "\n", 1);
-    write(clientSocket, buffer, bytesRead);
-}
+    printf("\n");
 
-bool
-printHeaders(HttpRequest * request)
-{
-    Node * no;
-    HttpHeaders * header;
-    FOREACH (no, request->headers) {
-        header = (HttpHeaders *) no->content;
-        printf("Header ->( %s )\n", header->value);
+    if (stream->file != STREAM_ERROR) {
+        OBuffer = (Buffer *) malloc(sizeof(Buffer));
+        OBuffer->content = (String) malloc(MAX_HTTP_BUFFER);
+        
+        while ((OBuffer->size = read(stream->file, OBuffer->content, MAX_HTTP_BUFFER)) > 0) {
+            write(clientSocket, OBuffer->content, OBuffer->size);
+
+            if (OBuffer->size < MAX_HTTP_BUFFER) {
+                break;
+            }
+        }
     }
-
-    return false;
 }
 
 bool
@@ -365,4 +306,14 @@ isBinaryFile(String mimeType)
         strlen(mimeType);
 
     return strncmp(mimeType, "application", typeLength) == 0;
+}
+
+String
+getMimeTypeFormatted(String mimeType)
+{
+    if (strcmp(mimeType, "text/html") == 0) {
+        strcat(mimeType, "; charset=UTF-8");
+    }
+
+    return mimeType;
 }

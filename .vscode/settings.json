@@ -55,6 +55,8 @@
         "timer.h": "c",
         "sendfile.h": "c",
         "stat.h": "c",
-        "stream.h": "c"
+        "stream.h": "c",
+        "fcntl.h": "c",
+        "logs.h": "c"
     }
 }

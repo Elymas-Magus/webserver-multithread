@@ -3,73 +3,14 @@
 
 #include <time.h>
 
+#include "logs.h"
+
 #define CONFIG_SUCCESS          0
 #define CONFIG_ERROR            -1
-
-#define WARNING(...) fprintf(stderr, __VA_ARGS__)
-#define PRINT_EXPRESSION(x) (printf("%s = %d\n", #x, (x)))
 
 #define OCTAL                   8
 #define DECIMAL                 10
 #define HEX                     16
-
-#define LOG(fmt , ...)    \
-    do { \
-        time_t tmi; \
-        struct tm * info; \
-        char filename[DATE_MAX]; \
-        \
-        time(&tmi); \
-        info = localtime(&tmi); \
-        \
-        strftime(filename, DATE_MAX, "logs/request-%Y-%m-%d", info); \
-        strcat(filename, ".log"); \
-        FILE* f = fopen(filename, "a") ; \
-        if (!f) break ; \
-        fprintf(f, fmt"\n",__VA_ARGS__);    \
-        fclose(f);   \
-    } while (0)
-
-#define LOG_CONNECTTION(filename, fmt , ...)    \
-    do { \
-        time_t tmi; \
-        struct tm * info; \
-        \
-        time(&tmi); \
-        info = localtime(&tmi); \
-        \
-        strftime(filename, DATE_MAX, "logs/connection-%Y-%m-%d", info); \
-        strcat(filename, ".log"); \
-        FILE* f = fopen(filename, "a") ; \
-        if (!f) break ; \
-        fprintf(f, fmt"\n",__VA_ARGS__);    \
-        fclose(f);   \
-    } while (0)
-
-#define LOG_CONNECTTION_ON_FILE(filename, fmt , ...)    \
-    do { \
-        FILE* f = fopen(filename, "a"); \
-        if (!f) break ; \
-        fprintf(f, fmt"\n",__VA_ARGS__);    \
-        fclose(f);   \
-    } while (0)
-
-#define LOG_ERROR(fmt , ...)    \
-    do { \
-        FILE* f = fopen("logs/errors.log" , "a") ; \
-        if (!f) break ; \
-        fprintf(f, fmt"\n",__VA_ARGS__);    \
-        fclose(f);   \
-    } while (0)
-
-#define LOG_WARNING(fmt , ...)    \
-    do { \
-        FILE* f = fopen("logs/errors.log" , "a") ; \
-        if (!f) break ; \
-        fprintf(f, fmt"\n",__VA_ARGS__);    \
-        fprintf(stderr, fmt, __VA_ARGS__);    \
-        fclose(f);   \
-    } while (0)
 
 #define typeof(var) _Generic( (var),\
     char: "Char",\

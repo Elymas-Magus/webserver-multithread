@@ -7,6 +7,7 @@
 #include <string.h>
 
 #include "type_aliases.h"
+#include "logs.h"
 
 #define SOCKET_ERROR            -1
 
