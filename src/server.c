@@ -68,7 +68,7 @@ saveSocketContext(int serverSocket)
 int
 getServerSocket()
 {
-    int serverSocket = check(
+    SocketFD serverSocket = check(
         socket(AF_INET, SOCK_STREAM, 0),
         "Failed to create socket"
     );
@@ -96,13 +96,13 @@ initServer(Server * server)
 }
 
 int
-initListen(int serverSocket)
+initListen(SocketFD serverSocket)
 {
     return check(listen(serverSocket, SERVER_BACKLOG), "Listen failed!");
 }
 
 int
-bindServerAddr(int serverSocket, SA_IN serverAddr)
+bindServerAddr(SocketFD serverSocket, SA_IN serverAddr)
 {
     return check(bind(serverSocket, (SA *) &serverAddr, sizeof(serverAddr)), "Bind Failed");
 }

@@ -17,11 +17,12 @@
 #include "type_aliases.h"
 #include "throwable.h"
 #include "uri.h"
+#include "stream.h"
+#include "logs.h"
 
 #define CONNECTION_BUFFER_SIZE      81920
 #define CONNECTION_PATH_MAX         1000
 #define MAX_CONTENT_LENGTH_STRING   10
-
 
 /**
  * Receive server object and init

@@ -9,24 +9,18 @@ const char HTTP_VERSIONS[][MAX_HTTP_VERSION_NAME] = {
 };
 
 const HttpResponseCode httpResponseCode[] = {
-    {"200", "OK"},
-    {"304", "NOT MODIFIED"},
-    {"400", "BAD REQUEST"},
-    {"401", "UNAUTHORIZED"},
-    {"403", "FORBIDDEN"},
-    {"404", "NOT FOUND"},
-    {"405", "METHOD NOT ALLOWED"},
-    {"500", "INTERNAL SERVER ERROR"},
-    {"501", "NOT IMPLEMENTED"},
-    {"502", "BAD GATEWAY"},
-    {"504", "GATEWAY TIMEOUT"},
-    {"505", "HTTP VERSION NOT SUPPORTED"},
-};
-
-const HttpHeaders httpHeaders[] = {
-    {"Content-Type", "text/html; charset=utf-8"},
-    {"Content-Length", ""},
-    {"Keep-Alive", "timeout, max=999"},
+    {0, "200", "OK"},
+    {1, "304", "NOT MODIFIED"},
+    {2, "400", "BAD REQUEST"},
+    {3, "401", "UNAUTHORIZED"},
+    {4, "403", "FORBIDDEN"},
+    {5, "404", "NOT FOUND"},
+    {6, "405", "METHOD NOT ALLOWED"},
+    {7, "500", "INTERNAL SERVER ERROR"},
+    {8, "501", "NOT IMPLEMENTED"},
+    {9, "502", "BAD GATEWAY"},
+    {10, "504", "GATEWAY TIMEOUT"},
+    {11, "505", "HTTP VERSION NOT SUPPORTED"},
 };
 
 bool
@@ -58,7 +52,7 @@ extractRequest(HttpRequest * request, String httpMessage, String root)
 
     if (body == NULL) {  
         strncpy(headers, httpMessage, strlen(httpMessage) - 1);
-        strcpy(request->body, "");
+        memset(request->body, 0, sizeof(request->body));
     } else {
         strncpy(headers, httpMessage, strlen(httpMessage) - strlen(body) - 1);
         strcpy(request->body, body + 2);
@@ -81,6 +75,21 @@ extractRequest(HttpRequest * request, String httpMessage, String root)
     return true;
 }
 
+HttpRequest *
+newRequest()
+{
+    HttpRequest * request = (HttpRequest *) malloc(sizeof(HttpRequest));
+
+    memset(request->body, 0, sizeof(request->body));
+    memset(request->extension, 0, sizeof(request->extension));
+    memset(request->path, 0, sizeof(request->path));
+    memset(request->mimeType, 0, sizeof(request->mimeType));
+    memset(request->query, 0, sizeof(request->query));
+    memset(request->httpVersion, 0, sizeof(request->httpVersion));
+
+    return request;
+}
+
 HttpListHeaders
 newRequestHeaders()
 {
@@ -100,13 +109,8 @@ setHeader(HttpRequest * request, String key, String value)
         return false;
     }
 
-    HttpHeaders * header = (HttpHeaders *) malloc(sizeof(HttpHeaders));
     request->headers = arrayInit();
-    strcpy(header->key, key);
-    strcpy(header->value, value);
-    arrayPush(request->headers, (void **) header, sizeof(HttpHeaders));
-
-    return true;
+    return addHeader(request, key, value);
 }
 
 bool
@@ -156,27 +160,63 @@ setResponse(HttpRequest * request, HttpResponseCode httpResponseCode)
 }
 
 void
-sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket)
+sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, Stream * stream)
 {
-    HttpHeaders * header;
-    String httpLine = (String) malloc(MAX_HTTP_HEADER_LINE);
-    HttpResponseCode response = httpResponseCode[httpResponseIndex];
+    Buffer * OBuffer;
 
-    setResponse(request, response);
-    sprintf(httpLine, "%s %s %s\n", request->httpVersion, response.code, response.state);
-    printf("%s %s %s\n", request->httpVersion, response.code, response.state);
+    Node * no;
+    HttpHeaders * header;
+
+    String httpLine = (String) malloc(MAX_HTTP_HEADER_LINE);
+    HttpResponseCode response = httpResponseCode[responseIndex];
+
+    if (response.index == HTTP_OK) {
+        stream->file = open(stream->path, O_RDONLY);
+        if (stream->file == STREAM_ERROR) {
+            response = httpResponseCode[HTTP_INTERNAL_SERVER_ERROR];
+            LOG("File couldn't be opened. Filename %s\n", stream->path);
+        }
+    }
+
+    sprintf(httpLine, "%s %s %s\r\n", request->httpVersion, response.code, response.state);
     write(clientSocket, httpLine, strlen(httpLine));
-    for (Node * no = request->headers->first; no; no = no->next) {
+    
+    FOREACH (no, request->headers) {
         header = (HttpHeaders *) no->content;
-        sprintf(httpLine, "%s: %s\n", header->key, header->value);
-        printf("%s: %s\n", header->key, header->value);
+        sprintf(httpLine, "%s: %s\r\n", header->key, header->value);
         write(clientSocket, httpLine, strlen(httpLine));
     }
-    sprintf(httpLine, "\n%s\n", request->body);
-    printf("\n%s\n", request->body);
-    write(clientSocket, httpLine, strlen(httpLine));
 
-    close(clientSocket);
+    write(clientSocket, "\n", 1);
+    printf("\n");
+
+    if (stream->file != STREAM_ERROR) {
+        OBuffer = (Buffer *) malloc(sizeof(Buffer));
+        OBuffer->content = (String) malloc(MAX_HTTP_BUFFER);
+        
+        while ((OBuffer->size = read(stream->file, OBuffer->content, MAX_HTTP_BUFFER)) > 0) {
+            write(clientSocket, OBuffer->content, OBuffer->size);
+
+            if (OBuffer->size < MAX_HTTP_BUFFER) {
+                break;
+            }
+        }
+    }
+}
+
+bool
+keepAlive(HttpRequest * request)
+{
+    Node * no;
+    HttpHeaders * header;
+    FOREACH (no, request->headers) {
+        header = (HttpHeaders *) no->content;
+        if (strcmp(header->key, "Connection") == 0) {
+            return strcmp(header->value, "keep-alive") == 0;
+        }
+    }
+
+    return false;
 }
 
 void
@@ -184,4 +224,96 @@ requestFree(HttpRequest * request)
 {
     arrayFree(request->headers);
     free(request);
+}
+
+bool
+getTypeFromMimeType(String mimeType)
+{
+    int typeLength;
+    String type = (String) malloc(MAX_MIME_TYPE_NAME_LEN);
+    String slashPos = strchr(mimeType, '/');
+
+    typeLength = (slashPos != NULL) ?
+        ((int)(slashPos - mimeType)) :
+        strlen(mimeType);
+
+    memset(type, 0, MAX_MIME_TYPE_NAME_LEN);
+    strncpy(type, mimeType, typeLength);
+
+    return type;
+}
+
+bool
+isTextFile(String mimeType)
+{
+    int typeLength;
+    String slashPos = strchr(mimeType, '/');
+
+    typeLength = (slashPos != NULL) ?
+        ((int)(slashPos - mimeType)) :
+        strlen(mimeType);
+
+    return strncmp(mimeType, "text", typeLength) == 0;
+}
+
+bool
+isImageFile(String mimeType)
+{
+    int typeLength;
+    String slashPos = strchr(mimeType, '/');
+
+    typeLength = (slashPos != NULL) ?
+        ((int)(slashPos - mimeType)) :
+        strlen(mimeType);
+
+    return strncmp(mimeType, "image", typeLength) == 0;
+}
+
+bool
+isAudioFile(String mimeType)
+{
+    int typeLength;
+    String slashPos = strchr(mimeType, '/');
+
+    typeLength = (slashPos != NULL) ?
+        ((int)(slashPos - mimeType)) :
+        strlen(mimeType);
+
+    return strncmp(mimeType, "audio", typeLength) == 0;
+}
+
+bool
+isVideoFile(String mimeType)
+{
+    int typeLength;
+    String slashPos = strchr(mimeType, '/');
+
+    typeLength = (slashPos != NULL) ?
+        ((int)(slashPos - mimeType)) :
+        strlen(mimeType);
+
+    return strncmp(mimeType, "video", typeLength) == 0;
+}
+
+bool
+isBinaryFile(String mimeType)
+{
+    int typeLength;
+    String slashPos = strchr(mimeType, '/');
+
+    typeLength = (slashPos != NULL) ?
+        ((int)(slashPos - mimeType)) :
+        strlen(mimeType);
+
+    return strncmp(mimeType, "application", typeLength) == 0;
+}
+
+String
+getMimeTypeFormatted(String mimeType)
+{
+    if (strcmp(mimeType, "text/html") == 0) {
+        strcat(mimeType, "; charset=UTF-8");
+    }
+
+    return mimeType;
 }

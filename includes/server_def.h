@@ -2,6 +2,8 @@
 #define SERVER_DEF_H_INCLUDED
 
 #include <arpa/inet.h>
+
+#include "stream_def.h"
 #include "type_aliases.h" 
 #include "threadpool_def.h"
 #include "queue.h"
@@ -12,7 +14,7 @@
 typedef struct server {
     char name[MAX_SERVER_NAME];
     char root[MAX_SERVER_PATH_LENGTH];
-    int socket;
+    SocketFD socket;
     u_int port;
     SA_IN address;
     Threadpool * pools;

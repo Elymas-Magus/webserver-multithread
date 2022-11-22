@@ -19,7 +19,10 @@
 #define MAX_HTTP_HEADER_SIZE             40960
 #define MAX_HTTP_BODY_SIZE               40960
 #define MAX_HTTP_MESSAGE_LENGTH          81920
-#define MAX_HTTP_BUFFER                  167772160
+#define MAX_HTTP_BUFFER                  4096
+
+#define MIN_CONTENT_TYPE_LEN             2
+#define MIN_HTTP_BUFFER                  2
 
 #define HTTP_HEADER_CONTENT_TYPE         0
 
@@ -35,7 +38,7 @@
 #define HTTP_FORBIDDEN                   4
 #define HTTP_NOT_FOUND                   5
 #define HTTP_METHOD_NOT_ALLOWED          6
-#define HTTP_INTERNAL SERVER ERROR       7
+#define HTTP_INTERNAL_SERVER_ERROR       7
 #define HTTP_NOT_IMPLEMENTED             8
 #define HTTP_BAD_GATEWAY                 9
 #define HTTP_GATEWAY_TIMEOUT             10
@@ -48,8 +51,8 @@
 #define HTTP_VERSION_3                   4
 
 #define BREAKLINE                        "\n"
-#define DIVISOR                          "\n\n"
-#define HEADER_LINE_MODEL                "%[^:]: %[^\n] "
+#define DIVISOR                          "\r\n\r\n"
+#define HEADER_LINE_MODEL                "%[^:]: %[^\r\n]%*c"
 
 typedef ArrayList HttpListHeaders;
 
@@ -64,6 +67,7 @@ typedef struct httpHeader {
 } HttpHeaders;
 
 typedef struct httpResponseCode {
+    int index;
     char code[MAX_HEADER_KEY_LEN];
     char state[MAX_HEADER_VALUE_LEN];
 } HttpResponseCode;

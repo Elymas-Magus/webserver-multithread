@@ -2,9 +2,12 @@
 #define SOCKET_VALIDATION_H_INCLUDED
 
 #include <stdio.h>
+#include <errno.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "type_aliases.h"
+#include "logs.h"
 
 #define SOCKET_ERROR            -1
 

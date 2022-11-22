@@ -107,11 +107,11 @@ threadConnectionHandler(void * arg)
             continue;
         }
 
-        logConnectionStart(threadArg, *((int *) clientSocket), getCurrentTimeString());
+        logConnectionStart(threadArg, *((SocketFD *) clientSocket), getCurrentTimeString());
 
         printf("Handling\n");
         mutexUnlock(&server->pools->mutex);
-        handleConnection(threadArg, *((int *) clientSocket), server);
+        handleConnection(threadArg, *((SocketFD *) clientSocket), server);
 
         threadArg->connectionId++;
     }
@@ -127,8 +127,9 @@ threadConnectionHandler(void * arg)
 }
 
 void
-handleConnection(ThreadArg * args, int clientSocket, Server * server)
+handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
 {
+    printf("New Handling\n\n\n");
     bool error = true;
 
     String currentTime;
@@ -141,52 +142,57 @@ handleConnection(ThreadArg * args, int clientSocket, Server * server)
 
     int messageCode;
     int messageSize = 0;
+    int slack = 1;
+    int rootPathSize = strlen(server->root);
 
-    char contentType[MAX_CONTENT_TYPE_LEN];
-    char contentLength[MAX_CONTENT_LENGTH_STRING];
-    char absolutepath[CONNECTION_PATH_MAX + 1];
-    char buffer[MAX_HTTP_MESSAGE_LENGTH];
-    char path[CONNECTION_BUFFER_SIZE + strlen(server->root) + 1];
+    char absolutepath[CONNECTION_PATH_MAX + slack];
+    char IBuffer[MAX_HTTP_MESSAGE_LENGTH];
+    char path[CONNECTION_BUFFER_SIZE + rootPathSize + slack];
 
     struct stat htmlAttr;
 
-    FILE * fp = NULL;
-    HttpRequest * request = (HttpRequest *) malloc(sizeof(HttpRequest));
-    HttpRequest * response = (HttpRequest *) malloc(sizeof(HttpRequest));
+    Stream * stream = initStream();
 
-    while ((bytesRead = read(clientSocket, buffer + messageSize, sizeof(buffer) - messageSize - 1)) > 0) {
+    HttpRequest * request = newRequest();
+    HttpRequest * response = newRequest();
+
+    while (
+        (bytesRead = read(
+            clientSocket,
+            IBuffer + messageSize,
+            sizeof(IBuffer) - messageSize - slack
+        )) > 0
+    ) {
         messageSize += bytesRead;
-        if (messageSize > MAX_HTTP_MESSAGE_LENGTH - 1 || buffer[messageSize - 1] == '\n') {
+        if (
+            messageSize > MAX_HTTP_MESSAGE_LENGTH - slack ||
+            IBuffer[messageSize - slack] == '\n'
+        ) {
             break;
         }
     }
 
     check(bytesRead, "recv error");
-    buffer[messageSize - 1] = 0;
+    IBuffer[messageSize - 1] = 0;
 
-    printf("%s\n", buffer);
+    printf("%s\n", IBuffer);
     TRY {
-        if (extractRequest(request, buffer, server->root) == false) {
+        if (extractRequest(request, IBuffer, server->root) == false) {
             THROW(INTERNAL_ERROR);
         }
 
         strcpy(path, request->path);
-
-        printf("\n\nfilename: %s\n", request->filename);
-        printf("mime_type: %s\n", request->mimeType);
-        printf("extension: %s\n", request->extension);
-        printf("path: %s\n", request->path);
-        printf("query: %s\n\n\n", request->query);
-
-        strcpy(contentType, request->mimeType);
-        strcat(contentType, "; charset=utf-8");
         strcpy(response->mimeType, request->mimeType);
         strcpy(response->httpVersion, HTTP_VERSIONS[HTTP_VERSION_1s1]);
-        strcpy(response->body, "");
 
-        setHeader(response, "Date", getCurrentTimeInHttpFormat());
+        setHeader(response, "Accept-Ranges", "bytes");
+        addHeader(response, "Keep-Alive", "timeout=5, max=100");
+        addHeader(response, "Date", getCurrentTimeInHttpFormat());
+        addHeader(response, "Accept-Language", "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7");
+        addHeader(response, "Content-Type", getMimeTypeFormatted(request->mimeType));
+        addHeader(response, "Server", server->name);
+        addHeader(response, "Connection", "close");
 
-        printf("REQUEST: %s\n", path);
         fflush(stdout);
         
         if (realpath(path, absolutepath) == NULL) {
@@ -194,24 +200,12 @@ handleConnection(ThreadArg * args, int clientSocket, Server * server)
             THROW(FILE_REALPATH_ERROR);
         }
 
-        fp = fopen(absolutepath, "r");
-        if (fp == NULL) {
-            messageCode = HTTP_BAD_REQUEST;
-            THROW(FILE_READING_ERROR);
-        }
-
-        if ((bytesRead = fread(buffer, 1, MAX_HTTP_MESSAGE_LENGTH, fp)) > 0) {
-            printf("Sending %zu bytesRead\n", bytesRead);
-            strcpy(response->body, buffer);
-        }
-        fclose(fp);
-
         stat(absolutepath, &htmlAttr);
-        sprintf(contentLength, "%zu", bytesRead);
-        addHeader(response, "Accept-Language", "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7");
+        strcpy(stream->path, absolutepath);
+        
+        printf("%s\n", getStringFileSize(absolutepath));
+        addHeader(response, "Content-Length", getStringFileSize(absolutepath));
         addHeader(response, "Last-Modified", getTimeInHttpFormat(&htmlAttr.st_mtime));
-        addHeader(response, "Content-Type", contentType);
-        addHeader(response, "Content-Length", contentLength);
 
         error = false;
         messageCode = HTTP_OK;
@@ -229,9 +223,8 @@ handleConnection(ThreadArg * args, int clientSocket, Server * server)
         currentTime = getCurrentTimeString();
         
         logConnectionEnd(args, clientSocket, currentTime, difftime(end, start), path, error);
-        sendResponse(response, messageCode, clientSocket);
+        sendResponse(response, messageCode, clientSocket, stream);
 
-        // free(currentTime);
         requestFree(request);
         requestFree(response);
 
@@ -242,7 +235,7 @@ handleConnection(ThreadArg * args, int clientSocket, Server * server)
 void
 logConnectionStart(ThreadArg * args, int clientSocket, String currTime)
 {
-    LOG_CONNECTTION(args->logFilename, "CODE: %u - THREAD_ID: %u\nClientSocket: %d; Start: %s", args->connectionId, args->threadId, clientSocket, currTime);
+    LOG_CONNECTTION(args->logFilename, "CODE: %u - THREAD_ID: %u\nClientSocket: %d; Start: %s\n\n", args->connectionId, args->threadId, clientSocket, currTime);
 }
 
 void
@@ -254,7 +247,7 @@ logConnectionEnd(ThreadArg * args, int clientSocket, String currTime, float dura
     };
     LOG_CONNECTTION_ON_FILE(
         args->logFilename,
-        "CODE: %u - THREAD_ID: %u\nClientSocket: %d; Path: %s\n End: %s; Duration: %0.8f; Status: %s\n",
+        "CODE: %u - THREAD_ID: %u\nClientSocket: %d; End: %s;\n Path: %s; Duration: %0.8f; Status: %s\n\n",
         args->connectionId, args->threadId, clientSocket, path, currTime, duration, errorStatus[error]
     );
 }

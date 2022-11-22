@@ -11,7 +11,6 @@
 #define CONFIG_ERROR                -1
 
 #define MAX_CONFIG_PATH_LENGTH      128
-#define MAX_CONFIG_FILE_LENGTH      8192
 #define MAX_CONFIG_KEY_LENGTH       50
 #define MAX_CONFIG_VALUE_LENGTH     255
 #define CONFIG_LINE_MODEL           "%[^=]=%[^;]; "
@@ -32,14 +31,6 @@ typedef struct serverConfig {
     u_int port;
     u_int threadMax;
 } ServerConfig;
-
-/**
- * Receive a filename, find the respective file
- * And return all content 
- * @param String filename
- * @returns string content
- */
-String fileGetContent(String filename);
 
 /**
  * Receive a start position and end position
