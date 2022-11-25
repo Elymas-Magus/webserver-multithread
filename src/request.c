@@ -26,7 +26,7 @@ const HttpResponseCode httpResponseCode[] = {
 bool
 extractRequest(HttpRequest * request, String httpMessage, String root)
 {
-    if (httpMessage == NULL || request == NULL) {
+    if (httpMessage == NULL || request == NULL || request->headers == NULL) {
         return false;
     }
     
@@ -37,7 +37,7 @@ extractRequest(HttpRequest * request, String httpMessage, String root)
     String body;
     String line;
 
-    request->headers = newRequestHeaders();
+    // request->headers = newRequestHeaders();
     for (i = 0; httpMessage[i] != '\n'; i++) {
         startLine[i] = httpMessage[i];
     }
@@ -80,6 +80,7 @@ newRequest()
 {
     HttpRequest * request = (HttpRequest *) malloc(sizeof(HttpRequest));
 
+    request->headers = newRequestHeaders();
     memset(request->body, 0, sizeof(request->body));
     memset(request->extension, 0, sizeof(request->extension));
     memset(request->path, 0, sizeof(request->path));

@@ -21,9 +21,11 @@ connectionLoop(Server * server)
     SA_IN clientAddr;
 
     while (true) {
+        printf("Initing connection loop ...\n\n");
         connectionListener(server, &addrSize, clientAddr);
     }
     
+    printf("Closing connection loop ...\n\n");
     shutdown(server->socket, SHUT_RDWR);
 }
 
@@ -65,7 +67,7 @@ void
 connectionListener(Server * server, socklen_t * addrSize, SA_IN clientAddr)
 {
     int * clientSocket = (int *) malloc(sizeof(int));
-    printf("Waiting for connections ...\n");
+    printf("Waiting for connections ...\n\n");
 
     check((* clientSocket) = accept(server->socket, (SA *) &clientAddr, addrSize), "Accept Failed");
 
@@ -76,6 +78,7 @@ connectionListener(Server * server, socklen_t * addrSize, SA_IN clientAddr)
 
     emitSignal(&(server->pools->cond));
     mutexUnlock(&(server->pools->mutex));
+    printf("End connection listener loop ...\n\n");
 }
 
 void *
@@ -89,10 +92,11 @@ threadConnectionHandler(void * arg)
     ThreadArg * threadArg = (ThreadArg *) arg;
     Server * server = (Server *) threadArg->content;
 
-    printf("-------------------- Init thread loop ---------------------\n");
+    printf("-------------------- Start thread loop ---------------------\n");
     while (true) {
         mutexLock(&server->pools->mutex);
 
+        printf("New Thread loop ...\n");
         if (server->pools->queue->items->length == 0 && !server->pools->shutdown) {
             condWait(&(server->pools->cond), &(server->pools->mutex));
         }
@@ -112,8 +116,10 @@ threadConnectionHandler(void * arg)
         handleConnection(threadArg, *((SocketFD *) clientSocket), server);
 
         threadArg->connectionId++;
+        printf("End Thread loop ...\n");
     }
 
+    printf("-------------------- End thread loop ---------------------\n");
     free(server);
     free(threadArg);
     free(clientSocket);
@@ -172,17 +178,20 @@ handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
     check(bytesRead, "recv error");
     IBuffer[messageSize - 1] = 0;
 
-    printf("%s\n", IBuffer);
+    printf("Buffer de entrada:\n%s\n", IBuffer);
     TRY {
         if (extractRequest(request, IBuffer, server->root) == false) {
+            messageCode = HTTP_INTERNAL_SERVER_ERROR;
             THROW(INTERNAL_ERROR);
         }
 
+        printf("Path da requisição:\n%s\n", request->path);
+        
         strcpy(path, request->path);
         strcpy(response->mimeType, request->mimeType);
         strcpy(response->httpVersion, HTTP_VERSIONS[HTTP_VERSION_1s1]);
 
-        setHeader(response, "Accept-Ranges", "bytes");
+        addHeader(response, "Accept-Ranges", "bytes");
         addHeader(response, "Keep-Alive", "timeout=5, max=100");
         addHeader(response, "Date", getCurrentTimeInHttpFormat());
         addHeader(response, "Accept-Language", "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7");
@@ -207,19 +216,21 @@ handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
         error = false;
         messageCode = HTTP_OK;
         
-    } CATCH (INTERNAL_ERROR) {
-        WARNING("%s; PATH: %s\n", getCurrentThrowableMessage(), path);
-        close(clientSocket);
-        return;
     } CATCH (FILE_REALPATH_ERROR) {
         WARNING("%s; PATH: %s\n", getCurrentThrowableMessage(), path);
     } CATCH (FILE_READING_ERROR) {
+        WARNING("%s; PATH: %s\n", getCurrentThrowableMessage(), path);
+    } CATCH (INTERNAL_ERROR) {
         WARNING("%s; PATH: %s\n", getCurrentThrowableMessage(), path);
     } FINALLY {
         end = getCurrentTime();
         currentTime = getCurrentTimeString();
         
-        sendResponse(response, messageCode, clientSocket, stream);
+        // if (messageCode != HTTP_INTERNAL_SERVER_ERROR) {
+            sendResponse(response, messageCode, clientSocket, stream);
+        // } else {
+        //     close(clientSocket);
+        // }
         logConnectionEnd(args, clientSocket, currentTime, difftime(end, start), path, error);
 
         requestFree(request);
@@ -245,6 +256,6 @@ logConnectionEnd(ThreadArg * args, int clientSocket, String currTime, float dura
     LOG_CONNECTTION_ON_FILE(
         args->logFilename,
         "CODE: %u - THREAD_ID: %u\nClientSocket: %d; End: %s;\n Path: %s; Duration: %0.8f; Status: %s\n\n",
-        args->connectionId, args->threadId, clientSocket, path, currTime, duration, errorStatus[error]
+        args->connectionId, args->threadId, clientSocket, currTime, path, duration, errorStatus[error]
     );
 }

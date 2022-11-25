@@ -86,7 +86,7 @@
     } while (0);
 
 
-#define LOG_ERROR(filename, fmt , ...)                                      \
+#define LOG_ERROR(fmt , ...)                                      \
     do {                                                                    \
         FILE * file = NULL;                                                 \
                                                                             \
@@ -101,7 +101,7 @@
     } while (0);
 
 
-#define LOG_WARNING(filename, fmt , ...)                                    \
+#define LOG_WARNING(fmt , ...)                                    \
     do {                                                                    \
         FILE * file = NULL;                                                 \
                                                                             \
