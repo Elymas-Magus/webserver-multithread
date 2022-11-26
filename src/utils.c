@@ -25,6 +25,7 @@ getServerConfigFromConfigFile(String filename)
     ServerConfig * config = (ServerConfig *) malloc(sizeof(ServerConfig));
 
     config->port = 0;
+    config->backlog = 0;
     config->threadMax = 0;
 
     if (readConfigFile(filename, config) == CONFIG_ERROR) {
@@ -64,6 +65,10 @@ readConfigFile(String filename, ServerConfig * config)
             config->port = atoi(value);
         }
 
+        if (!strcmp(CONFIG_BACKLOG, key)) {
+            config->backlog = atoi(value);
+        }
+
         if (!strcmp(CONFIG_THREAD_MAX, key)) {
             config->threadMax = atoi(value);
         }
@@ -73,9 +78,26 @@ readConfigFile(String filename, ServerConfig * config)
         config->port = SERVER_PORT;
     }
 
+    if (config->backlog < 1) {
+        config->backlog = SERVER_BACKLOG;
+    }
+
     if (config->threadMax < 1) {
         config->threadMax = THREAD_MAX_DEFAULT;
     }
 
     return CONFIG_SUCCESS;
+}
+
+String
+toFstring(const char * fmt, ...)
+{
+    va_list args;
+    String buffer = (String) malloc(MAX_STRING_BUFFER);
+
+    va_start(args, fmt);
+    vsprintf(buffer, fmt, args);
+    va_end(args);
+
+    return buffer;
 }
