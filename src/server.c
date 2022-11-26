@@ -8,6 +8,7 @@ createServer(ServerConfig * config)
     strcpy(server->name, "WebServerMT");
     strcpy(server->root, config->root);
     server->port = config->port;
+    server->backlog = config->backlog;
     server->socket = getServerSocket();
     server->address = getServerAddr(config->port);
     server->pools = createThreadpool(config->threadMax);
@@ -83,6 +84,7 @@ getServerAddr(u_int port)
 
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    // serverAddr.sin_addr.s_addr = inet_addr("192.168.250.25");
     serverAddr.sin_port = htons(port);
 
     return serverAddr;
@@ -91,14 +93,20 @@ getServerAddr(u_int port)
 int
 initServer(Server * server)
 {
+    int optval = 1;
+    check(
+        setsockopt(server->socket, SOL_SOCKET, SO_REUSEADDR, (const void *)&optval, sizeof(int)), 
+        "Error reusing address"
+    );
+
     bindServerAddr(server->socket, server->address);
-    return initListen(server->socket);
+    return initListen(server->socket, server->backlog);
 }
 
 int
-initListen(SocketFD serverSocket)
+initListen(SocketFD serverSocket, u_int serverBacklog)
 {
-    return check(listen(serverSocket, SERVER_BACKLOG), "Listen failed!");
+    return check(listen(serverSocket, serverBacklog), "Listen failed!");
 }
 
 int

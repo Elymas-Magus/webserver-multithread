@@ -15,6 +15,7 @@ typedef struct server {
     char name[MAX_SERVER_NAME];
     char root[MAX_SERVER_PATH_LENGTH];
     SocketFD socket;
+    u_int backlog;
     u_int port;
     SA_IN address;
     Threadpool * pools;

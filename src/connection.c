@@ -69,7 +69,13 @@ connectionListener(Server * server, socklen_t * addrSize, SA_IN clientAddr)
     int * clientSocket = (int *) malloc(sizeof(int));
     printf("Waiting for connections ...\n\n");
 
-    check((* clientSocket) = accept(server->socket, (SA *) &clientAddr, addrSize), "Accept Failed");
+    // check((* clientSocket) = accept(server->socket, (SA *) &clientAddr, addrSize), "Accept Failed");
+
+    (* clientSocket) = accept(server->socket, (SA *) &clientAddr, addrSize);
+    if ((* clientSocket) < 0) {
+        perror("Accept Failed");
+        return;
+    }
 
     mutexLock(&(server->pools->mutex));
 
@@ -178,13 +184,14 @@ handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
     check(bytesRead, "recv error");
     IBuffer[messageSize - 1] = 0;
 
-    printf("Buffer de entrada:\n%s\n", IBuffer);
     TRY {
         if (extractRequest(request, IBuffer, server->root) == false) {
             messageCode = HTTP_INTERNAL_SERVER_ERROR;
             THROW(INTERNAL_ERROR);
         }
 
+        fflush(stdout);
+        
         printf("Path da requisição:\n%s\n", request->path);
         
         strcpy(path, request->path);
@@ -209,28 +216,21 @@ handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
         stat(absolutepath, &htmlAttr);
         strcpy(stream->path, absolutepath);
         
-        printf("%s\n", getStringFileSize(absolutepath));
-        addHeader(response, "Content-Length", getStringFileSize(absolutepath));
+        addHeader(response, "Content-Length", toFstring("%lu", htmlAttr.st_size));
         addHeader(response, "Last-Modified", getTimeInHttpFormat(&htmlAttr.st_mtime));
 
         error = false;
         messageCode = HTTP_OK;
+        printf("\n\n--- Status code OK ---\n\n");
         
-    } CATCH (FILE_REALPATH_ERROR) {
-        WARNING("%s; PATH: %s\n", getCurrentThrowableMessage(), path);
-    } CATCH (FILE_READING_ERROR) {
-        WARNING("%s; PATH: %s\n", getCurrentThrowableMessage(), path);
-    } CATCH (INTERNAL_ERROR) {
+    } CATCHALL {
         WARNING("%s; PATH: %s\n", getCurrentThrowableMessage(), path);
     } FINALLY {
         end = getCurrentTime();
         currentTime = getCurrentTimeString();
         
-        // if (messageCode != HTTP_INTERNAL_SERVER_ERROR) {
-            sendResponse(response, messageCode, clientSocket, stream);
-        // } else {
-        //     close(clientSocket);
-        // }
+        printf("Sending response\n");
+        sendResponse(response, messageCode, clientSocket, stream);
         logConnectionEnd(args, clientSocket, currentTime, difftime(end, start), path, error);
 
         requestFree(request);

@@ -16,8 +16,6 @@
 #include "throwable.h"
 #include "threadpool.h"
 
-#define SERVER_BACKLOG          1
-
 #define BUFFER_SIZE             4096
 #define LOG_CONTEXT_FILENAME    "logs/socket_context.log"
 
@@ -42,7 +40,7 @@ int getServerSocketContext();
 /**
  * Save serverSocket context
  */
-void saveSocketContext(int serverSocket);
+void saveSocketContext(SocketFD serverSocket);
 
 /**
  * Create struct sockaddr_in instance
@@ -63,7 +61,7 @@ int initServer(Server * server);
  * @param int serverSocket
  * @returns int status
  */
-int initListen(int serverSocket);
+int initListen(SocketFD serverSocket, u_int backlog);
 
 /**
  * Initiate listener or Die
@@ -71,7 +69,7 @@ int initListen(int serverSocket);
  * @param struct sockaddr_in serverAddr
  * @returns int status
  */
-int bindServerAddr(int serverSocket, SA_IN serverAddr);
+int bindServerAddr(SocketFD serverSocket, SA_IN serverAddr);
 
 /**
  * Destroys server and it's attributes

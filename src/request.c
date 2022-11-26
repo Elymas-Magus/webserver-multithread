@@ -202,8 +202,10 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
                 break;
             }
         }
+        close(stream->file);
     }
 
+    printf("close socket -------------------------------\n");
     close(clientSocket);
 }
 
