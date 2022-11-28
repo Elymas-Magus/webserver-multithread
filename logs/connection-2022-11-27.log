@@ -1,0 +1,2659 @@
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 01:42:13 2022
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 01:42:13 2022
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 01:42:13 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 01:42:13 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; Start: Sun Nov 27 01:42:13 2022
+
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 01:42:13 2022
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; End: Sun Nov 27 01:42:13 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 01:42:14 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 1.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 01:42:14 2022
+
+CODE: 0 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 01:42:14 2022
+
+CODE: 0 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 01:42:14 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 01:42:14 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 0
+ClientSocket: 7; Start: Sun Nov 27 01:42:14 2022
+
+CODE: 1 - THREAD_ID: 1
+ClientSocket: 5; Start: Sun Nov 27 01:42:14 2022
+
+CODE: 1 - THREAD_ID: 0
+ClientSocket: 7; End: Sun Nov 27 01:42:14 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 1
+ClientSocket: 5; End: Sun Nov 27 01:42:14 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 01:42:14 2022
+
+CODE: 1 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 01:42:14 2022
+
+CODE: 1 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 01:42:14 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 01:42:14 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 4
+ClientSocket: 7; Start: Sun Nov 27 01:42:14 2022
+
+CODE: 1 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 01:42:14 2022
+
+CODE: 1 - THREAD_ID: 4
+ClientSocket: 7; End: Sun Nov 27 01:42:14 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 01:42:14 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 0
+ClientSocket: 6; Start: Sun Nov 27 01:42:15 2022
+
+CODE: 2 - THREAD_ID: 1
+ClientSocket: 5; Start: Sun Nov 27 01:42:15 2022
+
+CODE: 2 - THREAD_ID: 0
+ClientSocket: 6; End: Sun Nov 27 01:42:15 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 1
+ClientSocket: 5; End: Sun Nov 27 01:42:15 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 2
+ClientSocket: 7; Start: Sun Nov 27 01:42:15 2022
+
+CODE: 2 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 01:42:15 2022
+
+CODE: 2 - THREAD_ID: 2
+ClientSocket: 7; End: Sun Nov 27 01:42:15 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 01:42:15 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 01:42:15 2022
+
+CODE: 2 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 01:42:15 2022
+
+CODE: 2 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 01:42:15 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 01:42:15 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 0
+ClientSocket: 7; Start: Sun Nov 27 01:42:15 2022
+
+CODE: 3 - THREAD_ID: 1
+ClientSocket: 5; Start: Sun Nov 27 01:42:15 2022
+
+CODE: 3 - THREAD_ID: 0
+ClientSocket: 7; End: Sun Nov 27 01:42:15 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 1
+ClientSocket: 5; End: Sun Nov 27 01:42:15 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 01:42:16 2022
+
+CODE: 3 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 01:42:16 2022
+
+CODE: 3 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 01:42:16 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 01:42:16 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 4
+ClientSocket: 7; Start: Sun Nov 27 01:59:51 2022
+
+CODE: 3 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 01:59:51 2022
+
+CODE: 3 - THREAD_ID: 4
+ClientSocket: 7; End: Sun Nov 27 01:59:51 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 01:59:51 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 0
+ClientSocket: 6; Start: Sun Nov 27 01:59:53 2022
+
+CODE: 4 - THREAD_ID: 1
+ClientSocket: 5; Start: Sun Nov 27 01:59:53 2022
+
+CODE: 4 - THREAD_ID: 0
+ClientSocket: 6; End: Sun Nov 27 01:59:53 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 2
+ClientSocket: 7; Start: Sun Nov 27 02:00:01 2022
+
+CODE: 4 - THREAD_ID: 1
+ClientSocket: 5; End: Sun Nov 27 02:00:07 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 14.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 2
+ClientSocket: 7; End: Sun Nov 27 02:00:07 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 6.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:07 2022
+
+CODE: 4 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:07 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 4 - THREAD_ID: 5
+ClientSocket: 6; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 4 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 5
+ClientSocket: 6; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 0
+ClientSocket: 7; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 5 - THREAD_ID: 0
+ClientSocket: 7; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 2
+ClientSocket: 5; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 5 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 5 - THREAD_ID: 2
+ClientSocket: 5; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 3
+ClientSocket: 7; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 5 - THREAD_ID: 3
+ClientSocket: 7; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 5 - THREAD_ID: 5
+ClientSocket: 6; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 5 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 5
+ClientSocket: 6; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 0
+ClientSocket: 7; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 6 - THREAD_ID: 0
+ClientSocket: 7; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 2
+ClientSocket: 5; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 6 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 6 - THREAD_ID: 2
+ClientSocket: 5; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 3
+ClientSocket: 7; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 6 - THREAD_ID: 3
+ClientSocket: 7; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 6 - THREAD_ID: 5
+ClientSocket: 6; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 6 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 5
+ClientSocket: 6; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 0
+ClientSocket: 7; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 7 - THREAD_ID: 2
+ClientSocket: 5; Start: Sun Nov 27 02:00:15 2022
+
+CODE: 7 - THREAD_ID: 0
+ClientSocket: 7; End: Sun Nov 27 02:00:15 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 2
+ClientSocket: 5; End: Sun Nov 27 02:00:16 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 1.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:00:16 2022
+
+CODE: 7 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:00:16 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:16 2022
+
+CODE: 7 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:16 2022
+
+CODE: 7 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:16 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:16 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:16 2022
+
+CODE: 7 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:16 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:16 2022
+
+CODE: 8 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:16 2022
+
+CODE: 8 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:16 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:16 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:16 2022
+
+CODE: 8 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:16 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:16 2022
+
+CODE: 8 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:16 2022
+
+CODE: 8 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:16 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:16 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:16 2022
+
+CODE: 8 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:16 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:16 2022
+
+CODE: 9 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:16 2022
+
+CODE: 9 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:16 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:16 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:17 2022
+
+CODE: 9 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:17 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:17 2022
+
+CODE: 9 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:17 2022
+
+CODE: 9 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:17 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:17 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:17 2022
+
+CODE: 9 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:17 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:17 2022
+
+CODE: 10 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:17 2022
+
+CODE: 10 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:17 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:17 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:17 2022
+
+CODE: 10 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:17 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:17 2022
+
+CODE: 10 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:17 2022
+
+CODE: 10 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:17 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:17 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:17 2022
+
+CODE: 10 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:17 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 11 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:17 2022
+
+CODE: 11 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:17 2022
+
+CODE: 11 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:17 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 11 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:17 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 11 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:17 2022
+
+CODE: 11 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:17 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 11 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:18 2022
+
+CODE: 11 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:18 2022
+
+CODE: 11 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:18 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 11 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:18 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 11 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:18 2022
+
+CODE: 11 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:18 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 12 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:18 2022
+
+CODE: 12 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:18 2022
+
+CODE: 12 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:18 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 12 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:18 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 12 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:18 2022
+
+CODE: 12 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:18 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 12 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:18 2022
+
+CODE: 12 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:18 2022
+
+CODE: 12 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:18 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 12 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:18 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 12 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:18 2022
+
+CODE: 12 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:18 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 13 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:18 2022
+
+CODE: 13 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:18 2022
+
+CODE: 13 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:18 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 13 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:18 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 13 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:18 2022
+
+CODE: 13 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:18 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 13 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:18 2022
+
+CODE: 13 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:18 2022
+
+CODE: 13 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:18 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 13 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:18 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 13 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:19 2022
+
+CODE: 13 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:19 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 14 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:19 2022
+
+CODE: 14 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:19 2022
+
+CODE: 14 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:19 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 14 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:19 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 14 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:19 2022
+
+CODE: 14 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:19 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 14 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:19 2022
+
+CODE: 14 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:19 2022
+
+CODE: 14 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:19 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 14 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:19 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 14 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:19 2022
+
+CODE: 14 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:19 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 15 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:19 2022
+
+CODE: 15 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:19 2022
+
+CODE: 15 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:19 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 15 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:19 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 15 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:19 2022
+
+CODE: 15 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:19 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 15 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:19 2022
+
+CODE: 15 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:19 2022
+
+CODE: 15 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:19 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 15 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:19 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 15 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:19 2022
+
+CODE: 15 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:19 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 16 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:20 2022
+
+CODE: 16 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:20 2022
+
+CODE: 16 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:20 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 16 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:20 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 16 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:20 2022
+
+CODE: 16 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:20 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 16 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:20 2022
+
+CODE: 16 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:20 2022
+
+CODE: 16 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:20 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 16 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:20 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 16 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:20 2022
+
+CODE: 16 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:20 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 17 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:20 2022
+
+CODE: 17 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:20 2022
+
+CODE: 17 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:20 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 17 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:20 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 17 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:20 2022
+
+CODE: 17 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:20 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 17 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:20 2022
+
+CODE: 17 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:20 2022
+
+CODE: 17 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:20 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 17 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:20 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 17 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:20 2022
+
+CODE: 17 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:20 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 18 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:20 2022
+
+CODE: 18 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:20 2022
+
+CODE: 18 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:20 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 18 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:20 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 18 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:21 2022
+
+CODE: 18 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:21 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 18 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:21 2022
+
+CODE: 18 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:21 2022
+
+CODE: 18 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:21 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 18 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:21 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 18 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:21 2022
+
+CODE: 18 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:21 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 19 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:21 2022
+
+CODE: 19 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:21 2022
+
+CODE: 19 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:21 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 19 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:21 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 19 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:21 2022
+
+CODE: 19 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:21 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 19 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:21 2022
+
+CODE: 19 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:21 2022
+
+CODE: 19 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:21 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 19 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:21 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 19 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:21 2022
+
+CODE: 19 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:21 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 20 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:21 2022
+
+CODE: 20 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:21 2022
+
+CODE: 20 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:21 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 20 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:21 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 20 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:21 2022
+
+CODE: 20 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:21 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 20 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 20 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 20 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 20 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 20 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 20 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 21 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 21 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 21 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 21 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 21 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 21 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 21 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 21 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 21 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 21 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 21 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 21 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 22 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 22 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 22 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 22 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 22 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 22 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 22 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 22 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 22 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 22 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 22 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:22 2022
+
+CODE: 22 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:22 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 23 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:23 2022
+
+CODE: 23 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:23 2022
+
+CODE: 23 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:23 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 23 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:23 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 23 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:23 2022
+
+CODE: 23 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:23 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 23 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:23 2022
+
+CODE: 23 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:23 2022
+
+CODE: 23 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:23 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 23 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:23 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 23 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:23 2022
+
+CODE: 23 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:23 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 24 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:23 2022
+
+CODE: 24 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:23 2022
+
+CODE: 24 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:23 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 24 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:23 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 24 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:23 2022
+
+CODE: 24 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:23 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 24 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:23 2022
+
+CODE: 24 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:23 2022
+
+CODE: 24 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:23 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 24 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:23 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 24 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:23 2022
+
+CODE: 24 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:23 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 25 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:24 2022
+
+CODE: 25 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:24 2022
+
+CODE: 25 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:24 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 25 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:24 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 25 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:24 2022
+
+CODE: 25 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:24 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 25 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:24 2022
+
+CODE: 25 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:24 2022
+
+CODE: 25 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:24 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 25 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:24 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 25 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:24 2022
+
+CODE: 25 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:24 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 26 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:24 2022
+
+CODE: 26 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:24 2022
+
+CODE: 26 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:24 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 26 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:24 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 26 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:24 2022
+
+CODE: 26 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:24 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 26 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:24 2022
+
+CODE: 26 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:24 2022
+
+CODE: 26 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:24 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 26 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:24 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 26 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:24 2022
+
+CODE: 26 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:24 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 27 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:25 2022
+
+CODE: 27 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:25 2022
+
+CODE: 27 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:25 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 27 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:25 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 27 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:25 2022
+
+CODE: 27 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:25 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 27 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:25 2022
+
+CODE: 27 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:25 2022
+
+CODE: 27 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:25 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 27 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:25 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 27 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:25 2022
+
+CODE: 27 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:25 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 28 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:25 2022
+
+CODE: 28 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:25 2022
+
+CODE: 28 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:25 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 28 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:25 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 28 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:25 2022
+
+CODE: 28 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:25 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 28 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:25 2022
+
+CODE: 28 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:25 2022
+
+CODE: 28 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:25 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 28 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:25 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 28 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:25 2022
+
+CODE: 28 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:25 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 29 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:25 2022
+
+CODE: 29 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:25 2022
+
+CODE: 29 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:25 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 29 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:26 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 1.00000000; Status: SUCCESS
+
+CODE: 29 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:26 2022
+
+CODE: 29 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:26 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 29 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:26 2022
+
+CODE: 29 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:26 2022
+
+CODE: 29 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:26 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 29 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:26 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 29 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:26 2022
+
+CODE: 29 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:26 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 30 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:26 2022
+
+CODE: 30 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:26 2022
+
+CODE: 30 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:26 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 30 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:26 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 30 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:26 2022
+
+CODE: 30 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:26 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 30 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:26 2022
+
+CODE: 30 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:26 2022
+
+CODE: 30 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:26 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 30 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:26 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 30 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:26 2022
+
+CODE: 30 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:26 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 31 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:26 2022
+
+CODE: 31 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:26 2022
+
+CODE: 31 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:26 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 31 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:26 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 31 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:26 2022
+
+CODE: 31 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:26 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 31 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:27 2022
+
+CODE: 31 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:27 2022
+
+CODE: 31 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:27 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 31 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:27 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 31 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:27 2022
+
+CODE: 31 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:27 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 32 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:27 2022
+
+CODE: 32 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:27 2022
+
+CODE: 32 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:27 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 32 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:27 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 32 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:27 2022
+
+CODE: 32 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:27 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 32 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:27 2022
+
+CODE: 32 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:27 2022
+
+CODE: 32 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:27 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 32 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:27 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 32 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:27 2022
+
+CODE: 32 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:27 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 33 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:28 2022
+
+CODE: 33 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:28 2022
+
+CODE: 33 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:28 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 33 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:28 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 33 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:28 2022
+
+CODE: 33 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:28 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 33 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:29 2022
+
+CODE: 33 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:29 2022
+
+CODE: 33 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:29 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 33 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:29 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 33 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:29 2022
+
+CODE: 33 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:29 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 34 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:29 2022
+
+CODE: 34 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:29 2022
+
+CODE: 34 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:29 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 34 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:29 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 34 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:29 2022
+
+CODE: 34 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:29 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 34 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:29 2022
+
+CODE: 34 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:29 2022
+
+CODE: 34 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:29 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 34 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:29 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 34 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:29 2022
+
+CODE: 34 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:29 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 35 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:29 2022
+
+CODE: 35 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:29 2022
+
+CODE: 35 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:29 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 35 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:29 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 35 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:29 2022
+
+CODE: 35 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:29 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 35 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:30 2022
+
+CODE: 35 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:30 2022
+
+CODE: 35 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:30 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 35 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:30 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 35 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:30 2022
+
+CODE: 35 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:30 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 36 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:30 2022
+
+CODE: 36 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:30 2022
+
+CODE: 36 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:30 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 36 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:30 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 36 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:30 2022
+
+CODE: 36 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:30 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 36 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:30 2022
+
+CODE: 36 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:30 2022
+
+CODE: 36 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:30 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 36 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:30 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 36 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:31 2022
+
+CODE: 36 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:31 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 37 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:31 2022
+
+CODE: 37 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:31 2022
+
+CODE: 37 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:31 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 37 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:31 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 37 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:31 2022
+
+CODE: 37 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:31 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 37 - THREAD_ID: 4
+ClientSocket: 5; Start: Sun Nov 27 02:00:31 2022
+
+CODE: 37 - THREAD_ID: 3
+ClientSocket: 6; Start: Sun Nov 27 02:00:31 2022
+
+CODE: 37 - THREAD_ID: 4
+ClientSocket: 5; End: Sun Nov 27 02:00:31 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 37 - THREAD_ID: 3
+ClientSocket: 6; End: Sun Nov 27 02:00:31 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 37 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:31 2022
+
+CODE: 37 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:31 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 38 - THREAD_ID: 2
+ClientSocket: 5; Start: Sun Nov 27 02:00:31 2022
+
+CODE: 38 - THREAD_ID: 0
+ClientSocket: 6; Start: Sun Nov 27 02:00:31 2022
+
+CODE: 38 - THREAD_ID: 2
+ClientSocket: 5; End: Sun Nov 27 02:00:31 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 38 - THREAD_ID: 0
+ClientSocket: 6; End: Sun Nov 27 02:00:31 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 38 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:31 2022
+
+CODE: 38 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:31 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 38 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:31 2022
+
+CODE: 38 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:31 2022
+
+CODE: 38 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:31 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 38 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:31 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 38 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:32 2022
+
+CODE: 38 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:32 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 39 - THREAD_ID: 2
+ClientSocket: 5; Start: Sun Nov 27 02:00:32 2022
+
+CODE: 39 - THREAD_ID: 0
+ClientSocket: 6; Start: Sun Nov 27 02:00:32 2022
+
+CODE: 39 - THREAD_ID: 2
+ClientSocket: 5; End: Sun Nov 27 02:00:32 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 39 - THREAD_ID: 0
+ClientSocket: 6; End: Sun Nov 27 02:00:32 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 39 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:32 2022
+
+CODE: 39 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:32 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 39 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:32 2022
+
+CODE: 39 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:32 2022
+
+CODE: 39 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:32 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 39 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:32 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 39 - THREAD_ID: 5
+ClientSocket: 7; Start: Sun Nov 27 02:00:32 2022
+
+CODE: 39 - THREAD_ID: 5
+ClientSocket: 7; End: Sun Nov 27 02:00:32 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 40 - THREAD_ID: 2
+ClientSocket: 5; Start: Sun Nov 27 02:00:36 2022
+
+CODE: 40 - THREAD_ID: 0
+ClientSocket: 6; Start: Sun Nov 27 02:00:36 2022
+
+CODE: 40 - THREAD_ID: 2
+ClientSocket: 5; End: Sun Nov 27 02:00:36 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 40 - THREAD_ID: 0
+ClientSocket: 6; End: Sun Nov 27 02:00:36 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 40 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:36 2022
+
+CODE: 40 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:36 2022
+
+CODE: 40 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:36 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 40 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:36 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 40 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:37 2022
+
+CODE: 40 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:00:37 2022
+
+CODE: 40 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:37 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 40 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:00:37 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 41 - THREAD_ID: 2
+ClientSocket: 7; Start: Sun Nov 27 02:00:37 2022
+
+CODE: 41 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:37 2022
+
+CODE: 41 - THREAD_ID: 2
+ClientSocket: 7; End: Sun Nov 27 02:00:37 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 41 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:37 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 41 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:00:37 2022
+
+CODE: 41 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:37 2022
+
+CODE: 41 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:00:37 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 41 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:37 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 41 - THREAD_ID: 4
+ClientSocket: 7; Start: Sun Nov 27 02:00:37 2022
+
+CODE: 41 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:00:37 2022
+
+CODE: 41 - THREAD_ID: 4
+ClientSocket: 7; End: Sun Nov 27 02:00:37 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 41 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:00:37 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 42 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:37 2022
+
+CODE: 42 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:37 2022
+
+CODE: 42 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:37 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 42 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:37 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 42 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:38 2022
+
+CODE: 42 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:38 2022
+
+CODE: 42 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:38 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 42 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:38 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 42 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:38 2022
+
+CODE: 42 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:00:38 2022
+
+CODE: 42 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:38 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 42 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:00:38 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 43 - THREAD_ID: 2
+ClientSocket: 7; Start: Sun Nov 27 02:00:38 2022
+
+CODE: 43 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:38 2022
+
+CODE: 43 - THREAD_ID: 2
+ClientSocket: 7; End: Sun Nov 27 02:00:38 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 43 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:38 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 43 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:00:38 2022
+
+CODE: 43 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:38 2022
+
+CODE: 43 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:00:38 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 43 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:38 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 43 - THREAD_ID: 4
+ClientSocket: 7; Start: Sun Nov 27 02:00:38 2022
+
+CODE: 43 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:00:38 2022
+
+CODE: 43 - THREAD_ID: 4
+ClientSocket: 7; End: Sun Nov 27 02:00:38 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 43 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:00:38 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 44 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:00:39 2022
+
+CODE: 44 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:39 2022
+
+CODE: 44 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:00:39 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 44 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:39 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 44 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:00:39 2022
+
+CODE: 44 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:39 2022
+
+CODE: 44 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:00:39 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 44 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:39 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 44 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:00:41 2022
+
+CODE: 44 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:00:41 2022
+
+CODE: 44 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:00:41 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 44 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:00:41 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 45 - THREAD_ID: 2
+ClientSocket: 7; Start: Sun Nov 27 02:00:44 2022
+
+CODE: 45 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:00:44 2022
+
+CODE: 45 - THREAD_ID: 2
+ClientSocket: 7; End: Sun Nov 27 02:00:44 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 45 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:00:44 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 45 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:00:44 2022
+
+CODE: 45 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:00:44 2022
+
+CODE: 45 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:00:44 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 45 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:00:44 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 45 - THREAD_ID: 4
+ClientSocket: 7; Start: Sun Nov 27 02:13:26 2022
+
+CODE: 45 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:26 2022
+
+CODE: 45 - THREAD_ID: 4
+ClientSocket: 7; End: Sun Nov 27 02:13:26 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 45 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:27 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 1.00000000; Status: SUCCESS
+
+CODE: 46 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:13:27 2022
+
+CODE: 46 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:27 2022
+
+CODE: 46 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:13:27 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 46 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:27 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 46 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:13:28 2022
+
+CODE: 46 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:28 2022
+
+CODE: 46 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:13:28 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 46 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:29 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 1.00000000; Status: SUCCESS
+
+CODE: 46 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:13:29 2022
+
+CODE: 46 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:29 2022
+
+CODE: 46 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:13:29 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 46 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:29 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 47 - THREAD_ID: 2
+ClientSocket: 7; Start: Sun Nov 27 02:13:29 2022
+
+CODE: 47 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:29 2022
+
+CODE: 47 - THREAD_ID: 2
+ClientSocket: 7; End: Sun Nov 27 02:13:29 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 47 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:29 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 47 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:13:29 2022
+
+CODE: 47 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:29 2022
+
+CODE: 47 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:13:29 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 47 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:29 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 47 - THREAD_ID: 4
+ClientSocket: 7; Start: Sun Nov 27 02:13:29 2022
+
+CODE: 47 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:29 2022
+
+CODE: 47 - THREAD_ID: 4
+ClientSocket: 7; End: Sun Nov 27 02:13:29 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 47 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:29 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 48 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:13:29 2022
+
+CODE: 48 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:29 2022
+
+CODE: 48 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:13:29 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 48 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:29 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 48 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:13:29 2022
+
+CODE: 48 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:29 2022
+
+CODE: 48 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:13:29 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 48 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:29 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 48 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:13:30 2022
+
+CODE: 48 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:30 2022
+
+CODE: 48 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:13:30 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 48 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:30 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 49 - THREAD_ID: 2
+ClientSocket: 7; Start: Sun Nov 27 02:13:30 2022
+
+CODE: 49 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:30 2022
+
+CODE: 49 - THREAD_ID: 2
+ClientSocket: 7; End: Sun Nov 27 02:13:30 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 49 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:30 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 49 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:13:30 2022
+
+CODE: 49 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:30 2022
+
+CODE: 49 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:13:30 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 49 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:30 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 49 - THREAD_ID: 4
+ClientSocket: 7; Start: Sun Nov 27 02:13:30 2022
+
+CODE: 49 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:30 2022
+
+CODE: 49 - THREAD_ID: 4
+ClientSocket: 7; End: Sun Nov 27 02:13:30 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 49 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:30 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 50 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:13:30 2022
+
+CODE: 50 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:30 2022
+
+CODE: 50 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:13:30 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 50 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:30 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 50 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:13:30 2022
+
+CODE: 50 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:30 2022
+
+CODE: 50 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:13:30 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 50 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:30 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 50 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:13:30 2022
+
+CODE: 50 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:30 2022
+
+CODE: 50 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:13:30 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 50 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:30 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 51 - THREAD_ID: 2
+ClientSocket: 7; Start: Sun Nov 27 02:13:31 2022
+
+CODE: 51 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:31 2022
+
+CODE: 51 - THREAD_ID: 2
+ClientSocket: 7; End: Sun Nov 27 02:13:31 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 51 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:31 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 51 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:13:31 2022
+
+CODE: 51 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:31 2022
+
+CODE: 51 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:13:31 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 51 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:31 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 51 - THREAD_ID: 4
+ClientSocket: 7; Start: Sun Nov 27 02:13:31 2022
+
+CODE: 51 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:31 2022
+
+CODE: 51 - THREAD_ID: 4
+ClientSocket: 7; End: Sun Nov 27 02:13:31 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 51 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:31 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 52 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:13:31 2022
+
+CODE: 52 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:31 2022
+
+CODE: 52 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:13:31 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 52 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:31 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 52 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:13:31 2022
+
+CODE: 52 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:31 2022
+
+CODE: 52 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:13:31 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 52 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:31 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 52 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:13:31 2022
+
+CODE: 52 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:31 2022
+
+CODE: 52 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:13:31 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 52 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:31 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 53 - THREAD_ID: 2
+ClientSocket: 7; Start: Sun Nov 27 02:13:31 2022
+
+CODE: 53 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:31 2022
+
+CODE: 53 - THREAD_ID: 2
+ClientSocket: 7; End: Sun Nov 27 02:13:31 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 53 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:31 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 53 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:13:32 2022
+
+CODE: 53 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:32 2022
+
+CODE: 53 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:13:32 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 53 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:32 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 53 - THREAD_ID: 4
+ClientSocket: 7; Start: Sun Nov 27 02:13:32 2022
+
+CODE: 53 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:32 2022
+
+CODE: 53 - THREAD_ID: 4
+ClientSocket: 7; End: Sun Nov 27 02:13:32 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 53 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:32 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 54 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:13:32 2022
+
+CODE: 54 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:32 2022
+
+CODE: 54 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:13:32 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 54 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:32 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 54 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:13:32 2022
+
+CODE: 54 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:32 2022
+
+CODE: 54 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:13:32 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 54 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:32 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 54 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:13:32 2022
+
+CODE: 54 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:32 2022
+
+CODE: 54 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:13:32 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 54 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:32 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 55 - THREAD_ID: 2
+ClientSocket: 7; Start: Sun Nov 27 02:13:32 2022
+
+CODE: 55 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:32 2022
+
+CODE: 55 - THREAD_ID: 2
+ClientSocket: 7; End: Sun Nov 27 02:13:32 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 55 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:32 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 55 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:13:32 2022
+
+CODE: 55 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:32 2022
+
+CODE: 55 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:13:32 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 55 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:32 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 55 - THREAD_ID: 4
+ClientSocket: 7; Start: Sun Nov 27 02:13:33 2022
+
+CODE: 55 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:33 2022
+
+CODE: 55 - THREAD_ID: 4
+ClientSocket: 7; End: Sun Nov 27 02:13:33 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 55 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:33 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 56 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:13:33 2022
+
+CODE: 56 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:33 2022
+
+CODE: 56 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:13:33 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 56 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:33 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 56 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:13:33 2022
+
+CODE: 56 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:33 2022
+
+CODE: 56 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:13:33 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 56 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:33 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 56 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:13:33 2022
+
+CODE: 56 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:33 2022
+
+CODE: 56 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:13:33 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 56 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:33 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 57 - THREAD_ID: 2
+ClientSocket: 7; Start: Sun Nov 27 02:13:33 2022
+
+CODE: 57 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:33 2022
+
+CODE: 57 - THREAD_ID: 2
+ClientSocket: 7; End: Sun Nov 27 02:13:33 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 57 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:33 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 57 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:13:33 2022
+
+CODE: 57 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:33 2022
+
+CODE: 57 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:13:33 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 57 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:33 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 57 - THREAD_ID: 4
+ClientSocket: 7; Start: Sun Nov 27 02:13:33 2022
+
+CODE: 57 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:33 2022
+
+CODE: 57 - THREAD_ID: 4
+ClientSocket: 7; End: Sun Nov 27 02:13:33 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 57 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:33 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 58 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:13:34 2022
+
+CODE: 58 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:34 2022
+
+CODE: 58 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:13:34 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 58 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:34 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 58 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:13:34 2022
+
+CODE: 58 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:34 2022
+
+CODE: 58 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:13:34 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 58 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:34 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 58 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:13:34 2022
+
+CODE: 58 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:34 2022
+
+CODE: 58 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:13:34 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 58 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:34 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 59 - THREAD_ID: 2
+ClientSocket: 7; Start: Sun Nov 27 02:13:34 2022
+
+CODE: 59 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:34 2022
+
+CODE: 59 - THREAD_ID: 2
+ClientSocket: 7; End: Sun Nov 27 02:13:34 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 59 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:34 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 59 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:13:34 2022
+
+CODE: 59 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:34 2022
+
+CODE: 59 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:13:34 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 59 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:34 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 59 - THREAD_ID: 4
+ClientSocket: 7; Start: Sun Nov 27 02:13:34 2022
+
+CODE: 59 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:34 2022
+
+CODE: 59 - THREAD_ID: 4
+ClientSocket: 7; End: Sun Nov 27 02:13:34 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 59 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:34 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 60 - THREAD_ID: 2
+ClientSocket: 6; Start: Sun Nov 27 02:13:35 2022
+
+CODE: 60 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:35 2022
+
+CODE: 60 - THREAD_ID: 2
+ClientSocket: 6; End: Sun Nov 27 02:13:35 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 60 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:35 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 60 - THREAD_ID: 1
+ClientSocket: 7; Start: Sun Nov 27 02:13:35 2022
+
+CODE: 60 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:13:35 2022
+
+CODE: 60 - THREAD_ID: 1
+ClientSocket: 7; End: Sun Nov 27 02:13:35 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 60 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:13:35 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 60 - THREAD_ID: 4
+ClientSocket: 6; Start: Sun Nov 27 02:13:35 2022
+
+CODE: 60 - THREAD_ID: 5
+ClientSocket: 5; Start: Sun Nov 27 02:13:35 2022
+
+CODE: 60 - THREAD_ID: 4
+ClientSocket: 6; End: Sun Nov 27 02:13:35 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 60 - THREAD_ID: 5
+ClientSocket: 5; End: Sun Nov 27 02:13:35 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 61 - THREAD_ID: 2
+ClientSocket: 7; Start: Sun Nov 27 02:13:35 2022
+
+CODE: 61 - THREAD_ID: 0
+ClientSocket: 5; Start: Sun Nov 27 02:13:35 2022
+
+CODE: 61 - THREAD_ID: 2
+ClientSocket: 7; End: Sun Nov 27 02:13:35 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 61 - THREAD_ID: 0
+ClientSocket: 5; End: Sun Nov 27 02:13:35 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 61 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:48:14 2022
+
+CODE: 61 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:48:14 2022
+
+CODE: 61 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:48:14 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 61 - THREAD_ID: 4
+ClientSocket: 7; Start: Sun Nov 27 02:48:15 2022
+
+CODE: 61 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:48:15 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 1.00000000; Status: SUCCESS
+
+CODE: 61 - THREAD_ID: 5
+ClientSocket: 6; Start: Sun Nov 27 02:48:15 2022
+
+CODE: 61 - THREAD_ID: 4
+ClientSocket: 7; End: Sun Nov 27 02:48:15 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 62 - THREAD_ID: 2
+ClientSocket: 5; Start: Sun Nov 27 02:48:16 2022
+
+CODE: 61 - THREAD_ID: 5
+ClientSocket: 6; End: Sun Nov 27 02:48:16 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 1.00000000; Status: SUCCESS
+
+CODE: 62 - THREAD_ID: 0
+ClientSocket: 7; Start: Sun Nov 27 02:48:16 2022
+
+CODE: 62 - THREAD_ID: 2
+ClientSocket: 5; End: Sun Nov 27 02:48:16 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 62 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 02:48:17 2022
+
+CODE: 62 - THREAD_ID: 0
+ClientSocket: 7; End: Sun Nov 27 02:48:17 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 1.00000000; Status: SUCCESS
+
+CODE: 62 - THREAD_ID: 3
+ClientSocket: 5; Start: Sun Nov 27 02:48:17 2022
+
+CODE: 62 - THREAD_ID: 1
+ClientSocket: 6; End: Sun Nov 27 02:48:17 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 62 - THREAD_ID: 4
+ClientSocket: 7; Start: Sun Nov 27 02:48:17 2022
+
+CODE: 62 - THREAD_ID: 3
+ClientSocket: 5; End: Sun Nov 27 02:48:17 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 62 - THREAD_ID: 5
+ClientSocket: 6; Start: Sun Nov 27 02:48:18 2022
+
+CODE: 62 - THREAD_ID: 4
+ClientSocket: 7; End: Sun Nov 27 02:48:18 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 1.00000000; Status: SUCCESS
+
+CODE: 63 - THREAD_ID: 2
+ClientSocket: 5; Start: Sun Nov 27 02:48:18 2022
+
+CODE: 62 - THREAD_ID: 5
+ClientSocket: 6; End: Sun Nov 27 02:48:18 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 63 - THREAD_ID: 0
+ClientSocket: 7; Start: Sun Nov 27 02:48:18 2022
+
+CODE: 63 - THREAD_ID: 2
+ClientSocket: 5; End: Sun Nov 27 02:48:18 2022;
+ Path: /home/dev1/Programas/SD/App/js5.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 63 - THREAD_ID: 1
+ClientSocket: 6; Start: Sun Nov 27 03:01:56 2022
+

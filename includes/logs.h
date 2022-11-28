@@ -14,6 +14,7 @@
 #define LOG_CONNECTION_PATH          "logs/connection-%Y-%m-%d"
 #define LOG_REQUEST_PATH             "logs/request-%Y-%m-%d"
 #define LOG_EXTENSION                ".log"
+#define APPEND                       "a"
 
 #define FULL_LOG_ERROR_PATH          "logs/errors"LOG_EXTENSION
 #define FULL_LOG_WARNING_PATH        "logs/warning"LOG_EXTENSION
@@ -27,7 +28,7 @@
 #define __LOG(file, fmt, ...) (fprintf(file, fmt, __VA_ARGS__))
 
 
-#define LOG(fmt , ...)                                                      \
+#define LOG(fmt, ...)                                                       \
     do {                                                                    \
         time_t tmi;                                                         \
         struct tm * info;                                                   \
@@ -39,8 +40,8 @@
         info = localtime(&tmi);                                             \
                                                                             \
         strftime(filename, DATE_MAX, FULL_LOG_REQUEST_PATH, info);          \
-        strcat(filename, ".log");                                           \
-        file = fopen(filename, "a") ;                                       \
+        strcat(filename, LOG_EXTENSION);                                    \
+        file = fopen(filename, APPEND);                                     \
         if (!file) break;                                                   \
                                                                             \
         __LOG(file, fmt, __VA_ARGS__);                                      \
@@ -61,8 +62,8 @@
         info = localtime(&tmi);                                             \
                                                                             \
         strftime(filename, DATE_MAX, LOG_CONNECTION_PATH, info);            \
-        strcat(filename, ".log");                                           \
-        file = fopen(filename, "a") ;                                       \
+        strcat(filename, LOG_EXTENSION);                                    \
+        file = fopen(filename, APPEND);                                     \
         if (!file) break;                                                   \
                                                                             \
         __LOG(file, fmt, __VA_ARGS__);                                      \
@@ -76,7 +77,7 @@
     do {                                                                    \
         FILE * file = NULL;                                                 \
                                                                             \
-        file = fopen(filename, "a") ;                                       \
+        file = fopen(filename, APPEND);                                     \
         if (!file) break;                                                   \
                                                                             \
         __LOG(file, fmt, __VA_ARGS__);                                      \
@@ -86,13 +87,13 @@
     } while (0);
 
 
-#define LOG_ERROR(fmt , ...)                                      \
+#define LOG_ERROR(fmt, ...)                                                 \
     do {                                                                    \
         FILE * file = NULL;                                                 \
                                                                             \
         __LOG(stderr, fmt, __VA_ARGS__);                                    \
                                                                             \
-        file = fopen(FULL_LOG_ERROR_PATH, "a") ;                            \
+        file = fopen(FULL_LOG_ERROR_PATH, APPEND);                          \
         if (!file) break;                                                   \
                                                                             \
         __LOG(file, fmt, __VA_ARGS__);                                      \
@@ -101,16 +102,16 @@
     } while (0);
 
 
-#define LOG_WARNING(fmt , ...)                                    \
+#define LOG_WARNING(fmt , ...)                                              \
     do {                                                                    \
         FILE * file = NULL;                                                 \
                                                                             \
-        __LOG(file, fmt, __VA_ARGS__);                                      \
+        __LOG(stderr, fmt, __VA_ARGS__);                                    \
                                                                             \
-        file = fopen(FULL_LOG_WARNING_PATH, "a") ;                          \
+        file = fopen(FULL_LOG_WARNING_PATH, APPEND);                        \
         if (!file) break;                                                   \
                                                                             \
-        __LOG(stderr, fmt, __VA_ARGS__);                                    \
+        __LOG(file, fmt, __VA_ARGS__);                                      \
                                                                             \
         fclose(file);                                                       \
     } while (0);

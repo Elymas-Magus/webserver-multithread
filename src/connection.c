@@ -20,12 +20,11 @@ connectionLoop(Server * server)
     socklen_t addrSize = (socklen_t) sizeof(SA_IN);
     SA_IN clientAddr;
 
+    printf("................. Initing connection loop .................\n\n");
     while (true) {
-        printf("Initing connection loop ...\n\n");
         connectionListener(server, &addrSize, clientAddr);
     }
     
-    printf("Closing connection loop ...\n\n");
     shutdown(server->socket, SHUT_RDWR);
 }
 
@@ -33,7 +32,8 @@ void
 mutexLock(pthread_mutex_t * mutex)
 {
     if (pthread_mutex_lock(mutex) != 0) {                                          
-        WARNING("Error at mutex lock\n");                                                       
+        WARNING("Error at mutex lock (%s)\n", getLocalCurrentTimeInHttpFormat());    
+        LOG_ERROR("Error at mutex lock (%s)\n", getLocalCurrentTimeInHttpFormat());                                                       
         exit(2);                                                                    
     }
 }
@@ -42,7 +42,8 @@ void
 mutexUnlock(pthread_mutex_t * mutex)
 {
     if (pthread_mutex_unlock(mutex) != 0) {                                          
-        WARNING("Error at mutex unlock\n");                                                       
+        WARNING("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());     
+        LOG_ERROR("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());                                                       
         exit(2);                                                                    
     }
 }
@@ -51,7 +52,8 @@ void
 emitSignal(pthread_cond_t * cond)
 {
     if (pthread_cond_signal(cond) != 0) {                                          
-        WARNING("Error at mutex unlock\n");                             
+        WARNING("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());  
+        LOG_ERROR("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());                             
     }
 }
 
@@ -59,32 +61,33 @@ void
 condWait(pthread_cond_t * cond, pthread_mutex_t * mutex)
 {
     if (pthread_cond_wait(cond, mutex) != 0) {                                          
-        WARNING("Error at mutex unlock\n");                             
+        WARNING("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());      
+        LOG_ERROR("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());                             
     }
 }
 
 void
 connectionListener(Server * server, socklen_t * addrSize, SA_IN clientAddr)
 {
-    int * clientSocket = (int *) malloc(sizeof(int));
-    printf("Waiting for connections ...\n\n");
+    SocketFD * clientSocket = (int *) malloc(sizeof(int));
+    printf("------------------- Waiting for connections --------------------\n");
 
-    // check((* clientSocket) = accept(server->socket, (SA *) &clientAddr, addrSize), "Accept Failed");
+    if (!validate(
+        (* clientSocket) = accept(server->socket, (SA *) &clientAddr, addrSize),
+        "Accept Failed"
+    )) { return; }
 
-    (* clientSocket) = accept(server->socket, (SA *) &clientAddr, addrSize);
-    if ((* clientSocket) < 0) {
-        perror("Accept Failed");
-        return;
-    }
+    printf("------------------- Connected (%d) --------------------\n", (* clientSocket));
 
     mutexLock(&(server->pools->mutex));
 
-    printf("New request -> %d\n", (* clientSocket));
+    printf("lock to enqueue\n");
     server->pools->queue->enqueue(server->pools->queue, (void **) clientSocket, sizeof(int *));
 
+    printf("lock to dequeue\n");
     emitSignal(&(server->pools->cond));
+    printf("emit signal\n");
     mutexUnlock(&(server->pools->mutex));
-    printf("End connection listener loop ...\n\n");
 }
 
 void *
@@ -98,11 +101,10 @@ threadConnectionHandler(void * arg)
     ThreadArg * threadArg = (ThreadArg *) arg;
     Server * server = (Server *) threadArg->content;
 
-    printf("-------------------- Start thread loop ---------------------\n");
+    printf("---------------------- Start thread loop -----------------------\n");
     while (true) {
-        mutexLock(&server->pools->mutex);
+        mutexLock(&(server->pools->mutex));
 
-        printf("New Thread loop ...\n");
         if (server->pools->queue->items->length == 0 && !server->pools->shutdown) {
             condWait(&(server->pools->cond), &(server->pools->mutex));
         }
@@ -118,19 +120,18 @@ threadConnectionHandler(void * arg)
 
         logConnectionStart(threadArg, *((SocketFD *) clientSocket), getCurrentTimeString());
 
-        mutexUnlock(&server->pools->mutex);
+        mutexUnlock(&(server->pools->mutex));
         handleConnection(threadArg, *((SocketFD *) clientSocket), server);
 
         threadArg->connectionId++;
-        printf("End Thread loop ...\n");
     }
 
-    printf("-------------------- End thread loop ---------------------\n");
+    printf("----------------------- End thread loop ------------------------\n");
     free(server);
     free(threadArg);
     free(clientSocket);
 
-    mutexUnlock(&server->pools->mutex);
+    mutexUnlock(&(server->pools->mutex));
     pthread_exit(NULL);
 
     return NULL;  
@@ -181,7 +182,7 @@ handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
         }
     }
 
-    check(bytesRead, "recv error");
+    validateOrDie(bytesRead, "recv error");
     IBuffer[messageSize - 1] = 0;
 
     TRY {
@@ -221,7 +222,6 @@ handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
 
         error = false;
         messageCode = HTTP_OK;
-        printf("\n\n--- Status code OK ---\n\n");
         
     } CATCHALL {
         WARNING("%s; PATH: %s\n", getCurrentThrowableMessage(), path);
@@ -229,7 +229,6 @@ handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
         end = getCurrentTime();
         currentTime = getCurrentTimeString();
         
-        printf("Sending response\n");
         sendResponse(response, messageCode, clientSocket, stream);
         logConnectionEnd(args, clientSocket, currentTime, difftime(end, start), path, error);
 

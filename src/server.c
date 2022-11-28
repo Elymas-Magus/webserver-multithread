@@ -45,31 +45,10 @@ getServerSocketContext()
     }
 }
 
-void
-saveSocketContext(int serverSocket)
-{
-    int nmemb = 1;
-    FILE * file = fopen(LOG_CONTEXT_FILENAME, "w");
-
-    TRY {
-        if (file == NULL) {
-            THROW(OPENING_FILE_ERROR);
-        }
-        if (fwrite(&serverSocket, sizeof(int), nmemb, file) != nmemb) {
-            THROW(FILE_INSERTION_ERROR);
-        }
-        fclose(file);
-    } CATCH (FILE_INSERTION_ERROR) {
-        WARNING("%s\n", getCurrentThrowableMessage());
-    } CATCH (OPENING_FILE_ERROR) {
-        WARNING("%s\n", getCurrentThrowableMessage());
-    }
-}
-
 int
 getServerSocket()
 {
-    SocketFD serverSocket = check(
+    SocketFD serverSocket = validateOrDie(
         socket(AF_INET, SOCK_STREAM, 0),
         "Failed to create socket"
     );
@@ -94,7 +73,7 @@ int
 initServer(Server * server)
 {
     int optval = 1;
-    check(
+    validateOrDie(
         setsockopt(server->socket, SOL_SOCKET, SO_REUSEADDR, (const void *)&optval, sizeof(int)), 
         "Error reusing address"
     );
@@ -106,13 +85,13 @@ initServer(Server * server)
 int
 initListen(SocketFD serverSocket, u_int serverBacklog)
 {
-    return check(listen(serverSocket, serverBacklog), "Listen failed!");
+    return validateOrDie(listen(serverSocket, serverBacklog), "Listen failed!");
 }
 
 int
 bindServerAddr(SocketFD serverSocket, SA_IN serverAddr)
 {
-    return check(bind(serverSocket, (SA *) &serverAddr, sizeof(serverAddr)), "Bind Failed");
+    return validateOrDie(bind(serverSocket, (SA *) &serverAddr, sizeof(serverAddr)), "Bind Failed");
 }
 
 void

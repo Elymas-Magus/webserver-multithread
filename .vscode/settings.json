@@ -57,6 +57,7 @@
         "stat.h": "c",
         "stream.h": "c",
         "fcntl.h": "c",
-        "logs.h": "c"
+        "logs.h": "c",
+        "cmath": "c"
     }
 }

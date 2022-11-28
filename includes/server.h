@@ -38,11 +38,6 @@ int getServerSocket();
 int getServerSocketContext();
 
 /**
- * Save serverSocket context
- */
-void saveSocketContext(SocketFD serverSocket);
-
-/**
  * Create struct sockaddr_in instance
  * @returns struct sockaddr_in socket
  */
