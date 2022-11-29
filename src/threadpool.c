@@ -111,14 +111,13 @@ void
 initThreadpools(Threadpool * pool, Server * server)
 {
     time_t now;
-    pthread_t * threads = (pthread_t *) pool->threads;
     
     for (int i = 0; i < pool->length; i++) {
         pool->tasks->args[i].threadId = i;
         pool->tasks->args[i].connectionId = 0;
         pool->tasks->args[i].content = server;
         pool->tasks->args[i].start = localtime(&now);
-        if (pthread_create(&threads[i], NULL, pool->tasks->func, (void *) &pool->tasks->args[i]) != 0) {
+        if (pthread_create(&(pool->threads[i]), NULL, pool->tasks->func, (void *) &pool->tasks->args[i]) != 0) {
             WARNING("Thread couldn't be created\n");
             if (poolDestroy(pool) == ERROR_CODE) {
                 exit(1);

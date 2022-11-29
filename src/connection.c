@@ -17,23 +17,21 @@ initServerPool(Server * server)
 void
 connectionLoop(Server * server)
 {
-    socklen_t addrSize = (socklen_t) sizeof(SA_IN);
-    SA_IN clientAddr;
-
+    printf("................. Initing connection loop .................\n\n");
     while (true) {
-        printf("Initing connection loop ...\n\n");
-        connectionListener(server, &addrSize, clientAddr);
+        connectionListener(server);
     }
     
-    printf("Closing connection loop ...\n\n");
     shutdown(server->socket, SHUT_RDWR);
 }
 
 void
 mutexLock(pthread_mutex_t * mutex)
 {
+    printf("lock\n");
     if (pthread_mutex_lock(mutex) != 0) {                                          
-        WARNING("Error at mutex lock\n");                                                       
+        WARNING("Error at mutex lock (%s)\n", getLocalCurrentTimeInHttpFormat());    
+        LOG_ERROR("Error at mutex lock (%s)\n", getLocalCurrentTimeInHttpFormat());                                                       
         exit(2);                                                                    
     }
 }
@@ -41,8 +39,10 @@ mutexLock(pthread_mutex_t * mutex)
 void
 mutexUnlock(pthread_mutex_t * mutex)
 {
+    printf("unlock\n");
     if (pthread_mutex_unlock(mutex) != 0) {                                          
-        WARNING("Error at mutex unlock\n");                                                       
+        WARNING("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());     
+        LOG_ERROR("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());                                                       
         exit(2);                                                                    
     }
 }
@@ -50,8 +50,10 @@ mutexUnlock(pthread_mutex_t * mutex)
 void
 emitSignal(pthread_cond_t * cond)
 {
+    printf("emit signal\n");
     if (pthread_cond_signal(cond) != 0) {                                          
-        WARNING("Error at mutex unlock\n");                             
+        WARNING("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());  
+        LOG_ERROR("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());                             
     }
 }
 
@@ -59,32 +61,34 @@ void
 condWait(pthread_cond_t * cond, pthread_mutex_t * mutex)
 {
     if (pthread_cond_wait(cond, mutex) != 0) {                                          
-        WARNING("Error at mutex unlock\n");                             
+        WARNING("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());      
+        LOG_ERROR("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());                             
     }
 }
 
 void
-connectionListener(Server * server, socklen_t * addrSize, SA_IN clientAddr)
+connectionListener(Server * server)
 {
-    int * clientSocket = (int *) malloc(sizeof(int));
-    printf("Waiting for connections ...\n\n");
+    socklen_t addrSize = (socklen_t) sizeof(SA_IN);
 
-    // check((* clientSocket) = accept(server->socket, (SA *) &clientAddr, addrSize), "Accept Failed");
+    Client * client = (Client *) malloc(sizeof(Client));
+    printf("------------------- Waiting for connections --------------------\n");
 
-    (* clientSocket) = accept(server->socket, (SA *) &clientAddr, addrSize);
-    if ((* clientSocket) < 0) {
-        perror("Accept Failed");
-        return;
-    }
+    if (!validate(
+        client->socket = accept(server->socket, (SA *) &(client->address), &addrSize),
+        "Accept Failed"
+    )) { return; }
+
+    printf("------------------- Connected (%d) --------------------\n", server->socket);
 
     mutexLock(&(server->pools->mutex));
 
-    printf("New request -> %d\n", (* clientSocket));
-    server->pools->queue->enqueue(server->pools->queue, (void **) clientSocket, sizeof(int *));
+    server->pools->queue->enqueue(server->pools->queue, (void **) client, sizeof(Client *));
 
     emitSignal(&(server->pools->cond));
     mutexUnlock(&(server->pools->mutex));
-    printf("End connection listener loop ...\n\n");
+
+    free(client);
 }
 
 void *
@@ -94,15 +98,14 @@ threadConnectionHandler(void * arg)
         return NULL;
     }
 
-    void ** clientSocket;
+    void ** client;
     ThreadArg * threadArg = (ThreadArg *) arg;
     Server * server = (Server *) threadArg->content;
 
-    printf("-------------------- Start thread loop ---------------------\n");
+    printf("---------------------- Start thread loop -----------------------\n");
     while (true) {
-        mutexLock(&server->pools->mutex);
+        mutexLock(&(server->pools->mutex));
 
-        printf("New Thread loop ...\n");
         if (server->pools->queue->items->length == 0 && !server->pools->shutdown) {
             condWait(&(server->pools->cond), &(server->pools->mutex));
         }
@@ -110,34 +113,35 @@ threadConnectionHandler(void * arg)
             break;
         }
 
-        clientSocket = server->pools->queue->dequeue(server->pools->queue);
+        client = server->pools->queue->dequeue(server->pools->queue);
 
-        if (clientSocket == NULL) {
+        if (client == NULL) {
             continue;
         }
 
-        logConnectionStart(threadArg, *((SocketFD *) clientSocket), getCurrentTimeString());
+        logConnectionStart(threadArg, ((Client *) client), getCurrentTimeString());
 
-        mutexUnlock(&server->pools->mutex);
-        handleConnection(threadArg, *((SocketFD *) clientSocket), server);
+        mutexUnlock(&(server->pools->mutex));
+        handleConnection(threadArg, ((Client *) client), server);
+
+        free(client);
 
         threadArg->connectionId++;
-        printf("End Thread loop ...\n");
     }
 
-    printf("-------------------- End thread loop ---------------------\n");
+    printf("----------------------- End thread loop ------------------------\n");
     free(server);
     free(threadArg);
-    free(clientSocket);
+    free(client);
 
-    mutexUnlock(&server->pools->mutex);
+    mutexUnlock(&(server->pools->mutex));
     pthread_exit(NULL);
 
     return NULL;  
 }
 
 void
-handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
+handleConnection(ThreadArg * args, Client * client, Server * server)
 {
     bool error = true;
 
@@ -167,7 +171,7 @@ handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
 
     while (
         (bytesRead = read(
-            clientSocket,
+            client->socket,
             IBuffer + messageSize,
             sizeof(IBuffer) - messageSize - slack
         )) > 0
@@ -181,7 +185,7 @@ handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
         }
     }
 
-    check(bytesRead, "recv error");
+    validateOrDie(bytesRead, "recv error");
     IBuffer[messageSize - 1] = 0;
 
     TRY {
@@ -221,7 +225,6 @@ handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
 
         error = false;
         messageCode = HTTP_OK;
-        printf("\n\n--- Status code OK ---\n\n");
         
     } CATCHALL {
         WARNING("%s; PATH: %s\n", getCurrentThrowableMessage(), path);
@@ -229,9 +232,8 @@ handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
         end = getCurrentTime();
         currentTime = getCurrentTimeString();
         
-        printf("Sending response\n");
-        sendResponse(response, messageCode, clientSocket, stream);
-        logConnectionEnd(args, clientSocket, currentTime, difftime(end, start), path, error);
+        sendResponse(response, messageCode, client->socket, stream);
+        logConnectionEnd(args, client, currentTime, difftime(end, start), path, error);
 
         requestFree(request);
         requestFree(response);
@@ -241,21 +243,29 @@ handleConnection(ThreadArg * args, SocketFD clientSocket, Server * server)
 }
 
 void
-logConnectionStart(ThreadArg * args, int clientSocket, String currTime)
+logConnectionStart(ThreadArg * args, Client * client, String currTime)
 {
-    LOG_CONNECTTION(args->logFilename, "CODE: %u - THREAD_ID: %u\nClientSocket: %d; Start: %s\n\n", args->connectionId, args->threadId, clientSocket, currTime);
+    char ipAddress[INET_ADDRSTRLEN];
+    inet_ntop(AF_INET, &(client->address.sin_addr), ipAddress, INET_ADDRSTRLEN);
+    LOG_CONNECTTION(
+        args->logFilename,
+        "CODE: %u - THREAD_ID: %u\nClientSocket: %d; ClientAddr: %s; Start: %s\n\n",
+        args->connectionId, args->threadId, client->socket, ipAddress, currTime
+    );
 }
 
 void
-logConnectionEnd(ThreadArg * args, int clientSocket, String currTime, float duration, String path, bool error)
+logConnectionEnd(ThreadArg * args, Client * client, String currTime, float duration, String path, bool error)
 {
+    char ipAddress[INET_ADDRSTRLEN];
     char errorStatus[][8] = {
         "SUCCESS",
         "ERROR",
     };
+    inet_ntop(AF_INET, &(client->address.sin_addr), ipAddress, INET_ADDRSTRLEN);
     LOG_CONNECTTION_ON_FILE(
         args->logFilename,
-        "CODE: %u - THREAD_ID: %u\nClientSocket: %d; End: %s;\n Path: %s; Duration: %0.8f; Status: %s\n\n",
-        args->connectionId, args->threadId, clientSocket, currTime, path, duration, errorStatus[error]
+        "CODE: %u - THREAD_ID: %u\nClientSocket: %d; ClientAddr: %s; End: %s;\n Path: %s; Duration: %0.8f; Status: %s\n\n",
+        args->connectionId, args->threadId, client->socket, ipAddress, currTime, path, duration, errorStatus[error]
     );
 }
