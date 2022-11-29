@@ -1,0 +1,1864 @@
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Tue Nov 29 02:18:44 2022
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; End: Tue Nov 29 02:18:44 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Start: Tue Nov 29 02:18:44 2022
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; End: Tue Nov 29 02:18:44 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 5; Start: Tue Nov 29 02:18:45 2022
+
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 6; Start: Tue Nov 29 02:18:45 2022
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Tue Nov 29 02:31:36 2022
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Start: Tue Nov 29 02:31:36 2022
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; End: Tue Nov 29 02:31:36 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; End: Tue Nov 29 02:31:36 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; Start: Tue Nov 29 02:31:37 2022
+
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 5; Start: Tue Nov 29 02:31:37 2022
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; End: Tue Nov 29 02:31:37 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 4
+ClientSocket: 6; Start: Tue Nov 29 02:31:37 2022
+
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 5; End: Tue Nov 29 02:31:37 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 5
+ClientSocket: 7; Start: Tue Nov 29 02:31:37 2022
+
+CODE: 0 - THREAD_ID: 4
+ClientSocket: 6; End: Tue Nov 29 02:31:37 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 0
+ClientSocket: 5; Start: Tue Nov 29 02:31:37 2022
+
+CODE: 0 - THREAD_ID: 5
+ClientSocket: 7; End: Tue Nov 29 02:31:37 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 1
+ClientSocket: 6; Start: Tue Nov 29 02:31:38 2022
+
+CODE: 1 - THREAD_ID: 0
+ClientSocket: 5; End: Tue Nov 29 02:31:38 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 1.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 2
+ClientSocket: 8; Start: Tue Nov 29 02:31:38 2022
+
+CODE: 1 - THREAD_ID: 1
+ClientSocket: 6; End: Tue Nov 29 02:31:38 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; Start: Tue Nov 29 02:34:40 2022
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; Start: Tue Nov 29 02:34:40 2022
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; End: Tue Nov 29 02:34:40 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; End: Tue Nov 29 02:34:40 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; Start: Tue Nov 29 02:34:40 2022
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; End: Tue Nov 29 02:34:40 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 5; Start: Tue Nov 29 02:34:40 2022
+
+CODE: 0 - THREAD_ID: 4
+ClientSocket: 6; Start: Tue Nov 29 02:34:40 2022
+
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 5; End: Tue Nov 29 02:34:40 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 4
+ClientSocket: 6; End: Tue Nov 29 02:34:40 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 5
+ClientSocket: 7; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 0 - THREAD_ID: 5
+ClientSocket: 7; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 0
+ClientSocket: 5; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 1 - THREAD_ID: 1
+ClientSocket: 6; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 1 - THREAD_ID: 0
+ClientSocket: 5; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 1
+ClientSocket: 6; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 2
+ClientSocket: 7; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 1 - THREAD_ID: 2
+ClientSocket: 7; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 3
+ClientSocket: 5; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 1 - THREAD_ID: 4
+ClientSocket: 6; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 1 - THREAD_ID: 3
+ClientSocket: 5; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 4
+ClientSocket: 6; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 5
+ClientSocket: 7; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 1 - THREAD_ID: 5
+ClientSocket: 7; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 0
+ClientSocket: 5; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 2 - THREAD_ID: 1
+ClientSocket: 6; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 2 - THREAD_ID: 0
+ClientSocket: 5; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 1
+ClientSocket: 6; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 2
+ClientSocket: 7; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 2 - THREAD_ID: 2
+ClientSocket: 7; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 4
+ClientSocket: 5; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 2 - THREAD_ID: 3
+ClientSocket: 6; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 2 - THREAD_ID: 4
+ClientSocket: 5; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 3
+ClientSocket: 6; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 5
+ClientSocket: 7; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 2 - THREAD_ID: 5
+ClientSocket: 7; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 0
+ClientSocket: 5; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 3 - THREAD_ID: 1
+ClientSocket: 6; Start: Tue Nov 29 02:34:41 2022
+
+CODE: 3 - THREAD_ID: 0
+ClientSocket: 5; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 1
+ClientSocket: 6; End: Tue Nov 29 02:34:41 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 2
+ClientSocket: 7; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 3 - THREAD_ID: 2
+ClientSocket: 7; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 4
+ClientSocket: 5; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 3 - THREAD_ID: 3
+ClientSocket: 6; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 3 - THREAD_ID: 4
+ClientSocket: 5; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 3
+ClientSocket: 6; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 5
+ClientSocket: 7; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 3 - THREAD_ID: 5
+ClientSocket: 7; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 0
+ClientSocket: 5; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 4 - THREAD_ID: 1
+ClientSocket: 6; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 4 - THREAD_ID: 0
+ClientSocket: 5; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 1
+ClientSocket: 6; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 2
+ClientSocket: 7; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 4 - THREAD_ID: 2
+ClientSocket: 7; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 4
+ClientSocket: 5; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 4 - THREAD_ID: 3
+ClientSocket: 6; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 4 - THREAD_ID: 4
+ClientSocket: 5; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 3
+ClientSocket: 6; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 5
+ClientSocket: 7; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 5 - THREAD_ID: 0
+ClientSocket: 5; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 4 - THREAD_ID: 5
+ClientSocket: 7; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 0
+ClientSocket: 5; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 1
+ClientSocket: 6; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 5 - THREAD_ID: 1
+ClientSocket: 6; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 2
+ClientSocket: 5; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 5 - THREAD_ID: 4
+ClientSocket: 6; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 5 - THREAD_ID: 2
+ClientSocket: 5; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 4
+ClientSocket: 6; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 3
+ClientSocket: 7; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 5 - THREAD_ID: 3
+ClientSocket: 7; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 5
+ClientSocket: 5; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 6 - THREAD_ID: 0
+ClientSocket: 6; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 5 - THREAD_ID: 5
+ClientSocket: 5; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 0
+ClientSocket: 6; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 1
+ClientSocket: 7; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 6 - THREAD_ID: 1
+ClientSocket: 7; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 2
+ClientSocket: 5; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 6 - THREAD_ID: 4
+ClientSocket: 6; Start: Tue Nov 29 02:34:42 2022
+
+CODE: 6 - THREAD_ID: 2
+ClientSocket: 5; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 4
+ClientSocket: 6; End: Tue Nov 29 02:34:42 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 3
+ClientSocket: 7; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 6 - THREAD_ID: 5
+ClientSocket: 5; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 6 - THREAD_ID: 3
+ClientSocket: 7; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 5
+ClientSocket: 5; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 0
+ClientSocket: 6; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 7 - THREAD_ID: 0
+ClientSocket: 6; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 1
+ClientSocket: 5; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 7 - THREAD_ID: 2
+ClientSocket: 6; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 7 - THREAD_ID: 1
+ClientSocket: 5; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 2
+ClientSocket: 6; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 4
+ClientSocket: 7; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 7 - THREAD_ID: 4
+ClientSocket: 7; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 3
+ClientSocket: 5; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 7 - THREAD_ID: 5
+ClientSocket: 6; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 7 - THREAD_ID: 3
+ClientSocket: 5; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 5
+ClientSocket: 6; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 0
+ClientSocket: 7; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 8 - THREAD_ID: 1
+ClientSocket: 5; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 8 - THREAD_ID: 0
+ClientSocket: 7; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 1
+ClientSocket: 5; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 2
+ClientSocket: 6; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 8 - THREAD_ID: 4
+ClientSocket: 5; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 8 - THREAD_ID: 2
+ClientSocket: 6; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 4
+ClientSocket: 5; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 3
+ClientSocket: 7; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 8 - THREAD_ID: 3
+ClientSocket: 7; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 5
+ClientSocket: 5; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 9 - THREAD_ID: 0
+ClientSocket: 6; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 8 - THREAD_ID: 5
+ClientSocket: 5; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 0
+ClientSocket: 6; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 2
+ClientSocket: 7; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 9 - THREAD_ID: 1
+ClientSocket: 5; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 9 - THREAD_ID: 2
+ClientSocket: 7; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 1
+ClientSocket: 5; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 4
+ClientSocket: 6; Start: Tue Nov 29 02:34:43 2022
+
+CODE: 9 - THREAD_ID: 4
+ClientSocket: 6; End: Tue Nov 29 02:34:43 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 3
+ClientSocket: 5; Start: Tue Nov 29 02:34:44 2022
+
+CODE: 9 - THREAD_ID: 5
+ClientSocket: 6; Start: Tue Nov 29 02:34:44 2022
+
+CODE: 9 - THREAD_ID: 3
+ClientSocket: 5; End: Tue Nov 29 02:34:44 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 5
+ClientSocket: 6; End: Tue Nov 29 02:34:44 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 0
+ClientSocket: 7; Start: Tue Nov 29 02:34:44 2022
+
+CODE: 10 - THREAD_ID: 0
+ClientSocket: 7; End: Tue Nov 29 02:34:44 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 2
+ClientSocket: 5; Start: Tue Nov 29 02:34:44 2022
+
+CODE: 10 - THREAD_ID: 1
+ClientSocket: 6; Start: Tue Nov 29 02:34:44 2022
+
+CODE: 10 - THREAD_ID: 2
+ClientSocket: 5; End: Tue Nov 29 02:34:44 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 1
+ClientSocket: 6; End: Tue Nov 29 02:34:44 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 4
+ClientSocket: 7; Start: Tue Nov 29 02:34:44 2022
+
+CODE: 10 - THREAD_ID: 4
+ClientSocket: 7; End: Tue Nov 29 02:34:44 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 3
+ClientSocket: 5; Start: Tue Nov 29 02:34:44 2022
+
+CODE: 10 - THREAD_ID: 5
+ClientSocket: 6; Start: Tue Nov 29 02:34:44 2022
+
+CODE: 10 - THREAD_ID: 3
+ClientSocket: 5; End: Tue Nov 29 02:34:44 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 5
+ClientSocket: 6; End: Tue Nov 29 02:34:44 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 11 - THREAD_ID: 0
+ClientSocket: 7; Start: Tue Nov 29 02:34:44 2022
+
+CODE: 11 - THREAD_ID: 0
+ClientSocket: 7; End: Tue Nov 29 02:34:44 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:19 2022
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:19 2022
+
+CODE: 0 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:19 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:19 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:19 2022
+
+CODE: 0 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:19 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:20 2022
+
+CODE: 0 - THREAD_ID: 4
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:20 2022
+
+CODE: 0 - THREAD_ID: 3
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:20 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 4
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:20 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 0 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:20 2022
+
+CODE: 0 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:20 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:20 2022
+
+CODE: 1 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:20 2022
+
+CODE: 1 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:20 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:20 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:20 2022
+
+CODE: 1 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:20 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 3
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:20 2022
+
+CODE: 1 - THREAD_ID: 4
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:20 2022
+
+CODE: 1 - THREAD_ID: 3
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:20 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 4
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:20 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 1 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:20 2022
+
+CODE: 1 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:20 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:20 2022
+
+CODE: 2 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:20 2022
+
+CODE: 2 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:20 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 1.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 2 - THREAD_ID: 3
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 2 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 3
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 4
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 2 - THREAD_ID: 4
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 2 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 3 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 2 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 3 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 3 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 3 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 4
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 3 - THREAD_ID: 4
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 3 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 4 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 3 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 4 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 4 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 4 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 4
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 4 - THREAD_ID: 4
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 4 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 5 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 4 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 5 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 5 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:21 2022
+
+CODE: 5 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:21 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 4
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 5 - THREAD_ID: 4
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 5 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 6 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 5 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 6 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 6 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 6 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 4
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 6 - THREAD_ID: 4
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 6 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 7 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 6 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 7 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 7 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 7 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 7 - THREAD_ID: 5
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 7 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 7 - THREAD_ID: 5
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 0
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 8 - THREAD_ID: 1
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 8 - THREAD_ID: 0
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 1
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 2
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:22 2022
+
+CODE: 8 - THREAD_ID: 2
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:22 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 3
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:23 2022
+
+CODE: 8 - THREAD_ID: 4
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:23 2022
+
+CODE: 8 - THREAD_ID: 3
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:23 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 4
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:23 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 8 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:23 2022
+
+CODE: 8 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:23 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:23 2022
+
+CODE: 9 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:23 2022
+
+CODE: 9 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:23 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:23 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:23 2022
+
+CODE: 9 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:23 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:23 2022
+
+CODE: 9 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:23 2022
+
+CODE: 9 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:23 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:23 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 9 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:23 2022
+
+CODE: 9 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:23 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:23 2022
+
+CODE: 10 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:23 2022
+
+CODE: 10 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:23 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:23 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 02:57:23 2022
+
+CODE: 10 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 02:57:23 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:40 2022
+
+CODE: 10 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:40 2022
+
+CODE: 10 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:40 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:40 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 10 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:40 2022
+
+CODE: 10 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:40 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 11 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:40 2022
+
+CODE: 11 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:40 2022
+
+CODE: 11 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:40 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 11 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:40 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 11 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:40 2022
+
+CODE: 11 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:40 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 11 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:41 2022
+
+CODE: 11 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:41 2022
+
+CODE: 11 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:41 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 11 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:41 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 11 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:41 2022
+
+CODE: 11 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:41 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 12 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:41 2022
+
+CODE: 12 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:41 2022
+
+CODE: 12 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:41 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 12 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:41 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 12 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:41 2022
+
+CODE: 12 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:41 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 12 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:41 2022
+
+CODE: 12 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:41 2022
+
+CODE: 12 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:41 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 12 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:41 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 12 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:41 2022
+
+CODE: 12 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:41 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 13 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:41 2022
+
+CODE: 13 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:41 2022
+
+CODE: 13 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:41 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 13 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:41 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 13 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:42 2022
+
+CODE: 13 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:42 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 13 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:42 2022
+
+CODE: 13 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:42 2022
+
+CODE: 13 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:42 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 13 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:42 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 13 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:42 2022
+
+CODE: 13 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:42 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 14 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:42 2022
+
+CODE: 14 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:42 2022
+
+CODE: 14 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:42 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 14 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:42 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 14 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:42 2022
+
+CODE: 14 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:42 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 14 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:42 2022
+
+CODE: 14 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:42 2022
+
+CODE: 14 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:42 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 14 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:42 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 14 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:42 2022
+
+CODE: 14 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:42 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 15 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:42 2022
+
+CODE: 15 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:42 2022
+
+CODE: 15 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:42 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 15 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:42 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 15 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:43 2022
+
+CODE: 15 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:43 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 15 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:43 2022
+
+CODE: 15 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:43 2022
+
+CODE: 15 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:43 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 15 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:43 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 15 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:43 2022
+
+CODE: 15 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:43 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 16 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:43 2022
+
+CODE: 16 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:43 2022
+
+CODE: 16 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:43 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 16 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:43 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 16 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:43 2022
+
+CODE: 16 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:43 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 16 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:43 2022
+
+CODE: 16 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:43 2022
+
+CODE: 16 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:43 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 16 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:43 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 16 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:43 2022
+
+CODE: 16 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:43 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 17 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:43 2022
+
+CODE: 17 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:43 2022
+
+CODE: 17 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:43 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 17 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:43 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 17 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:44 2022
+
+CODE: 17 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:44 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 17 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:44 2022
+
+CODE: 17 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:44 2022
+
+CODE: 17 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:44 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 17 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:44 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 17 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:44 2022
+
+CODE: 17 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:44 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 18 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:44 2022
+
+CODE: 18 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:44 2022
+
+CODE: 18 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:44 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 18 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:44 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 18 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:44 2022
+
+CODE: 18 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:44 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 18 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:44 2022
+
+CODE: 18 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:44 2022
+
+CODE: 18 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:44 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 18 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:44 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 18 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:44 2022
+
+CODE: 18 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:44 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 19 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:44 2022
+
+CODE: 19 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:44 2022
+
+CODE: 19 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:44 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 19 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:44 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 19 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:45 2022
+
+CODE: 19 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:45 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 19 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:45 2022
+
+CODE: 19 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:45 2022
+
+CODE: 19 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:45 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 19 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:45 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 19 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:45 2022
+
+CODE: 19 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:45 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 20 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:45 2022
+
+CODE: 20 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:45 2022
+
+CODE: 20 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:45 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 20 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:45 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 20 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:45 2022
+
+CODE: 20 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:45 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 20 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:45 2022
+
+CODE: 20 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:45 2022
+
+CODE: 20 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:45 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 20 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:45 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 20 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:45 2022
+
+CODE: 20 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:45 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 21 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:45 2022
+
+CODE: 21 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:45 2022
+
+CODE: 21 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:45 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 21 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:45 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 21 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:46 2022
+
+CODE: 21 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:46 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 21 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:46 2022
+
+CODE: 21 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:46 2022
+
+CODE: 21 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:46 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 21 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:46 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 21 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:46 2022
+
+CODE: 21 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:46 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 22 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:46 2022
+
+CODE: 22 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:46 2022
+
+CODE: 22 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:46 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 22 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:46 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 22 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:46 2022
+
+CODE: 22 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:46 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 22 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:46 2022
+
+CODE: 22 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:46 2022
+
+CODE: 22 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:46 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 22 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:46 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 22 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:46 2022
+
+CODE: 22 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:46 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 23 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:47 2022
+
+CODE: 23 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:47 2022
+
+CODE: 23 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:47 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 23 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:47 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 23 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:47 2022
+
+CODE: 23 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:47 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 23 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:47 2022
+
+CODE: 23 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:47 2022
+
+CODE: 23 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:47 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 23 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:47 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 23 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:47 2022
+
+CODE: 23 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:47 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 24 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:47 2022
+
+CODE: 24 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:47 2022
+
+CODE: 24 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:47 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 24 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:47 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 24 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:47 2022
+
+CODE: 24 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:47 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 24 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:48 2022
+
+CODE: 24 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:48 2022
+
+CODE: 24 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:48 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 24 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:48 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 24 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:48 2022
+
+CODE: 24 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:48 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 25 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:48 2022
+
+CODE: 25 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:48 2022
+
+CODE: 25 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:48 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 25 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:48 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 25 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:48 2022
+
+CODE: 25 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:48 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 25 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:48 2022
+
+CODE: 25 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:48 2022
+
+CODE: 25 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:48 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 25 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:48 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 25 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:48 2022
+
+CODE: 25 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:48 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 26 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:48 2022
+
+CODE: 26 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:48 2022
+
+CODE: 26 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:48 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 26 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:48 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 26 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:48 2022
+
+CODE: 26 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:48 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 26 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:48 2022
+
+CODE: 26 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:48 2022
+
+CODE: 26 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:48 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 26 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:49 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 1.00000000; Status: SUCCESS
+
+CODE: 26 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:49 2022
+
+CODE: 26 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:49 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 27 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:49 2022
+
+CODE: 27 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:49 2022
+
+CODE: 27 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:49 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 27 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:49 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 27 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:49 2022
+
+CODE: 27 - THREAD_ID: 2
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:49 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 27 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:50 2022
+
+CODE: 27 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:50 2022
+
+CODE: 27 - THREAD_ID: 4
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:50 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 27 - THREAD_ID: 3
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:50 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 27 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:51 2022
+
+CODE: 28 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:51 2022
+
+CODE: 27 - THREAD_ID: 5
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:51 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 28 - THREAD_ID: 0
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:51 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 28 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:51 2022
+
+CODE: 28 - THREAD_ID: 1
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:51 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 28 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:51 2022
+
+CODE: 28 - THREAD_ID: 4
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:51 2022
+
+CODE: 28 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:51 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 28 - THREAD_ID: 4
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:51 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 28 - THREAD_ID: 3
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:51 2022
+
+CODE: 28 - THREAD_ID: 3
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:51 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 28 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:51 2022
+
+CODE: 29 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:51 2022
+
+CODE: 28 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:51 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 29 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:51 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 29 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:51 2022
+
+CODE: 29 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:51 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 29 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:51 2022
+
+CODE: 29 - THREAD_ID: 4
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:51 2022
+
+CODE: 29 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:51 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 29 - THREAD_ID: 4
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:51 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 29 - THREAD_ID: 3
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:51 2022
+
+CODE: 29 - THREAD_ID: 3
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:51 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 29 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:52 2022
+
+CODE: 30 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:52 2022
+
+CODE: 29 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:52 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 30 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:52 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 30 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:52 2022
+
+CODE: 30 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:52 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 30 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:52 2022
+
+CODE: 30 - THREAD_ID: 4
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:52 2022
+
+CODE: 30 - THREAD_ID: 2
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:52 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 30 - THREAD_ID: 4
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:52 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 30 - THREAD_ID: 3
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:52 2022
+
+CODE: 30 - THREAD_ID: 3
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:52 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 30 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:52 2022
+
+CODE: 31 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:52 2022
+
+CODE: 30 - THREAD_ID: 5
+ClientSocket: 5; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:52 2022;
+ Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 31 - THREAD_ID: 0
+ClientSocket: 6; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:52 2022;
+ Path: /home/dev1/Programas/SD/App/images/bg2.jpg; Duration: 0.00000000; Status: SUCCESS
+
+CODE: 31 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; Start: Tue Nov 29 03:03:52 2022
+
+CODE: 31 - THREAD_ID: 1
+ClientSocket: 7; ClientAddr: 0.0.0.0; End: Tue Nov 29 03:03:52 2022;
+ Path: /home/dev1/Programas/SD/App/favicon.ico; Duration: 0.00000000; Status: SUCCESS
+

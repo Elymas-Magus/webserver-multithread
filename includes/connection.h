@@ -19,6 +19,7 @@
 #include "uri.h"
 #include "stream.h"
 #include "logs.h"
+#include "client.h"
 
 #define CONNECTION_BUFFER_SIZE      81920
 #define CONNECTION_PATH_MAX         1000
@@ -54,7 +55,7 @@ void connectionLoop(Server * server);
  * @param struct sockaddr_in clientAddr
  * @returns void
  */
-void connectionListener(Server * server, socklen_t * addrSize, SA_IN clientAddr);
+void connectionListener(Server * server);
 
 /**
  * Handle thread connections
@@ -66,29 +67,29 @@ void * threadConnectionHandler(void * arg);
 /**
  * Treat each connection
  * Implement the communication
- * @param int pClientSocket
+ * @param Client * client
  * @param Server * server
  * @returns void
  */
-void handleConnection(ThreadArg * args, int clientSocket, Server * server);
+void handleConnection(ThreadArg * args, Client * client, Server * server);
 
 /**
  * Register connection start data in log file for debug
  * @param ThreadArg * argsdebug
- * @param int clientSocket
+ * @param Client * client
  * @param String currTime
  */
-void logConnectionStart(ThreadArg * args, int clientSocket, String currTime);
+void logConnectionStart(ThreadArg * args, Client * client, String currTime);
 
 /**
  * Register connection start data in log file for debug
  * @param ThreadArg * argsdebug
- * @param int clientSocket
+ * @param Client * client
  * @param String currTime
  * @param float duration
  * @param String path
  * @param bool error
  */
-void logConnectionEnd(ThreadArg * args, int clientSocket, String currTime, float duration, String path, bool error);
+void logConnectionEnd(ThreadArg * args, Client * client, String currTime, float duration, String path, bool error);
 
 #endif // CONNECTION_H_INCLUDED

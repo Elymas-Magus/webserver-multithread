@@ -18,34 +18,6 @@ createServer(ServerConfig * config)
 }
 
 int
-getServerSocketContext()
-{
-    int nmemb = 1;
-    int serverSocket, socket = SOCKET_ERROR;
-    FILE * file = fopen(LOG_CONTEXT_FILENAME, "r");
-
-    TRY {
-        if (file == NULL) {
-            THROW(OPENING_FILE_ERROR);
-        }
-        if (fread(&serverSocket, sizeof(int), nmemb, file) != nmemb) {
-            THROW(FILE_READING_ERROR);
-        }
-        printf("Last Socket: %d\n", serverSocket);
-        fclose(file);
-        close(serverSocket);
-
-        socket = serverSocket;
-    } CATCH (FILE_READING_ERROR) {
-        WARNING("%s\n", getCurrentThrowableMessage());
-    } CATCH (OPENING_FILE_ERROR) {
-        WARNING("%s\n", getCurrentThrowableMessage());
-    } FINALLY {
-        return socket;
-    }
-}
-
-int
 getServerSocket()
 {
     SocketFD serverSocket = validateOrDie(
