@@ -14,7 +14,7 @@
         "socket.h": "c",
         "stdio.h": "c",
         "limits.h": "c",
-        "socket_validation.h": "c",
+        "validation.h": "c",
         "server_def.h": "c",
         "list.h": "c",
         "stdlib.h": "c",
@@ -58,6 +58,10 @@
         "stream.h": "c",
         "fcntl.h": "c",
         "logs.h": "c",
-        "cmath": "c"
+        "cmath": "c",
+        "deque": "c",
+        "vector": "c",
+        "iterator": "c",
+        "cerrno": "c"
     }
 }

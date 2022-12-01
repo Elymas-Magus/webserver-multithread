@@ -11,6 +11,7 @@
 #include <sys/types.h>
 #include <fcntl.h>
 
+#include "validation.h"
 #include "type_aliases.h"
 #include "server_def.h"
 #include "request_def.h"

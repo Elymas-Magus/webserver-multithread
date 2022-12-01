@@ -9,7 +9,7 @@
 typedef struct queue {
     ArrayList items;   
     void (* enqueue)(struct queue *, void **, size_t);
-    void ** (* dequeue)(struct queue *);
+    void ** (* dequeue)(struct queue *, size_t);
 } Queue;
 
 #endif // QUEUE_DEF_H_INCLUDED

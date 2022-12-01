@@ -7,6 +7,7 @@
 #include <time.h>
 
 #include "type_aliases.h"
+#include "validation.h"
 
 #define DATE_MAX                30
 

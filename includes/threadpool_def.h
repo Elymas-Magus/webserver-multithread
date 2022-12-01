@@ -2,6 +2,7 @@
 #define THREADPOOL_DEF_H_INCLUDED
 
 #include <pthread.h>
+
 #include "queue.h"
 #include "type_aliases.h"
 

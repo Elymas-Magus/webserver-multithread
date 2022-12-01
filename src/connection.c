@@ -71,7 +71,7 @@ connectionListener(Server * server)
 {
     socklen_t addrSize = (socklen_t) sizeof(SA_IN);
 
-    Client * client = (Client *) malloc(sizeof(Client));
+    Client * client = (Client *) mallocOrDie(sizeof(Client), "Client");
     printf("------------------- Waiting for connections --------------------\n");
 
     if (!validate(
@@ -113,7 +113,7 @@ threadConnectionHandler(void * arg)
             break;
         }
 
-        client = server->pools->queue->dequeue(server->pools->queue);
+        client = server->pools->queue->dequeue(server->pools->queue, sizeof(Client));
 
         if (client == NULL) {
             continue;

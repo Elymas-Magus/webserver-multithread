@@ -3,7 +3,9 @@
 Server *
 createServer(ServerConfig * config)
 {
-    Server * server = (Server *) malloc(sizeof(Server));
+    Server * server = (Server *) mallocOrDie(
+        sizeof(Server), "server"
+    );
 
     strcpy(server->name, "WebServerMT");
     strcpy(server->root, config->root);

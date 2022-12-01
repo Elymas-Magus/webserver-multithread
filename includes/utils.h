@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "validation.h"
 #include "type_aliases.h"
 
 #define CONFIG_SUCCESS              0

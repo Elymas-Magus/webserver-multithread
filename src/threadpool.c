@@ -3,7 +3,10 @@
 Threadpool *
 createThreadpool(u_int threadNumber)
 {
-    Threadpool * threadpool = (Threadpool *) malloc(sizeof(Threadpool));
+    Threadpool * threadpool = (Threadpool *) mallocOrDie(
+        sizeof(Threadpool),
+        "Failed to allocate memory for threadpool"
+    );
 
     threadpool->shutdown = false;
     threadpool->started = 0;
@@ -38,7 +41,9 @@ makeCond(Threadpool * pool)
 void
 makeThreads(Threadpool * pool, u_int threadNumber)
 {
-    pool->threads = (pthread_t *) malloc(threadNumber * sizeof(pthread_t));
+    pool->threads = (pthread_t *) mallocOrDie(
+        threadNumber * sizeof(pthread_t), "threads"
+    );
 
     if (pool->threads == NULL) {
         WARNING("Threads couldn't be instantiated\n");
@@ -57,8 +62,12 @@ makeQueue(Threadpool * pool)
 void
 makeTask(Threadpool * pool, u_int threadNumber)
 {
-    pool->tasks = (ThreadTask *) malloc(sizeof(ThreadTask));
-    pool->tasks->args = (ThreadArg *) malloc(threadNumber * sizeof(ThreadArg));
+    pool->tasks = (ThreadTask *) mallocOrDie(
+        sizeof(ThreadTask), "thread task"
+    );
+    pool->tasks->args = (ThreadArg *) mallocOrDie(
+        threadNumber * sizeof(ThreadArg), "thread task args"
+    );
 
     if (pool->tasks == NULL) {
         WARNING("Tasks couldn't be instantiated\n");
@@ -110,6 +119,7 @@ poolDestroy(Threadpool * pool)
 void
 initThreadpools(Threadpool * pool, Server * server)
 {
+    int threadStatus;
     time_t now;
     
     for (int i = 0; i < pool->length; i++) {
@@ -117,13 +127,19 @@ initThreadpools(Threadpool * pool, Server * server)
         pool->tasks->args[i].connectionId = 0;
         pool->tasks->args[i].content = server;
         pool->tasks->args[i].start = localtime(&now);
-        if (pthread_create(&(pool->threads[i]), NULL, pool->tasks->func, (void *) &pool->tasks->args[i]) != 0) {
+
+        threadStatus = pthread_create(
+            &(pool->threads[i]), NULL, pool->tasks->func, (void *) &pool->tasks->args[i]
+        );
+
+        if (threadStatus != 0) {
             WARNING("Thread couldn't be created\n");
             if (poolDestroy(pool) == ERROR_CODE) {
                 exit(1);
             }
             return;
         }
+
         pool->started++;
     }
 }

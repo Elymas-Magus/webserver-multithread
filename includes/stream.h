@@ -13,6 +13,7 @@
 
 #include "stream_def.h"
 #include "type_aliases.h"
+#include "validation.h"
 
 #define MAX_STREAM_PATH 255
 #define MAX_STREAM_MODE 5

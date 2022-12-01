@@ -22,7 +22,9 @@ substring(String str, u_int start, u_int end, String buffer)
 ServerConfig *
 getServerConfigFromConfigFile(String filename)
 {
-    ServerConfig * config = (ServerConfig *) malloc(sizeof(ServerConfig));
+    ServerConfig * config = (ServerConfig *) mallocOrDie(
+        sizeof(ServerConfig), "Server config"
+    );
 
     config->port = 0;
     config->backlog = 0;
@@ -93,7 +95,9 @@ String
 toFstring(const char * fmt, ...)
 {
     va_list args;
-    String buffer = (String) malloc(MAX_STRING_BUFFER);
+    String buffer = (String) mallocOrDie(
+        MAX_STRING_BUFFER, "Fstring buffer"
+    );
 
     va_start(args, fmt);
     vsprintf(buffer, fmt, args);

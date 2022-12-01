@@ -3,7 +3,7 @@
 Queue *
 createQueue()
 {
-    Queue * queue = (Queue *) malloc(sizeof(Queue));
+    Queue * queue = (Queue *) mallocOrDie(sizeof(Queue), "queue");
 
     queue->items = arrayInit();
     queue->enqueue = enqueue;
@@ -19,9 +19,9 @@ enqueue(Queue * queue, void ** content, size_t length)
 }
 
 void **
-dequeue(Queue * queue)
+dequeue(Queue * queue, size_t length)
 {
-    return arrayPop(queue->items);
+    return arrayPop(queue->items, length);
 }
 
 void

@@ -19,6 +19,10 @@
 #include "type_aliases.h"
 #include "stream.h"
 #include "logs.h"
+#include "validation.h"
+
+#define ERROR_404_PAGE "./pages/not_found.html"
+#define ERROR_500_PAGE "./pages/internal_error.html"
 
 extern const char HTTP_VERSIONS[][MAX_HTTP_VERSION_NAME];
 extern const HttpResponseCode httpResponseCode[];

@@ -11,7 +11,7 @@ BIN = bin
 
 TARGET = main
 
-C_FILENAMES = utils.c server.c connection.c socket_validation.c threadpool.c list.c queue.c request.c throwable.c throws.c timer.c uri.c stream.c
+C_FILENAMES = utils.c server.c connection.c validation.c threadpool.c list.c queue.c request.c throwable.c throws.c timer.c uri.c stream.c
 OBJ_FILES = $(patsubst %.c, $(OBJ)/%.o, $(C_FILENAMES) )
 
 all: $(TARGET)

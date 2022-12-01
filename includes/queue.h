@@ -21,7 +21,7 @@ void enqueue(Queue * queue, void ** content, size_t length);
  * @param Queue * queue
  * @returns void **
  */
-void ** dequeue(Queue * queue);
+void ** dequeue(Queue * queue, size_t length);
 
 /**
  * Unallocate memory for Queue
