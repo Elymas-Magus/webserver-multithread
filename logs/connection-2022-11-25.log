@@ -1,7 +1,0 @@
-CODE: 0 - THREAD_ID: 5
-ClientSocket: 11; ClientAddr: 0.0.0.0; Start: Fri Dec  2 04:34:08 2022
-
-CODE: 0 - THREAD_ID: 5
-ClientSocket: 11; ClientAddr: 0.0.0.0; End: Fri Dec  2 04:34:08 2022;
- Path: /home/dev1/Programas/SD/App/index.html; Duration: 0.00000000; Status: SUCCESS
-
