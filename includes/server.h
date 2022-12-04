@@ -9,7 +9,10 @@
 #include <unistd.h>
 #include <sys/socket.h>
 
+#ifndef SERVER_DEF_H_INCLUDED
 #include "server_def.h"
+#endif
+
 #include "validation.h"
 #include "utils.h"
 #include "type_aliases.h"

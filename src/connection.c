@@ -79,11 +79,18 @@ connectionListener(Server * server)
         "Accept Failed"
     )) { return; }
 
-    printf("------------------- Connected (%d) --------------------\n", server->socket);
+    char ipAddress[INET_ADDRSTRLEN];
+    inet_ntop(AF_INET, &(client->address.sin_addr), ipAddress, INET_ADDRSTRLEN);
 
+    printf("------------------- Connected (%d) ------------------------------\n", client->socket);
+    printf("Address: (%s) -------------------------------------------\n", ipAddress);
+
+    printf("Listener locking\n");
     mutexLock(&(server->pools->mutex));
 
     server->pools->queue->enqueue(server->pools->queue, (void **) client, sizeof(Client *));
+
+    printf("Fila\tLength: %d\n", server->pools->queue->items->length);
 
     emitSignal(&(server->pools->cond));
     mutexUnlock(&(server->pools->mutex));
@@ -98,31 +105,42 @@ threadConnectionHandler(void * arg)
         return NULL;
     }
 
-    void ** client;
+    Client * client;
     ThreadArg * threadArg = (ThreadArg *) arg;
     Server * server = (Server *) threadArg->content;
 
     printf("---------------------- Start thread loop -----------------------\n");
     while (true) {
+        printf("threadpool handler locking\n");
         mutexLock(&(server->pools->mutex));
 
-        if (server->pools->queue->items->length == 0 && !server->pools->shutdown) {
+        printf("Fila_Length: %d\n", server->pools->queue->items->length);
+        printf("seg fault teste 1\n");
+        if (server->pools->queue->isEmpty(server->pools->queue)) {
             condWait(&(server->pools->cond), &(server->pools->mutex));
         }
-        if (server->pools->shutdown) {
-            break;
-        }
+        printf("Fila_Length: %d\n", server->pools->queue->items->length);
+        printf("seg fault teste 2\n");
+        // if (server->pools->shutdown) {
+        //     break;
+        // }
 
-        client = server->pools->queue->dequeue(server->pools->queue, sizeof(Client));
+        printf("Fila_Length: %d\n", server->pools->queue->items->length);
+        client = (Client *) server->pools->queue
+            ->dequeue(server->pools->queue, sizeof(Client));
 
         if (client == NULL) {
+            printf("------------------------ invalid client\n");
+            printf("first: %d\n", server->pools->queue->items->first == NULL);
+            printf("Fila_Length: %d\n\n\n\n\n\n", server->pools->queue->items->length);
             continue;
         }
+        printf("|||||||---- Desempilhando o cliente %d\n", client->socket);
 
-        logConnectionStart(threadArg, ((Client *) client), getCurrentTimeString());
+        logConnectionStart(threadArg, ( client), getCurrentTimeString());
 
         mutexUnlock(&(server->pools->mutex));
-        handleConnection(threadArg, ((Client *) client), server);
+        handleConnection(threadArg, client, server);
 
         free(client);
 
