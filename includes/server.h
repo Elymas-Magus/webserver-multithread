@@ -13,6 +13,7 @@
 #include "server_def.h"
 #endif
 
+#include "connection.h"
 #include "validation.h"
 #include "utils.h"
 #include "type_aliases.h"
@@ -68,6 +69,21 @@ int initListen(SocketFD serverSocket, u_int backlog);
  * @returns int status
  */
 int bindServerAddr(SocketFD serverSocket, SA_IN serverAddr);
+
+/**
+ * Receive server object and init
+ * Listen Loop
+ * @param Server server
+ * @returns void
+ */
+void listenConnections(Server * server);
+
+/**
+ * Initialize threadpool and task
+ * @param int serverSocket
+ * @returns void
+ */
+void initServerPool(Server * server);
 
 /**
  * Destroys server and it's attributes

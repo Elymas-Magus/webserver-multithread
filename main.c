@@ -1,5 +1,4 @@
 #include "includes/server.h"
-#include "includes/connection.h"
 
 #define DEFAUL_FILE_CONFIG "./server.conf"
 
@@ -14,7 +13,7 @@ main()
 
     logServerConfis(server);
     initServer(server);
-    listenConnection(server);
+    listenConnections(server);
     serverDestroy(server);
 
     return 0;
@@ -23,9 +22,5 @@ main()
 void
 logServerConfis(Server * server)
 {
-    char ipAddress[INET_ADDRSTRLEN];
-
-    inet_ntop(AF_INET, &(server->address.sin_addr), ipAddress, INET_ADDRSTRLEN);
-
-    printf("Running at address: %s:%d\n", ipAddress, server->port);
+    printf("Running at address: %s:%d\n", getIpv4(server->address), server->port);
 }

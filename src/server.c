@@ -69,6 +69,20 @@ bindServerAddr(SocketFD serverSocket, SA_IN serverAddr)
 }
 
 void
+listenConnections(Server * server)
+{
+    initServerPool(server);
+    connectionLoop(server);
+}
+
+void
+initServerPool(Server * server)
+{
+    server->pools->tasks->func = threadConnectionHandler;
+    server->initPools(server->pools, server);
+}
+
+void
 serverDestroy(Server * server)
 {
     poolDestroy(server->pools);

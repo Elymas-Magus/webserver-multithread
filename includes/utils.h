@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <arpa/inet.h>
 
 #include "validation.h"
 #include "type_aliases.h"
@@ -73,5 +74,19 @@ ServerConfig * getServerConfigFromConfigFile(String filename);
  * @returns String
  */
 String toFstring(const char * fmt, ...);
+
+/**
+ * Instance a new String
+ * @param size_t length
+ * @returns String
+*/
+String newString(size_t length);
+
+/**
+ * Receive a sockaddr_in and returns the associated ipv4
+ * @param SA_IN address
+ * @returns String
+*/
+String getIpv4(SA_IN address);
 
 #endif // UTILS_H_INCLUDED

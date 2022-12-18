@@ -62,6 +62,9 @@
         "deque": "c",
         "vector": "c",
         "iterator": "c",
-        "cerrno": "c"
+        "cerrno": "c",
+        "threads.h": "c",
+        "client.h": "c",
+        "in.h": "c"
     }
 }

@@ -1,5 +1,5 @@
-#ifndef CONNECTION_H_INCLUDED
-#define CONNECTION_H_INCLUDED
+#ifndef SIMPLE_CONNECTION_H_INCLUDED
+#define SIMPLE_CONNECTION_H_INCLUDED
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,13 +18,27 @@
 #include "throwable.h"
 #include "uri.h"
 #include "stream.h"
-#include "log_conn.h"
+#include "logs.h"
 #include "client.h"
-#include "threads.h"
 
 #define CONNECTION_BUFFER_SIZE      81920
 #define CONNECTION_PATH_MAX         1000
 #define MAX_CONTENT_LENGTH_STRING   10
+
+/**
+ * Receive server object and init
+ * Listen Loop
+ * @param Server server
+ * @returns void
+ */
+void listenConnection(Server * server);
+
+/**
+ * Initialize threadpool and task
+ * @param int serverSocket
+ * @returns void
+ */
+void initServerPool(Server * server);
 
 /**
  * Make a loop for listen new connections
@@ -57,6 +71,25 @@ void * threadConnectionHandler(void * arg);
  * @param Server * server
  * @returns void
  */
-void handleConnection(ThreadArg * args, Client * client, Server * server);
+void handleConnection(ThreadArg args, Client * client, Server server);
 
-#endif // CONNECTION_H_INCLUDED
+/**
+ * Register connection start data in log file for debug
+ * @param ThreadArg * argsdebug
+ * @param Client * client
+ * @param String currTime
+ */
+void logConnectionStart(ThreadArg * args, Client * client, String currTime);
+
+/**
+ * Register connection start data in log file for debug
+ * @param ThreadArg * argsdebug
+ * @param Client * client
+ * @param String currTime
+ * @param float duration
+ * @param String path
+ * @param bool error
+ */
+void logConnectionEnd(ThreadArg * args, Client * client, String currTime, float duration, String path, bool error);
+
+#endif // SIMPLE_CONNECTION_H_INCLUDED

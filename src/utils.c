@@ -105,3 +105,18 @@ toFstring(const char * fmt, ...)
 
     return buffer;
 }
+
+String
+newString(size_t length)
+{
+    return (String) malloc(length);
+}
+
+String
+getIpv4(SA_IN address)
+{
+    String ipv4 = newString(INET_ADDRSTRLEN);
+    inet_ntop(AF_INET, &(address.sin_addr), ipv4, INET_ADDRSTRLEN);
+
+    return ipv4;
+}
