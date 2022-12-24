@@ -119,7 +119,7 @@ poolDestroy(Threadpool * pool)
 void
 initThreadpools(Threadpool * pool, Server * server)
 {
-    int threadStatus;
+    int threadStatus[pool->length];
     time_t now;
     
     for (int i = 0; i < pool->length; i++) {
@@ -128,18 +128,22 @@ initThreadpools(Threadpool * pool, Server * server)
         pool->tasks->args[i].content = server;
         pool->tasks->args[i].start = localtime(&now);
 
-        threadStatus = pthread_create(
+        threadStatus[i] = pthread_create(
             &(pool->threads[i]), NULL, pool->tasks->func, (void *) &pool->tasks->args[i]
         );
 
-        if (threadStatus != 0) {
+        if (threadStatus[i] == 0) {
+            pool->started++;
+        }
+    }
+    
+    for (int i = 0; i < pool->length; i++) {
+        if (threadStatus[i] != 0) {
             WARNING("Thread couldn't be created\n");
             if (poolDestroy(pool) == ERROR_CODE) {
                 exit(1);
             }
             return;
         }
-
-        pool->started++;
     }
 }
