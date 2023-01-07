@@ -2,6 +2,7 @@
 #define TYPE_ALIASES_H_INCLUDED
 
 #include <time.h>
+#include <netinet/in.h>
 
 #include "logs.h"
 

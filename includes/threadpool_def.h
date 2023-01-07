@@ -2,6 +2,7 @@
 #define THREADPOOL_DEF_H_INCLUDED
 
 #include <pthread.h>
+
 #include "queue.h"
 #include "type_aliases.h"
 
@@ -28,7 +29,6 @@ typedef struct threadpool {
     ThreadTask * tasks;
     u_int length;
     u_int started;
-    Queue * queue;
     bool shutdown;
 } Threadpool;
 

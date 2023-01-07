@@ -4,10 +4,14 @@
 Stream *
 initStream()
 {
-    Stream * stream = (Stream *) malloc(sizeof(Stream));
+    Stream * stream = (Stream *) mallocOrDie(
+        sizeof(Stream), "Stream"
+    );
 
+    stream->path = (String) mallocOrDie(
+        MAX_STREAM_PATH, "stream path"
+    );
     stream->file = STREAM_ERROR;
-    stream->path = (String) malloc(MAX_STREAM_PATH);
     stream->open = streamOpen;
     stream->close = streamClose;
     stream->get = getContent;
@@ -67,9 +71,14 @@ getContent(Stream * stream, size_t bufferSize)
     }
 
     size_t bytesRead;
-    Buffer * buffer = (Buffer *) malloc(sizeof(Buffer));
+    Buffer * buffer = (Buffer *) mallocOrDie(
+        sizeof(Buffer), "Buffer * buffer"
+    );
 
-    buffer->content = (String) malloc(bufferSize);
+    buffer->content = (String) mallocOrDie(
+        bufferSize, "stream content buffer"
+    );
+
     buffer->size = bufferSize;
 
     if (stream->file != STREAM_ERROR) {
@@ -116,7 +125,9 @@ getFileSize(String filename)
 String
 getStringFileSize(String filename)
 {
-    String buffer = (String) malloc(MAX_STREAM_FILE_LENGTH);
+    String buffer = (String) mallocOrDie(
+        MAX_STREAM_FILE_LENGTH, "stream buffer"
+    );
     sprintf(buffer, "%lu", getFileSize(filename));
 
     return buffer;

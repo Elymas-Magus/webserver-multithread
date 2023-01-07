@@ -23,6 +23,7 @@ getCurrentTimeInHttpFormat()
     
     time(&tmi);
     info = gmtime(&tmi);
+    validatePointerOrDie(info, "Time info failed\n");
     
     strftime(date, DATE_MAX, "%a, %d %b %Y %X %Z", info);
 
@@ -36,6 +37,7 @@ getTimeInHttpFormat(const time_t * time)
     String date = (String) malloc(DATE_MAX);
     
     info = gmtime(time);
+    validatePointerOrDie(info, "Time info failed\n");
     
     strftime(date, DATE_MAX, "%a, %d %b %Y %X %Z", info);
 
@@ -51,6 +53,7 @@ getLocalCurrentTimeInHttpFormat()
     
     time(&tmi);
     info = localtime(&tmi);
+    validatePointerOrDie(info, "Time info failed\n");
     
     strftime(date, DATE_MAX, "%a, %d %b %Y %X %Z", info);
 
@@ -64,6 +67,7 @@ getLocalTimeInHttpFormat(const time_t * time)
     String date = (String) malloc(DATE_MAX);
     
     info = localtime(time);
+    validatePointerOrDie(info, "Time info failed\n");
     
     strftime(date, DATE_MAX, "%a, %d %b %Y %X %Z", info);
 
@@ -74,6 +78,7 @@ String
 utcdate(const time_t timeptr)
 {
     struct tm * info = localtime(&timeptr);
+    validatePointerOrDie(info, "Time info failed\n");
     static char wday_name[7][3] = {
         "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
     };

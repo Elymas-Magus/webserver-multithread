@@ -3,7 +3,9 @@
 Server *
 createServer(ServerConfig * config)
 {
-    Server * server = (Server *) malloc(sizeof(Server));
+    Server * server = (Server *) mallocOrDie(
+        sizeof(Server), "server"
+    );
 
     strcpy(server->name, "WebServerMT");
     strcpy(server->root, config->root);
@@ -64,6 +66,20 @@ int
 bindServerAddr(SocketFD serverSocket, SA_IN serverAddr)
 {
     return validateOrDie(bind(serverSocket, (SA *) &serverAddr, sizeof(serverAddr)), "Bind Failed");
+}
+
+void
+listenConnections(Server * server)
+{
+    initServerPool(server);
+    connectionLoop(server);
+}
+
+void
+initServerPool(Server * server)
+{
+    server->pools->tasks->func = threadConnectionHandler;
+    server->initPools(server->pools, server);
 }
 
 void

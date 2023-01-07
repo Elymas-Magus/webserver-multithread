@@ -7,13 +7,16 @@
 #include <unistd.h>
 #include <stdint.h>
 
-#include "socket_validation.h" 
+#include "validation.h" 
 #include "type_aliases.h" 
 #include "threadpool_def.h"
-#include "server_def.h" 
+#include "server_def.h"
 
 #define ERROR_CODE              -1
 #define SUCCESS_CODE             1
+
+extern pthread_mutex_t mutex;
+extern pthread_cond_t cond;
 
 /**
  * @param u_int threadNumber
@@ -51,12 +54,6 @@ void makeMutex(Threadpool * pool);
  * @returns void
  */
 void makeCond(Threadpool * pool);
-
-/**
- * @param Threadpool * pool
- * @returns void
- */
-void makeQueue(Threadpool * pool);
 
 /**
  * Destroys thread tasks and it's attributes

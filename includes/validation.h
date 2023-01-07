@@ -10,7 +10,9 @@
 #include "type_aliases.h"
 #include "logs.h"
 
+#define MAX_ERROR_LENGTH        31
 #define SOCKET_ERROR            -1
+#define DIE                     die(__LINE__, __FUNCTION__, __FILE__)
 
 /**
  * Receive an integer from <sys/socket.h> functions
@@ -32,5 +34,29 @@ int validateOrDie(int exp, const char message[]);
  */
 bool validate(int exp, const char message[]);
 
+/**
+ * @returns void *
+ */
+void * validatePointerOrDie(void * pointer, const char message[]);
+
+/**
+ * @returns void *
+ */
+void * mallocOrDie(size_t numBytes, const char message[]);
+
+/**
+ * 
+ */
+void die(int line, const char functionName[], const char filename[]);
+
+/**
+ * @returns bool
+ */
+bool isNotValid(void * pointer);
+
+/**
+ * @returns bool
+ */
+bool isValid(void * pointer);
 
 #endif // SOCKET_VALIDATION_H_INCLUDED

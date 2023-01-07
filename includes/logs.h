@@ -19,8 +19,7 @@
 #define FULL_LOG_ERROR_PATH          "logs/errors"LOG_EXTENSION
 #define FULL_LOG_WARNING_PATH        "logs/warning"LOG_EXTENSION
 #define FULL_LOG_CONNECTION_PATH     "logs/connection-%Y-%m-%d"LOG_EXTENSION
-#define FULL_LOG_REQUEST_PATH        "logs/request-%Y-%m-%d"LOG_EXTENSION
-#define FULL_LOG_EXTENSION           ".log"LOG_EXTENSION
+#define FULL_LOG_REQUEST_PATH        "logs/log-%Y-%m-%d"LOG_EXTENSION
 
 
 #define WARNING(...) fprintf(stderr, __VA_ARGS__)
@@ -39,7 +38,7 @@
         time(&tmi);                                                         \
         info = localtime(&tmi);                                             \
                                                                             \
-        strftime(filename, DATE_MAX, FULL_LOG_REQUEST_PATH, info);          \
+        strftime(filename, DATE_MAX, LOG_REQUEST_PATH, info);          \
         strcat(filename, LOG_EXTENSION);                                    \
         file = fopen(filename, APPEND);                                     \
         if (!file) break;                                                   \

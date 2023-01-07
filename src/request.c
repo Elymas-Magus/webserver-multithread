@@ -31,9 +31,9 @@ extractRequest(HttpRequest * request, String httpMessage, String root)
     }
     
     int i;
-    HttpHeaders * header = (HttpHeaders *) malloc(sizeof(HttpHeaders));
-    String startLine = (String) malloc(MAX_HTTP_MESSAGE_LINE);
-    String headers = (String) malloc(MAX_HTTP_HEADER_SIZE);
+    HttpHeaders * header = (HttpHeaders *) mallocOrDie(sizeof(HttpHeaders), "extracted request");
+    String startLine = (String) mallocOrDie(MAX_HTTP_MESSAGE_LINE, "start line buffer");
+    String headers = (String) mallocOrDie(MAX_HTTP_HEADER_SIZE, "headers buffer");
     String body;
     String line;
 
@@ -78,7 +78,7 @@ extractRequest(HttpRequest * request, String httpMessage, String root)
 HttpRequest *
 newRequest()
 {
-    HttpRequest * request = (HttpRequest *) malloc(sizeof(HttpRequest));
+    HttpRequest * request = (HttpRequest *) mallocOrDie(sizeof(HttpRequest), "new request");
 
     request->headers = newRequestHeaders();
     memset(request->body, 0, sizeof(request->body));
@@ -121,7 +121,7 @@ addHeader(HttpRequest * request, String key, String value)
         return false;
     }
 
-    HttpHeaders * header = (HttpHeaders *) malloc(sizeof(HttpHeaders));
+    HttpHeaders * header = (HttpHeaders *) mallocOrDie(sizeof(HttpHeaders), "new Header");
     strcpy(header->key, key);
     strcpy(header->value, value);
     arrayPush(request->headers, (void **) header, sizeof(HttpHeaders));
@@ -168,17 +168,33 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
     Node * no;
     HttpHeaders * header;
 
-    String httpLine = (String) malloc(MAX_HTTP_HEADER_LINE);
+    String httpLine = (String) mallocOrDie(
+        MAX_HTTP_HEADER_LINE, "http line buffer"
+    );
     HttpResponseCode response = httpResponseCode[responseIndex];
 
-    if (response.index == HTTP_OK) {
+    if (response.index == HTTP_NOT_FOUND) {
+        stream->file = open(ERROR_404_PAGE, O_RDONLY);
+        if (stream->file == STREAM_ERROR) {
+            response = httpResponseCode[HTTP_INTERNAL_SERVER_ERROR];
+            LOG_ERROR("File couldn't be opened. Filename %s\n", ERROR_404_PAGE);
+        }
+    } else if (response.index == HTTP_OK) {
         stream->file = open(stream->path, O_RDONLY);
         if (stream->file == STREAM_ERROR) {
             response = httpResponseCode[HTTP_INTERNAL_SERVER_ERROR];
-            LOG("File couldn't be opened. Filename %s\n", stream->path);
+            LOG_ERROR("File couldn't be opened. Filename %s\n", stream->path);
         }
     }
 
+    if (response.index == HTTP_INTERNAL_SERVER_ERROR) {
+        stream->file = open(ERROR_500_PAGE, O_RDONLY);
+        if (stream->file == STREAM_ERROR) {
+            LOG_ERROR("File couldn't be opened. Filename %s\n", ERROR_500_PAGE);
+        }
+    }
+
+    printf("%s %s %s\r\n", request->httpVersion, response.code, response.state);
     sprintf(httpLine, "%s %s %s\r\n", request->httpVersion, response.code, response.state);
     write(clientSocket, httpLine, strlen(httpLine));
     
@@ -192,8 +208,8 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
     printf("\n");
 
     if (stream->file != STREAM_ERROR) {
-        OBuffer = (Buffer *) malloc(sizeof(Buffer));
-        OBuffer->content = (String) malloc(MAX_HTTP_BUFFER);
+        OBuffer = (Buffer *) mallocOrDie(sizeof(Buffer), "OBuffer");
+        OBuffer->content = (String) mallocOrDie(MAX_HTTP_BUFFER, "OBuffer content");
         
         while ((OBuffer->size = read(stream->file, OBuffer->content, MAX_HTTP_BUFFER)) > 0) {
             write(clientSocket, OBuffer->content, OBuffer->size);
@@ -205,7 +221,7 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
         close(stream->file);
     }
 
-    printf("close socket -------------------------------\n");
+    printf("close client socket -------------------------------\n");
     close(clientSocket);
 }
 
@@ -235,7 +251,7 @@ bool
 getTypeFromMimeType(String mimeType)
 {
     int typeLength;
-    String type = (String) malloc(MAX_MIME_TYPE_NAME_LEN);
+    String type = (String) mallocOrDie(MAX_MIME_TYPE_NAME_LEN, "type buffer");
     String slashPos = strchr(mimeType, '/');
 
     typeLength = (slashPos != NULL) ?

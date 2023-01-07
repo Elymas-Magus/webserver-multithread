@@ -5,11 +5,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "list.h"
+#include "client.h"
 
-typedef struct queue {
-    ArrayList items;   
-    void (* enqueue)(struct queue *, void **, size_t);
-    void ** (* dequeue)(struct queue *);
-} Queue;
+typedef struct node_t {
+    struct node_t * next;
+    Client * client;
+} node_t;
 
 #endif // QUEUE_DEF_H_INCLUDED

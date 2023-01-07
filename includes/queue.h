@@ -3,30 +3,16 @@
 
 #include "queue_def.h"
 
+extern node_t * head;
+extern node_t * tail;
+
 /**
  * Create new Queue
  * @returns Queue
  */
-Queue * createQueue();
+void enqueue(Client * client);
 
-/**
- * Insert an element into the array
- * @param Queue * queue
- * @param void ** content
- */
-void enqueue(Queue * queue, void ** content, size_t length);
 
-/**
- * Remove an element from the array
- * @param Queue * queue
- * @returns void **
- */
-void ** dequeue(Queue * queue);
-
-/**
- * Unallocate memory for Queue
- * @param Queue * queue
- */
-void queueFree(Queue * queue);
+Client * dequeue();
 
 #endif // QUEUE_H_INCLUDED

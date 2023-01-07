@@ -1,16 +1,22 @@
 #include "threadpool.h"
 
+
+pthread_mutex_t mutex;
+pthread_cond_t cond;
+
 Threadpool *
 createThreadpool(u_int threadNumber)
 {
-    Threadpool * threadpool = (Threadpool *) malloc(sizeof(Threadpool));
+    Threadpool * threadpool = (Threadpool *) mallocOrDie(
+        sizeof(Threadpool),
+        "Failed to allocate memory for threadpool"
+    );
 
     threadpool->shutdown = false;
     threadpool->started = 0;
     
     makeMutex(threadpool);
     makeCond(threadpool);
-    makeQueue(threadpool);
     makeTask(threadpool, threadNumber);
     makeThreads(threadpool, threadNumber);
 
@@ -38,7 +44,9 @@ makeCond(Threadpool * pool)
 void
 makeThreads(Threadpool * pool, u_int threadNumber)
 {
-    pool->threads = (pthread_t *) malloc(threadNumber * sizeof(pthread_t));
+    pool->threads = (pthread_t *) mallocOrDie(
+        threadNumber * sizeof(pthread_t), "threads"
+    );
 
     if (pool->threads == NULL) {
         WARNING("Threads couldn't be instantiated\n");
@@ -49,16 +57,14 @@ makeThreads(Threadpool * pool, u_int threadNumber)
 }
 
 void
-makeQueue(Threadpool * pool)
-{
-    pool->queue = createQueue();
-}
-
-void
 makeTask(Threadpool * pool, u_int threadNumber)
 {
-    pool->tasks = (ThreadTask *) malloc(sizeof(ThreadTask));
-    pool->tasks->args = (ThreadArg *) malloc(threadNumber * sizeof(ThreadArg));
+    pool->tasks = (ThreadTask *) mallocOrDie(
+        sizeof(ThreadTask), "thread task"
+    );
+    pool->tasks->args = (ThreadArg *) mallocOrDie(
+        threadNumber * sizeof(ThreadArg), "thread task args"
+    );
 
     if (pool->tasks == NULL) {
         WARNING("Tasks couldn't be instantiated\n");
@@ -85,9 +91,6 @@ threadpoolFree(Threadpool * pool)
     if (pool->tasks) {
         taskFree(pool->tasks);
     }
-    if (pool->queue) {
-        queueFree(pool->queue);
-    }
     return 0;
 }
 
@@ -110,20 +113,32 @@ poolDestroy(Threadpool * pool)
 void
 initThreadpools(Threadpool * pool, Server * server)
 {
+    int threadStatus[pool->length];
     time_t now;
     
     for (int i = 0; i < pool->length; i++) {
         pool->tasks->args[i].threadId = i;
         pool->tasks->args[i].connectionId = 0;
-        pool->tasks->args[i].content = server;
+        pool->tasks->args[i].content = malloc(sizeof(Server));
         pool->tasks->args[i].start = localtime(&now);
-        if (pthread_create(&(pool->threads[i]), NULL, pool->tasks->func, (void *) &pool->tasks->args[i]) != 0) {
+
+        memcpy(pool->tasks->args[i].content, server, sizeof(Server));
+        threadStatus[i] = pthread_create(
+            &(pool->threads[i]), NULL, pool->tasks->func, (void *) &pool->tasks->args[i]
+        );
+
+        if (threadStatus[i] == 0) {
+            pool->started++;
+        }
+    }
+    
+    for (int i = 0; i < pool->length; i++) {
+        if (threadStatus[i] != 0) {
             WARNING("Thread couldn't be created\n");
             if (poolDestroy(pool) == ERROR_CODE) {
                 exit(1);
             }
             return;
         }
-        pool->started++;
     }
 }
