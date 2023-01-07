@@ -1,5 +1,9 @@
 #include "threadpool.h"
 
+
+pthread_mutex_t mutex;
+pthread_cond_t cond;
+
 Threadpool *
 createThreadpool(u_int threadNumber)
 {
@@ -13,7 +17,6 @@ createThreadpool(u_int threadNumber)
     
     makeMutex(threadpool);
     makeCond(threadpool);
-    makeQueue(threadpool);
     makeTask(threadpool, threadNumber);
     makeThreads(threadpool, threadNumber);
 
@@ -54,12 +57,6 @@ makeThreads(Threadpool * pool, u_int threadNumber)
 }
 
 void
-makeQueue(Threadpool * pool)
-{
-    pool->queue = createQueue();
-}
-
-void
 makeTask(Threadpool * pool, u_int threadNumber)
 {
     pool->tasks = (ThreadTask *) mallocOrDie(
@@ -94,9 +91,6 @@ threadpoolFree(Threadpool * pool)
     if (pool->tasks) {
         taskFree(pool->tasks);
     }
-    if (pool->queue) {
-        queueFree(pool->queue);
-    }
     return 0;
 }
 
@@ -125,9 +119,10 @@ initThreadpools(Threadpool * pool, Server * server)
     for (int i = 0; i < pool->length; i++) {
         pool->tasks->args[i].threadId = i;
         pool->tasks->args[i].connectionId = 0;
-        pool->tasks->args[i].content = server;
+        pool->tasks->args[i].content = malloc(sizeof(Server));
         pool->tasks->args[i].start = localtime(&now);
 
+        memcpy(pool->tasks->args[i].content, server, sizeof(Server));
         threadStatus[i] = pthread_create(
             &(pool->threads[i]), NULL, pool->tasks->func, (void *) &pool->tasks->args[i]
         );

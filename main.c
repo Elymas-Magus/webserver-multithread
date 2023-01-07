@@ -22,5 +22,5 @@ main()
 void
 logServerConfis(Server * server)
 {
-    printf("Running at address: %s:%d\n", getIpv4(server->address), server->port);
+    printf("Running at address: http://%s:%d/\n", getIpv4(server->address), server->port);
 }

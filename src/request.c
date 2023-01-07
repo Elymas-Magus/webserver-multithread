@@ -194,6 +194,7 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
         }
     }
 
+    printf("%s %s %s\r\n", request->httpVersion, response.code, response.state);
     sprintf(httpLine, "%s %s %s\r\n", request->httpVersion, response.code, response.state);
     write(clientSocket, httpLine, strlen(httpLine));
     

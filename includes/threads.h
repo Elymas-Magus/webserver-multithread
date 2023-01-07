@@ -35,4 +35,17 @@ void emitSignal(pthread_cond_t * cond);
  */
 void condWait(pthread_cond_t * cond, pthread_mutex_t * mutex);
 
+/**
+ * initialize mutex
+ * @param pthread_mutex_t * mutex
+ */
+void initMutex(pthread_mutex_t * mutex);
+
+/**
+ * initialize cond var
+ * @param pthread_cond_t * cond
+ */
+void initCond(pthread_cond_t * cond);
+
+
 #endif

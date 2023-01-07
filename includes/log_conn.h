@@ -3,6 +3,7 @@
 
 #include <arpa/inet.h>
 
+#include "utils.h"
 #include "client.h"
 #include "type_aliases.h"
 #include "logs.h"

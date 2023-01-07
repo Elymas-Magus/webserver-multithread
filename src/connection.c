@@ -1,53 +1,45 @@
 #include "connection.h"
 
-typedef struct connQueue {
-    Client clients[5000];
-    int length;
-} ConnQueue;
-
-ConnQueue queue = {
-    .length = 0
-};
-
 void
 connectionLoop(Server * server)
 {
-    printf("................. Initing connection loop .................\n\n");
-    while (true) {
-        connectionListener(server);
-    }
-    
-    shutdown(server->socket, SHUT_RDWR);
-}
-
-void
-connectionListener(Server * server)
-{
+    Client * client;
     socklen_t addrSize = (socklen_t) sizeof(SA_IN);
 
-    Client * client = (Client *) mallocOrDie(sizeof(Client), "Client");
-    printf("------------------- Waiting for connections --------------------\n");
+    initMutex(&(mutex));
+    initCond(&(cond));
 
-    if (!validate(
-        client->socket = accept(server->socket, (SA *) &(client->address), &addrSize),
-        "Accept Failed"
-    )) { return; }
+    printf("................. Initing connection loop .................\n\n");
+    while (true) {
 
-    printf("------------------- Connected (%d) ------------------------------\n", client->socket);
-    printf("Address: (%s) -------------------------------------------\n", getIpv4(client->address));
+        client = (Client *) mallocOrDie(sizeof(Client), "Client");
+        printf("[C] Waiting for connections\n");
 
-    printf("Listener locking\n");
-    mutexLock(&(server->pools->mutex));
+        if (!validate(
+            client->socket = accept(server->socket, (SA *) &(client->address), &addrSize),
+            "Accept Failed"
+        )) { break; }
 
-    queue.clients[queue.length++] = * client;
-    // server->pools->queue->enqueue(server->pools->queue, (void **) client, sizeof(Client *));
+        printf("[C] Connected (%d);\t", client->socket);
+        printf("Address: (%s)\n\n", getIpv4(client->address));
 
-    printf("Fila\tLength: %d\n", queue.length);
+        printf("[C] lock\n");
+        mutexLock(&(mutex));
 
-    emitSignal(&(server->pools->cond));
-    mutexUnlock(&(server->pools->mutex));
+        printf("[C] enqueue\n");
+        enqueue(client);
+        // server->pools->queue->enqueue(server->pools->queue, (void **) client, sizeof(Client *));
+
+        usleep(150000);
+        printf("[C] emit signal\n");
+        emitSignal(&(cond));
+        printf("[C] unlock\n");
+        mutexUnlock(&(mutex));
+    }
 
     free(client);
+    
+    shutdown(server->socket, SHUT_RDWR);
 }
 
 void *
@@ -57,45 +49,46 @@ threadConnectionHandler(void * arg)
         return NULL;
     }
 
-    Client client;
+    Client * client;
     ThreadArg * threadArg = (ThreadArg *) arg;
     Server * server = (Server *) threadArg->content;
 
-    printf("---------------------- Start thread loop -----------------------\n");
+    printf("[H:%d] Start thread loop\n", threadArg->threadId);
     while (true) {
-        mutexLock(&(server->pools->mutex));
+        printf("[H:%d] lock\n", threadArg->threadId);
+        mutexLock(&(mutex));
 
-        if (queue.length <= 0) {
-            condWait(&(server->pools->cond), &(server->pools->mutex));
-        }
-        // if (server->pools->shutdown) {
-        //     break;
-        // }
+        printf("[H:%d] Getting client\n", threadArg->threadId);
+        client = dequeue();
 
-        printf("Fila_Length: %d\n", queue.length);
-        printf("client: %d\n", queue.clients[queue.length].socket);
-        if (queue.length <= 0) {
-            printf("------------------------ invalid client\n");
-            printf("Fila_Length: %d\n\n\n\n\n\n", queue.length);
-            continue;
+        while (client == NULL) {
+            printf("[H:%d] Waiting\n", threadArg->threadId);
+            pthread_cond_wait(&(cond), &(mutex));
+            printf("[H:%d] Getting client\n", threadArg->threadId);
+            client = dequeue();
         }
 
-        client = queue.clients[--queue.length];
-        printf("------------------- Desempilhando o cliente %d\n", client.socket);
+        printf("[H:%d] Desempilhando o cliente %d\n", threadArg->threadId, client->socket);
 
-        logConnectionStart(threadArg, &client, getCurrentTimeString());
+        printf("[H:%d] unlock\n", threadArg->threadId);
+        mutexUnlock(&(mutex));
 
-        mutexUnlock(&(server->pools->mutex));
-        handleConnection(threadArg, &client, server);
+        printf("[H:%d] Logging\n", threadArg->threadId);
+        logConnectionStart(threadArg, client, getCurrentTimeString());
+
+        printf("[H:%d] Tratando conexão\n", threadArg->threadId);
+        handleConnection(threadArg, client, server);
+        printf("[H:%d] Finalizando conexão\n", threadArg->threadId);
 
         threadArg->connectionId++;
+        free(client);
     }
 
-    printf("----------------------- End thread loop ------------------------\n");
+    printf("[H:%d] End thread loop\n", threadArg->threadId);
     free(server);
     free(threadArg);
 
-    mutexUnlock(&(server->pools->mutex));
+    mutexUnlock(&(mutex));
     pthread_exit(NULL);
 
     return NULL;  
@@ -104,6 +97,7 @@ threadConnectionHandler(void * arg)
 void
 handleConnection(ThreadArg * args, Client * client, Server * server)
 {
+    printf("[HC:%d] Tratando cliente %d\n", args->threadId, client->socket);
     bool error = true;
 
     String currentTime;
@@ -119,16 +113,24 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
     int slack = 1;
     int rootPathSize = strlen(server->root);
 
+    printf("[HC:%d] Init...\n", args->threadId);
+
     char absolutepath[CONNECTION_PATH_MAX + slack];
     char IBuffer[MAX_HTTP_MESSAGE_LENGTH];
     char path[CONNECTION_BUFFER_SIZE + rootPathSize + slack];
 
     struct stat htmlAttr;
 
+    printf("[HC:%d] Init stream request\n", args->threadId);
+
     Stream * stream = initStream();
+
+    printf("[HC:%d] Alocate memory for request\n", args->threadId);
 
     HttpRequest * request = newRequest();
     HttpRequest * response = newRequest();
+
+    printf("[HC:%d] read request\n", args->threadId);
 
     while (
         (bytesRead = read(
@@ -140,11 +142,15 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         messageSize += bytesRead;
         if (
             messageSize > MAX_HTTP_MESSAGE_LENGTH - slack ||
-            IBuffer[messageSize - slack] == '\n'
+            (IBuffer[messageSize - slack - 1] == '\r' &&
+            IBuffer[messageSize - slack] == '\n')
         ) {
             break;
         }
     }
+
+    printf("[HC:%d] Validate request\n", args->threadId);
+    printf("[HC:%d]\n%s\n[HC:%d]\n", args->threadId, IBuffer, args->threadId);
 
     validateOrDie(bytesRead, "recv error");
     IBuffer[messageSize - 1] = 0;
@@ -157,7 +163,7 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
 
         fflush(stdout);
         
-        printf("Path da requisição:\n%s\n", request->path);
+        printf("[HC:%d] Path da requisição:\n%s\n", args->threadId, request->path);
         
         strcpy(path, request->path);
         strcpy(response->mimeType, request->mimeType);

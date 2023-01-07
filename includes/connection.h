@@ -7,6 +7,7 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/time.h>
+#include <unistd.h>
 #include <time.h>
 
 #include "timer.h"
@@ -25,6 +26,9 @@
 #define CONNECTION_BUFFER_SIZE      81920
 #define CONNECTION_PATH_MAX         1000
 #define MAX_CONTENT_LENGTH_STRING   10
+
+extern pthread_mutex_t mutex;
+extern pthread_cond_t cond;
 
 /**
  * Make a loop for listen new connections

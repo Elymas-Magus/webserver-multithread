@@ -20,7 +20,6 @@
 #define FULL_LOG_WARNING_PATH        "logs/warning"LOG_EXTENSION
 #define FULL_LOG_CONNECTION_PATH     "logs/connection-%Y-%m-%d"LOG_EXTENSION
 #define FULL_LOG_REQUEST_PATH        "logs/log-%Y-%m-%d"LOG_EXTENSION
-#define FULL_LOG_EXTENSION           ".log"LOG_EXTENSION
 
 
 #define WARNING(...) fprintf(stderr, __VA_ARGS__)

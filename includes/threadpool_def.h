@@ -29,7 +29,6 @@ typedef struct threadpool {
     ThreadTask * tasks;
     u_int length;
     u_int started;
-    Queue * queue;
     bool shutdown;
 } Threadpool;
 

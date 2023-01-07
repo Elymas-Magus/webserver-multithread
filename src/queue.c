@@ -1,39 +1,41 @@
 #include "queue.h"
 
-Queue *
-createQueue()
-{
-    Queue * queue = (Queue *) mallocOrDie(sizeof(Queue), "queue");
-
-    queue->items = arrayInit();
-    queue->enqueue = enqueue;
-    queue->dequeue = dequeue;
-    queue->isEmpty = isEmpty;
-
-    return queue;
-}
+node_t * head = NULL;
+node_t * tail = NULL;
 
 void
-enqueue(Queue * queue, void ** content, size_t length)
+enqueue(Client * client)
 {
-    arrayUnshift(queue->items, content, length);
+    node_t * newNode = malloc(sizeof(node_t));
+
+    newNode->client = client;
+    newNode->next = NULL;
+
+    if (tail == NULL) {
+        head = newNode;
+    } else {
+        tail->next = newNode;
+    }
+
+    tail = newNode;
 }
 
-void **
-dequeue(Queue * queue, size_t length)
+Client *
+dequeue()
 {
-    return arrayPop(queue->items, length);
-}
+    if (head == NULL) {
+        return NULL;
+    }
 
-bool
-isEmpty(Queue * queue)
-{
-    return queue->items->length == 0 || queue->items->first == NULL;
-}
+    Client * result = head->client;
+    node_t * temp = head;
+    head = head->next;
 
-void
-queueFree(Queue * queue)
-{
-    arrayFree(queue->items);
-    free(queue);
+    if (head == NULL) {
+        tail = NULL;
+    }
+
+    free(temp);
+
+    return result;
 }
