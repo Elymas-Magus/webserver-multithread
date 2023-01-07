@@ -2,6 +2,9 @@
 #define LOG_CONN_H_INCLUDED
 
 #include <arpa/inet.h>
+#include <time.h>
+#include <dirent.h>
+#include <errno.h>
 
 #include "utils.h"
 #include "client.h"

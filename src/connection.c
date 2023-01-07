@@ -28,11 +28,15 @@ connectionLoop(Server * server)
 
         printf("[C] enqueue\n");
         enqueue(client);
-        // server->pools->queue->enqueue(server->pools->queue, (void **) client, sizeof(Client *));
+
+        // usleep(150000);
+        // printf("[C] emit broadcast\n");
+        // emitBroadcast(&(cond));
 
         usleep(150000);
         printf("[C] emit signal\n");
         emitSignal(&(cond));
+
         printf("[C] unlock\n");
         mutexUnlock(&(mutex));
     }
@@ -150,7 +154,6 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
     }
 
     printf("[HC:%d] Validate request\n", args->threadId);
-    printf("[HC:%d]\n%s\n[HC:%d]\n", args->threadId, IBuffer, args->threadId);
 
     validateOrDie(bytesRead, "recv error");
     IBuffer[messageSize - 1] = 0;

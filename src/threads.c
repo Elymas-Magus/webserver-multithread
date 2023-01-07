@@ -51,6 +51,16 @@ emitSignal(pthread_cond_t * cond)
 }
 
 void
+emitBroadcast(pthread_cond_t * cond)
+{
+    // printf("emit broadcast\n");
+    if (pthread_cond_broadcast(cond) != 0) {                                          
+        WARNING("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());  
+        LOG_ERROR("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());                             
+    }
+}
+
+void
 condWait(pthread_cond_t * cond, pthread_mutex_t * mutex)
 {
     if (pthread_cond_wait(cond, mutex) != 0) {                                          

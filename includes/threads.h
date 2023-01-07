@@ -28,6 +28,13 @@ void mutexUnlock(pthread_mutex_t * mutex);
 void emitSignal(pthread_cond_t * cond);
 
 /**
+ * Emit a broadcast to stop waiting
+ * Register logs
+ * @param pthread_cond_t * cond
+ */
+void emitBroadcast(pthread_cond_t * cond);
+
+/**
  * Check a condition to stop while it's not satisfied
  * Register logs
  * @param pthread_cond_t * cond

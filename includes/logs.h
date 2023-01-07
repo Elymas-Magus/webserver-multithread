@@ -9,11 +9,15 @@
 #include "type_aliases.h"
 
 #define DATE_MAX                     30
+#define MAX_FOLDERNAME               50
 #define LOG_PATH                     "logs/"
 #define LOG_ERROR_PATH               "logs/errors"
 #define LOG_CONNECTION_PATH          "logs/connection-%Y-%m-%d"
+#define LOG_CONNECTION_THREAD_FOLDER "logs/thread-%d/"
+#define LOG_CONNECTION_FILE          "connection-%Y-%m-%d"
 #define LOG_REQUEST_PATH             "logs/request-%Y-%m-%d"
 #define LOG_EXTENSION                ".log"
+#define LOG_DIRECTORY_PERMS          0777
 #define APPEND                       "a"
 
 #define FULL_LOG_ERROR_PATH          "logs/errors"LOG_EXTENSION
@@ -61,6 +65,31 @@
         info = localtime(&tmi);                                             \
                                                                             \
         strftime(filename, DATE_MAX, LOG_CONNECTION_PATH, info);            \
+        strcat(filename, LOG_EXTENSION);                                    \
+        file = fopen(filename, APPEND);                                     \
+        if (!file) break;                                                   \
+                                                                            \
+        __LOG(file, fmt, __VA_ARGS__);                                      \
+        __LOG(stderr, fmt, __VA_ARGS__);                                    \
+                                                                            \
+        fclose(file);                                                       \
+    } while (0);
+
+
+#define LOG_CONNECTTION_THREAD(filename, threadId, fmt, ...)                \
+    do {                                                                    \
+        time_t tmi;                                                         \
+        struct tm * info;                                                   \
+                                                                            \
+        FILE * file = NULL;                                                 \
+                                                                            \
+        time(&tmi);                                                         \
+        info = localtime(&tmi);                                             \
+                                                                            \
+        sprintf(filename, LOG_CONNECTION_THREAD_FOLDER, threadId);          \
+        strcat(filename, LOG_CONNECTION_FILE);                              \
+                                                                            \
+        strftime(filename, DATE_MAX, filename, info);                       \
         strcat(filename, LOG_EXTENSION);                                    \
         file = fopen(filename, APPEND);                                     \
         if (!file) break;                                                   \
