@@ -9,6 +9,7 @@ createServer(ServerConfig * config)
 
     strcpy(server->name, "WebServerMT");
     strcpy(server->root, config->root);
+    
     server->port = config->port;
     server->backlog = config->backlog;
     server->socket = getServerSocket();

@@ -15,9 +15,6 @@
 #define ERROR_CODE              -1
 #define SUCCESS_CODE             1
 
-extern pthread_mutex_t mutex;
-extern pthread_cond_t cond;
-
 /**
  * @param u_int threadNumber
  * @returns Threadpool * pools
@@ -42,18 +39,6 @@ void makeTask(Threadpool * pool, u_int threadNumber);
  * @returns void
  */
 void initThreadpools(Threadpool * pool, Server * server);
-
-/**
- * @param Threadpool * pool
- * @returns void
- */
-void makeMutex(Threadpool * pool);
-
-/**
- * @param Threadpool * pool
- * @returns void
- */
-void makeCond(Threadpool * pool);
 
 /**
  * Destroys thread tasks and it's attributes

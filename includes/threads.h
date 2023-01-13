@@ -6,53 +6,58 @@
 #include "timer.h"
 #include "logs.h"
 
+extern pthread_mutex_t mutex;
+extern pthread_cond_t cond;
+
 /**
  * Receive a mutex and lock a thread
  * Register logs
- * @param pthread_mutex_t * mutex
  */
-void mutexLock(pthread_mutex_t * mutex);
+void mutexLock();
 
 /**
  * Receive a mutex and unlock a thread
  * Register logs
- * @param pthread_mutex_t * mutex
  */
-void mutexUnlock(pthread_mutex_t * mutex);
+void mutexUnlock();
 
 /**
  * Emit a signal to stop waiting
  * Register logs
- * @param pthread_cond_t * cond
  */
-void emitSignal(pthread_cond_t * cond);
+void emitSignal();
 
 /**
  * Emit a broadcast to stop waiting
  * Register logs
- * @param pthread_cond_t * cond
  */
-void emitBroadcast(pthread_cond_t * cond);
+void emitBroadcast();
 
 /**
  * Check a condition to stop while it's not satisfied
  * Register logs
- * @param pthread_cond_t * cond
- * @param pthread_mutex_t * mutex
  */
-void condWait(pthread_cond_t * cond, pthread_mutex_t * mutex);
+void condWait(int identifier);
 
 /**
  * initialize mutex
- * @param pthread_mutex_t * mutex
  */
-void initMutex(pthread_mutex_t * mutex);
+void initMutex();
 
 /**
  * initialize cond var
- * @param pthread_cond_t * cond
  */
-void initCond(pthread_cond_t * cond);
+void initCond();
+
+/**
+ * destroy mutex
+ */
+void destroyMutex();
+
+/**
+ * destroy cond var
+ */
+void destroyCond();
 
 
 #endif

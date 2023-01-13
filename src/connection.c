@@ -24,25 +24,27 @@ connectionLoop(Server * server)
         printf("Address: (%s)\n\n", getIpv4(client->address));
 
         printf("[C] lock\n");
-        mutexLock(&(mutex));
+        mutexLock();
 
         printf("[C] enqueue\n");
         enqueue(client);
 
-        // usleep(150000);
+        // // usleep(150000);
         // printf("[C] emit broadcast\n");
-        // emitBroadcast(&(cond));
-
-        usleep(150000);
-        printf("[C] emit signal\n");
-        emitSignal(&(cond));
+        // // if (queueIsEmpty()) {
+        //     emitBroadcast();
+        // // }
 
         printf("[C] unlock\n");
-        mutexUnlock(&(mutex));
+        mutexUnlock();
+
+        // usleep(150000);
+        emitSignal();
     }
 
     free(client);
     
+    printf("Poweroff\n");
     shutdown(server->socket, SHUT_RDWR);
 }
 
@@ -60,22 +62,20 @@ threadConnectionHandler(void * arg)
     printf("[H:%d] Start thread loop\n", threadArg->threadId);
     while (true) {
         printf("[H:%d] lock\n", threadArg->threadId);
-        mutexLock(&(mutex));
+        mutexLock();
 
         printf("[H:%d] Getting client\n", threadArg->threadId);
         client = dequeue();
 
         while (client == NULL) {
-            printf("[H:%d] Waiting\n", threadArg->threadId);
-            pthread_cond_wait(&(cond), &(mutex));
-            printf("[H:%d] Getting client\n", threadArg->threadId);
+            condWait(threadArg->threadId);
             client = dequeue();
         }
 
         printf("[H:%d] Desempilhando o cliente %d\n", threadArg->threadId, client->socket);
 
         printf("[H:%d] unlock\n", threadArg->threadId);
-        mutexUnlock(&(mutex));
+        mutexUnlock();
 
         printf("[H:%d] Logging\n", threadArg->threadId);
         logConnectionStart(threadArg, client, getCurrentTimeString());
@@ -92,7 +92,7 @@ threadConnectionHandler(void * arg)
     free(server);
     free(threadArg);
 
-    mutexUnlock(&(mutex));
+    mutexUnlock();
     pthread_exit(NULL);
 
     return NULL;  

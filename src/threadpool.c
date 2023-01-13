@@ -1,9 +1,6 @@
 #include "threadpool.h"
 
 
-pthread_mutex_t mutex;
-pthread_cond_t cond;
-
 Threadpool *
 createThreadpool(u_int threadNumber)
 {
@@ -15,30 +12,10 @@ createThreadpool(u_int threadNumber)
     threadpool->shutdown = false;
     threadpool->started = 0;
     
-    makeMutex(threadpool);
-    makeCond(threadpool);
     makeTask(threadpool, threadNumber);
     makeThreads(threadpool, threadNumber);
 
     return threadpool;
-}
-
-void
-makeMutex(Threadpool * pool)
-{
-    if (pthread_mutex_init(&(pool->mutex), NULL) != 0) {
-        WARNING("Error in mutex initializer\n");
-        exit(1);
-    }
-}
-
-void
-makeCond(Threadpool * pool)
-{
-    if (pthread_cond_init(&(pool->cond), NULL)) {
-        WARNING("Error in cond initializer\n");
-        exit(1);
-    }
 }
 
 void
@@ -103,8 +80,6 @@ poolDestroy(Threadpool * pool)
         }
     }
 
-    pthread_mutex_destroy(&(pool->mutex));
-    pthread_cond_destroy(&(pool->cond));
     threadpoolFree(pool);
 
     return SUCCESS_CODE;

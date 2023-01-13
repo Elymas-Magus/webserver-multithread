@@ -194,15 +194,17 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
         }
     }
 
-    printf("%s %s %s\r\n", request->httpVersion, response.code, response.state);
+    printf("message: %s %s %s\r\n", request->httpVersion, response.code, response.state);
     sprintf(httpLine, "%s %s %s\r\n", request->httpVersion, response.code, response.state);
     write(clientSocket, httpLine, strlen(httpLine));
     
+    printf("cheguei 1\n");
     FOREACH (no, request->headers) {
         header = (HttpHeaders *) no->content;
         sprintf(httpLine, "%s: %s\r\n", header->key, header->value);
         write(clientSocket, httpLine, strlen(httpLine));
     }
+    printf("cheguei 2\n");
 
     write(clientSocket, "\n", 1);
     printf("\n");
