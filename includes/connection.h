@@ -27,9 +27,6 @@
 #define CONNECTION_PATH_MAX         1000
 #define MAX_CONTENT_LENGTH_STRING   10
 
-extern pthread_mutex_t mutex;
-extern pthread_cond_t cond;
-
 /**
  * Make a loop for listen new connections
  * @param int serverSocket

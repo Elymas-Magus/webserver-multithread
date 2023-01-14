@@ -6,8 +6,8 @@ connectionLoop(Server * server)
     Client * client;
     socklen_t addrSize = (socklen_t) sizeof(SA_IN);
 
-    initMutex(&(mutex));
-    initCond(&(cond));
+    initMutex();
+    initCond();
 
     printf("................. Initing connection loop .................\n\n");
     while (true) {
@@ -23,8 +23,7 @@ connectionLoop(Server * server)
         printf("[C] Connected (%d);\t", client->socket);
         printf("Address: (%s)\n\n", getIpv4(client->address));
 
-        printf("[C] lock\n");
-        mutexLock();
+        blockProducer();
 
         printf("[C] enqueue\n");
         enqueue(client);
@@ -35,11 +34,7 @@ connectionLoop(Server * server)
         //     emitBroadcast();
         // // }
 
-        printf("[C] unlock\n");
-        mutexUnlock();
-
-        // usleep(150000);
-        emitSignal();
+        releaseProducer();
     }
 
     free(client);
@@ -61,21 +56,18 @@ threadConnectionHandler(void * arg)
 
     printf("[H:%d] Start thread loop\n", threadArg->threadId);
     while (true) {
-        printf("[H:%d] lock\n", threadArg->threadId);
-        mutexLock();
+        blockConsumer(threadArg->threadId);
 
         printf("[H:%d] Getting client\n", threadArg->threadId);
         client = dequeue();
 
         while (client == NULL) {
-            condWait(threadArg->threadId);
-            client = dequeue();
+            releaseConsumer(threadArg->threadId);
         }
 
         printf("[H:%d] Desempilhando o cliente %d\n", threadArg->threadId, client->socket);
 
-        printf("[H:%d] unlock\n", threadArg->threadId);
-        mutexUnlock();
+        releaseConsumer(threadArg->threadId);
 
         printf("[H:%d] Logging\n", threadArg->threadId);
         logConnectionStart(threadArg, client, getCurrentTimeString());
@@ -92,7 +84,7 @@ threadConnectionHandler(void * arg)
     free(server);
     free(threadArg);
 
-    mutexUnlock();
+    releaseConsumer(threadArg->threadId);
     pthread_exit(NULL);
 
     return NULL;  
@@ -156,7 +148,11 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
     printf("[HC:%d] Validate request\n", args->threadId);
 
     validateOrDie(bytesRead, "recv error");
+    printf("[HC:%d] Valid Request\n", args->threadId);
+
     IBuffer[messageSize - 1] = 0;
+
+    printf("%s\n", IBuffer);
 
     TRY {
         if (extractRequest(request, IBuffer, server->root) == false) {
@@ -164,7 +160,11 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
             THROW(INTERNAL_ERROR);
         }
 
+        printf("Cheguei 1\n");
+
         fflush(stdout);
+
+        printf("Cheguei 2\n");
         
         printf("[HC:%d] Path da requisição:\n%s\n", args->threadId, request->path);
         

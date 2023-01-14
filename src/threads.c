@@ -1,12 +1,12 @@
 #include "threads.h"
 
-pthread_mutex_t mutex;
-pthread_cond_t cond;
+sem_t mutex;
+sem_t cond;
 
 void
 initMutex()
 {
-    if (pthread_mutex_init(&mutex, NULL) != 0) {
+    if (sem_init(&mutex, PSHARED, RED) != 0) {
         WARNING("Error in mutex initializer\n");
         exit(1);
     }
@@ -15,7 +15,7 @@ initMutex()
 void
 initCond()
 {
-    if (pthread_cond_init(&cond, NULL)) {
+    if (sem_init(&cond, PSHARED, GREEN)) {
         WARNING("Error in cond initializer\n");
         exit(1);
     }
@@ -24,7 +24,7 @@ initCond()
 void
 destroyMutex()
 {
-    if (pthread_mutex_destroy(&mutex) != 0) {
+    if (sem_destroy(&mutex) != 0) {
         WARNING("Error in mutex initializer\n");
         exit(1);
     }
@@ -33,17 +33,24 @@ destroyMutex()
 void
 destroyCond()
 {
-    if (pthread_cond_destroy(&cond)) {
+    if (sem_destroy(&cond)) {
         WARNING("Error in cond initializer\n");
         exit(1);
     }
 }
 
 void
-mutexLock()
+destroySemaphores()
+{
+    destroyCond();
+    destroyMutex();
+}
+
+void
+mutexLock(sem_t * mutex)
 {
     // printf("lock\n");
-    if (pthread_mutex_lock(&mutex) != 0) {                                          
+    if (sem_wait(mutex) != 0) {                                          
         WARNING("Error at mutex lock (%s)\n", getLocalCurrentTimeInHttpFormat());    
         LOG_ERROR("Error at mutex lock (%s)\n", getLocalCurrentTimeInHttpFormat());                                                       
         exit(2);                                                                    
@@ -51,10 +58,10 @@ mutexLock()
 }
 
 void
-mutexUnlock()
+mutexUnlock(sem_t * mutex)
 {
     // printf("unlock\n");
-    if (pthread_mutex_unlock(&mutex) != 0) {                                          
+    if (sem_post(mutex) != 0) {                                          
         WARNING("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());     
         LOG_ERROR("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());                                                       
         exit(2);                                                                    
@@ -62,32 +69,29 @@ mutexUnlock()
 }
 
 void
-emitSignal()
+blockProducer()
 {
-    printf("[C] emit signal\n");
-    if (pthread_cond_signal(&cond) != 0) {                                          
-        WARNING("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());  
-        LOG_ERROR("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());                             
-    }
+    printf("[C] lock\n");
+    mutexLock(&cond);
 }
 
 void
-emitBroadcast()
+releaseProducer()
 {
-    // printf("emit broadcast\n");
-    if (pthread_cond_broadcast(&cond) != 0) {                                          
-        WARNING("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());  
-        LOG_ERROR("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());                             
-    }
+    printf("[C] unlock\n");
+    mutexUnlock(&mutex);
 }
 
 void
-condWait(int identifier)
+blockConsumer(int threadId)
 {
-    printf("[H:%d] Waiting for clients\n", identifier);
-    if (pthread_cond_wait(&cond, &mutex) != 0) {                                          
-        WARNING("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());      
-        LOG_ERROR("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());                             
-    }
-    printf("[H:%d] Getting client\n", identifier);
+    printf("[H:%d] lock\n", threadId);
+    mutexLock(&mutex);
+}
+
+void
+releaseConsumer(int threadId)
+{
+    printf("[H:%d] unlock\n", threadId);
+    mutexUnlock(&cond);
 }

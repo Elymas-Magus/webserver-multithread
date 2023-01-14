@@ -31,9 +31,14 @@ extractRequest(HttpRequest * request, String httpMessage, String root)
     }
     
     int i;
-    HttpHeaders * header = (HttpHeaders *) mallocOrDie(sizeof(HttpHeaders), "extracted request");
-    String startLine = (String) mallocOrDie(MAX_HTTP_MESSAGE_LINE, "start line buffer");
-    String headers = (String) mallocOrDie(MAX_HTTP_HEADER_SIZE, "headers buffer");
+    // HttpHeaders * header = (HttpHeaders *) mallocOrDie(sizeof(HttpHeaders), "extracted request");
+    // String startLine = (String) mallocOrDie(MAX_HTTP_MESSAGE_LINE, "start line buffer");
+    // String headers = (String) mallocOrDie(MAX_HTTP_HEADER_SIZE, "headers buffer");
+
+    HttpHeaders * header = (HttpHeaders *) malloc(sizeof(HttpHeaders));
+    String startLine = (String) malloc(MAX_HTTP_MESSAGE_LINE);
+    String headers = (String) malloc(MAX_HTTP_HEADER_SIZE);
+
     String body;
     String line;
 

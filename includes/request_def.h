@@ -4,8 +4,8 @@
 #include "type_aliases.h"
 #include "list.h"
 
-#define MAX_HTTP_MESSAGE_LINE            255
-#define MAX_ROOT_PATH_LEN                100
+#define MAX_HTTP_MESSAGE_LINE            500
+#define MAX_ROOT_PATH_LEN                500
 #define MAX_EXTENSION_NAME_LEN           10
 #define MAX_METHOD_NAME_LEN              10
 #define MAX_HTTP_VERSION_NAME            10
