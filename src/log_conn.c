@@ -28,8 +28,8 @@ checkThreadLogDirectory(int threadId)
 
     if (!check) {
         printf("Directory created\n");
-    } else {
-        perror("Unable to create directory\n");
+    } else if (errno != EEXIST) {
+        perror("Unable to create directory");
     }
 }
 

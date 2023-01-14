@@ -60,7 +60,7 @@ readConfigFile(String filename, ServerConfig * config)
 
     while (fscanf(file, CONFIG_LINE_MODEL, key, value) != EOF) {
         if (!strcmp(CONFIG_ROOT_PATH, key)) {
-            strcpy(config->root, value);
+            realpath(value, config->root);
         }
 
         if (!strcmp(CONFIG_PORT, key)) {

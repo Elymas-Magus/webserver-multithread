@@ -49,7 +49,6 @@ destroySemaphores()
 void
 mutexLock(sem_t * mutex)
 {
-    // printf("lock\n");
     if (sem_wait(mutex) != 0) {                                          
         WARNING("Error at mutex lock (%s)\n", getLocalCurrentTimeInHttpFormat());    
         LOG_ERROR("Error at mutex lock (%s)\n", getLocalCurrentTimeInHttpFormat());                                                       
@@ -60,7 +59,6 @@ mutexLock(sem_t * mutex)
 void
 mutexUnlock(sem_t * mutex)
 {
-    // printf("unlock\n");
     if (sem_post(mutex) != 0) {                                          
         WARNING("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());     
         LOG_ERROR("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());                                                       
@@ -71,27 +69,27 @@ mutexUnlock(sem_t * mutex)
 void
 blockProducer()
 {
-    printf("[C] lock\n");
+    // printf("[C] lock\n");
     mutexLock(&cond);
 }
 
 void
 releaseProducer()
 {
-    printf("[C] unlock\n");
+    // printf("[C] unlock\n");
     mutexUnlock(&mutex);
 }
 
 void
 blockConsumer(int threadId)
 {
-    printf("[H:%d] lock\n", threadId);
+    // printf("[H:%d] lock\n", threadId);
     mutexLock(&mutex);
 }
 
 void
 releaseConsumer(int threadId)
 {
-    printf("[H:%d] unlock\n", threadId);
+    // printf("[H:%d] unlock\n", threadId);
     mutexUnlock(&cond);
 }

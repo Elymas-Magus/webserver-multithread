@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "type_aliases.h": "c"
+        "type_aliases.h": "c",
+        "log_conn.h": "c"
     }
 }

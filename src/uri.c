@@ -26,7 +26,6 @@ void
 parseUri(String root, HttpRequest * request)
 {
     int filenameLength;
-    char filename[strlen(request->path)];
     String queryPos, lastSlash, lastDot;
     String path = (String) mallocOrDie(
         MAX_SERVER_PATH_LENGTH, "path (parseUri)"
@@ -41,14 +40,10 @@ parseUri(String root, HttpRequest * request)
     memset(request->filename, 0, sizeof(request->filename));
     strncpy(request->filename, request->path, filenameLength); 
     strcpy(request->path, root);    
-    strcpy(filename, request->filename);
-    strcat(request->path, filename);
+    strcat(request->path, request->filename);
 
     lastSlash = strrchr(request->path, SLASH_CHAR);    
     lastDot = strrchr(lastSlash, DOT);
-    
-    memset(request->filename, 0, sizeof(request->filename));
-    strcpy(request->filename, filename);
 
     if ((lastDot == NULL) && (request->path[strlen(request->path) - 1] != SLASH_CHAR)){
         strcat(request->path, SLASH);

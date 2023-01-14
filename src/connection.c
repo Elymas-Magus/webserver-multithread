@@ -25,14 +25,8 @@ connectionLoop(Server * server)
 
         blockProducer();
 
-        printf("[C] enqueue\n");
+        // printf("[C] enqueue\n");
         enqueue(client);
-
-        // // usleep(150000);
-        // printf("[C] emit broadcast\n");
-        // // if (queueIsEmpty()) {
-        //     emitBroadcast();
-        // // }
 
         releaseProducer();
     }
@@ -54,30 +48,31 @@ threadConnectionHandler(void * arg)
     ThreadArg * threadArg = (ThreadArg *) arg;
     Server * server = (Server *) threadArg->content;
 
-    printf("[H:%d] Start thread loop\n", threadArg->threadId);
+    // printf("[H:%d] Start thread loop\n", threadArg->threadId);
     while (true) {
         blockConsumer(threadArg->threadId);
 
-        printf("[H:%d] Getting client\n", threadArg->threadId);
+        // printf("[H:%d] Getting client\n", threadArg->threadId);
         client = dequeue();
 
         while (client == NULL) {
             continue;
         }
 
-        printf("[H:%d] Desempilhando o cliente %d\n", threadArg->threadId, client->socket);
+        // printf("[H:%d] Desempilhando o cliente %d\n", threadArg->threadId, client->socket);
 
         releaseConsumer(threadArg->threadId);
 
-        printf("[H:%d] Logging\n", threadArg->threadId);
+        // printf("[H:%d] Logging\n", threadArg->threadId);
         logConnectionStart(threadArg, client, getCurrentTimeString());
 
-        printf("[H:%d] Tratando conexão\n", threadArg->threadId);
+        // printf("[H:%d] Tratando conexão\n", threadArg->threadId);
         handleConnection(threadArg, client, server);
-        printf("[H:%d] Finalizando conexão\n", threadArg->threadId);
+        // printf("[H:%d] Finalizando conexão\n", threadArg->threadId);
+
+        free(client);
 
         threadArg->connectionId++;
-        free(client);
     }
 
     printf("[H:%d] End thread loop\n", threadArg->threadId);
@@ -93,7 +88,7 @@ threadConnectionHandler(void * arg)
 void
 handleConnection(ThreadArg * args, Client * client, Server * server)
 {
-    printf("[HC:%d] Tratando cliente %d\n", args->threadId, client->socket);
+    // printf("[HC:%d] Tratando cliente %d\n", args->threadId, client->socket);
     bool error = true;
 
     String currentTime;
@@ -109,7 +104,7 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
     int slack = 1;
     int rootPathSize = strlen(server->root);
 
-    printf("[HC:%d] Init...\n", args->threadId);
+    // printf("[HC:%d] Init...\n", args->threadId);
 
     char absolutepath[CONNECTION_PATH_MAX + slack];
     char IBuffer[MAX_HTTP_MESSAGE_LENGTH];
@@ -117,16 +112,16 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
 
     struct stat htmlAttr;
 
-    printf("[HC:%d] Init stream request\n", args->threadId);
+    // printf("[HC:%d] Init stream request\n", args->threadId);
 
     Stream * stream = initStream();
 
-    printf("[HC:%d] Alocate memory for request\n", args->threadId);
+    // printf("[HC:%d] Alocate memory for request\n", args->threadId);
 
     HttpRequest * request = newRequest();
     HttpRequest * response = newRequest();
 
-    printf("[HC:%d] read request\n", args->threadId);
+    // printf("[HC:%d] read request\n", args->threadId);
 
     while (
         (bytesRead = read(
@@ -145,14 +140,10 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         }
     }
 
-    printf("[HC:%d] Validate request\n", args->threadId);
-
+    // printf("[HC:%d] Validate request\n", args->threadId);
     validateOrDie(bytesRead, "recv error");
-    printf("[HC:%d] Valid Request\n", args->threadId);
 
     IBuffer[messageSize - 1] = 0;
-
-    printf("%s\n", IBuffer);
 
     TRY {
         if (extractRequest(request, IBuffer, server->root) == false) {
@@ -160,13 +151,9 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
             THROW(INTERNAL_ERROR);
         }
 
-        printf("Cheguei 1\n");
-
         fflush(stdout);
 
-        printf("Cheguei 2\n");
-        
-        printf("[HC:%d] Path da requisição:\n%s\n", args->threadId, request->path);
+        // printf("[HC:%d] Path da requisição:\n%s\n", args->threadId, request->path);
         
         strcpy(path, request->path);
         strcpy(response->mimeType, request->mimeType);
@@ -208,6 +195,6 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         requestFree(request);
         requestFree(response);
 
-        printf("\n----- closing connection -----\n");
+        // printf("\n[HC:%d] closing connection -----\n");
     }
 }
