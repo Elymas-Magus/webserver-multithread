@@ -31,9 +31,14 @@ extractRequest(HttpRequest * request, String httpMessage, String root)
     }
     
     int i;
-    HttpHeaders * header = (HttpHeaders *) mallocOrDie(sizeof(HttpHeaders), "extracted request");
-    String startLine = (String) mallocOrDie(MAX_HTTP_MESSAGE_LINE, "start line buffer");
-    String headers = (String) mallocOrDie(MAX_HTTP_HEADER_SIZE, "headers buffer");
+    // HttpHeaders * header = (HttpHeaders *) mallocOrDie(sizeof(HttpHeaders), "extracted request");
+    // String startLine = (String) mallocOrDie(MAX_HTTP_MESSAGE_LINE, "start line buffer");
+    // String headers = (String) mallocOrDie(MAX_HTTP_HEADER_SIZE, "headers buffer");
+
+    HttpHeaders * header = (HttpHeaders *) malloc(sizeof(HttpHeaders));
+    String startLine = (String) malloc(MAX_HTTP_MESSAGE_LINE);
+    String headers = (String) malloc(MAX_HTTP_HEADER_SIZE);
+
     String body;
     String line;
 
@@ -194,15 +199,17 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
         }
     }
 
-    printf("%s %s %s\r\n", request->httpVersion, response.code, response.state);
+    printf("message: %s %s %s\r\n", request->httpVersion, response.code, response.state);
     sprintf(httpLine, "%s %s %s\r\n", request->httpVersion, response.code, response.state);
     write(clientSocket, httpLine, strlen(httpLine));
     
+    printf("cheguei 1\n");
     FOREACH (no, request->headers) {
         header = (HttpHeaders *) no->content;
         sprintf(httpLine, "%s: %s\r\n", header->key, header->value);
         write(clientSocket, httpLine, strlen(httpLine));
     }
+    printf("cheguei 2\n");
 
     write(clientSocket, "\n", 1);
     printf("\n");

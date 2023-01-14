@@ -26,6 +26,7 @@ void
 parseUri(String root, HttpRequest * request)
 {
     int filenameLength;
+    char filename[strlen(request->path)];
     String queryPos, lastSlash, lastDot;
     String path = (String) mallocOrDie(
         MAX_SERVER_PATH_LENGTH, "path (parseUri)"
@@ -40,11 +41,15 @@ parseUri(String root, HttpRequest * request)
     memset(request->filename, 0, sizeof(request->filename));
     strncpy(request->filename, request->path, filenameLength); 
     strcpy(request->path, root);    
-    strcat(request->path, request->filename);
-    
+    strcpy(filename, request->filename);
+    strcat(request->path, filename);
+
     lastSlash = strrchr(request->path, SLASH_CHAR);    
     lastDot = strrchr(lastSlash, DOT);
     
+    memset(request->filename, 0, sizeof(request->filename));
+    strcpy(request->filename, filename);
+
     if ((lastDot == NULL) && (request->path[strlen(request->path) - 1] != SLASH_CHAR)){
         strcat(request->path, SLASH);
     }
@@ -54,10 +59,11 @@ parseUri(String root, HttpRequest * request)
         strcpy(request->query, "");
     }
 
-    if(request->path[strlen(request->path) - 1] == SLASH_CHAR){
+    if (request->path[strlen(request->path) - 1] == SLASH_CHAR) {
         strcat(request->path, DEFAULT_FILENAME);
         strcat(request->filename, DEFAULT_FILENAME);
     }
+
     strcpy(request->mimeType, getFileExtension(request->filename));
     strcpy(request->extension, strrchr(request->filename, DOT));
     return; 
@@ -69,8 +75,9 @@ getFileType(const String type)
     validatePointerOrDie(type, "Type pointer cannot be null\n");
 
     for(int i = 0; mimeTypes[i].type; i++) {
-        if(strcmp(type, mimeTypes[i].type) == 0)
+        if (strcmp(type, mimeTypes[i].type) == 0) {
             return mimeTypes[i].value;
+        }
     }
     return DEFAULT_FILETYPE;
 }

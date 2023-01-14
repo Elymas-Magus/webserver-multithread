@@ -39,3 +39,9 @@ dequeue()
 
     return result;
 }
+
+bool
+queueIsEmpty()
+{
+    return head == NULL;
+}

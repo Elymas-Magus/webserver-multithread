@@ -2,57 +2,75 @@
 #define THREADS_H
 
 #include <pthread.h>
+#include <semaphore.h>
 
 #include "timer.h"
 #include "logs.h"
 
+#define THREAD_SHARING 0
+#define PSHARED THREAD_SHARING
+
+#define GREEN 1
+#define RED 0
+
+extern sem_t mutex;
+extern sem_t cond;
+
 /**
  * Receive a mutex and lock a thread
  * Register logs
- * @param pthread_mutex_t * mutex
  */
-void mutexLock(pthread_mutex_t * mutex);
+void mutexLock(sem_t * mutex);
 
 /**
  * Receive a mutex and unlock a thread
  * Register logs
- * @param pthread_mutex_t * mutex
  */
-void mutexUnlock(pthread_mutex_t * mutex);
-
-/**
- * Emit a signal to stop waiting
- * Register logs
- * @param pthread_cond_t * cond
- */
-void emitSignal(pthread_cond_t * cond);
-
-/**
- * Emit a broadcast to stop waiting
- * Register logs
- * @param pthread_cond_t * cond
- */
-void emitBroadcast(pthread_cond_t * cond);
-
-/**
- * Check a condition to stop while it's not satisfied
- * Register logs
- * @param pthread_cond_t * cond
- * @param pthread_mutex_t * mutex
- */
-void condWait(pthread_cond_t * cond, pthread_mutex_t * mutex);
+void mutexUnlock(sem_t * mutex);
 
 /**
  * initialize mutex
- * @param pthread_mutex_t * mutex
  */
-void initMutex(pthread_mutex_t * mutex);
+void initMutex();
 
 /**
  * initialize cond var
- * @param pthread_cond_t * cond
  */
-void initCond(pthread_cond_t * cond);
+void initCond();
 
+/**
+ * destroy mutex
+ */
+void destroyMutex();
+
+/**
+ * destroy cond var
+ */
+void destroyCond();
+
+/**
+ * destroy all semaphores (mutex and cond)
+ */
+void destroySemaphores();
+
+/**
+ * block producer, blocking cond variable
+ */
+void blockProducer();
+
+/**
+ * release producer, realising mutex variable
+ */
+void releaseProducer();
+
+/**
+ * block consumer, blocking mutex variable
+ */
+void blockConsumer(int threadId);
+
+/**
+ * release producer, releasing cond variable
+ */
+void releaseConsumer(int threadId);
 
 #endif
