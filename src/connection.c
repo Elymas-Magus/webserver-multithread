@@ -62,7 +62,7 @@ threadConnectionHandler(void * arg)
         client = dequeue();
 
         while (client == NULL) {
-            releaseConsumer(threadArg->threadId);
+            continue;
         }
 
         printf("[H:%d] Desempilhando o cliente %d\n", threadArg->threadId, client->socket);
