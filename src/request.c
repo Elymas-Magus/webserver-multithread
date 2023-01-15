@@ -77,6 +77,10 @@ extractRequest(HttpRequest * request, String httpMessage, String root)
         }
     }
 
+    if (! strcmp(request->method.name, HTTP_POST)) {
+        strcat(request->query, request->body);
+    }
+
     return true;
 }
 

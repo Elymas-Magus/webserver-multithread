@@ -29,6 +29,12 @@ validate(int exp, const char message[])
     return exp;
 }
 
+bool
+validateSock(int exp)
+{
+    return exp > 0;
+}
+
 void *
 validatePointerOrDie(void * pointer, const char message[])
 {

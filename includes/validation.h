@@ -55,8 +55,15 @@ void die(int line, const char functionName[], const char filename[]);
 bool isNotValid(void * pointer);
 
 /**
+ * @param void * pointer
  * @returns bool
  */
 bool isValid(void * pointer);
+
+/**
+ * @param int exp
+ * @returns bool
+ */
+bool validateSock(int exp);
 
 #endif // SOCKET_VALIDATION_H_INCLUDED

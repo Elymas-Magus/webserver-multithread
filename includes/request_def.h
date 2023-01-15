@@ -27,9 +27,12 @@
 #define HTTP_HEADER_CONTENT_TYPE         0
 
 #define HTTP_UNKNOWN                     0x0001
-#define HTTP_GET                         0x0002
 #define HTTP_HEAD                        0x0004
-#define HTTP_POST                        0x0008
+#define HTTP_GET                         "GET"
+#define HTTP_POST                        "POST"
+#define HTTP_PUT                         "PUT"
+#define HTTP_PATCH                       "PATCH"
+#define HTTP_DELETE                      "DELETE"
 
 #define HTTP_NOT_MODIFIED                1
 #define HTTP_OK                          0

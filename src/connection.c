@@ -103,17 +103,17 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
 
     start = getCurrentTime();
     
-    size_t bytesRead;
+    size_t bytesReaded;
 
     int messageCode;
-    int messageSize = 0;
+    int size = 0;
     int slack = 1;
     int rootPathSize = strlen(server->root);
 
     printf("[HC:%d] Init...\n", args->threadId);
 
     char absolutepath[CONNECTION_PATH_MAX + slack];
-    char IBuffer[MAX_HTTP_MESSAGE_LENGTH];
+    char buffer[MAX_HTTP_MESSAGE_LENGTH];
     char path[CONNECTION_BUFFER_SIZE + rootPathSize + slack];
 
     struct stat htmlAttr;
@@ -130,43 +130,37 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
     printf("[HC:%d] read request\n", args->threadId);
 
     while (
-        (bytesRead = read(
-            client->socket,
-            IBuffer + messageSize,
-            sizeof(IBuffer) - messageSize - slack
-        )) > 0
+        validateSock(
+            bytesReaded = read(
+                client->socket,
+                buffer + size,
+                sizeof(buffer) - size - slack
+            )
+        )
     ) {
-        messageSize += bytesRead;
+        size += bytesReaded;
         if (
-            messageSize > MAX_HTTP_MESSAGE_LENGTH - slack ||
-            (IBuffer[messageSize - slack - 1] == '\r' &&
-            IBuffer[messageSize - slack] == '\n')
+            size > MAX_HTTP_MESSAGE_LENGTH - slack ||
+            (buffer[size - slack - 1] == '\r' &&
+            buffer[size - slack] == '\n')
         ) {
             break;
         }
     }
 
     printf("[HC:%d] Validate request\n", args->threadId);
+    validateOrDie(bytesReaded, "recv error");
 
-    validateOrDie(bytesRead, "recv error");
-    printf("[HC:%d] Valid Request\n", args->threadId);
-
-    IBuffer[messageSize - 1] = 0;
-
-    printf("%s\n", IBuffer);
+    buffer[size - 1] = 0;
 
     TRY {
-        if (extractRequest(request, IBuffer, server->root) == false) {
+        if (extractRequest(request, buffer, server->root) == false) {
             messageCode = HTTP_INTERNAL_SERVER_ERROR;
             THROW(INTERNAL_ERROR);
         }
 
-        printf("Cheguei 1\n");
-
         fflush(stdout);
 
-        printf("Cheguei 2\n");
-        
         printf("[HC:%d] Path da requisição:\n%s\n", args->threadId, request->path);
         
         strcpy(path, request->path);

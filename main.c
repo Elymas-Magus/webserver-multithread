@@ -1,14 +1,25 @@
 #include "includes/server.h"
 
+#define MAX_FILENAME 20
 #define DEFAUL_FILE_CONFIG "./server.conf"
 
 void logServerConfis(Server * server);
 
 int
-main()
+main(int argc, char * argv[])
 {
+    char filename[MAX_FILENAME];
+
+    if (argc == 1) {
+        strcpy(filename, DEFAUL_FILE_CONFIG);
+    } else {
+        strcpy(filename, argv[1]);
+    }
+
+    printf("%s\n", filename);
+
     Server * server = createServer(
-        getServerConfigFromConfigFile(DEFAUL_FILE_CONFIG)
+        getServerConfigFromConfigFile(filename)
     );
 
     logServerConfis(server);
