@@ -61,7 +61,8 @@ threadConnectionHandler(void * arg)
         printf("[H:%d] Getting client\n", threadArg->threadId);
         client = dequeue();
 
-        while (client == NULL) {
+        if (client == NULL) {
+            releaseConsumer(threadArg->threadId);
             continue;
         }
 
