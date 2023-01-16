@@ -1,0 +1,4 @@
+root=/home/User/Programas/app-web;
+port=8080;
+threadMax=10;
+backlog=1024;
