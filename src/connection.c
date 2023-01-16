@@ -161,7 +161,7 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
 
         fflush(stdout);
 
-        printf("[HC:%d] Path da requisição:\n%s\n", args->threadId, request->path);
+        printf("[HC:%d] Path da requisição: %s\n", args->threadId, request->path);
         
         strcpy(path, request->path);
         strcpy(response->mimeType, request->mimeType);
@@ -198,11 +198,13 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         currentTime = getCurrentTimeString();
         
         sendResponse(response, messageCode, client->socket, stream);
+        printf("------------------------------------------------------------------\n");
         logConnectionEnd(args, client, currentTime, difftime(end, start), path, error);
 
         requestFree(request);
         requestFree(response);
 
-        printf("\n----- closing connection -----\n");
+        printf("[HC:%d] closing connection\n", args->threadId);
+        printf("------------------------------------------------------------------\n");
     }
 }

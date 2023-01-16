@@ -172,7 +172,7 @@ setResponse(HttpRequest * request, HttpResponseCode httpResponseCode)
 void
 sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, Stream * stream)
 {
-    Buffer * OBuffer;
+    Buffer * buffer;
 
     Node * no;
     HttpHeaders * header;
@@ -203,36 +203,32 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
         }
     }
 
-    printf("message: %s %s %s\r\n", request->httpVersion, response.code, response.state);
     sprintf(httpLine, "%s %s %s\r\n", request->httpVersion, response.code, response.state);
     write(clientSocket, httpLine, strlen(httpLine));
     
-    printf("cheguei 1\n");
     FOREACH (no, request->headers) {
         header = (HttpHeaders *) no->content;
         sprintf(httpLine, "%s: %s\r\n", header->key, header->value);
         write(clientSocket, httpLine, strlen(httpLine));
     }
-    printf("cheguei 2\n");
 
     write(clientSocket, "\n", 1);
-    printf("\n");
 
     if (stream->file != STREAM_ERROR) {
-        OBuffer = (Buffer *) mallocOrDie(sizeof(Buffer), "OBuffer");
-        OBuffer->content = (String) mallocOrDie(MAX_HTTP_BUFFER, "OBuffer content");
+        buffer = (Buffer *) mallocOrDie(sizeof(Buffer), "OBuffer");
+        buffer->content = (String) mallocOrDie(MAX_HTTP_BUFFER, "OBuffer content");
         
-        while ((OBuffer->size = read(stream->file, OBuffer->content, MAX_HTTP_BUFFER)) > 0) {
-            write(clientSocket, OBuffer->content, OBuffer->size);
+        while ((buffer->size = read(stream->file, buffer->content, MAX_HTTP_BUFFER)) > 0) {
+            write(clientSocket, buffer->content, buffer->size);
 
-            if (OBuffer->size < MAX_HTTP_BUFFER) {
+            if (buffer->size < MAX_HTTP_BUFFER) {
                 break;
             }
         }
         close(stream->file);
     }
 
-    printf("close client socket -------------------------------\n");
+    printf("[SR] close client socket\n");
     close(clientSocket);
 }
 
