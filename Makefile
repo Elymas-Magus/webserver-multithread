@@ -23,7 +23,7 @@ $(OBJ)/%.o: $(SRC)/%.c
 	$(CC) $(CFLAGS) -c $^ -o $@
 
 $(TARGET): $(BIN) $(OBJ) clean $(OBJ)/$(TARGET).o $(OBJ_FILES) 
-	$(CC) -o $(BIN)/$(TARGET) $(OBJ)/$(TARGET).o $(OBJ_FILES) 
+	$(CC) $(CFLAGS) -o $(BIN)/$(TARGET) $(OBJ)/$(TARGET).o $(OBJ_FILES) 
 
 $(OBJ):
 	mkdir -p $@
