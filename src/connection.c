@@ -102,19 +102,14 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
     time_t end;
 
     start = getCurrentTime();
-    
-    size_t bytesReaded;
 
     int messageCode;
-    int size = 0;
-    int slack = 1;
     int rootPathSize = strlen(server->root);
 
     printf("[HC:%d] Init...\n", args->threadId);
 
-    char absolutepath[CONNECTION_PATH_MAX + slack];
-    char buffer[MAX_HTTP_MESSAGE_LENGTH];
-    char path[CONNECTION_BUFFER_SIZE + rootPathSize + slack];
+    char absolutepath[CONNECTION_PATH_MAX + 1];
+    char path[CONNECTION_BUFFER_SIZE + rootPathSize + 1];
 
     struct stat htmlAttr;
 
@@ -126,42 +121,28 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
 
     HttpRequest * request = newRequest();
     HttpRequest * response = newRequest();
-
-    printf("[HC:%d] read request\n", args->threadId);
-
-    while (
-        validateSock(
-            bytesReaded = read(
-                client->socket,
-                buffer + size,
-                sizeof(buffer) - size - slack
-            )
-        )
-    ) {
-        size += bytesReaded;
-        if (
-            size > MAX_HTTP_MESSAGE_LENGTH - slack ||
-            (buffer[size - slack - 1] == '\r' &&
-            buffer[size - slack] == '\n')
-        ) {
-            break;
-        }
-    }
-
-    printf("[HC:%d] Validate request\n", args->threadId);
-    validateOrDie(bytesReaded, "recv error");
-
-    buffer[size - 1] = 0;
+    String buffer = getMessageFromConnection(client->socket, args->threadId);
 
     TRY {
-        if (extractRequest(request, buffer, server->root) == false) {
+        if (buffer == NULL) {
             messageCode = HTTP_INTERNAL_SERVER_ERROR;
             THROW(INTERNAL_ERROR);
         }
 
+        printf("[HC:%d]\n%s\n\n", args->threadId, buffer);
+
+        if (extractRequest(request, buffer, server->root, args->threadId) == false) {
+            messageCode = HTTP_INTERNAL_SERVER_ERROR;
+            free(buffer);
+            THROW(INTERNAL_ERROR);
+        }
+        
+        free(buffer);
         fflush(stdout);
 
         printf("[HC:%d] Path da requisição: %s\n", args->threadId, request->path);
+        
+        fflush(stdout);
         
         strcpy(path, request->path);
         strcpy(response->mimeType, request->mimeType);
@@ -175,9 +156,10 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         addHeader(response, "Server", server->name);
         addHeader(response, "Connection", "close");
 
-        fflush(stdout);
+        // fflush(stdout);
         
         if (realpath(path, absolutepath) == NULL) {
+            printf("[HC:%d] cheguei 8\n", args->threadId);
             messageCode = HTTP_NOT_FOUND;
             THROW(FILE_REALPATH_ERROR);
         }
@@ -197,7 +179,7 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         end = getCurrentTime();
         currentTime = getCurrentTimeString();
         
-        sendResponse(response, messageCode, client->socket, stream);
+        sendResponse(response, messageCode, client->socket, stream, args->threadId);
         printf("------------------------------------------------------------------\n");
         logConnectionEnd(args, client, currentTime, difftime(end, start), path, error);
 
@@ -207,4 +189,31 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         printf("[HC:%d] closing connection\n", args->threadId);
         printf("------------------------------------------------------------------\n");
     }
+}
+
+String
+getMessageFromConnection(SocketFD socket, int threadId)
+{    
+    ssize_t size = 0;
+    ssize_t readed;
+
+    String buffer = newString(MAX_HTTP_MESSAGE_LENGTH);
+    memset(buffer, 0, MAX_HTTP_MESSAGE_LENGTH);
+
+    while ((readed = read(socket, buffer + size, sizeof(buffer) - size - 1)) > 0)
+    {
+        size += readed;
+        if (size > MAX_HTTP_MESSAGE_LENGTH - 1 || buffer[size - 1] == '\n') {
+            break;
+        }
+    }
+
+    printf("[HC:%d] Validate request\n", threadId);
+    if (!validate(readed, "recv error")) {
+        return NULL;
+    }
+
+    buffer[size - 1] = 0;
+
+    return buffer;
 }

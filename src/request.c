@@ -24,11 +24,13 @@ const HttpResponseCode httpResponseCode[] = {
 };
 
 bool
-extractRequest(HttpRequest * request, String httpMessage, String root)
+extractRequest(HttpRequest * request, String httpMessage, String root, int threadId)
 {
+    printf("[ER:%d] cheguei 0\n", threadId);
     if (httpMessage == NULL || request == NULL || request->headers == NULL) {
         return false;
     }
+    printf("[ER:%d] cheguei 1\n", threadId);
     
     int i;
     // HttpHeaders * header = (HttpHeaders *) mallocOrDie(sizeof(HttpHeaders), "extracted request");
@@ -42,15 +44,19 @@ extractRequest(HttpRequest * request, String httpMessage, String root)
     String body;
     String line;
 
+    printf("[ER:%d] cheguei 2\n", threadId);
     // request->headers = newRequestHeaders();
     for (i = 0; httpMessage[i] != '\n'; i++) {
         startLine[i] = httpMessage[i];
     }
     startLine[i] = 0;
 
+    printf("[ER:%d] cheguei 3\n", threadId);
     sscanf(startLine, "%s %s %s", request->method.name, request->path, request->httpVersion);
 
+    printf("[ER:%d] cheguei 4\n", threadId);
     parseUri(root, request);
+    printf("[ER:%d] cheguei 5\n", threadId);
 
     httpMessage = strlen(startLine) + httpMessage;
     body = strstr(httpMessage, DIVISOR);
@@ -170,7 +176,7 @@ setResponse(HttpRequest * request, HttpResponseCode httpResponseCode)
 }
 
 void
-sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, Stream * stream)
+sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, Stream * stream, int threadId)
 {
     Buffer * buffer;
 
@@ -206,13 +212,24 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
     sprintf(httpLine, "%s %s %s\r\n", request->httpVersion, response.code, response.state);
     write(clientSocket, httpLine, strlen(httpLine));
     
-    FOREACH (no, request->headers) {
+    int i;
+    for (no = request->headers->first, i = 0; no; no = no->next, i++) {
+        printf("[SR:%d] cheguei %d\n", threadId, i);
+        printf("IS NULL: %s\n", no->next == NULL ? "true" : "false");
+
         header = (HttpHeaders *) no->content;
         sprintf(httpLine, "%s: %s\r\n", header->key, header->value);
+        printf("[SR:%d] monting %d\n", threadId, i);
+        printf("[SR:%d] http line (%s: %s).length(%ld) %d\n", threadId, header->key, header->value, strlen(httpLine), i);
         write(clientSocket, httpLine, strlen(httpLine));
+        printf("[SR:%d] sending %d\n", threadId, i);
     }
 
+    printf("[SR:%d] cheguei after-0\n", threadId);
+
     write(clientSocket, "\n", 1);
+
+    printf("[SR:%d] cheguei after-1\n", threadId);
 
     if (stream->file != STREAM_ERROR) {
         buffer = (Buffer *) mallocOrDie(sizeof(Buffer), "OBuffer");
@@ -226,6 +243,7 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
             }
         }
         close(stream->file);
+        free(stream);
     }
 
     printf("[SR] close client socket\n");

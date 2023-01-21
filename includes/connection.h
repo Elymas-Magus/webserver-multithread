@@ -60,4 +60,11 @@ void * threadConnectionHandler(void * arg);
  */
 void handleConnection(ThreadArg * args, Client * client, Server * server);
 
+/**
+ * Read message from TCP connection
+ * And Validate
+ * @returns String
+ */
+String getMessageFromConnection(SocketFD socket, int threadId);
+
 #endif // CONNECTION_H_INCLUDED

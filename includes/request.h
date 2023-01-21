@@ -35,7 +35,7 @@ extern MimeType mimeTypes[];
  * @param HttpRequest * request
  * @returns String filename
  */
-bool extractRequest(HttpRequest * request, String httpMessage, String root);
+bool extractRequest(HttpRequest * request, String httpMessage, String root, int threadId);
 
 /**
  * Create new HttpHeader list
@@ -86,7 +86,7 @@ bool initHeader(HttpRequest * request, HttpHeaders * header);
  * @param int httpResponseIndex
  * @param int clientSocket
  */
-void sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket, Stream * stream);
+void sendResponse(HttpRequest * request, int httpResponseIndex, int clientSocket, Stream * stream, int threadId);
 
 /**
  * Create new request and set default attributes

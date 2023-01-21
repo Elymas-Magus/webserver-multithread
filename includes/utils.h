@@ -5,6 +5,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <arpa/inet.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
 
 #include "validation.h"
 #include "type_aliases.h"
@@ -88,5 +92,11 @@ String newString(size_t length);
  * @returns String
 */
 String getIpv4(SA_IN address);
+
+/**
+ * Create thread log directory if don't exists
+ * @param int threadId
+*/
+void createLogDirectory(int threadId);
 
 #endif // UTILS_H_INCLUDED

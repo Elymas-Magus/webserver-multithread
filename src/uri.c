@@ -64,6 +64,7 @@ parseUri(String root, HttpRequest * request)
         strcat(request->filename, DEFAULT_FILENAME);
     }
 
+    printf("Extension: %s\n", getFileExtension(request->filename));
     strcpy(request->mimeType, getFileExtension(request->filename));
     strcpy(request->extension, strrchr(request->filename, DOT));
     return; 

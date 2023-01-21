@@ -97,6 +97,7 @@ initThreadpools(Threadpool * pool, Server * server)
         pool->tasks->args[i].content = malloc(sizeof(Server));
         pool->tasks->args[i].start = localtime(&now);
 
+        createLogDirectory(i);
         memcpy(pool->tasks->args[i].content, server, sizeof(Server));
         threadStatus[i] = pthread_create(
             &(pool->threads[i]), NULL, pool->tasks->func, (void *) &pool->tasks->args[i]

@@ -8,6 +8,7 @@ CFLAGS  = -Wall -fexceptions -lpthread -lrt -g -Iincludes
 SRC = src
 OBJ = obj
 BIN = bin
+LOG = logs
 
 TARGET = main
 
@@ -28,7 +29,10 @@ $(TARGET): $(BIN) $(OBJ) clean $(OBJ)/$(TARGET).o $(OBJ_FILES)
 $(OBJ):
 	mkdir -p $@
 
-$(BIN):
+$(BIN): $(LOG)
+	mkdir -p $@
+
+$(LOG):
 	mkdir -p $@
 
 clean:

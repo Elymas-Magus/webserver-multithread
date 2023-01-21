@@ -120,3 +120,19 @@ getIpv4(SA_IN address)
 
     return ipv4;
 }
+
+void
+createLogDirectory(int threadId)
+{
+    int check;
+    String dirname = (String) malloc(MAX_FOLDERNAME);
+
+    sprintf(dirname, LOG_CONNECTION_THREAD_FOLDER, threadId);
+    check = mkdir(dirname, LOG_DIRECTORY_PERMS);
+
+    if (!check) {
+        printf("Directory created\n");
+    } else if (errno != EEXIST) {
+        perror("Unable to create directory");
+    }
+}

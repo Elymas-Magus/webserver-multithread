@@ -18,25 +18,8 @@ setThreadFilename(String buffer, int threadId)
 }
 
 void
-checkThreadLogDirectory(int threadId)
-{
-    int check;
-    String dirname = (String) malloc(MAX_FOLDERNAME);
-
-    sprintf(dirname, LOG_CONNECTION_THREAD_FOLDER, threadId);
-    check = mkdir(dirname, LOG_DIRECTORY_PERMS);
-
-    if (!check) {
-        printf("Directory created\n");
-    } else {
-        perror("Unable to create directory\n");
-    }
-}
-
-void
 logConnectionStart(ThreadArg * args, Client * client, String currTime)
 {
-    checkThreadLogDirectory(args->threadId);
     setThreadFilename(args->logFilename, args->threadId);
     LOG_CONNECTTION_ON_FILE(
         args->logFilename,
