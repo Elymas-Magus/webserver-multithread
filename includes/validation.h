@@ -66,4 +66,6 @@ bool isValid(void * pointer);
  */
 bool validateSock(int exp);
 
+void * allocate(size_t numBytes, const char message[]);
+
 #endif // SOCKET_VALIDATION_H_INCLUDED

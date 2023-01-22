@@ -37,6 +37,15 @@ validateSock(int exp)
 }
 
 void *
+validatePointer(void * pointer, const char message[])
+{
+    if (isNotValid(pointer)) {
+        LOG_ERROR("%s - (%s)\n", message, strerror(errno));
+    }
+    return pointer;
+}
+
+void *
 validatePointerOrDie(void * pointer, const char message[])
 {
     if (isNotValid(pointer)) {
@@ -55,6 +64,17 @@ mallocOrDie(size_t numBytes, const char message[])
     strcat(error, message);
 
     return validatePointerOrDie(malloc(numBytes), error);
+}
+
+void *
+allocate(size_t numBytes, const char message[])
+{
+    char error[MAX_ERROR_LENGTH + strlen(message)];
+
+    strcpy(error, "Failed to allocate memory for ");
+    strcat(error, message);
+
+    return validatePointer(malloc(numBytes), error);
 }
 
 bool

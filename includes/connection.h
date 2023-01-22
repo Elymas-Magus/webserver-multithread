@@ -23,9 +23,20 @@
 #include "client.h"
 #include "threads.h"
 
-#define CONNECTION_BUFFER_SIZE      81920
-#define CONNECTION_PATH_MAX         1000
-#define MAX_CONTENT_LENGTH_STRING   10
+#define CONNECTION_BUFFER_SIZE           81921
+#define CONNECTION_PATH_MAX              1001
+#define MAX_CONTENT_LENGTH_STRING        10
+
+#define READ_LINE(client, buffer, size) read(client->socket, buffer + size, sizeof(buffer) - size - 1)
+#define CONN_READER(client, buffer, readed, size)                                                   \
+    do {                                                                                            \
+        while ((readed = READ_LINE(client, buffer, size)) > 0) {                                    \
+            size += readed;                                                                         \
+            if (size > MAX_HTTP_MESSAGE_LENGTH - 1 || buffer[size - 1] == '\n') {                   \
+                break;                                                                              \
+            }                                                                                       \
+        }                                                                                           \
+    } while (0);
 
 /**
  * Make a loop for listen new connections
@@ -59,12 +70,5 @@ void * threadConnectionHandler(void * arg);
  * @returns void
  */
 void handleConnection(ThreadArg * args, Client * client, Server * server);
-
-/**
- * Read message from TCP connection
- * And Validate
- * @returns String
- */
-String getMessageFromConnection(SocketFD socket, int threadId);
 
 #endif // CONNECTION_H_INCLUDED

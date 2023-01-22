@@ -94,55 +94,53 @@ threadConnectionHandler(void * arg)
 void
 handleConnection(ThreadArg * args, Client * client, Server * server)
 {
-    printf("[HC:%d] Tratando cliente %d\n", args->threadId, client->socket);
-    bool error = true;
-
-    String currentTime;
-    time_t start;
-    time_t end;
-
-    start = getCurrentTime();
-
+    bool success = false;
     int messageCode;
-    int rootPathSize = strlen(server->root);
 
-    printf("[HC:%d] Init...\n", args->threadId);
+    time_t start, end;
+    ssize_t readed, size = 0;
 
-    char absolutepath[CONNECTION_PATH_MAX + 1];
-    char path[CONNECTION_BUFFER_SIZE + rootPathSize + 1];
+    char absolutepath[CONNECTION_PATH_MAX];
+    char buffer[MAX_HTTP_MESSAGE_LENGTH];
+    char path[CONNECTION_BUFFER_SIZE + strlen(server->root)];
 
     struct stat htmlAttr;
 
-    printf("[HC:%d] Init stream request\n", args->threadId);
-
-    Stream * stream = initStream();
-
-    printf("[HC:%d] Alocate memory for request\n", args->threadId);
-
     HttpRequest * request = newRequest();
     HttpRequest * response = newRequest();
-    String buffer = getMessageFromConnection(client->socket, args->threadId);
+    Stream * stream = initStream();
+
+    start = getCurrentTime();
+
+    printf("[HC:%d] Init...\n", args->threadId);
+
+    String currentTime;     
+
+    CONN_READER(client, buffer, readed, size);
 
     TRY {
-        if (buffer == NULL) {
+        if (request == NULL || response == NULL) {
+            printf("request == NULL || response == NULL\n");
+            strcpy(path, "");
+            messageCode = HTTP_INTERNAL_SERVER_ERROR;
+            THROW(INTERNAL_ERROR);
+        }
+        if (!validate(readed, "recv error")) {
+            strcpy(path, "");
             messageCode = HTTP_INTERNAL_SERVER_ERROR;
             THROW(INTERNAL_ERROR);
         }
 
-        printf("[HC:%d]\n%s\n\n", args->threadId, buffer);
+        buffer[size - 1] = 0;
 
+        fflush(stdout);
+        
         if (extractRequest(request, buffer, server->root, args->threadId) == false) {
             messageCode = HTTP_INTERNAL_SERVER_ERROR;
-            free(buffer);
             THROW(INTERNAL_ERROR);
         }
         
-        free(buffer);
-        fflush(stdout);
-
         printf("[HC:%d] Path da requisição: %s\n", args->threadId, request->path);
-        
-        fflush(stdout);
         
         strcpy(path, request->path);
         strcpy(response->mimeType, request->mimeType);
@@ -156,8 +154,6 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         addHeader(response, "Server", server->name);
         addHeader(response, "Connection", "close");
 
-        // fflush(stdout);
-        
         if (realpath(path, absolutepath) == NULL) {
             printf("[HC:%d] cheguei 8\n", args->threadId);
             messageCode = HTTP_NOT_FOUND;
@@ -170,7 +166,7 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         addHeader(response, "Content-Length", toFstring("%lu", htmlAttr.st_size));
         addHeader(response, "Last-Modified", getTimeInHttpFormat(&htmlAttr.st_mtime));
 
-        error = false;
+        success = true;
         messageCode = HTTP_OK;
         
     } CATCHALL {
@@ -181,7 +177,7 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         
         sendResponse(response, messageCode, client->socket, stream, args->threadId);
         printf("------------------------------------------------------------------\n");
-        logConnectionEnd(args, client, currentTime, difftime(end, start), path, error);
+        logConnectionEnd(args, client, currentTime, difftime(end, start), path, !success);
 
         requestFree(request);
         requestFree(response);
@@ -189,31 +185,4 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         printf("[HC:%d] closing connection\n", args->threadId);
         printf("------------------------------------------------------------------\n");
     }
-}
-
-String
-getMessageFromConnection(SocketFD socket, int threadId)
-{    
-    ssize_t size = 0;
-    ssize_t readed;
-
-    String buffer = newString(MAX_HTTP_MESSAGE_LENGTH);
-    memset(buffer, 0, MAX_HTTP_MESSAGE_LENGTH);
-
-    while ((readed = read(socket, buffer + size, sizeof(buffer) - size - 1)) > 0)
-    {
-        size += readed;
-        if (size > MAX_HTTP_MESSAGE_LENGTH - 1 || buffer[size - 1] == '\n') {
-            break;
-        }
-    }
-
-    printf("[HC:%d] Validate request\n", threadId);
-    if (!validate(readed, "recv error")) {
-        return NULL;
-    }
-
-    buffer[size - 1] = 0;
-
-    return buffer;
 }
