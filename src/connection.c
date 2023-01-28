@@ -120,7 +120,6 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
 
     TRY {
         if (request == NULL || response == NULL) {
-            printf("request == NULL || response == NULL\n");
             strcpy(path, "");
             messageCode = HTTP_INTERNAL_SERVER_ERROR;
             THROW(INTERNAL_ERROR);

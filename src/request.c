@@ -273,8 +273,13 @@ bool
 getTypeFromMimeType(String mimeType)
 {
     int typeLength;
-    String type = (String) mallocOrDie(MAX_MIME_TYPE_NAME_LEN, "type buffer");
+    String type = (String) malloc(MAX_MIME_TYPE_NAME_LEN);
     String slashPos = strchr(mimeType, '/');
+
+    if (type == NULL) {
+        errno = EMFILE;
+        return false;
+    }
 
     typeLength = (slashPos != NULL) ?
         ((int)(slashPos - mimeType)) :
