@@ -28,13 +28,7 @@ connectionLoop(Server * server)
         printf("[C] enqueue\n");
         enqueue(client);
 
-        // // usleep(150000);
-        // printf("[C] emit broadcast\n");
-        // // if (queueIsEmpty()) {
-        //     emitBroadcast();
-        // // }
-
-        releaseProducer();
+        releaseConsumer();
     }
 
     free(client);
@@ -62,15 +56,13 @@ threadConnectionHandler(void * arg)
         client = dequeue();
 
         if (client == NULL) {
-            releaseConsumer(threadArg->threadId);
+            releaseProducer(threadArg->threadId);
             continue;
         }
 
+        releaseProducer(threadArg->threadId);
+
         printf("[H:%d] Desempilhando o cliente %d\n", threadArg->threadId, client->socket);
-
-        releaseConsumer(threadArg->threadId);
-
-        printf("[H:%d] Logging\n", threadArg->threadId);
         logConnectionStart(threadArg, client, getCurrentTimeString());
 
         printf("[H:%d] Tratando conexão\n", threadArg->threadId);
@@ -85,7 +77,7 @@ threadConnectionHandler(void * arg)
     free(server);
     free(threadArg);
 
-    releaseConsumer(threadArg->threadId);
+    releaseProducer(threadArg->threadId);
     pthread_exit(NULL);
 
     return NULL;  

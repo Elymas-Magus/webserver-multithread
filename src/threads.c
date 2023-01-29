@@ -76,7 +76,7 @@ blockProducer()
 }
 
 void
-releaseProducer()
+releaseConsumer()
 {
     printf("[C] unlock\n");
     mutexUnlock(&mutex);
@@ -90,7 +90,7 @@ blockConsumer(int threadId)
 }
 
 void
-releaseConsumer(int threadId)
+releaseProducer(int threadId)
 {
     printf("[H:%d] unlock\n", threadId);
     mutexUnlock(&cond);

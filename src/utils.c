@@ -56,6 +56,7 @@ readConfigFile(String filename, ServerConfig * config)
 
     if (file == NULL) {
         WARNING("File couldn't be opened. Filename %s\n", filename);
+        return CONFIG_ERROR;
     }
 
     while (fscanf(file, CONFIG_LINE_MODEL, key, value) != EOF) {

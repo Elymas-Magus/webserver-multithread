@@ -59,9 +59,9 @@ void destroySemaphores();
 void blockProducer();
 
 /**
- * release producer, realising mutex variable
+ * release consumer, realising mutex variable
  */
-void releaseProducer();
+void releaseConsumer();
 
 /**
  * block consumer, blocking mutex variable
@@ -71,6 +71,6 @@ void blockConsumer(int threadId);
 /**
  * release producer, releasing cond variable
  */
-void releaseConsumer(int threadId);
+void releaseProducer(int threadId);
 
 #endif

@@ -19,12 +19,9 @@ typedef struct threadArg {
 typedef struct threadTask {
     ThreadArg * args;
     void * (* func)(void *);
-    struct threadTask * next;
 } ThreadTask;
 
 typedef struct threadpool {
-    pthread_mutex_t mutex;
-    pthread_cond_t cond;
     pthread_t * threads;
     ThreadTask * tasks;
     u_int length;

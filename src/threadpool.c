@@ -27,7 +27,7 @@ makeThreads(Threadpool * pool, u_int threadNumber)
 
     if (pool->threads == NULL) {
         WARNING("Threads couldn't be instantiated\n");
-        exit(1);
+        DIE;
     }
 
     pool->length = threadNumber;
@@ -45,7 +45,7 @@ makeTask(Threadpool * pool, u_int threadNumber)
 
     if (pool->tasks == NULL) {
         WARNING("Tasks couldn't be instantiated\n");
-        exit(1);
+        DIE;
     }
 }
 
@@ -112,7 +112,7 @@ initThreadpools(Threadpool * pool, Server * server)
         if (threadStatus[i] != 0) {
             WARNING("Thread couldn't be created\n");
             if (poolDestroy(pool) == ERROR_CODE) {
-                exit(1);
+                DIE;
             }
             return;
         }
