@@ -183,11 +183,6 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
     String httpLine = (String) malloc(MAX_HTTP_HEADER_LINE);
     HttpResponseCode response = httpResponseCode[responseIndex];
 
-    // int loop = 0;
-    // while (httpLine == NULL && loop < 5) {
-    //     httpLine = (String) malloc(MAX_HTTP_HEADER_LINE), loop++;
-    // }
-
     if (response.index == HTTP_NOT_FOUND) {
         stream->file = open(ERROR_404_PAGE, O_RDONLY);
         if (stream->file == STREAM_ERROR) {
@@ -243,7 +238,7 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
         free(stream);
     }
 
-    printf("[SR:%d] close client socket\n", threadId);
+    // printf("[SR:%d] close client socket\n", threadId);
     close(clientSocket);
 }
 

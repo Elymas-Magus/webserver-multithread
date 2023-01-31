@@ -71,27 +71,27 @@ semUnlock(sem_t * sem_consumer)
 void
 blockProducer()
 {
-    printf("[C] lock\n");
+    // printf("[C] lock\n");
     semLock(&sem_producer);
 }
 
 void
 releaseConsumer()
 {
-    printf("[C] unlock\n");
+    // printf("[C] unlock\n");
     semUnlock(&sem_consumer);
 }
 
 void
 blockConsumer(int threadId)
 {
-    printf("[H:%d] lock\n", threadId);
+    // printf("[H:%d] lock\n", threadId);
     semLock(&sem_consumer);
 }
 
 void
 releaseProducer(int threadId)
 {
-    printf("[H:%d] unlock\n", threadId);
+    // printf("[H:%d] unlock\n", threadId);
     semUnlock(&sem_producer);
 }

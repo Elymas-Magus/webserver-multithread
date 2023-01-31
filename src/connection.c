@@ -9,7 +9,7 @@ connectionLoop(Server * server)
     initProducer();
     initConsumer();
 
-    printf("................. Initing connection loop .................\n\n");
+    // printf("................. Initing connection loop .................\n\n");
     while (true) {
 
         client = (Client *) mallocOrDie(sizeof(Client), "Client");
@@ -25,7 +25,7 @@ connectionLoop(Server * server)
 
         blockProducer();
 
-        printf("[C] enqueue\n");
+        // printf("[C] enqueue\n");
         enqueue(client);
 
         releaseConsumer();
@@ -48,11 +48,11 @@ threadConnectionHandler(void * arg)
     ThreadArg * threadArg = (ThreadArg *) arg;
     Server * server = (Server *) threadArg->content;
 
-    printf("[H:%d] Start thread loop\n", threadArg->threadId);
+    // printf("[H:%d] Start thread loop\n", threadArg->threadId);
     while (true) {
         blockConsumer(threadArg->threadId);
 
-        printf("[H:%d] Getting client\n", threadArg->threadId);
+        // printf("[H:%d] Getting client\n", threadArg->threadId);
         client = dequeue();
 
         if (client == NULL) {
@@ -62,18 +62,18 @@ threadConnectionHandler(void * arg)
 
         releaseProducer(threadArg->threadId);
 
-        printf("[H:%d] Desempilhando o cliente %d\n", threadArg->threadId, client->socket);
+        // printf("[H:%d] Desempilhando o cliente %d\n", threadArg->threadId, client->socket);
         logConnectionStart(threadArg, client, getCurrentTimeString());
 
-        printf("[H:%d] Tratando conexão\n", threadArg->threadId);
+        // printf("[H:%d] Tratando conexão\n", threadArg->threadId);
         handleConnection(threadArg, client, server);
-        printf("[H:%d] Finalizando conexão\n", threadArg->threadId);
+        // printf("[H:%d] Finalizando conexão\n", threadArg->threadId);
 
         threadArg->connectionId++;
         free(client);
     }
 
-    printf("[H:%d] End thread loop\n", threadArg->threadId);
+    // printf("[H:%d] End thread loop\n", threadArg->threadId);
     free(server);
     free(threadArg);
 
@@ -104,7 +104,7 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
 
     start = getCurrentTime();
 
-    printf("[HC:%d] Init...\n", args->threadId);
+    // printf("[HC:%d] Init...\n", args->threadId);
 
     String currentTime;     
 
@@ -131,7 +131,7 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
             THROW(INTERNAL_ERROR);
         }
         
-        printf("[HC:%d] Path da requisição: %s\n", args->threadId, request->path);
+        // printf("[HC:%d] Path da requisição: %s\n", args->threadId, request->path);
         
         strcpy(path, request->path);
         strcpy(response->mimeType, request->mimeType);
@@ -146,7 +146,6 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         addHeader(response, "Connection", "close");
 
         if (realpath(path, absolutepath) == NULL) {
-            printf("[HC:%d] cheguei 8\n", args->threadId);
             messageCode = HTTP_NOT_FOUND;
             THROW(FILE_REALPATH_ERROR);
         }
@@ -173,7 +172,7 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         requestFree(request);
         requestFree(response);
 
-        printf("[HC:%d] closing connection\n", args->threadId);
+        // printf("[HC:%d] closing connection\n", args->threadId);
         printf("------------------------------------------------------------------\n");
     }
 }
