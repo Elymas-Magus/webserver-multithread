@@ -20,33 +20,33 @@ extern sem_t cond;
  * Receive a mutex and lock a thread
  * Register logs
  */
-void mutexLock(sem_t * mutex);
+void semLock(sem_t *);
 
 /**
  * Receive a mutex and unlock a thread
  * Register logs
  */
-void mutexUnlock(sem_t * mutex);
+void semUnlock(sem_t *);
 
 /**
- * initialize mutex
+ * initialize producer semaphore
  */
-void initMutex();
+void initProducer();
 
 /**
- * initialize cond var
+ * initialize consumer semaphore
  */
-void initCond();
+void initConsumer();
 
 /**
- * destroy mutex
+ * destroy producer semaphore
  */
-void destroyMutex();
+void destroyProducer();
 
 /**
- * destroy cond var
+ * destroy consumer semaphore
  */
-void destroyCond();
+void destroyConsumer();
 
 /**
  * destroy all semaphores (mutex and cond)
@@ -66,11 +66,11 @@ void releaseConsumer();
 /**
  * block consumer, blocking mutex variable
  */
-void blockConsumer(int threadId);
+void blockConsumer(int);
 
 /**
  * release producer, releasing cond variable
  */
-void releaseProducer(int threadId);
+void releaseProducer(int);
 
 #endif

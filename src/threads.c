@@ -1,40 +1,40 @@
 #include "threads.h"
 
-sem_t mutex;
-sem_t cond;
+sem_t sem_producer;
+sem_t sem_consumer;
 
 void
-initMutex()
+initProducer()
 {
-    if (sem_init(&mutex, PSHARED, RED) != 0) {
-        WARNING("Error in mutex initializer\n");
+    if (sem_init(&sem_producer, PSHARED, GREEN)) {
+        WARNING("Error in sem_producer initializer\n");
         exit(1);
     }
 }
 
 void
-initCond()
+initConsumer()
 {
-    if (sem_init(&cond, PSHARED, GREEN)) {
-        WARNING("Error in cond initializer\n");
+    if (sem_init(&sem_consumer, PSHARED, RED) != 0) {
+        WARNING("Error in sem_consumer initializer\n");
         exit(1);
     }
 }
 
 void
-destroyMutex()
+destroyConsumer()
 {
-    if (sem_destroy(&mutex) != 0) {
-        WARNING("Error in mutex initializer\n");
+    if (sem_destroy(&sem_consumer) != 0) {
+        WARNING("Error in sem_consumer destroyer\n");
         exit(1);
     }
 }
 
 void
-destroyCond()
+destroyProducer()
 {
-    if (sem_destroy(&cond)) {
-        WARNING("Error in cond initializer\n");
+    if (sem_destroy(&sem_producer)) {
+        WARNING("Error in sem_producer destroyer\n");
         exit(1);
     }
 }
@@ -42,28 +42,28 @@ destroyCond()
 void
 destroySemaphores()
 {
-    destroyCond();
-    destroyMutex();
+    destroyConsumer();
+    destroyProducer();
 }
 
 void
-mutexLock(sem_t * mutex)
+semLock(sem_t * sem_consumer)
 {
     // printf("lock\n");
-    if (sem_wait(mutex) != 0) {                                          
-        WARNING("Error at mutex lock (%s)\n", getLocalCurrentTimeInHttpFormat());    
-        LOG_ERROR("Error at mutex lock (%s)\n", getLocalCurrentTimeInHttpFormat());                                                       
+    if (sem_wait(sem_consumer) != 0) {                                          
+        WARNING("Error at sem_consumer lock (%s)\n", getLocalCurrentTimeInHttpFormat());    
+        LOG_ERROR("Error at sem_consumer lock (%s)\n", getLocalCurrentTimeInHttpFormat());                                                       
         exit(2);                                                                    
     }
 }
 
 void
-mutexUnlock(sem_t * mutex)
+semUnlock(sem_t * sem_consumer)
 {
     // printf("unlock\n");
-    if (sem_post(mutex) != 0) {                                          
-        WARNING("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());     
-        LOG_ERROR("Error at mutex unlock (%s)\n", getLocalCurrentTimeInHttpFormat());                                                       
+    if (sem_post(sem_consumer) != 0) {                                          
+        WARNING("Error at sem_consumer unlock (%s)\n", getLocalCurrentTimeInHttpFormat());     
+        LOG_ERROR("Error at sem_consumer unlock (%s)\n", getLocalCurrentTimeInHttpFormat());                                                       
         exit(2);                                                                    
     }
 }
@@ -72,26 +72,26 @@ void
 blockProducer()
 {
     printf("[C] lock\n");
-    mutexLock(&cond);
+    semLock(&sem_producer);
 }
 
 void
 releaseConsumer()
 {
     printf("[C] unlock\n");
-    mutexUnlock(&mutex);
+    semUnlock(&sem_consumer);
 }
 
 void
 blockConsumer(int threadId)
 {
     printf("[H:%d] lock\n", threadId);
-    mutexLock(&mutex);
+    semLock(&sem_consumer);
 }
 
 void
 releaseProducer(int threadId)
 {
     printf("[H:%d] unlock\n", threadId);
-    mutexUnlock(&cond);
+    semUnlock(&sem_producer);
 }

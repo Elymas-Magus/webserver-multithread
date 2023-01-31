@@ -6,8 +6,8 @@ connectionLoop(Server * server)
     Client * client;
     socklen_t addrSize = (socklen_t) sizeof(SA_IN);
 
-    initMutex();
-    initCond();
+    initProducer();
+    initConsumer();
 
     printf("................. Initing connection loop .................\n\n");
     while (true) {
