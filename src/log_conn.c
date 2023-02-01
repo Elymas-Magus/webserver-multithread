@@ -38,3 +38,13 @@ logConnectionEnd(ThreadArg * args, Client * client, String currTime, float durat
         args->connectionId, args->threadId, client->socket, getIpv4(client->address), currTime, path, duration, status[error]
     );
 }
+
+void
+logMessage(ThreadArg * args, Client * client, String currTime, String path, String message)
+{
+    LOG_CONNECTTION_ON_FILE(
+        args->logFilename,
+        "CODE: %u - THREAD_ID: %u\nClientSocket: %d; ClientAddr: %s; TIME: %s;\n Path: %s; Message: %s\n\n",
+        args->connectionId, args->threadId, client->socket, getIpv4(client->address), currTime, path, message
+    );
+}

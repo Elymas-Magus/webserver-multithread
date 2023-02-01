@@ -48,7 +48,7 @@
         if (!file) break;                                                   \
                                                                             \
         __LOG(file, fmt, __VA_ARGS__);                                      \
-        __LOG(stderr, fmt, __VA_ARGS__);                                    \
+        /*__LOG(stderr, fmt, __VA_ARGS__);*/                                    \
                                                                             \
         fclose(file);                                                       \
     } while (0);

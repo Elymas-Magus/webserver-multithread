@@ -21,7 +21,7 @@
 void logConnectionStart(ThreadArg * args, Client * client, String currTime);
 
 /**
- * Register connection start data in log file for debug
+ * Register connection end data in log file for debug
  * @param ThreadArg * argsdebug
  * @param Client * client
  * @param String currTime
@@ -30,5 +30,15 @@ void logConnectionStart(ThreadArg * args, Client * client, String currTime);
  * @param bool error
  */
 void logConnectionEnd(ThreadArg * args, Client * client, String currTime, float duration, String path, bool error);
+
+/**
+ * Register status message in log file for debug
+ * @param ThreadArg * argsdebug
+ * @param Client * client
+ * @param String currTime
+ * @param String path
+ * @param String message
+ */
+void logMessage(ThreadArg * args, Client * client, String currTime, String path, String message);
 
 #endif

@@ -156,7 +156,7 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         messageCode = HTTP_OK;
         
     } CATCHALL {
-        WARNING("%s; PATH: %s\n", getCurrentThrowableMessage(), path);
+        logMessage(args, client, currentTime, path, getCurrentThrowableMessage());
     } FINALLY {
         end = getCurrentTime();
         currentTime = getCurrentTimeString();
