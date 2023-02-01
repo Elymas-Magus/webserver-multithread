@@ -44,17 +44,24 @@ getServerAddr(u_int port)
     return serverAddr;
 }
 
-int
+void
 initServer(Server * server)
 {
     int optval = 1;
     validateOrDie(
-        setsockopt(server->socket, SOL_SOCKET, SO_REUSEADDR, (const void *)&optval, sizeof(int)), 
+        setsockopt(
+            server->socket,
+            SOL_SOCKET,
+            SO_REUSEADDR,
+            (const void *)&optval,
+            sizeof(int)
+        ), 
         "Error reusing address"
     );
 
     bindServerAddr(server->socket, server->address);
-    return initListen(server->socket, server->backlog);
+    initListen(server->socket, server->backlog);
+    initServerPool(server);
 }
 
 int
@@ -72,7 +79,6 @@ bindServerAddr(SocketFD serverSocket, SA_IN serverAddr)
 void
 listenConnections(Server * server)
 {
-    initServerPool(server);
     connectionLoop(server);
 }
 

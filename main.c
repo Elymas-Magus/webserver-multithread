@@ -33,3 +33,6 @@ logServerConfigs(Server * server)
 {
     printf("Running at address: http://%s:%d/\n", getIpv4(server->address), server->port);
 }
+
+
+

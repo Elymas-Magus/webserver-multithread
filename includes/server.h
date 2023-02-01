@@ -49,11 +49,11 @@ SA_IN getServerAddr(u_int port);
 
 /**
  * Bind the serverSocket with server address
- * And init listen
+ * init listen
+ * And init threadpools
  * @param Server server 
- * @returns struct sockaddr_in socket
  */
-int initServer(Server * server);
+void initServer(Server * server);
 
 /**
  * Initiate listener or Die

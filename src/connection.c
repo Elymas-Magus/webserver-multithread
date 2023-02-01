@@ -104,8 +104,6 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
 
     start = getCurrentTime();
 
-    // printf("[HC:%d] Init...\n", args->threadId);
-
     String currentTime;     
 
     CONN_READER(client, buffer, readed, size);
@@ -130,8 +128,6 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
             messageCode = HTTP_INTERNAL_SERVER_ERROR;
             THROW(INTERNAL_ERROR);
         }
-        
-        // printf("[HC:%d] Path da requisição: %s\n", args->threadId, request->path);
         
         strcpy(path, request->path);
         strcpy(response->mimeType, request->mimeType);
@@ -172,7 +168,6 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         requestFree(request);
         requestFree(response);
 
-        // printf("[HC:%d] closing connection\n", args->threadId);
         printf("------------------------------------------------------------------\n");
     }
 }

@@ -28,15 +28,13 @@
 #define MAX_CONTENT_LENGTH_STRING        10
 
 #define READ_LINE(client, buffer, size) read(client->socket, buffer + size, sizeof(buffer) - size - 1)
-#define CONN_READER(client, buffer, readed, size)                                                   \
-    do {                                                                                            \
-        while ((readed = READ_LINE(client, buffer, size)) > 0) {                                    \
-            size += readed;                                                                         \
-            if (size > MAX_HTTP_MESSAGE_LENGTH - 1 || buffer[size - 1] == '\n') {                   \
-                break;                                                                              \
-            }                                                                                       \
-        }                                                                                           \
-    } while (0);
+#define CONN_READER(client, buffer, readed, size)                                               \
+    while ((readed = READ_LINE(client, buffer, size)) > 0) {                                    \
+        size += readed;                                                                         \
+        if (size > MAX_HTTP_MESSAGE_LENGTH - 1 || buffer[size - 1] == '\n') {                   \
+            break;                                                                              \
+        }                                                                                       \
+    }                                                                                           \
 
 /**
  * Make a loop for listen new connections

@@ -238,7 +238,6 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
         free(stream);
     }
 
-    // printf("[SR:%d] close client socket\n", threadId);
     close(clientSocket);
 }
 
