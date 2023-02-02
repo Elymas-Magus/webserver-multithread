@@ -23,7 +23,7 @@ $(OBJ)/$(TARGET).o: $(TARGET).c
 $(OBJ)/%.o: $(SRC)/%.c
 	$(CC) $(CFLAGS) -c $^ -o $@
 
-$(TARGET): $(BIN) $(OBJ) clean $(OBJ)/$(TARGET).o $(OBJ_FILES) 
+$(TARGET): $(BIN) $(OBJ) $(OBJ)/$(TARGET).o $(OBJ_FILES) 
 	$(CC) $(CFLAGS) -o $(BIN)/$(TARGET) $(OBJ)/$(TARGET).o $(OBJ_FILES) 
 
 $(OBJ):
