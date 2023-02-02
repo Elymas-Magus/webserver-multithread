@@ -211,6 +211,7 @@ sendResponse(HttpRequest * request, int responseIndex, SocketFD clientSocket, St
     for (no = request->headers->first, i = 0; no; no = no->next, i++) {
         header = (HttpHeaders *) no->content;
         sprintf(httpLine, "%s: %s\r\n", header->key, header->value);
+        // printf("send...");
         if (write(clientSocket, httpLine, strlen(httpLine)) < 0) {
             fprintf(stderr, "[SR:%d] Send Error", threadId);
             break;

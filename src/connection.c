@@ -11,7 +11,6 @@ connectionLoop(Server * server)
 
     // printf("................. Initing connection loop .................\n\n");
     while (true) {
-
         client = (Client *) mallocOrDie(sizeof(Client), "Client");
         printf("[C] Waiting for connections\n");
 
@@ -23,11 +22,13 @@ connectionLoop(Server * server)
         printf("[C] Connected (%d);\t", client->socket);
         printf("Address: (%s)\n\n", getIpv4(client->address));
 
+        printf("[C] Bloqueando Produtor\n");
         blockProducer();
 
-        // printf("[C] enqueue\n");
+        printf("[C] enqueue (%d)\n", client->socket);
         enqueue(client);
 
+        printf("[C] Liberando Consumidor\n");
         releaseConsumer();
     }
 
@@ -48,32 +49,33 @@ threadConnectionHandler(void * arg)
     ThreadArg * threadArg = (ThreadArg *) arg;
     Server * server = (Server *) threadArg->content;
 
-    // printf("[H:%d] Start thread loop\n", threadArg->threadId);
+    printf("[H:%d] Start thread loop\n", threadArg->threadId);
     while (true) {
+        printf("[C] Bloqueando Consumidor\n");
         blockConsumer(threadArg->threadId);
 
-        // printf("[H:%d] Getting client\n", threadArg->threadId);
+        printf("[H:%d] Getting client\n", threadArg->threadId);
         client = dequeue();
+        printf("[H:%d] Liberando Produtor\n", threadArg->threadId);
+        releaseProducer(threadArg->threadId);
 
         if (client == NULL) {
-            releaseProducer(threadArg->threadId);
+            printf("[H:%d] Empty Queue\n", threadArg->threadId);
             continue;
         }
 
-        releaseProducer(threadArg->threadId);
-
-        // printf("[H:%d] Desempilhando o cliente %d\n", threadArg->threadId, client->socket);
+        printf("[H:%d] Atendendo o cliente (%d)\n", threadArg->threadId, client->socket);
         logConnectionStart(threadArg, client, getCurrentTimeString());
 
-        // printf("[H:%d] Tratando conexão\n", threadArg->threadId);
+        printf("[H:%d] Tratando conexão\n", threadArg->threadId);
         handleConnection(threadArg, client, server);
-        // printf("[H:%d] Finalizando conexão\n", threadArg->threadId);
+        printf("[H:%d] Finalizando conexão\n", threadArg->threadId);
 
         threadArg->connectionId++;
         free(client);
     }
 
-    // printf("[H:%d] End thread loop\n", threadArg->threadId);
+    printf("[H:%d] End thread loop\n", threadArg->threadId);
     free(server);
     free(threadArg);
 
@@ -162,12 +164,9 @@ handleConnection(ThreadArg * args, Client * client, Server * server)
         currentTime = getCurrentTimeString();
         
         sendResponse(response, messageCode, client->socket, stream, args->threadId);
-        printf("------------------------------------------------------------------\n");
         logConnectionEnd(args, client, currentTime, difftime(end, start), path, !success);
 
         requestFree(request);
         requestFree(response);
-
-        printf("------------------------------------------------------------------\n");
     }
 }
